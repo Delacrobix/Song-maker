@@ -1,7 +1,6 @@
 //
 //  BASIC STYLES
 //–––––––––––––––––––––––––––––––––––––
-
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -15,11 +14,9 @@ body {
   width: 100%;
 }
 
-
 //
 //  COLOR
-//–––––––––––––––––––––––––––––––––––––
-
+//–––––––––––––––––––––––––––––––––––––s
 $white: #fff;
 $black: #000;
 
@@ -35,11 +32,9 @@ $color-secondary-lightest: lighten($color-secondary, 6%);
 $color-secondary-darker: darken($color-secondary, 2%);
 $color-secondary-darkest: darken($color-secondary, 6%);
 
-
 //
 //  MENU
 //–––––––––––––––––––––––––––––––––––––
-
 $radial-menu-dimensions: 300px;
 
 $radial-menu-bg: $color-primary-darkest;
@@ -52,11 +47,9 @@ $radial-menu-item-hovered-border-width: 0;
 // $radial-menu-item-hovered-border-color: darken($color-secondary-darkest, 6%);
 $radial-menu-item-hovered-border-color: transparent;
 
-
 //
 //  LABEL
 //–––––––––––––––––––––––––––––––––––––
-
 $radial-menu-label-dimensions: 80px;
 
 $radial-menu-label-font-size: 12px;
@@ -67,11 +60,9 @@ $radial-menu-label-border-width: 3px;
 $radial-menu-label-border-color: $color-primary-darker;
 $radial-menu-label-font-color: $color-primary-darkest;
 
-
 //
 //  MENU CONTENT
 //–––––––––––––––––––––––––––––––––––––
-
 $radial-menu-content-dimensions: 80px;
 
 $radial-menu-content-bg: $color-primary-lightest;
@@ -89,11 +80,9 @@ $radial-menu-content-description-font-size: .4em;
 $radial-menu-content-description-font-weight: normal;
 $radial-menu-content-description-font-color: rgba($white, .5);
 
-
 //
 //  MENU ICON
 //–––––––––––––––––––––––––––––––––––––
-
 $radial-menu-icon-default-transform: translateY(-50%) translateX(-50%);
 $radial-menu-icon-dimensions: 25px;
 $radial-menu-icon-dimensions-hover: 50px;
@@ -113,11 +102,9 @@ $radial-menu-icon-color: darken($color-primary-darkest, 16%);
 $radial-menu-icon-color-hover: $white;
 $radial-menu-icon-color-not-hovered: darken($color-primary-darkest, 8%);
 
-
 //
 //  MENU ITEM
 //–––––––––––––––––––––––––––––––––––––
-
 $radial-menu-item-default-transform: translateY(-50%);
 $radial-menu-item-trapezoid-transform: perspective(200px) rotateY(-77.5deg) scaleX(1.25);
 
@@ -133,11 +120,9 @@ $radial-menu-inset-bg: $color-primary-darkest;
 // $radial-menu-inset-bg-hover: darken($color-primary-darkest, 4%);
 $radial-menu-inset-bg-hover: $color-secondary;
 
-
 //
 //  RADIAL MENU
 //–––––––––––––––––––––––––––––––––––––
-
 .radial-menu {
   background: $radial-menu-bg;
   border: $radial-menu-border-width solid $radial-menu-border-color;
@@ -206,19 +191,17 @@ $radial-menu-inset-bg-hover: $color-secondary;
 //
 //  LABEL
 //–––––––––––––––––––––––––––––––––––––
-
 .radial-menu__label {
   background-color: $radial-menu-label-bg;
   border: $radial-menu-label-border-width solid $radial-menu-label-border-color;
   border-radius: 50%;
-  // box-shadow: 0 0 20px rgba(#fff, .2);
   color: $radial-menu-label-font-color;
   cursor: default;
   font-size: $radial-menu-label-font-size;
   font-weight: $radial-menu-label-font-weight;
   height: $radial-menu-label-dimensions;
   left: 50%;
-  letter-spacing: .1em;
+  //letter-spacing: .1em;
   line-height: $radial-menu-label-dimensions - ($radial-menu-label-border-width * 2);
   position: absolute;
   text-align: center;
@@ -449,8 +432,6 @@ $radial-menu-inset-bg-hover: $color-secondary;
   &.hovered {
     .radial-menu__menu-link-bg {
       background-color: $radial-menu-item-bg-hover;
-      // border-color: $radial-menu-item-border-color-hover;
-      // border-width: 0;
       border: 0;
 
       &:after {
@@ -467,14 +448,12 @@ $radial-menu-inset-bg-hover: $color-secondary;
 //
 //  MENU ITEM SELECT
 //–––––––––––––––––––––––––––––––––––––
-
 .menu-items-select {
   bottom: 0;
   right: 0;
   margin: 0 auto;
   padding: 40px;
   position: absolute;
-  // text-align: center;
 }
 
 .menu-items-select__label {
@@ -505,28 +484,4 @@ $radial-menu-inset-bg-hover: $color-secondary;
   height: 40px;
   padding: 5px 10px;
   width: 100px;
-}
-
-
-//
-//  MENU ITEM SELECT
-//–––––––––––––––––––––––––––––––––––––
-.right-click-prompt {
-  bottom: 0;
-  color: $color-primary-darkest;
-  font-size: .7em;
-  font-weight: bold;
-  left: 50%;
-  letter-spacing: .05em;
-  padding: 40px;
-  position: absolute;
-  text-transform: uppercase;
-  transform: translateX(-50%);
-}
- 
-@media (max-height: 430px) {
-  .right-click-prompt {
-    left: 0;
-    transform: translateX(0);
-  }
 }

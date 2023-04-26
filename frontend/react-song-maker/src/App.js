@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import Navbar from "./components/navbar";
 import CircleOfFifths from "./components/circleOfFifths";
 
+import './static/css/general.css';
+
 function App() {
   useEffect(() => {
   });

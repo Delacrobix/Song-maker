@@ -1,14 +1,9 @@
-//var menuItems = container.querySelectorAll('.radial-menu__menu-item');
-//var menuItemsCount = countMenuItems( menuItems );
-
 //
 //  COUNT MENU ITEMS
 //–––––––––––––––––––––––––––––––––––––
 function countMenuItems(elems) {
   // Initialize empty counter.
   var elemCounter = 0;
-
-  console.log("ELEMENES: " + elems.length);
 
   for (let i = 0; i < elems.length; i++) {
     var elem = elems[i];
@@ -216,38 +211,12 @@ export function positionIcons(icons, iconDistance, menuItems) {
   }
 }
 
-//
-//  MOUSE MOVE LISTENER
-//–––––––––––––––––––––––––––––––––––––
-// export function mouseMoveListener(x, y, container) {
-//   document.addEventListener("mousemove", function (e) {
-//     // If the radial menu is active.
-//     if (container.classList.contains("is-active")) {
-//       // var newX = e.clientX;
-//       // var newY = e.clientY;
-
-//       // var scale = Math.round(
-//       //   Math.sqrt(Math.pow(y - newY, 2) + Math.pow(x - newX, 2))
-//       // );
-
-//       // console.log('scale: ' + scale);
-
-//       // scale = scale * 0.01;
-//       // console.log('scale / 100: ' + scale);
-
-//       // container.style.transform = 'translate(-50%, -50%) scale(' + scale  + ')';
-//       // console.log('e.clientX: ' + e.clientX);
-//       // console.log('e.clientY: ' + e.clientY);
-//     }
-//   });
-// }
-
 export function onMenuItemsDropdownChange(domElements, menuDimensions) {
   // Instantiate the menu items to show select.
   let menuItemsSelect = domElements.menuItemsSelect;
 
   // Listen for changes on the select.
-  menuItemsSelect.addEventListener("change", function (e) {
+  menuItemsSelect.addEventListener("change", (e) => {
     // Get the selected value.
     var optionValue = this.value;
 

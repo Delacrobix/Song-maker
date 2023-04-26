@@ -75,7 +75,6 @@ body {
   font-weight: bold;
   height: 80px;
   left: 50%;
-  letter-spacing: 0.1em;
   line-height: 74px;
   position: absolute;
   text-align: center;
@@ -273,24 +272,4 @@ body {
   height: 40px;
   padding: 5px 10px;
   width: 100px;
-}
-
-.right-click-prompt {
-  bottom: 0;
-  color: #c1ced9;
-  font-size: 0.7em;
-  font-weight: bold;
-  left: 50%;
-  letter-spacing: 0.05em;
-  padding: 40px;
-  position: absolute;
-  text-transform: uppercase;
-  transform: translateX(-50%);
-}
-
-@media (max-height: 430px) {
-  .right-click-prompt {
-    left: 0;
-    transform: translateX(0);
-  }
 }/*# sourceMappingURL=circleOfFifths.css.map */
