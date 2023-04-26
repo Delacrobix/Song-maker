@@ -1,18 +1,15 @@
 import { useEffect } from "react";
-import { test } from "./modules/tone module/controllers/controllers";
+import Navbar from "./components/navbar";
+import CircleOfFifths from "./components/circleOfFifths";
 
 function App() {
   useEffect(() => {
-    const button = document.getElementById("button");
-
-    button.addEventListener("click", () => {
-      test();
-    });
   });
 
   return (
     <div className="App">
-      <button id="button">BOTON</button>
+      <Navbar />
+      <CircleOfFifths />
     </div>
   );
 }
