@@ -1,7 +1,12 @@
 import React from "react";
+import CircleOfFifths from "../components/circleOfFifths";
 
-const toneSelector = () => {
-  return <div>toneSelector</div>;
+const ToneSelector = () => {
+  return (
+    <div>
+      <CircleOfFifths />
+    </div>
+  );
 };
 
-export default toneSelector;
+export default ToneSelector;

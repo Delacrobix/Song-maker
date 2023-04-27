@@ -1,4 +1,6 @@
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -14,14 +16,14 @@ body {
   border: 0 solid transparent;
   border-radius: 50%;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.05);
-  height: 300px;
+  height: 600px;
   left: 50%;
   opacity: 1;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%) scale(1);
   transition: opacity 0.1s ease, background 0.1s ease;
-  width: 300px;
+  width: 600px;
 }
 .radial-menu.is-hidden {
   animation-name: scale-down;
@@ -71,17 +73,17 @@ body {
   border-radius: 50%;
   color: #c1ced9;
   cursor: default;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: bold;
-  height: 80px;
+  height: 100px;
   left: 50%;
-  line-height: 74px;
+  line-height: 94px;
   position: absolute;
   text-align: center;
   text-transform: uppercase;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 80px;
+  width: 100px;
   z-index: 4;
 }
 
@@ -117,7 +119,7 @@ body {
 
 .radial-menu__menu-content-title {
   color: #fff;
-  font-size: 0.7em;
+  font-size: 1.4em;
   font-weight: bold;
   line-height: 1.3;
 }
@@ -157,6 +159,9 @@ body {
   color: #a8baca;
 }
 
+.radial-menu.item-is-hovered .radial-menu__menu-item {
+  cursor: pointer;
+}
 .radial-menu.item-is-hovered .radial-menu__menu-item.hovered .radial-menu__menu-icon {
   background-color: transparent;
   height: 50px;
@@ -187,13 +192,13 @@ body {
 
 .radial-menu__menu-link,
 .radial-menu__menu-link-bg {
-  height: 22px;
+  height: 43px;
   padding: 5px 20px;
   position: absolute;
   transform: translateY(-50%) perspective(200px) rotateY(-77.5deg) scaleX(1.25);
   transform-origin: 0;
   transform-style: preserve-3d;
-  width: 125px;
+  width: 254px;
 }
 
 .radial-menu__menu-link {

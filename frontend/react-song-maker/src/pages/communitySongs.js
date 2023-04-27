@@ -1,7 +1,7 @@
 import React from "react";
 
-const comunitySongs = () => {
-  return <div>comunitySongs</div>;
+const CommunitySongs = () => {
+  return <div>community Songs</div>;
 };
 
-export default comunitySongs;
+export default CommunitySongs;

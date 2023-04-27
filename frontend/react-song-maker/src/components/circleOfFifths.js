@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
-import "../static/css/circleOfFifths.css";
+import ToneLayer from "./toneLayer";
 import {
   setupLinks,
   setupLinkHovers,
   positionIcons,
-  onMenuItemsDropdownChange,
+  changeCipher,
 } from "../static/js/circleOfFifths.js";
-import ToneLayer from "./toneLayer";
-import 'https://kit.fontawesome.com/a8a57473f2.js';
+import "../static/css/circleOfFifths.css";
 
 const CircleOfFifths = () => {
   useEffect(() => {
@@ -37,65 +36,24 @@ const CircleOfFifths = () => {
     var iconDistance = 95;
 
     positionIcons(icons, iconDistance, menuItems);
-
-    //
-    //  MENU ITEMS DROPDOWN
-    //–––––––––––––––––––––––––––––––––––––
-    onMenuItemsDropdownChange(domElements, menuDimensions);
   });
 
   return (
     <div>
       <div className="radial-menu">
         <ul className="radial-menu__menu-list">
-          <ToneLayer description="Make text bold" title="Bold" glyph="bold" />
-          <ToneLayer
-            description="Make text italic"
-            title="Italic"
-            glyph="italic"
-          />
-          <ToneLayer
-            description="Underline text"
-            title="Underline"
-            glyph="underline"
-          />
-          <ToneLayer
-            description="Text Alignment"
-            title="Align left"
-            glyph="align-left"
-          />
-          <ToneLayer
-            description="Add a bulleted list"
-            title="Bulleted List"
-            glyph="list-rich"
-          />
-          <ToneLayer
-            description="Add a numbered list"
-            title="Numbered List"
-            glyph="list"
-          />
-          <ToneLayer
-            description="Add a heading"
-            title="Heading"
-            glyph="header"
-          />
-          <ToneLayer
-            description="Add a blockquote"
-            title="Blockquote"
-            glyph="double-quote-serif-right"
-          />
-          <ToneLayer
-            description="Add a link to something"
-            title="Hyperlink"
-            glyph="link-intact"
-          />
-          <ToneLayer description="Add an image" title="Image" glyph="image" />
-          <ToneLayer
-            description="Attach a file"
-            title="Attach File"
-            glyph="paperclip"
-          />
-          <ToneLayer description="Add some HTML" title="Code" glyph="code" />
+          <ToneLayer title="A" />
+          <ToneLayer title="E" />
+          <ToneLayer title="B/Cb" />
+          <ToneLayer title="F#/Gb" />
+          <ToneLayer title="Db/C#" />
+          <ToneLayer title="Ab" />
+          <ToneLayer title="Eb" />
+          <ToneLayer title="Bb" />
+          <ToneLayer title="F" />
+          <ToneLayer title="C" />
+          <ToneLayer title="G" />
+          <ToneLayer title="D" />
         </ul>
         <div className="radial-menu__label">Tonality</div>
       </div>
@@ -111,21 +69,11 @@ const CircleOfFifths = () => {
           className="menu-items-select__select"
           name="menu-items-to-show"
           id="menu-items-to-show"
-          defaultValue="12"
+          defaultValue="1"
+          onChange={changeCipher}
         >
-          <option value="3">Three</option>
-          <option value="4">Four</option>
-          <option value="5">Five</option>
-          <option value="6">Six</option>
-          <option value="7">Seven</option>
-          <option value="8">Eight</option>
-          <option value="9">Nine</option>
-          <option value="10">Ten</option>
-          <option value="11">Eleven</option>
-          <option value="12">Twelve</option>
-          <option value="13">Thirteen</option>
-          <option value="14">Fourteen</option>
-          <option value="15">Fifteen</option>
+          <option value="1">American</option>
+          <option value="2">Roman</option>
         </select>
       </div>
     </div>

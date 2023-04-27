@@ -1,7 +1,7 @@
 import React from "react";
 
-const rhythmSelector = () => {
+const RhythmSelector = () => {
   return <div>rhythmSelector</div>;
 };
 
-export default rhythmSelector;
+export default RhythmSelector;

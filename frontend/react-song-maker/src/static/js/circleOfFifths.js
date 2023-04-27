@@ -29,9 +29,6 @@ function countMenuItems(elems) {
 export function setupLinks(links, domElements, menuDimensions) {
   // Count elems.
   var elemsCount = links.length;
-  // var elemsCount = countMenuItems( menuItems );
-
-  //var menuItems = container.querySelectorAll(".radial-menu__menu-item");
 
   // Count menu items.
   var menuItemsCount = countMenuItems(domElements.menuItems);
@@ -51,12 +48,6 @@ export function setupLinks(links, domElements, menuDimensions) {
       : getComputedStyle(parentMenuItem, null).display;
 
     if (parentMenuItemDisplay !== "none") {
-      //var phase = i / menuItemsCount;
-      // console.log('phase(' + i + '): ' + phase);
-
-      //var theta = phase * 2 * Math.PI;
-      // console.log('theta(' + i + '): ' + theta);
-
       var cssTransform =
         "translateY(-50%) translateZ(0) rotateZ(" +
         degreeInterval * i +
@@ -66,10 +57,7 @@ export function setupLinks(links, domElements, menuDimensions) {
 
       var transformString = getLinkTransforms(menuItemsCount);
 
-      // cssTransform += 'rotateY(-83.8deg) scaleX(1.38)';
       cssTransform += transformString;
-
-      // console.log(cssTransform);
 
       elem.style.transform = cssTransform;
     }
@@ -199,11 +187,9 @@ export function positionIcons(icons, iconDistance, menuItems) {
     // If the menu item's display is not set to none.'
     if (parentMenuItemDisplay !== "none") {
       var phase = i / menuItemsCount;
-      // console.log('phase(' + i + '): ' + phase);
 
       var theta = phase * 2 * Math.PI;
       theta = theta + iconOffset;
-      // console.log('theta(' + i + '): ' + theta);
 
       icon.style.top = (-iconDistance * Math.cos(theta)).toFixed(1) + "px";
       icon.style.left = (iconDistance * Math.sin(theta)).toFixed(1) + "px";
@@ -211,49 +197,10 @@ export function positionIcons(icons, iconDistance, menuItems) {
   }
 }
 
-export function onMenuItemsDropdownChange(domElements, menuDimensions) {
-  // Instantiate the menu items to show select.
-  let menuItemsSelect = domElements.menuItemsSelect;
-
-  // Listen for changes on the select.
-  menuItemsSelect.addEventListener("change", (e) => {
-    // Get the selected value.
-    var optionValue = this.value;
-
-    // Update menu items accordingly.
-    updateMenuItemDisplayValues(optionValue, domElements, menuDimensions);
-  });
+export function changeCipher(e) {
+  console.log("FUNCA");
 }
 
-//
-//  UPDATE MENU ITEMS
-//–––––––––––––––––––––––––––––––––––––
-function updateMenuItemDisplayValues(itemsToShow, domElements, menuDimensions) {
-  var menuItems = domElements.menuItems;
-  //var menuItems = container.querySelectorAll(".radial-menu__menu-item");
-  for (var i = 0; i < menuItems.length; i++) {
-    if (i < itemsToShow) {
-      menuItems[i].style.display = "block";
-    } else {
-      menuItems[i].style.display = "none";
-    }
-  }
-
-  // Set up links.
-  //var links = document.querySelectorAll(".radial-menu__menu-link");
-  var links = domElements.links;
-  setupLinks(links, domElements, menuDimensions);
-  setupLinkHovers(links, domElements.container);
-
-  // Set up link BGs.
-  //var linkBGs = document.querySelectorAll(".radial-menu__menu-link-bg");
-  var linkBGs = domElements.linkBGs;
-  setupLinks(linkBGs, domElements, menuDimensions);
-
-  // Set up icons.
-  //var icons = document.querySelectorAll(".radial-menu__menu-icon");
-  var icons = domElements.icons;
-  var iconDistance = 95;
-
-  positionIcons(icons, iconDistance);
+export function printTonality(e) {
+  console.log("TON: ", e.target.innerHTML);
 }

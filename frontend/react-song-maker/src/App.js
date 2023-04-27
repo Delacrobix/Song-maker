@@ -1,18 +1,30 @@
 import { useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/navbar";
-import CircleOfFifths from "./components/circleOfFifths";
+import CommunitySongs from "./pages/communitySongs";
+import Results from "./pages/results";
+import RhythmSelector from "./pages/rhythmSelector";
+import ToneSelector from "./pages/toneSelector";
+import AboutMe from "./pages/aboutMe";
 
-import './static/css/general.css';
+import "./static/css/general.css";
 
 function App() {
-  useEffect(() => {
-  });
+  useEffect(() => {});
 
   return (
-    <div className="App">
-      <Navbar />
-      <CircleOfFifths />
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+      </div>
+      <Routes>
+        <Route path="/community" element={<CommunitySongs/>} />
+        <Route exact path="/" element={<ToneSelector/>} />
+        <Route path="/rhythm-selector" element={<RhythmSelector/>} />
+        <Route path="/results" element={<Results/>} />
+        <Route path="/about-me" element={<AboutMe/>} />
+      </Routes>
+    </Router>
   );
 }
 
