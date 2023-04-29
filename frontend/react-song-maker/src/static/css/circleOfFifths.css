@@ -20,7 +20,7 @@ body {
   left: 50%;
   opacity: 1;
   position: absolute;
-  top: 50%;
+  top: 38%;
   transform: translate(-50%, -50%) scale(1);
   transition: opacity 0.1s ease, background 0.1s ease;
   width: 600px;
@@ -215,7 +215,7 @@ body {
   font-size: 12px;
   text-decoration: none;
   text-transform: uppercase;
-  transition: background 0.1s ease;
+  transition: background 0.05s ease;
   z-index: 1;
 }
 .radial-menu__menu-link-bg:after {
@@ -243,6 +243,7 @@ body {
 }
 
 .menu-items-select {
+  top: 60%;
   bottom: 0;
   right: 0;
   margin: 0 auto;

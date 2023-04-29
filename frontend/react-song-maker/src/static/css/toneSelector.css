@@ -1,3 +1,7 @@
+.tone-selector-page-container {
+  display: flex;
+  flex-direction: column;
+}
 .tone-selector-page-container .next-btn-container {
   position: absolute;
   margin-top: 750px;

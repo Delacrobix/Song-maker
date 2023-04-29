@@ -9,7 +9,6 @@ import AboutMe from "./pages/aboutMe";
 import Footer from "./components/footer";
 
 import "./static/css/responsive.css";
-
 import "./static/css/general.css";
 
 function App() {
@@ -17,7 +16,7 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+      <div>
         <Navbar />
       </div>
       <Routes>

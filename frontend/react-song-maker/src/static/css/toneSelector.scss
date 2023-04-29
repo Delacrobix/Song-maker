@@ -1,4 +1,6 @@
 .tone-selector-page-container {
+  display: flex;
+  flex-direction: column;
 
   .next-btn-container {
     position: absolute;
