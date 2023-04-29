@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import '../static/css/navbar.css';
+import "../static/css/navbar.css";
 
 const Navbar = () => {
   const navRef = useRef();
 
   const showNavbar = () => {
     navRef.current.classList.toggle("responsive-nav");
-  }
+  };
 
   return (
     <header>
