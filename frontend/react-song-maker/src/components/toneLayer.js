@@ -1,19 +1,15 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ToneLayer = (props) => {
   const navigate = useNavigate();
-  const [tonality, setTonality] = useState('hola');
   const { title } = props;
-  
-  function handleClick () {
-    let element = document.getElementById('select-tonality');
-    setTonality(element.innerHTML);
 
-    console.log("Tonality: " + tonality, " + ", element.innerHTML);
-
-    navigate("/rhythm-selector", { state: { datos: { tonality: element.innerHTML } } });
-  };
+  function handleClick({ target: { innerHTML } }) {
+    navigate("/rhythm-selector", {
+      state: { tonality: innerHTML }
+    });
+  }
 
   return (
     <li className="radial-menu__menu-item">
@@ -26,13 +22,13 @@ const ToneLayer = (props) => {
           <h6 className="radial-menu__menu-content-title">{title}</h6>
         </div>
       </div>
-      <Link
+      <p
+        className="radial-menu__menu-link"
         id="select-tonality"
         onClick={handleClick}
-        className="radial-menu__menu-link"
       >
         {title}
-      </Link>
+      </p>
     </li>
   );
 };

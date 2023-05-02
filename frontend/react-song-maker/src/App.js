@@ -21,12 +21,12 @@ function App() {
       </div>
       <Routes>
         <Route path="/community" element={<CommunitySongs />} />
-        <Route exact path="/" element={<ToneSelector />} />
         <Route path="/rhythm-selector" element={<RhythmSelector />} />
         <Route path="/results" element={<Results />} />
         <Route path="/about-me" element={<AboutMe />} />
+        <Route exact path="/" element={<ToneSelector />} />
       </Routes>
-      
+
       <Footer />
     </Router>
   );
