@@ -1,5 +1,5 @@
 import React from "react";
-import { test } from "../modules/tone module/controllers/controllers";
+import { doMajorChord } from "../modules/tone module/controllers/controllers";
 
 const RhythmButton = (props) => {
   const { rhythm } = props;
@@ -10,7 +10,7 @@ const RhythmButton = (props) => {
         <div className="rhythm-btn-title">
           <h6>{rhythm}:</h6>
         </div>
-        <button className="rhythm-btn-left" onClick={test}>Listen</button>
+        <button className="rhythm-btn-left" onClick={() => doMajorChord("G", 0, "min")}>Listen</button>
         <button className="rhythm-btn-right">Select</button>
       </div>
     </div>
