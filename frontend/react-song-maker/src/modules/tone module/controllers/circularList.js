@@ -5,7 +5,7 @@ class Node {
   }
 }
 
-export class ListaCircular {
+export class CircularList {
   constructor() {
     this.head = null;
   }
@@ -25,15 +25,15 @@ export class ListaCircular {
   }
 
   add(data) {
-    const nuevoNode = new Node(data);
+    const newNode = new Node(data);
 
     if (!this.head) {
-      nuevoNode.next = nuevoNode;
-      this.head = nuevoNode;
+      newNode.next = newNode;
+      this.head = newNode;
     } else {
-      nuevoNode.next = this.head.next;
-      this.head.next = nuevoNode;
-      this.head = nuevoNode;
+      newNode.next = this.head.next;
+      this.head.next = newNode;
+      this.head = newNode;
     }
   }
 
