@@ -19,23 +19,42 @@ export async function playRhythm(tempoAndMapObject) {
   //This is the tempo click in 4/4
   quarterNote = 60 / tempoAndMapObject.tempo;
 
-  do {
+  let aux = [...measureMap];
+  let durationArr = [];
+
+  while (aux.length > 0) {
+    durationArr[aux.length - 1] = aux.pop().duration * quarterNote * 1000;
+  }
+
+  console.log("durationArr: ", durationArr);
+  console.log("measureMap-1: ", measureMap);
+
+  playMeasures(measureMap, quarterNote, durationArr);
+}
+
+//Recursive function
+function playMeasures(measureMap, quarterNote, durationArr) {
+  if (measureMap.length === 0) {
+    return;
+  }
+
+  setTimeout(() => {
+    //console.log("measureMap-2: ", measureMap);
     let lastElement = peek(measureMap);
+    //console.log("lastElement: ", lastElement);
     let duration = lastElement.duration * quarterNote;
 
-    setInterval(function() {
-      console.log("Hola, después de segundos: " + duration);
-      doMajorChord(
-        lastElement.chord,
-        lastElement.inversion,
-        lastElement.seventh,
-        duration
-      );
-      console.log("Tempo: " + measureMap.length);
-    }, 1000);
+    doMajorChord(
+      lastElement.chord,
+      lastElement.inversion,
+      lastElement.seventh,
+      duration
+    );
+
     measureMap.pop();
 
-  } while (measureMap.length !== 0);
+    playMeasures(measureMap, quarterNote, durationArr);
+  }, durationArr[measureMap.length]);
 }
 
 //This function is called for play a single note, for example, for play the piano bases with a duration different than the chord's duration
@@ -101,7 +120,7 @@ export async function doMajorChord(name, inversion, seventh, duration) {
   //inverting chord
   [chordArr[0], chordArr[inversion]] = [chordArr[inversion], chordArr[0]];
 
-  console.log("ChordArr: ", chordArr);
+  //console.log("ChordArr: ", chordArr);
   playChord(chordArr, duration);
 }
 

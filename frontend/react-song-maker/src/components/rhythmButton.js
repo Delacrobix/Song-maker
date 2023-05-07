@@ -5,16 +5,15 @@ const RhythmButton = (props) => {
   const { rhythm } = props;
   const testObject = {
     rhythm: "Bachata",
-    tempo: 120,
+    tempo: 115,
     measureMap: [
-      { chord: "C", seventh: "7min", inversion: 0, duration: 2 },
-      { chord: "C", seventh: "7min", inversion: 0, duration: 1 },
-      { chord: "C", seventh: "7min", inversion: 0, duration: 1 },
+      { chord: "C", inversion: 0, duration: 1 },
+      { chord: "C", inversion: 0, duration: 1 },
+      { chord: "C", inversion: 0, duration: 2 },
       { chord: "D", seventh: "7min", inversion: 0, duration: 1 },
       { chord: "G", seventh: "7min", inversion: 0, duration: 1 },
       { chord: "C", inversion: 0, duration: 2 },
-    ],
-    // = blanca, negra, negra | negra, negra, blanca |
+    ]
   };
 
   return (
