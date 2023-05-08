@@ -18,7 +18,7 @@ const RhythmSelector = () => {
         <h5>Your actually tonality: {tonality}</h5>
         <div className="rhythm-btn-component-container">
           <RhythmButton rhythm="Bachata" />
-          <RhythmButton rhythm="Balada"/>
+          <RhythmButton rhythm="Balada" />
           <RhythmButton rhythm="Pop" />
         </div>
       </div>

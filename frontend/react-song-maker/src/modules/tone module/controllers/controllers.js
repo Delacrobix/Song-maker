@@ -1,8 +1,9 @@
 import * as Tone from "tone";
 import { CircularList } from "./circularList";
 
-const REPOSITORY =
-  "https://storage.googleapis.com/song-maker-samples/Piano/Octaves";
+const REPOSITORY = process.env.REACT_APP_G_CLOUD_BUCKET_REPOSITORY;
+
+//This build a circular list with the twelve sounds of occidental music
 const table = buildNotesTable();
 
 function peek(stack) {
@@ -10,7 +11,9 @@ function peek(stack) {
 }
 
 export async function playRhythm(tempoAndMapObject) {
-  let measureMap = tempoAndMapObject.measureMap;
+  //console.log('tempoAndMapObject: ', tempoAndMapObject);
+
+  let measureMap = [...tempoAndMapObject.measureMap];
 
   //The first element now will be the last for use this array like a stack object
   measureMap.reverse();
@@ -26,8 +29,8 @@ export async function playRhythm(tempoAndMapObject) {
     durationArr[aux.length - 1] = aux.pop().duration * quarterNote * 1000;
   }
 
-  console.log("durationArr: ", durationArr);
-  console.log("measureMap-1: ", measureMap);
+  // console.log("durationArr: ", durationArr);
+  // console.log("measureMap-1: ", measureMap);
 
   playMeasures(measureMap, quarterNote, durationArr);
 }
