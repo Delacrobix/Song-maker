@@ -12,17 +12,15 @@ export const register = {
     userName: { type: GraphQLString },
     email: { type: GraphQLString },
     password: { type: GraphQLString },
-    displayName: { type: GraphQLString },
   },
   async resolve(_, args) {
-    const { userName, email, password, displayName } = args;
+    const { userName, email, password } = args;
     //console.log("Register mutation args: ", args);
 
     const newUser = await User.create({
       userName,
       email,
       password,
-      displayName,
     });
 
     console.log("New user: ", newUser);

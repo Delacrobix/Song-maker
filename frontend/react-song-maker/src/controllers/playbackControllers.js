@@ -1,5 +1,5 @@
 import * as Tone from "tone";
-import { CircularList } from "./circularList";
+import { CircularList } from "../classes/circularList";
 
 const REPOSITORY = process.env.REACT_APP_G_CLOUD_BUCKET_REPOSITORY;
 

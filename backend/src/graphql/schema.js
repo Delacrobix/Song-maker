@@ -1,12 +1,14 @@
 import { GraphQLSchema, GraphQLObjectType } from "graphql";
-import { test } from "./queries";
+import { test, songList, song } from "./queries";
 import { register } from "./mutations";
 
 const QueryType = new GraphQLObjectType({
   name: "QueryType",
   description: "The root query type",
   fields: {
-    test: test,
+    test,
+    songList,
+    song,
   },
 });
 
