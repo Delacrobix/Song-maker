@@ -1,7 +1,13 @@
-import React from "react";
+import React from 'react';
+import Table from '../components/table/table';
 
 const CommunitySongs = () => {
-  return <div>community Songs</div>;
+  return (
+    <div>
+      <h1 className='title-page'>COMMUNITY SONGS</h1>
+      <Table />
+    </div>
+  );
 };
 
 export default CommunitySongs;

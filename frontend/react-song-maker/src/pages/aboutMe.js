@@ -1,7 +1,11 @@
-import React from "react";
+import React from 'react';
 
 const AboutMe = () => {
-  return <div>aboutMe</div>;
+  return (
+    <div>
+      <h1 className='title-page'>ABOUT ME</h1>
+    </div>
+  );
 };
 
 export default AboutMe;
