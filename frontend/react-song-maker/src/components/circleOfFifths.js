@@ -1,22 +1,21 @@
-import React, { useEffect } from "react";
-import ToneLayer from "./toneLayer";
+import React, { useEffect } from 'react';
+import ToneLayer from './toneLayer';
 
 import {
   setupLinks,
   setupLinkHovers,
   positionIcons,
   changeCipher,
-} from "../static/js/circleOfFifths.js";
-import "../static/css/circleOfFifths.css";
+} from '../assets/js/circleOfFifths.js';
 
 const CircleOfFifths = () => {
   useEffect(() => {
-    var container = document.querySelector(".radial-menu");
-    var menuItems = container.querySelectorAll(".radial-menu__menu-item");
-    var menuItemsSelect = document.getElementById("menu-items-to-show");
-    var links = document.querySelectorAll(".radial-menu__menu-link");
-    var linkBGs = document.querySelectorAll(".radial-menu__menu-link-bg");
-    var icons = document.querySelectorAll(".radial-menu__menu-icon");
+    var container = document.querySelector('.radial-menu');
+    var menuItems = container.querySelectorAll('.radial-menu__menu-item');
+    var menuItemsSelect = document.getElementById('menu-items-to-show');
+    var links = document.querySelectorAll('.radial-menu__menu-link');
+    var linkBGs = document.querySelectorAll('.radial-menu__menu-link-bg');
+    var icons = document.querySelectorAll('.radial-menu__menu-icon');
 
     let domElements = {
       menuItems: menuItems,
@@ -41,40 +40,40 @@ const CircleOfFifths = () => {
 
   return (
     <div>
-      <div className="radial-menu">
-        <ul className="radial-menu__menu-list">
-          <ToneLayer title="A" />
-          <ToneLayer title="E" />
-          <ToneLayer title="B/Cb" />
-          <ToneLayer title="F#/Gb" />
-          <ToneLayer title="Db/C#" />
-          <ToneLayer title="Ab" />
-          <ToneLayer title="Eb" />
-          <ToneLayer title="Bb" />
-          <ToneLayer title="F" />
-          <ToneLayer title="C" />
-          <ToneLayer title="G" />
-          <ToneLayer title="D" />
+      <div className='radial-menu'>
+        <ul className='radial-menu__menu-list'>
+          <ToneLayer title='A' />
+          <ToneLayer title='E' />
+          <ToneLayer title='B/Cb' />
+          <ToneLayer title='F#/Gb' />
+          <ToneLayer title='Db/C#' />
+          <ToneLayer title='Ab' />
+          <ToneLayer title='Eb' />
+          <ToneLayer title='Bb' />
+          <ToneLayer title='F' />
+          <ToneLayer title='C' />
+          <ToneLayer title='G' />
+          <ToneLayer title='D' />
         </ul>
-        <div className="radial-menu__label">Tonality</div>
+        <div className='radial-menu__label'>Tonality</div>
       </div>
 
-      <div className="menu-items-select">
+      <div className='menu-items-select'>
         <label
-          className="menu-items-select__label"
-          htmlFor="menu-items-to-show"
+          className='menu-items-select__label'
+          htmlFor='menu-items-to-show'
         >
           Select musical cipher
         </label>
         <select
-          className="menu-items-select__select"
-          name="menu-items-to-show"
-          id="menu-items-to-show"
-          defaultValue="1"
+          className='menu-items-select__select'
+          name='menu-items-to-show'
+          id='menu-items-to-show'
+          defaultValue='1'
           onChange={changeCipher}
         >
-          <option value="1">American</option>
-          <option value="2">Roman</option>
+          <option value='1'>American</option>
+          <option value='2'>Roman</option>
         </select>
       </div>
     </div>

@@ -12,8 +12,6 @@ dbConnection();
 dotenv.config({ path: ".env.local" });
 const app = express();
 
-const REACT_ORIGIN = process.env.REACT_ORIGIN;
-
 app.use(cors());
 app.use(
   "/",
