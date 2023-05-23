@@ -1,5 +1,4 @@
 import express from 'express';
-import routes from './routes/routes';
 import { createHandler } from 'graphql-http/lib/use/express';
 import { schema } from './graphql/schema';
 import { dbConnection } from './db/index';
@@ -19,9 +18,8 @@ app.use(
     schema: schema,
   })
 );
-app.use(routes);
 
 import('./server.js');
-import('./modules/openia-integration/apiConfiguration');
+import('./modules/openia-integration/config/apiConfiguration');
 
 module.exports = app;

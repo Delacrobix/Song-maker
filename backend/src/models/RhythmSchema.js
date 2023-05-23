@@ -1,8 +1,8 @@
-import { Schema, model } from "mongoose";
+import { Schema, model } from 'mongoose';
 
 const RhythmSchema = new Schema(
   {
-    name: {
+    rhythmName: {
       type: String,
       required: true,
     },
@@ -10,7 +10,7 @@ const RhythmSchema = new Schema(
       type: Number,
       required: true,
     },
-    measureMap: [
+    score: [
       {
         chord: {
           type: String,
@@ -35,4 +35,4 @@ const RhythmSchema = new Schema(
   }
 );
 
-export default model("Rhythm", RhythmSchema);
+export default model('Rhythm', RhythmSchema);

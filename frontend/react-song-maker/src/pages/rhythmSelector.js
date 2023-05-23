@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import RhythmButton from '../components/rhythmButton';
+import BreadCrumb from '../components/breadCrumb';
 
 const RhythmSelector = () => {
   const navigate = useNavigate();
@@ -26,6 +27,7 @@ const RhythmSelector = () => {
   return (
     <div className='rhythm-selector-container'>
       <h1 className='title-page'>RHYTHM SELECTOR</h1>
+      <BreadCrumb />
       <div className='rhythm-selector-title'>
         <h1>Select rhythm</h1>
       </div>

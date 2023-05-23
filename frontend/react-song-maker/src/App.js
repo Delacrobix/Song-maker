@@ -7,6 +7,7 @@ import ToneSelector from './pages/toneSelector';
 import AboutMe from './pages/aboutMe';
 import Footer from './components/footer';
 import CardInfo from './pages/cardInfo';
+import HomePage from './pages/homePage';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <Route path='/rhythm-selector' element={<RhythmSelector />} />
         <Route path='/results' element={<Results />} />
         <Route path='/about-me' element={<AboutMe />} />
-        <Route exact path='/' element={<ToneSelector />} />
+        <Route exact path='/create-song/tone' element={<ToneSelector />} />
+        <Route exact path='/home' element={<HomePage />} />
       </Routes>
       <Footer />
     </div>

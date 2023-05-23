@@ -1,22 +1,23 @@
-import { GraphQLSchema, GraphQLObjectType } from "graphql";
-import { test, songList, song } from "./queries";
-import { register } from "./mutations";
+import { GraphQLSchema, GraphQLObjectType } from 'graphql';
+import { getAllUserSongs, findSong, getAllRhythms } from './queries';
+import { register, insertRhythm } from './mutations';
 
 const QueryType = new GraphQLObjectType({
-  name: "QueryType",
-  description: "The root query type",
+  name: 'QueryType',
+  description: 'The root query type',
   fields: {
-    test,
-    songList,
-    song,
+    getAllUserSongs,
+    findSong,
+    getAllRhythms,
   },
 });
 
 const MutationType = new GraphQLObjectType({
-  name: "MutationType",
-  description: "The mutation type",
+  name: 'MutationType',
+  description: 'The mutation type',
   fields: {
     register,
+    insertRhythm,
   },
 });
 

@@ -1,9 +1,11 @@
 import React from 'react';
 
 const Row = (props) => {
+  const { clickFunction } = props;
   const { owner, rhythm, chords, songName, id, date } = props.song;
+
   return (
-    <tr>
+    <tr onClick={clickFunction}>
       <td>{owner}</td>
       <td>{rhythm}</td>
       <td>{chords}</td>

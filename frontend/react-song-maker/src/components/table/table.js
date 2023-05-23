@@ -19,7 +19,7 @@ const Table = () => {
   }
 
   return (
-    <table class='table-container'>
+    <table className='table-container'>
       <thead>
         <tr>
           <th>
@@ -46,14 +46,14 @@ const Table = () => {
         </tr>
       </thead>
       <tbody>
-        <Row onClick={watchRowDetails} song={test} />
-        <Row onClick={watchRowDetails} song={test} />
-        <Row onClick={watchRowDetails} song={test} />
-        <Row onClick={watchRowDetails} song={test} />
-        <Row onClick={watchRowDetails} song={test} />
-        <Row onClick={watchRowDetails} song={test} />
-        <Row onClick={watchRowDetails} song={test} />
-        <Row onClick={watchRowDetails} song={test} />
+        <Row clickFunction={watchRowDetails} song={test} />
+        <Row clickFunction={watchRowDetails} song={test} />
+        <Row clickFunction={watchRowDetails} song={test} />
+        <Row clickFunction={watchRowDetails} song={test} />
+        <Row clickFunction={watchRowDetails} song={test} />
+        <Row clickFunction={watchRowDetails} song={test} />
+        <Row clickFunction={watchRowDetails} song={test} />
+        <Row clickFunction={watchRowDetails} song={test} />
       </tbody>
     </table>
   );

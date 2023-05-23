@@ -1,5 +1,7 @@
+@charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Titillium+Web:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Work+Sans&display=swap");
 /*
  ------------------------- NAVBAR --------------------------------
 */
@@ -41,6 +43,31 @@
     display: none;
   }
 }
+@media (max-width: 500px) {
+  .c-navigation-breadcrumbs__item:not(:nth-last-child(2)) {
+    display: none;
+  }
+  .c-navigation-breadcrumbs__link:before {
+    display: inline-block;
+    content: "​";
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23a4ced3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round%5C'%3E%3Cline x1='19' y1='12' x2='5' y2='12'%3E%3C/line%3E%3Cpolyline points='12 19 5 12 12 5'%3E%3C/polyline%3E%3C/svg%3E") center/16px 16px no-repeat;
+    width: 16px;
+  }
+}
+@media (min-width: 501px) {
+  .c-navigation-breadcrumbs__item:nth-last-child(n+2):after {
+    display: inline-block;
+    content: "​";
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23dfa2a2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round%5C'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E") center/16px 16px no-repeat;
+    width: 16px;
+    margin: 0 8px;
+  }
+  .c-navigation-breadcrumbs__link {
+    display: block;
+    float: left;
+  }
+}
+
 .rhythm-selector-container {
   color: #fff;
 }
@@ -692,6 +719,7 @@ body .title-page {
   color: #fb667a;
 }
 .table-container tr {
+  cursor: pointer;
   /* Background-color of the odd rows */
   /* Background-color of the even rows */
 }
@@ -734,32 +762,6 @@ body .title-page {
   padding-left: 2%;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: Sans-Serif;
-  padding: 100px 0;
-}
-
-.u-visually-hidden {
-  position: absolute;
-  transform: translateX(9999px);
-}
-
-.o-button {
-  margin-right: 10px;
-}
-.o-button--float-left {
-  float: left;
-}
-.o-button--full-width {
-  width: 100%;
-}
-.o-button--half-width {
-  width: calc(50% - 10px);
-}
 .o-card {
   margin: 20px auto;
 }
@@ -773,25 +775,18 @@ html {
   max-width: 800px;
 }
 
-.c-button {
-  background-color: rgba(32, 125, 226, 0);
-  border: solid 1px rgb(32, 125, 226);
-}
-.c-button:hover {
-  background-color: rgb(32, 125, 226);
-  color: white;
-}
-.c-button--full-width {
-  width: 100%;
-}
-
 .c-card {
   border-radius: 10px;
-  box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 5px 30px 0px rgb(241, 241, 241);
+}
+.c-card .u-visually-hidden {
+  position: absolute;
+  transform: translateX(9999px);
 }
 .c-card_body {
   padding: 20px;
   overflow: hidden;
+  background-color: aliceblue;
 }
 .c-card_image {
   border-top-right-radius: 10px;
@@ -815,19 +810,36 @@ html {
   padding: 5px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  background-color: rgb(32, 125, 226);
+  background-color: rgba(122, 175, 231, 0.747);
 }
 .c-card_expand-block {
   padding: 0 20px;
   height: 0px;
   overflow: hidden;
 }
-.c-card_expand-block-image {
-  width: 100%;
-  margin-bottom: 20px;
+
+.c-navigation-breadcrumbs {
+  display: flex;
+  justify-content: center;
 }
-.c-card_expanded-block {
-  height: auto;
+.c-navigation-breadcrumbs__directory {
+  display: flex;
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.c-navigation-breadcrumbs__directory .c-navigation-breadcrumbs__link {
+  color: #e1e8eb;
+  text-decoration: none;
+}
+.c-navigation-breadcrumbs__directory .c-navigation-breadcrumbs__link:hover {
+  color: #0de1f8;
+  outline: 0;
+}
+
+.c-navigation-breadcrumbs__active .c-navigation-breadcrumbs__link {
+  text-shadow: 0 0 5px #696565, 0 0 5px #7a7777, 0 0 10px #a79191, 0 0 15px #00e4ff, 0 0 20px #00e4ff, 0 0 25px #00e4ff, 0 0 20px #434747, 0 0 10px #343535, 0 0 125px #3f4242;
 }
 
 /*# sourceMappingURL=styles.css.map */

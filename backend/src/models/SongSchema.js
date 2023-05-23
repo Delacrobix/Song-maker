@@ -1,17 +1,17 @@
-import mongoose, { model, Schema } from "mongoose";
+import mongoose, { model, Schema } from 'mongoose';
 
 const SongSchema = new Schema(
   {
-    user: {
+    owner: {
       type: String,
     },
-    name: {
+    songName: {
       type: String,
       required: true,
     },
-    song: {
+    rhythmObject: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Rhythm",
+      ref: 'Rhythm',
     },
   },
   {
@@ -20,4 +20,4 @@ const SongSchema = new Schema(
   }
 );
 
-export default model("Song", SongSchema);
+export default model('Song', SongSchema);

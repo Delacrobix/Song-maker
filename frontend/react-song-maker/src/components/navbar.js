@@ -13,8 +13,8 @@ const Navbar = () => {
     <header>
       <h3>Logo</h3>
       <nav ref={navRef}>
-        <Link to='/'>Home</Link>
-        <Link to='/'>Create your song</Link>
+        <Link to='/home'>Home</Link>
+        <Link to='/create-song/tone'>Create your song</Link>
         <Link to='/community'>Community Songs</Link>
         <Link to='/about-me'>About me</Link>
         <Link to='/#'>Spanish</Link>
