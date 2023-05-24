@@ -1,6 +1,6 @@
 import { GraphQLSchema, GraphQLObjectType } from 'graphql';
 import { getAllUserSongs, findSong, getAllRhythms } from './queries';
-import { register, insertRhythm } from './mutations';
+import { insertRhythm, insertUserSong } from './mutations';
 
 const QueryType = new GraphQLObjectType({
   name: 'QueryType',
@@ -16,8 +16,8 @@ const MutationType = new GraphQLObjectType({
   name: 'MutationType',
   description: 'The mutation type',
   fields: {
-    register,
     insertRhythm,
+    insertUserSong,
   },
 });
 

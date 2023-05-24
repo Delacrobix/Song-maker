@@ -12,7 +12,7 @@ const RhythmSchema = new Schema(
     },
     score: [
       {
-        chord: {
+        chordName: {
           type: String,
           required: true,
         },

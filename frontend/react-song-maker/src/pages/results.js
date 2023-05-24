@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import BreadCrumb from '../components/breadCrumb';
+import Tablature from '../components/tabs/tablature';
 
 const Results = () => {
   const location = useLocation();
@@ -12,6 +13,7 @@ const Results = () => {
     <div>
       <h1 className='title-page'>RESULTS</h1>
       <BreadCrumb />
+      <Tablature />
     </div>
   );
 };

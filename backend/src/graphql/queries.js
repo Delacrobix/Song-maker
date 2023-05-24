@@ -1,15 +1,16 @@
 import { GraphQLID, GraphQLList, GraphQLString } from 'graphql';
-import { UserSongType, RhythmOutputType } from './types';
+import { UserSongOutputType, RhythmOutputType } from './types';
 import modelsExported from '../models/exports';
 
 const { User, Rhythm, Song } = modelsExported;
 
 export const getAllUserSongs = {
-  type: new GraphQLList(UserSongType),
+  name: 'getAllUserSongs',
+  type: new GraphQLList(UserSongOutputType),
   description:
     'Return a list of users created songs for be displayed on the community songs list',
   async resolve() {
-    const functionName = Object.getPrototypeOf(this).constructor.name;
+    const functionName = getAllUserSongs.name;
 
     try {
       const songs = await Song.find();
@@ -18,19 +19,20 @@ export const getAllUserSongs = {
     } catch (err) {
       console.error(err);
 
-      throw new Error(`Error while searching song list in ${functionName}`);
+      throw new Error(`Error while searching song list in: ${functionName}`);
     }
   },
 };
 
 export const findSong = {
+  name: 'findSong',
   type: GraphQLString,
   description: 'Returns a user created song by id',
   args: {
     id: { type: GraphQLID },
   },
   async resolve(_, args) {
-    const functionName = Object.getPrototypeOf(this).constructor.name;
+    const functionName = findSong.name;
     const { id } = args;
 
     if (id === 'undefined') {
@@ -44,17 +46,18 @@ export const findSong = {
     } catch (err) {
       console.error(err);
 
-      throw new Error(`Error while searching song by id in ${functionName}`);
+      throw new Error(`Error while searching song by id in: ${functionName}`);
     }
   },
 };
 
 export const getAllRhythms = {
+  name: 'getAllRhythms',
   type: new GraphQLList(RhythmOutputType),
   description:
     'Return the list of rhythm objects that can be used to create songs',
   async resolve() {
-    const functionName = Object.getPrototypeOf(this).constructor.name;
+    const functionName = getAllRhythms.name;
 
     try {
       const rhythmsList = await Rhythm.find();

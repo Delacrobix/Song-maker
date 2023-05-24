@@ -7,10 +7,24 @@ import {
   GraphQLInputObjectType,
 } from 'graphql';
 
-export const UserSongType = new GraphQLObjectType({
-  name: 'UserSongType',
+export const UserSongInputType = new GraphQLInputObjectType({
+  name: 'UserSongInputType',
   description:
-    'This type is used to model a user created song that will be displayed in the community songs list',
+    'This type is used to model a user created song that will be displayed in the community songs list (input)',
+  fields: {
+    id: { type: GraphQLID },
+    userName: { type: GraphQLString },
+    songName: { type: GraphQLString },
+    rhythm: { type: GraphQLString },
+    chords: { type: GraphQLString },
+    date: { type: GraphQLString },
+  },
+});
+
+export const UserSongOutputType = new GraphQLObjectType({
+  name: 'UserSongOutputType',
+  description:
+    'This type is used to model a user created song that will be displayed in the community songs list (output)',
   fields: {
     id: { type: GraphQLID },
     userName: { type: GraphQLString },
