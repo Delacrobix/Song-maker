@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const BreadCrumb = () => {
   const currentPath = window.location.hash;
-  console.log('PATH: ', currentPath);
+  // console.log('PATH: ', currentPath);
 
   const breadcrumbs = [
     {

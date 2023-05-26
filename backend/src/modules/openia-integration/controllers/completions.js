@@ -1,5 +1,5 @@
 import { openai } from '../config/apiConfiguration';
-import modelsExported from '../../../models/exports';
+import modelsExported from '../../songMakerApi/models/exports';
 
 const tonality = 're menor';
 
@@ -19,12 +19,16 @@ export async function createCompletion() {
 
   const data = response.data;
 
+  //Saving tokens spent
   await saveTokensSpent(data);
+
+  //Saving the response
   await savePromptResults(data);
 
   return data;
 }
 
+//This method save in a MongoDB database the number of OpenAi tokens spent by the api request
 async function saveTokensSpent(data) {
   try {
     const tokensConsumed = new modelsExported.TokensConsumed({
@@ -42,6 +46,7 @@ async function saveTokensSpent(data) {
   }
 }
 
+//This method save the response by de AI in text plain without
 async function savePromptResults(data) {
   const aux = [...data.choices];
 

@@ -1,6 +1,6 @@
 import express from 'express';
 import { createHandler } from 'graphql-http/lib/use/express';
-import { schema } from './graphql/schema';
+import { schema } from './modules/songMakerApi/graphql/schema';
 import { dbConnection } from './db/index';
 import '@babel/register';
 import dotenv from 'dotenv';
@@ -13,7 +13,7 @@ const app = express();
 
 app.use(cors());
 app.use(
-  '/',
+  '/graphql',
   createHandler({
     schema: schema,
   })

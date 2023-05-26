@@ -1,6 +1,7 @@
 import { GraphQLString } from 'graphql';
-import modelsExported from '../models/exports';
 import { RhythmInputType, UserSongInputType } from './types';
+import modelsExported from '../models/exports';
+import { ValidationError } from '../../Errors/errorsController';
 
 //Mongoose models
 const { User, Rhythm, Song } = modelsExported;
@@ -18,13 +19,15 @@ export const insertRhythm = {
     const { rhythm } = args;
 
     if (rhythm === 'undefined') {
-      return `Data required: rhythm arg is needed in: ${functionName}`;
+      throw new ValidationError(
+        `Data required: rhythm arg is needed in: ${functionName}`
+      );
     }
 
     try {
       const rhythmInstance = new Rhythm(rhythm);
 
-      let result = await rhythmInstance.save();
+      await rhythmInstance.save();
 
       return 'Rhythm inserted successfully';
     } catch (err) {

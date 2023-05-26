@@ -1,11 +1,8 @@
 import React from 'react';
 import { playRhythm } from '../controllers/playbackControllers';
-import { getTest } from '../controllers/graphQLControllers';
 
 const RhythmButton = (props) => {
   const { rhythm, setRhythmObject } = props;
-
-  //getTest();
 
   // !Esto sera reemplazado por una fetch que busque el ritmo en una base de datos por el nombre del ritmo
   const testObject = {
