@@ -1,9 +1,12 @@
-//this file contains all the error controllers used in this project
+/**
+ * this file contains all the error controllers used in this project
+ */
 
+//This error controller is used for entry data validation
 export class ValidationError extends Error {
   constructor(message) {
     super(message);
-    this.message = 'Error in data validation';
+    this.message = message;
   }
 }
 
@@ -11,7 +14,7 @@ export class ValidationError extends Error {
 export class ConnectionError extends Error {
   constructor(message) {
     super(message);
-    this.message = 'Error connecting to database';
+    this.message = message;
   }
 }
 
@@ -19,7 +22,7 @@ export class ConnectionError extends Error {
 export class DataRequestError extends Error {
   constructor(message) {
     super(message);
-    this.message = 'Error requesting data';
+    this.message = message;
   }
 }
 
@@ -27,13 +30,6 @@ export class DataRequestError extends Error {
 export class DataMutationError extends Error {
   constructor(message) {
     super(message);
-    this.message = 'Error in mutation operation';
-  }
-}
-
-export class ConnectionServerError extends Error {
-  constructor(message) {
-    super(message);
-    this.message = 'Error connecting to server';
+    this.message = message;
   }
 }

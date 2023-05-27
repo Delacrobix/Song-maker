@@ -1,0 +1,61 @@
+.rhythm-selector-container {
+  color: #fff;
+
+  .rhythm-selector-title {
+    padding: 20px 0px 0px 10px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+  }
+
+  h5 {
+    padding: 20px 0px 0px 10px;
+    font-size: 1rem;
+  }
+
+  .rhythm-btn-component-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    .rhythm-button-container {
+      padding: 40px;
+      margin-left: 10px;
+
+      .rhythm-btn-title {
+        font-size: 1.3rem;
+      }
+
+      .rhythm-btn-left {
+        background-color: rgba($color: #14729e, $alpha: 0.7);
+        padding: 0.8rem 3rem;
+        border: none;
+        font-size: 1rem;
+        cursor: pointer;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+
+      .rhythm-btn-right {
+        background-color: rgba($color: #14729e, $alpha: 0.7);
+        padding: 0.8rem 1rem;
+        border: none;
+        font-size: 1rem;
+        cursor: pointer;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+
+      button:hover {
+        background-color: rgba($color: #5992ac, $alpha: 0.8);
+      }
+    }
+  }
+
+  .selected-rhythm-container-invisible {
+    display: none;
+  }
+
+  .selected-rhythm-container-visible {
+    visibility: visible;
+    display: block;
+  }
+}

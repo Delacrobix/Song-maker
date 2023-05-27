@@ -1,5 +1,5 @@
 import { openai } from '../config/apiConfiguration';
-import modelsExported from '../../songMakerApi/models/exports';
+import modelsExported from '../models/exports';
 
 const tonality = 're menor';
 

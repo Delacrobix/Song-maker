@@ -1,15 +1,11 @@
-import User from './UserSchema';
+import UserSongInfo from './UserSongInfoSchema';
 import Rhythm from './RhythmSchema';
 import Song from './SongSchema';
-import TokensConsumed from './TokensConsumedSchema';
-import TestChords from './TestChordsSchema';
 
 const modelsExported = {
-  User: User,
+  UserSongInfo: UserSongInfo,
   Rhythm: Rhythm,
   Song: Song,
-  TokensConsumed: TokensConsumed,
-  TestChords: TestChords,
 };
 
 export default modelsExported;

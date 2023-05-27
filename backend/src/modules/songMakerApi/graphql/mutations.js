@@ -1,10 +1,14 @@
 import { GraphQLString } from 'graphql';
-import { RhythmInputType, UserSongInputType } from './types';
+import { RhythmInputType, SongInputType } from './types';
 import modelsExported from '../models/exports';
-import { ValidationError } from '../../Errors/errorsController';
+import { DataMutationError } from '../Errors/errorsController';
+import {
+  rhythmValidation,
+  SongValidation,
+} from '../validations/dataValidations';
 
 //Mongoose models
-const { User, Rhythm, Song } = modelsExported;
+const { UserSongInfo, Rhythm, Song } = modelsExported;
 
 export const insertRhythm = {
   name: 'insertRhythm',
@@ -18,52 +22,64 @@ export const insertRhythm = {
 
     const { rhythm } = args;
 
-    if (rhythm === 'undefined') {
-      throw new ValidationError(
-        `Data required: rhythm arg is needed in: ${functionName}`
-      );
-    }
+    rhythmValidation(functionName, rhythm);
 
     try {
       const rhythmInstance = new Rhythm(rhythm);
-
       await rhythmInstance.save();
 
-      return 'Rhythm inserted successfully';
+      return true;
     } catch (err) {
       console.error(err);
 
-      throw new Error(`Error inserting rhythm in: ${functionName}`);
+      throw new DataMutationError(`Error inserting rhythm in: ${functionName}`);
     }
   },
 };
 
-export const insertUserSong = {
-  name: 'insertUserSong',
+export const insertSong = {
+  name: 'insertSong',
   type: GraphQLString,
-  description: 'Insert a user song on database',
+  description: 'Insert a song and userSongInfo on database',
   args: {
-    userSong: { type: UserSongInputType },
+    song: { type: SongInputType },
   },
   async resolve(__, args) {
-    const functionName = insertUserSong.name;
+    const functionName = insertSong.name;
 
-    const { userSong } = args;
+    const { song } = args;
 
-    if (userSong === 'undefined') {
-      return `Data required: userSong arg is needed in: ${functionName}`;
-    }
+    SongValidation(functionName, userSong);
+
+    const chordList = '';
+
+    //Extract the information from the song
+    song.rhythm.foreach((item) => {
+      chordList += item.chordName + item.seventh + '|';
+    });
+
+    const songInfo = {
+      owner: song.owner,
+      songName: song.songName,
+      rhythm: song.rhythm.rhythmName,
+      chords: chordList,
+      date: song.date,
+    };
 
     try {
-      const songInstance = new Song(userSong);
+      const songInstance = new Song(song);
+      const userSongInfoInstance = new UserSongInfo(songInfo);
 
-      let result = await songInstance.save();
+      //Saving song information
+      let userSongResult = await userSongInfoInstance.save();
+      //Saving song
+      let songResult = await songInstance.save();
 
-      return 'UserSong inserted successfully';
+      return true;
     } catch (err) {
       console.error(err);
 
-      throw new Error(`Error inserting UserSong in: ${functionName}`);
+      throw new DataMutationError(`Error inserting Song in: ${functionName}`);
     }
   },
 };

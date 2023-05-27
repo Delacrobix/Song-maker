@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  transition: 0.5s;
+  box-sizing: border-box;
+  font-family: 'Oswald', sans-serif;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+body {
+  background-color: rgb(21, 12, 32);
+  height: 128vh;
+  width: 100%;
+  position: relative;
+
+  .title-page {
+    font-size: 3em;
+    font-weight: 300;
+    line-height: 1em;
+    text-align: center;
+    color: #4dc3fa;
+  }
+}

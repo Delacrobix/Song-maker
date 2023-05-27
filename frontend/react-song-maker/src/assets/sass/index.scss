@@ -1,0 +1,20 @@
+@import './variables';
+@import './fonts.scss';
+
+//Responsive desing
+@import './responsive.scss';
+
+//Pages
+@import './rhythmSelector.scss';
+@import './toneSelector.scss';
+
+//Components
+@import './navbar.scss';
+@import './footer.scss';
+@import './circleOfFifths.scss';
+@import './general.scss';
+@import './errorAlert.scss';
+@import './table.scss';
+@import './cardInfo.scss';
+@import './breadCrumb.scss';
+@import './score.scss';

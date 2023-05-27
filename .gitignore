@@ -1,3 +1,5 @@
 backend/node_modules
 /sound-bank
 backend/.env.local
+backend/_querys.js
+TODO.md

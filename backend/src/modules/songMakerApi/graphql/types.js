@@ -4,36 +4,9 @@ import {
   GraphQLString,
   GraphQLList,
   GraphQLInt,
+  GraphQLFloat,
   GraphQLInputObjectType,
 } from 'graphql';
-
-export const UserSongInputType = new GraphQLInputObjectType({
-  name: 'UserSongInputType',
-  description:
-    'This type is used to model a user created song that will be displayed in the community songs list (input)',
-  fields: {
-    id: { type: GraphQLID },
-    userName: { type: GraphQLString },
-    songName: { type: GraphQLString },
-    rhythm: { type: GraphQLString },
-    chords: { type: GraphQLString },
-    date: { type: GraphQLString },
-  },
-});
-
-export const UserSongOutputType = new GraphQLObjectType({
-  name: 'UserSongOutputType',
-  description:
-    'This type is used to model a user created song that will be displayed in the community songs list (output)',
-  fields: {
-    id: { type: GraphQLID },
-    userName: { type: GraphQLString },
-    songName: { type: GraphQLString },
-    rhythm: { type: GraphQLString },
-    chords: { type: GraphQLString },
-    date: { type: GraphQLString },
-  },
-});
 
 export const ChordInputType = new GraphQLInputObjectType({
   name: 'ChordInputType',
@@ -42,7 +15,7 @@ export const ChordInputType = new GraphQLInputObjectType({
     chordName: { type: GraphQLString },
     seventh: { type: GraphQLString },
     inversion: { type: GraphQLInt },
-    duration: { type: GraphQLInt },
+    duration: { type: GraphQLFloat },
   },
 });
 
@@ -53,7 +26,7 @@ export const ChordOutputType = new GraphQLObjectType({
     chordName: { type: GraphQLString },
     seventh: { type: GraphQLString },
     inversion: { type: GraphQLInt },
-    duration: { type: GraphQLInt },
+    duration: { type: GraphQLFloat },
   },
 });
 
@@ -76,5 +49,59 @@ export const RhythmInputType = new GraphQLInputObjectType({
     rhythmName: { type: GraphQLString },
     tempo: { type: GraphQLInt },
     score: { type: new GraphQLList(ChordInputType) },
+  },
+});
+
+// export const UserSongInputType = new GraphQLInputObjectType({
+//   name: 'UserSongInputType',
+//   description:
+//     'This type is used to model a user created song that will be displayed in the community songs list (input)',
+//   fields: {
+//     id: { type: GraphQLID },
+//     owner: { type: GraphQLString },
+//     songName: { type: GraphQLString },
+//     rhythm: { type: GraphQLString },
+//     chords: { type: GraphQLString },
+//     date: { type: GraphQLString },
+//   },
+// });
+
+export const UserSongOutputType = new GraphQLObjectType({
+  name: 'UserSongOutputType',
+  description:
+    'This type is used to model a user created song that will be displayed in the community songs list (output)',
+  fields: {
+    id: { type: GraphQLID },
+    owner: { type: GraphQLString },
+    songName: { type: GraphQLString },
+    rhythm: { type: GraphQLString },
+    chords: { type: GraphQLString },
+    date: { type: GraphQLString },
+  },
+});
+
+export const SongInputType = new GraphQLInputObjectType({
+  name: 'UserSongInputType',
+  description:
+    'This type is used to model a song with its playable information (input)',
+  fields: {
+    id: { type: GraphQLID },
+    owner: { type: GraphQLString },
+    songName: { type: GraphQLString },
+    rhythmType: { type: RhythmInputType },
+    date: { type: GraphQLString },
+  },
+});
+
+export const SongOutputType = new GraphQLObjectType({
+  name: 'UserSongOutputType',
+  description:
+    'This type is used to model a song with its playable information (output)',
+  fields: {
+    id: { type: GraphQLID },
+    owner: { type: GraphQLString },
+    songName: { type: GraphQLString },
+    rhythmType: { type: RhythmOutputType },
+    date: { type: GraphQLString },
   },
 });

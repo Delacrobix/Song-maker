@@ -1,0 +1,93 @@
+/*
+ ------------------------- NAVBAR --------------------------------
+*/
+@media only screen and (max-width: 1024px) {
+  header {
+    .nav-btn {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      background-color: var(--mainColor);
+      transition: 1s;
+      transform: translateY(-100vh);
+
+      .nav-close-btn {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+      }
+
+      a {
+        font-size: 1.5rem;
+      }
+    }
+
+    .responsive-nav {
+      transform: none;
+    }
+  }
+}
+
+// TABLE
+@media (max-width: 800px) {
+  .table-container td:nth-child(4),
+  .table-container th:nth-child(4) {
+    display: none;
+  }
+}
+
+//Breadcrumbs
+// Shorten the breadcrumb trail to include only the next higher level. (Prevent wrap to multiple lines on small screen sizes)
+
+.c-navigation-breadcrumbs {
+  @media (max-width: 500px) {
+    &__item {
+      &:not(:nth-last-child(2)) {
+        display: none;
+      }
+    }
+
+    &__link {
+      &:before {
+        display: inline-block;
+        // Invisible space character (sets auto-height for element)
+        content: '\200b';
+        // User goes "up one level" instead of "navigating back" to the last view or page.
+        background: url(icon-svg-uri('arrow-left', $color-link)) center /
+          $size-icon $size-icon no-repeat;
+        width: $size-icon;
+      }
+    }
+  }
+
+  @media (min-width: 501px) {
+    &__item {
+      &:nth-last-child(n + 2):after {
+        display: inline-block;
+        content: '\200b';
+        // "Greater-than sign" indicates higher-level page.
+        background: url(icon-svg-uri('chevron-right', $color-separator)) center /
+          $size-icon $size-icon no-repeat;
+        width: $size-icon;
+        margin: 0 $space-separator;
+      }
+    }
+
+    &__link {
+      display: block;
+      float: left;
+    }
+  }
+}

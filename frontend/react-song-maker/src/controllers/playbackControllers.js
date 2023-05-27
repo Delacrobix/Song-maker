@@ -1,5 +1,5 @@
-import * as Tone from "tone";
-import { CircularList } from "../classes/circularList";
+import * as Tone from 'tone';
+import { CircularList } from '../classes/circularList';
 
 const REPOSITORY = process.env.REACT_APP_G_CLOUD_BUCKET_REPOSITORY;
 
@@ -85,12 +85,12 @@ export function playSingleNote(octave, note, duration) {
 export async function doMajorChord(name, inversion, seventh, duration) {
   let indexName = table.indexOf(name);
 
-  console.log(
-    "name: " + name,
-    "inversion: " + inversion,
-    "seventh: " + seventh,
-    "duration: " + duration
-  );
+  // console.log(
+  //   "name: " + name,
+  //   "inversion: " + inversion,
+  //   "seventh: " + seventh,
+  //   "duration: " + duration
+  // );
 
   let chordArr = [
     table.find(indexName),
@@ -100,15 +100,15 @@ export async function doMajorChord(name, inversion, seventh, duration) {
 
   // If the chord have seventh
   const SWITCH_SEVENTH = {
-    "7dim": () => {
+    '7dim': () => {
       chordArr.push(table.find(indexName + 9));
       return chordArr;
     },
-    "7min": () => {
+    '7min': () => {
       chordArr.push(table.find(indexName + 10));
       return chordArr;
     },
-    "7maj": () => {
+    '7maj': () => {
       chordArr.push(table.find(indexName + 11));
       return chordArr;
     },
@@ -131,11 +131,12 @@ function playChord(chordArr, duration) {
   const urls = {};
   let soundsArr = [];
 
-  urls[`${chordArr[0]}4`] = `${chordArr[0].replace(/#/g, "%23")}.mp3`;
+  urls[`${chordArr[0]}4`] = `${chordArr[0].replace(/#/g, '%23')}.mp3`;
+  //setting the tonic one octave down
   soundsArr[0] = `${chordArr[0]}3`;
 
   for (let i = 1; i < chordArr.length; i++) {
-    urls[`${chordArr[i]}4`] = `${chordArr[i].replace(/#/g, "%23")}.mp3`;
+    urls[`${chordArr[i]}4`] = `${chordArr[i].replace(/#/g, '%23')}.mp3`;
     soundsArr[i] = `${chordArr[i]}4`;
   }
 
@@ -153,7 +154,7 @@ function playChord(chordArr, duration) {
 function buildNotesTable() {
   let table = new CircularList();
 
-  let notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+  let notes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
 
   for (let i = 0; i < notes.length; i++) {
     table.add(notes[i]);
