@@ -11,53 +11,56 @@ function peek(stack) {
 }
 
 export async function playRhythm(tempoAndMapObject) {
-  //console.log('tempoAndMapObject: ', tempoAndMapObject);
+  // console.log('tempoAndMapObject: ', tempoAndMapObject);
 
-  let measureMap = [...tempoAndMapObject.measureMap];
+  let score = [...tempoAndMapObject.score];
 
   //The first element now will be the last for use this array like a stack object
-  measureMap.reverse();
+  score.reverse();
 
   let quarterNote;
-  //This is the tempo click in 4/4
+  //This is the click in 4/4
   quarterNote = 60 / tempoAndMapObject.tempo;
 
-  let aux = [...measureMap];
+  let aux = [...score];
   let durationArr = [];
 
   while (aux.length > 0) {
     durationArr[aux.length - 1] = aux.pop().duration * quarterNote * 1000;
   }
 
-  // console.log("durationArr: ", durationArr);
-  // console.log("measureMap-1: ", measureMap);
+  // console.log('durationArr: ', durationArr);
+  // console.log("score-1: ", score);
 
-  playMeasures(measureMap, quarterNote, durationArr);
+  playMeasures(score, quarterNote, durationArr);
 }
 
 //Recursive function
-function playMeasures(measureMap, quarterNote, durationArr) {
-  if (measureMap.length === 0) {
+function playMeasures(score, quarterNote, durationArr) {
+  if (score.length === 0) {
     return;
   }
 
   setTimeout(() => {
-    //console.log("measureMap-2: ", measureMap);
-    let lastElement = peek(measureMap);
+    //console.log("score-2: ", score);
+    let lastElement = peek(score);
     //console.log("lastElement: ", lastElement);
     let duration = lastElement.duration * quarterNote;
 
-    doMajorChord(
-      lastElement.chord,
-      lastElement.inversion,
-      lastElement.seventh,
-      duration
-    );
+    //rst is a rest
+    if (lastElement.chordName !== 'rst') {
+      doChord(
+        lastElement.chordName,
+        lastElement.inversion,
+        lastElement.seventh,
+        duration
+      );
+    }
 
-    measureMap.pop();
+    score.pop();
 
-    playMeasures(measureMap, quarterNote, durationArr);
-  }, durationArr[measureMap.length]);
+    playMeasures(score, quarterNote, durationArr);
+  }, durationArr[score.length]);
 }
 
 //This function is called for play a single note, for example, for play the piano bases with a duration different than the chord's duration
@@ -82,21 +85,39 @@ export function playSingleNote(octave, note, duration) {
  * @param {seventh: string} seventh is a string indicating whether the chord will be played with the seventh and what kind of seventh is (7min, 7maj, 7dim)
  * @param {duration: float} duration is the duration of the playback in seconds
  */
-export async function doMajorChord(name, inversion, seventh, duration) {
+export async function doChord(name, inversion, seventh, duration) {
   let indexName = table.indexOf(name);
 
-  // console.log(
-  //   "name: " + name,
-  //   "inversion: " + inversion,
-  //   "seventh: " + seventh,
-  //   "duration: " + duration
-  // );
+  console.log('TONIC: ', table.find(indexName), 'INDEX: ', indexName);
 
-  let chordArr = [
-    table.find(indexName),
-    table.find(indexName + 4),
-    table.find(indexName + 7),
-  ];
+  let chordArr = [];
+
+  //If is not a major chord
+  if (indexName === -1) {
+    //Extracting the tonic
+    indexName = table.indexOf(name.charAt(0));
+
+    chordArr = [
+      table.find(indexName),
+      table.find(indexName + 3),
+      table.find(indexName + 7),
+    ];
+  } else {
+    chordArr = [
+      table.find(indexName),
+      table.find(indexName + 4),
+      table.find(indexName + 7),
+    ];
+  }
+
+  console.log(
+    'name: ' + name,
+    'inversion: ' + inversion,
+    'seventh: ' + seventh,
+    'duration: ' + duration
+  );
+
+  console.log(name, ' CHORD ARR: ', chordArr);
 
   // If the chord have seventh
   const SWITCH_SEVENTH = {

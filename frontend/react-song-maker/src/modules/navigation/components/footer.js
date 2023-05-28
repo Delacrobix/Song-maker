@@ -13,7 +13,7 @@ const Footer = () => {
         <div className='footer-menus'>
           <div className='footer-content-container'>
             <span className='menu-title'>Menu</span>
-            <Link to='/' className='menu-item-footer'>
+            <Link to='/home' className='menu-item-footer'>
               Home
             </Link>
             <Link to='/#' className='menu-item-footer'>

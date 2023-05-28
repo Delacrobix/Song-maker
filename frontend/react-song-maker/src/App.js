@@ -1,13 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
-import Navbar from './components/navbar';
-import CommunitySongs from './pages/communitySongs';
-import Results from './pages/results';
-import RhythmSelector from './pages/rhythmSelector';
-import ToneSelector from './pages/toneSelector';
-import AboutMe from './pages/aboutMe';
-import Footer from './components/footer';
-import CardInfo from './pages/cardInfo';
-import HomePage from './pages/homePage';
+import Navbar from './modules/navigation/components/navbar';
+import CommunitySongs from './modules/songMaker/pages/communitySongs';
+import Results from './modules/songMaker/pages/results';
+import RhythmSelector from './modules/songMaker/pages/rhythmSelector';
+import ToneSelector from './modules/songMaker/pages/toneSelector';
+import AboutMe from './modules/songMaker/pages/aboutMe';
+import Footer from './modules/navigation/components/footer';
+import CardInfo from './modules/songMaker/pages/cardInfo';
+import HomePage from './modules/songMaker/pages/homePage';
 
 function App() {
   return (

@@ -3,15 +3,24 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { HashRouter } from 'react-router-dom';
+import { ApolloProvider } from '@apollo/client';
+import { apolloClient } from './config/graphQLConfig';
+
+//Bootstrap
+import 'bootstrap/dist/js/bootstrap.min.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 //Styles
-import './assets/css/styles.css';
+import './modules/songMaker/assets/css/songMakerStyles.css';
+import './modules/navigation/assets/css/navigationStyles.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <HashRouter>
-    <App />
-  </HashRouter>
+  <ApolloProvider client={apolloClient}>
+    <HashRouter>
+      <App />
+    </HashRouter>
+  </ApolloProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
