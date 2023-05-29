@@ -147,6 +147,18 @@
   color: black;
 }
 
+.results-page-container {
+  color: aliceblue;
+}
+.results-page-container .musical-representation-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  color: aliceblue;
+}
+
 *,
 *:before,
 *:after {
@@ -728,6 +740,12 @@ body .title-page {
 
 .score-output {
   background-color: aliceblue;
+  height: 18rem;
+}
+
+.tab-output {
+  background-color: aliceblue;
+  height: 18rem;
 }
 
 /*# sourceMappingURL=songMakerStyles.css.map */

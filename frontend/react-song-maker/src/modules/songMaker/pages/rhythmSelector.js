@@ -27,7 +27,7 @@ const RhythmSelector = () => {
     container.classList.add('selected-rhythm-container-visible');
   };
 
-  //Get request
+  //Get requests
   const { loading, error, data } = useQuery(getAllRhythmsQuery);
 
   useEffect(() => {
@@ -81,7 +81,6 @@ const RhythmSelector = () => {
           <ul>
             <li>Tonalidad: {tonality}</li>
             <li>Rhythm: {rhythmResult.rhythmName}</li>
-            <li>Chords: </li>
           </ul>
         </h3>
         <span>Please press the button if you want to continue</span>

@@ -1,6 +1,14 @@
 import { GraphQLSchema, GraphQLObjectType } from 'graphql';
-import { getAllUserSongs, findSong, getAllRhythms } from './queries';
-import { insertRhythm, insertSong } from './mutations';
+import {
+  getAllUserSongs,
+  findSong,
+  getAllRhythms,
+} from './modules/songMakerApi/graphql/queries';
+import { getAIChords } from './modules/chordsGenerator/graphql/queries';
+import {
+  insertRhythm,
+  insertSong,
+} from './modules/songMakerApi/graphql/mutations';
 
 const QueryType = new GraphQLObjectType({
   name: 'QueryType',
@@ -9,6 +17,7 @@ const QueryType = new GraphQLObjectType({
     getAllUserSongs,
     findSong,
     getAllRhythms,
+    getAIChords,
   },
 });
 

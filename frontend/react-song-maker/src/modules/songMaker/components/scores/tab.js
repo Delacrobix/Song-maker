@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import Vex from 'vexflow';
 
 const Tab = () => {
   useEffect(() => {
     const { Renderer, TabStave, TabNote, Bend, Vibrato, Formatter } = Vex.Flow;
     // Create an SVG renderer and attach it to the DIV element with id="output".
-    const div = document.getElementById('output');
+    const div = document.getElementById('tab-output');
     const renderer = new Renderer(div, Renderer.Backends.SVG);
 
     // Configure the rendering context.
@@ -40,8 +40,9 @@ const Tab = () => {
     ];
 
     Formatter.FormatAndDraw(context, stave, notes);
-  });
-  return <div id='output' className='score-output'></div>;
+  }, []);
+
+  return <div id='tab-output' className='tab-output'></div>;
 };
 
 export default Tab;

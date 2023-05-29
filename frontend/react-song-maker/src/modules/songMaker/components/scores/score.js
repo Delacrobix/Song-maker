@@ -6,7 +6,7 @@ const Score = () => {
     const { Renderer, Stave, StaveNote, Voice, Formatter } = Vex.Flow;
 
     // Create an SVG renderer and attach it to the DIV element named "boo".
-    const div = document.getElementById('output');
+    const div = document.getElementById('score-output');
     const renderer = new Renderer(div, Renderer.Backends.SVG);
 
     // Configure the rendering context.
@@ -62,9 +62,9 @@ const Score = () => {
 
     // Render voice
     voice.draw(context, stave);
-  });
+  }, []);
 
-  return <div id='output' className='score-output'></div>;
+  return <div id='score-output' className='score-output'></div>;
 };
 
 export default Score;
