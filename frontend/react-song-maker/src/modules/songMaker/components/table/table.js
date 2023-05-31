@@ -1,21 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Row from './row';
 import { useNavigate } from 'react-router-dom';
+import { binarySearch } from '../../controllers/controllers';
 
-const Table = () => {
+const Table = (props) => {
   const navigate = useNavigate();
+  const [songList, setSongList] = useState([]);
 
-  const test = {
-    id: '14s4aas1775sd41f',
-    owner: 'Delacrobix',
-    rhythm: 'Salsa choque',
-    chords: 'Cm, G, C, D, Em, Amaj7',
-    songName: 'Nana',
-    date: '23-01-25',
-  };
+  useEffect(() => {
+    setSongList(props.songList);
+  }, [props]);
 
-  function watchRowDetails() {
-    navigate(`/community/${test.id}`, { state: { object: test } });
+  function watchRowDetails(id) {
+    //Searching the song in the array list
+    const song = songList[binarySearch(songList, id)];
+
+    navigate(`/community/${id}`, { state: { song: song } });
   }
 
   return (
@@ -26,34 +26,32 @@ const Table = () => {
             <h1>OWNER</h1>
           </th>
           <th>
+            <h1>NAME</h1>
+          </th>
+          <th>
             <h1>RHYTHM</h1>
           </th>
           <th>
             <h1>CHORDS</h1>
           </th>
           <th>
-            <h1>NAME</h1>
+            <h1>DATE</h1>
           </th>
           <th>
             <h1>ID</h1>
           </th>
-          <th>
-            <h1>PLAYABLE</h1>
-          </th>
-          <th>
-            <h1>DATE</h1>
-          </th>
         </tr>
       </thead>
       <tbody>
-        <Row clickFunction={watchRowDetails} song={test} />
-        <Row clickFunction={watchRowDetails} song={test} />
-        <Row clickFunction={watchRowDetails} song={test} />
-        <Row clickFunction={watchRowDetails} song={test} />
-        <Row clickFunction={watchRowDetails} song={test} />
-        <Row clickFunction={watchRowDetails} song={test} />
-        <Row clickFunction={watchRowDetails} song={test} />
-        <Row clickFunction={watchRowDetails} song={test} />
+        {songList.map((song) => {
+          return (
+            <Row
+              key={song.id}
+              clickFunction={() => watchRowDetails(song.id)}
+              song={song}
+            />
+          );
+        })}
       </tbody>
     </table>
   );

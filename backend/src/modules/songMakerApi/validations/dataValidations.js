@@ -7,6 +7,8 @@ export function rhythmValidation(functionName, rhythm) {
     );
   }
 
+  // console.log('Rhythm: ' + JSON.stringify(rhythm));
+
   const { tempo, rhythmName, score } = rhythm;
 
   if (!tempo || !rhythmName || !score) {
@@ -21,7 +23,11 @@ export function rhythmValidation(functionName, rhythm) {
     );
   }
 
+  // console.log('Score: ' + JSON.stringify(score));
+
   score.forEach((item) => {
+    // console.log('forEach item: ', item);
+
     if (!item.chordName) {
       throw new ValidationError(
         `Data required: All fields in rhythm.score arg are needed in: ${functionName}`

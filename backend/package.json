@@ -17,6 +17,7 @@
     "express-session": "^1.17.3",
     "graphql": "^15.3.0",
     "graphql-http": "^1.18.0",
+    "moment": "^2.29.4",
     "mongoose": "^7.1.0",
     "nodemon": "^2.0.22",
     "openai": "^3.2.1",

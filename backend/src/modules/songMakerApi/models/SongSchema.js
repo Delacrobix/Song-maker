@@ -1,4 +1,4 @@
-import mongoose, { model, Schema } from 'mongoose';
+import { model, Schema } from 'mongoose';
 
 const SongSchema = new Schema({
   owner: {
@@ -9,11 +9,35 @@ const SongSchema = new Schema({
     required: true,
   },
   rhythmObject: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Rhythm',
+    rhythmName: {
+      type: String,
+      required: true,
+    },
+    tempo: {
+      type: Number,
+    },
+    score: [
+      {
+        chordName: {
+          type: String,
+          required: true,
+        },
+        seventh: {
+          type: String,
+        },
+        inversion: {
+          type: Number,
+          required: true,
+        },
+        duration: {
+          type: Number,
+          required: true,
+        },
+      },
+    ],
   },
   date: {
-    type: mongoose.Schema.Types.Date,
+    type: Date,
   },
 });
 

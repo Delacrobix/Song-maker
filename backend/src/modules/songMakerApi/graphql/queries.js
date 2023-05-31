@@ -2,7 +2,7 @@ import { GraphQLID, GraphQLList, GraphQLString } from 'graphql';
 import { UserSongOutputType, RhythmOutputType } from './types';
 import modelsExported from '../models/exports';
 
-const { User, Rhythm, Song } = modelsExported;
+const { UserSongInfo, Rhythm, Song } = modelsExported;
 
 export const getAllUserSongs = {
   name: 'getAllUserSongs',
@@ -13,7 +13,7 @@ export const getAllUserSongs = {
     const functionName = getAllUserSongs.name;
 
     try {
-      const songs = await Song.find();
+      const songs = await UserSongInfo.find();
 
       return songs;
     } catch (err) {

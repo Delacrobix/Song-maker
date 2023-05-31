@@ -1,11 +1,16 @@
 import { GraphQLString } from 'graphql';
-import { RhythmInputType, SongInputType } from './types';
+import {
+  RhythmInputType,
+  SongInputType,
+  InsertSongResponseType,
+} from './types';
 import modelsExported from '../models/exports';
 import { DataMutationError } from '../Errors/errorsController';
 import {
   rhythmValidation,
   SongValidation,
 } from '../validations/dataValidations';
+import moment from 'moment';
 
 //Mongoose models
 const { UserSongInfo, Rhythm, Song } = modelsExported;
@@ -39,7 +44,7 @@ export const insertRhythm = {
 
 export const insertSong = {
   name: 'insertSong',
-  type: GraphQLString,
+  type: InsertSongResponseType,
   description: 'Insert a song and userSongInfo on database',
   args: {
     song: { type: SongInputType },
@@ -48,34 +53,49 @@ export const insertSong = {
     const functionName = insertSong.name;
 
     const { song } = args;
+    // console.log('Song: ', song);
 
-    SongValidation(functionName, userSong);
+    SongValidation(functionName, song);
 
-    const chordList = '';
+    let chordList = '';
 
+    // console.log('song.rhythm: ' + song.rhythmType.score);
     //Extract the information from the song
-    song.rhythm.foreach((item) => {
-      chordList += item.chordName + item.seventh + '|';
+    song.rhythmType.score.forEach((item) => {
+      if (item.chordName !== 'rst') {
+        chordList += item.chordName + item.seventh + '|';
+      }
     });
+    // console.log('chordList: ', chordList);
 
-    const songInfo = {
-      owner: song.owner,
-      songName: song.songName,
-      rhythm: song.rhythm.rhythmName,
-      chords: chordList,
-      date: song.date,
-    };
+    // console.log('song.date: ', song.date);
+    song.date = moment(song.date, 'DD/MM/YYYY').format('YYYY-MM-DD');
+    // console.log('date: ', date);
 
     try {
-      const songInstance = new Song(song);
-      const userSongInfoInstance = new UserSongInfo(songInfo);
+      //Changing the name of object property
+      const aux = song.rhythmType;
+      delete song.rhythmType;
+      song.rhythmObject = aux;
 
-      //Saving song information
-      let userSongResult = await userSongInfoInstance.save();
       //Saving song
+      const songInstance = new Song(song);
       let songResult = await songInstance.save();
 
-      return true;
+      const songInfo = {
+        owner: song.owner,
+        songName: song.songName,
+        rhythm: song.rhythmObject.rhythmName,
+        chords: chordList,
+        date: song.date,
+        refId: songResult.id,
+      };
+
+      //Saving song information
+      const userSongInfoInstance = new UserSongInfo(songInfo);
+      let userSongResult = await userSongInfoInstance.save();
+
+      return { id: userSongResult.id };
     } catch (err) {
       console.error(err);
 

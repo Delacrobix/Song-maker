@@ -20,11 +20,11 @@ const UserSongInfoSchema = new Schema({
     required: true,
   },
   date: {
-    type: mongoose.Schema.Types.Date,
+    type: Date,
   },
   refId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'SongSchema',
+    ref: 'Song',
     required: true,
   },
 });

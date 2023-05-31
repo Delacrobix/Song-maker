@@ -10,6 +10,7 @@ import ErrorAlert from '../components/feedback/errorAlert';
 import BreadCrumb from '../components/breadCrumb';
 import Score from '../components/scores/score';
 import Tab from '../components/scores/tab';
+import { getCurrentDate } from '../controllers/controllers';
 
 const Results = () => {
   const location = useLocation();
@@ -22,21 +23,19 @@ const Results = () => {
     songName: '',
   });
 
-  const { data, error, loading } = useQuery(getAIChordsQuery(tonality));
-  const [insertSongMutation, mutation] = useMutation(
-    insertUserSongMutation(formData)
-  );
+  const query = useQuery(getAIChordsQuery(tonality));
+  const [insertMutation, mutation] = useMutation(insertUserSongMutation);
 
   useEffect(() => {
-    if (error) {
+    if (query.error) {
       setIsLoading(false);
     }
 
-    if (data) {
-      setChordsReceived(data.getAIChords);
+    if (query.data) {
+      setChordsReceived(query.data.getAIChords);
       setIsLoading(false);
     }
-  }, [data, error, loading]);
+  }, [query.data, query.error, query.loading]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -49,27 +48,43 @@ const Results = () => {
   function saveUserSong(event) {
     event.preventDefault();
 
-    insertSongMutation({ variables: { formData } })
+    // console.log('oldScore: ', rhythm.score);
+    //Deleting __typename property of score array
+    const newScore = rhythm.score.map((element) => {
+      const { __typename, ...rest } = element;
+
+      return rest;
+    });
+    // console.log('newScore: ', newScore);
+
+    const song = {
+      owner: formData.userName,
+      songName: formData.songName,
+      rhythmType: {
+        rhythmName: rhythm.rhythmName,
+        tempo: rhythm.tempo,
+        score: newScore,
+      },
+      date: getCurrentDate(),
+    };
+
+    insertMutation({ variables: song })
       .then((response) => {
-        alert(response.data.insert);
+        console.log(response.data.insertSong);
+        alert(response.data.insertSong);
       })
       .catch((error) => {
         console.error(error);
-        // return <ErrorAlert />;
       });
 
     if (mutation.error) {
+      return <ErrorAlert />;
     }
 
     if (mutation.loading) {
+      return <Loading />;
     }
-
-    console.log(formData);
   }
-
-  // console.log(chordsReceived);
-
-  // console.log('TON: ', tonality, 'RHY: ', rhythm);
 
   return (
     <div className='results-page-container'>
@@ -78,7 +93,7 @@ const Results = () => {
       <div className='result-information-container'>
         <div className='song-information-container'>
           {isLoading && <Loading />}
-          {error && <ErrorAlert />}
+          {query.error && <ErrorAlert />}
         </div>
         <label>{chordsReceived}</label>
         <button>Play your song</button>

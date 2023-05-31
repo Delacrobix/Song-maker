@@ -11,11 +11,6 @@ const ToneSelector = () => {
       <div className='circle-container'>
         <CircleOfFifths />
       </div>
-      <div className='next-btn-container'>
-        <Link to={'/rhythm-selector'} className='next-button'>
-          Next
-        </Link>
-      </div>
     </div>
   );
 };

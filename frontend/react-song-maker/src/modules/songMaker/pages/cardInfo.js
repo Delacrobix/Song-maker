@@ -1,12 +1,11 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 const CardInfo = () => {
   const location = useLocation();
-  const { object } = location.state;
-  const { songName, id, owner, rhythm, chords, date } = object;
+  const { song } = location.state;
+  const { songName, id, owner, rhythm, chords, date } = song;
 
-  // console.log(object);
   return (
     <div>
       <h1 className='title-page'>SONG INFORMATION</h1>
@@ -39,6 +38,10 @@ const CardInfo = () => {
             <p className='c-card_text'>
               <strong>DATE: </strong>
               {date}
+            </p>
+            <p className='c-card_text'>
+              <strong>Watch tabs: </strong>
+              <Link>Watch</Link>
             </p>
           </div>
           <button

@@ -14,6 +14,7 @@ export const getAllRhythmsQuery = gql`
     }
   }
 `;
+
 export const getAIChordsQuery = (ton) => {
   return gql`
     query {
@@ -22,21 +23,35 @@ export const getAIChordsQuery = (ton) => {
   `;
 };
 
-export const insertUserSongMutation = (data) => {
-  return gql`
-    mutation {
-      insertSong(
-        song: {
-          owner: "${data.owner}"
-          songName: "${data.songName}"
-          rhythmType: { 
-            rhythmName: "${data.rhythmName}", 
-            tempo: "${data.tempo}", 
-            score: "${data.score}" 
-          }
-          date: "${data.date}"
-        }
-      )
+export const insertUserSongMutation = gql`
+  mutation InsertUserSong(
+    $owner: String!
+    $songName: String!
+    $rhythmType: RhythmInputType!
+    $date: String!
+  ) {
+    insertSong(
+      song: {
+        owner: $owner
+        songName: $songName
+        rhythmType: $rhythmType
+        date: $date
+      }
+    ) {
+      id
     }
-  `;
-};
+  }
+`;
+
+export const getAllUserSongsQuery = gql`
+  query {
+    getAllUserSongs {
+      id
+      owner
+      songName
+      rhythm
+      chords
+      date
+    }
+  }
+`;

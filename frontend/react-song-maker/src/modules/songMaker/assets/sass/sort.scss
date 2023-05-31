@@ -1,0 +1,27 @@
+.search-input-container {
+  margin-top: 3%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 33px;
+  border-radius: 10px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  transform: translate(50%, -25%);
+  background: #fff;
+  transition: all 0.3s ease;
+
+  .search-input {
+    position: absolute;
+    top: 5px;
+    left: 38px;
+    font-size: 14px;
+    background: none;
+    color: #5a6674;
+    width: 195px;
+    height: 20px;
+    border: none;
+    appearance: none;
+    outline: none;
+  }
+}
