@@ -59,7 +59,7 @@ export const insertSong = {
 
     let chordList = '';
 
-    // console.log('song.rhythm: ' + song.rhythmType.score);
+    console.log('song.rhythm: ' + song.rhythmType.score);
     //Extract the information from the song
     song.rhythmType.score.forEach((item) => {
       if (item.chordName !== 'rst') {

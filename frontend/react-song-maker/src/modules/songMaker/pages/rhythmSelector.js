@@ -16,8 +16,6 @@ const RhythmSelector = () => {
   const tonality = location.state.tonality;
 
   const getRhythmObject = (rhythmObject) => {
-    // console.log('RHYTHM OBJECT: ', rhythmObject);
-
     setRhythmResult(rhythmObject);
 
     const container = document.querySelector(

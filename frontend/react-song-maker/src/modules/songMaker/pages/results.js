@@ -48,9 +48,21 @@ const Results = () => {
   function saveUserSong(event) {
     event.preventDefault();
 
+    const chordArr = chordsReceived.split('|');
+    console.log('chords received: ', chordsReceived);
+
     // console.log('oldScore: ', rhythm.score);
-    //Deleting __typename property of score array
+    let i = 0;
     const newScore = rhythm.score.map((element) => {
+      console.log('Element: ', element);
+
+      //Adding generated chords to the score
+      if (element.chordName !== 'rst') {
+        element.chordName = chordArr[i];
+        i++;
+      }
+
+      //Deleting __typename property of score
       const { __typename, ...rest } = element;
 
       return rest;
