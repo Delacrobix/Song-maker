@@ -13,6 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //Styles
 import './modules/songMaker/assets/css/songMakerStyles.css';
 import './modules/navigation/assets/css/navigationStyles.css';
+import './modules/auth/assets/css/authStyles.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

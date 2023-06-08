@@ -1,0 +1,38 @@
+.align-login {
+  display: grid;
+  margin-top: 15%;
+  color: #9e9dd6;
+
+  p {
+    margin-block: 1.5rem;
+  }
+
+  .grid {
+    inline-size: 90%;
+    margin-inline: auto;
+    max-inline-size: 20rem;
+
+    .text--center {
+      text-align: center;
+
+      a {
+        color: var(--anchorColor);
+        outline: 0;
+        text-decoration: none;
+      }
+
+      a:focus,
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .icon {
+      block-size: 1em;
+      display: inline-block;
+      fill: var(--iconFill);
+      inline-size: 1em;
+      vertical-align: middle;
+    }
+  }
+}

@@ -16,6 +16,7 @@
       "launchUrl": "swagger",
       "applicationUrl": "http://localhost:5097",
       "environmentVariables": {
+        "JWT_SECRET": "T9*$!4rEoK#5hw3&!4rEoK45d|Fsa321y",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },

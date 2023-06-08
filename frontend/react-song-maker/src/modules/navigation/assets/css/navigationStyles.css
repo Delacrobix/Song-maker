@@ -13,12 +13,23 @@ header {
   background-color: var(--mainColor);
   color: var(--textColor);
 }
+header nav {
+  margin-left: 15%;
+}
 header nav a {
   margin: 0 2rem;
   color: var(--textColor);
   text-decoration: none;
 }
 header nav a:hover {
+  color: var(--secondaryColor);
+}
+header .nav-login-btn {
+  color: var(--textColor);
+  cursor: pointer;
+  text-decoration: none;
+}
+header .nav-login-btn:hover {
   color: var(--secondaryColor);
 }
 header .nav-btn {

@@ -25,6 +25,9 @@ const Navbar = () => {
       <button className='nav-btn' onClick={showNavbar}>
         <FaBars />
       </button>
+      <Link className='nav-login-btn' to='/login'>
+        Login
+      </Link>
     </header>
   );
 };

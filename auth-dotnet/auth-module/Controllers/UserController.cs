@@ -1,112 +1,113 @@
 using Microsoft.AspNetCore.Mvc;
-using auth_module.Data;
+using auth_module.Services;
 using auth_module.Data.Models;
-using Microsoft.EntityFrameworkCore;
+using auth_module.Data.DTOs;
 
 namespace auth_module.Controllers;
 
 [ApiController]
-[Route("user")]
+[Route("api/[controller]")]
 public class UserController : ControllerBase
 {
+  private readonly UserAccountService _service;
 
-  private readonly AuthContext _authContext;
-
-  public UserController(AuthContext _authContext)
+  public UserController(UserAccountService _service)
   {
-    this._authContext = _authContext;
+    this._service = _service;
+  }
+
+  [HttpPost("validate")]
+  public async Task<ActionResult<string>> ValidateUser([FromBody] UserCredentials credentials)
+  {
+    if (String.IsNullOrEmpty(credentials.UserName))
+    {
+      return BadRequest(new { message = "The user or email must be specified" });
+    }
+    else if (String.IsNullOrEmpty(credentials.Password))
+    {
+      return BadRequest(new { message = "The password must be specified" });
+    }
+
+    var existingUser = await _service.GetMatch(credentials.UserName, credentials.Password);
+
+    if (existingUser is not null)
+    {
+      var token = _service.GenerateJwtToken(existingUser.Id.ToString());
+
+      return token;
+    }
+    else
+    {
+      return NotFound(new { message = "User, email or password was not found, please try again" });
+    }
   }
 
   [HttpGet("list")]
   public async Task<IEnumerable<UserAccount>> GetList()
   {
-    try
-    {
-
-      return await _authContext.UserAccounts.ToListAsync();
-    }
-    catch (Exception e)
-    {
-      Console.WriteLine("Error: " + e.Message);
-      throw new InvalidOperationException("Could not do the operation");
-    }
+    return await _service.GetList();
   }
 
   [HttpGet("byId/{id}")]
-  public ActionResult<UserAccount> GetById(int id)
+  public async Task<ActionResult<UserAccount>> GetById(int id)
   {
+    var result = await _service.GetById(id);
 
-    try
+    if (result is null)
     {
-      var result = _authContext.UserAccounts.Find(id);
-
-      if (result is null)
-      {
-        return NotFound();
-      }
-
-      return Ok(result);
+      return ClientNotFound(id);
     }
-    catch (Exception e)
-    {
-      Console.WriteLine("Error: " + e.Message);
 
-      throw new InvalidOperationException("Could not do the operation");
-    }
+    return Ok(result);
   }
 
   [HttpPost("create")]
-  public ActionResult<UserAccount> CreateRegister(UserAccount ua)
+  public async Task<ActionResult<UserAccount>> CreateRegister(UserAccount ua)
   {
-    try
-    {
-      _authContext.Add(ua);
+    var newRegister = await _service.CreateRegister(ua);
 
-      try
-      {
-        _authContext.SaveChanges();
-      }
-      catch (Exception e)
-      {
-        throw new InvalidOperationException("Could not do the operation: " + e.Message);
-      }
-
-      return CreatedAtAction(nameof(GetById), new { id = ua.Id }, ua);
-    }
-    catch (Exception e)
-    {
-      throw new InvalidOperationException("Could not do the operation: " + e.Message);
-    }
+    return CreatedAtAction(nameof(GetById), new { id = newRegister.Id }, newRegister);
   }
 
   [HttpPut("edit/{id}")]
-  public ActionResult<UserAccount> Update(int id, UserAccount ua)
+  public async Task<ActionResult<UserAccount>> Update(int id, UserAccount ua)
   {
     if (id != ua.Id)
     {
-      return BadRequest();
+      return BadRequest(new { message = $"The URL ID {id} does not match with the body request ID {ua.Id}." });
     }
 
-    var existingUser = _authContext.UserAccounts.Find(id);
+    var existingUser = await _service.GetById(id);
 
-    if (existingUser == null)
+    if (existingUser is not null)
     {
-      return NotFound();
-    }
-
-    existingUser.UserName = ua.UserName;
-    existingUser.Email = ua.Email;
-    existingUser.Password = ua.Password;
-
-    try
-    {
-      _authContext.SaveChanges();
-
+      await _service.Update(id, ua);
       return NoContent();
     }
-    catch (Exception e)
+    else
     {
-      throw new InvalidOperationException("Could not update user account: " + e.Message);
+      return ClientNotFound(id);
     }
+  }
+
+  [HttpDelete("delete/{id}")]
+  public async Task<ActionResult<UserAccount>> Delete(int id)
+  {
+    var userExisting = await _service.GetById(id);
+
+    if (userExisting is not null)
+    {
+      await _service.Delete(id);
+      return Ok();
+    }
+    else
+    {
+      return ClientNotFound(id);
+    }
+  }
+
+  public NotFoundObjectResult ClientNotFound(int id)
+  {
+    return NotFound(new { message = $"The client with ID {id} does not exist" });
   }
 }

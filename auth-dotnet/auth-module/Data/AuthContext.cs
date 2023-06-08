@@ -1,46 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using auth_module.Data.Models;
 
 namespace auth_module.Data;
 
 public partial class AuthContext : DbContext
 {
-    public AuthContext()
+  public AuthContext()
+  {
+  }
+
+  public AuthContext(DbContextOptions<AuthContext> options)
+      : base(options)
+  {
+  }
+
+  public virtual DbSet<UserAccount> UserAccounts { get; set; }
+
+  protected override void OnModelCreating(ModelBuilder modelBuilder)
+  {
+    modelBuilder.Entity<UserAccount>(entity =>
     {
-    }
+      entity.HasKey(e => e.Id).HasName("PK__UserAcco__3214EC279E7BC659");
 
-    public AuthContext(DbContextOptions<AuthContext> options)
-        : base(options)
-    {
-    }
+      entity.ToTable("UserAccount");
 
-    public virtual DbSet<UserAccount> UserAccounts { get; set; }
+      entity.Property(e => e.Id).HasColumnName("ID");
+      entity.Property(e => e.Email)
+              .HasMaxLength(75)
+              .IsUnicode(false);
+      entity.Property(e => e.Password)
+              .HasMaxLength(50)
+              .IsUnicode(false);
+      entity.Property(e => e.RegDate).HasColumnType("datetime").HasDefaultValueSql("GETDATE()");
+      entity.Property(e => e.UserName)
+              .HasMaxLength(50)
+              .IsUnicode(false);
+    });
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<UserAccount>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__UserAcco__3214EC279E7BC659");
+    OnModelCreatingPartial(modelBuilder);
+  }
 
-            entity.ToTable("UserAccount");
-
-            entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.Email)
-                .HasMaxLength(75)
-                .IsUnicode(false);
-            entity.Property(e => e.Password)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.RegDate).HasColumnType("datetime").HasDefaultValueSql("GETDATE()");
-            entity.Property(e => e.UserName)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-        });
-
-        OnModelCreatingPartial(modelBuilder);
-    }
-
-    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+  partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
