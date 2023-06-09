@@ -1,0 +1,29 @@
+version: '3'
+services:
+  nodejs:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - ./backend:/app/backend/songmaker-module
+
+  react:
+    build:
+      context: ./frontend/react-song-maker
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+
+    volumes:
+      - ./frontend/react-song-maker:/app/frontend
+
+  dotnet:
+    build:
+      context: ./auth-dotnet/auth-module
+      dockerfile: Dockerfile
+    ports:
+      - 5097:5097
+    volumes:
+      - ./auth-dotnet/auth-module:/app/backend/auth-module

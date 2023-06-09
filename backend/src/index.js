@@ -3,12 +3,12 @@ import '@babel/register';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { createHandler } from 'graphql-http/lib/use/express';
-import { dbConnection } from './db/index';
 import('./server.js');
 
-dbConnection();
-
 dotenv.config({ path: '.env.local' });
+
+const { dbConnection } = require('./db/index');
+dbConnection();
 
 const app = express();
 

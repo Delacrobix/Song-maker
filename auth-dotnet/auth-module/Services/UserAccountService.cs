@@ -5,6 +5,7 @@ using auth_module.Data;
 using auth_module.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Security.Cryptography;
 
 namespace auth_module.Services;
 
@@ -108,18 +109,37 @@ public class UserAccountService
     }
   }
 
-  public async Task<UserAccount> GetMatch(string user, string password)
+  public async Task<UserAccount> GetByUserNameOrEmail(string userNameOrEmail)
   {
-    decryptPassword(password);
+    var user = await _context.UserAccounts.FirstOrDefaultAsync(x => x.Email == userNameOrEmail || x.UserName == userNameOrEmail);
 
-    var userExisting = await _context.UserAccounts.FirstOrDefaultAsync(x => (x.UserName == user || x.Email == user) && x.Password == password);
-
-    return userExisting;
+    return user;
   }
 
-  public void encryptPassword(string password) { }
+  public string encryptPassword(string password)
+  {
+    using (SHA256 sha256 = SHA256.Create())
+    {
+      byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+      byte[] hashBytes = sha256.ComputeHash(passwordBytes);
+      string hashString = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
 
-  public void decryptPassword(string password) { }
+      return hashString;
+    }
+  }
+
+  public bool VerifyPassword(string password, string hashedPassword)
+  {
+    using (SHA256 sha256 = SHA256.Create())
+    {
+      byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+      byte[] hashBytes = sha256.ComputeHash(passwordBytes);
+
+      string hashedInput = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+
+      return hashedInput.Equals(hashedPassword);
+    }
+  }
 
   public string GenerateJwtToken(string userId)
   {

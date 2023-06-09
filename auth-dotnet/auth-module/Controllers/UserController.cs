@@ -28,17 +28,23 @@ public class UserController : ControllerBase
       return BadRequest(new { message = "The password must be specified" });
     }
 
-    var existingUser = await _service.GetMatch(credentials.UserName, credentials.Password);
+    var existingUser = await _service.GetByUserNameOrEmail(credentials.UserName);
 
     if (existingUser is not null)
     {
-      var token = _service.GenerateJwtToken(existingUser.Id.ToString());
-
-      return token;
+      if (_service.VerifyPassword(credentials.Password, existingUser.Password))
+      {
+        var token = _service.GenerateJwtToken(existingUser.Id.ToString());
+        return token;
+      }
+      else
+      {
+        return NotFound(new { message = "Incorrect password." });
+      }
     }
     else
     {
-      return NotFound(new { message = "User, email or password was not found, please try again" });
+      return NotFound(new { message = "User or email doesn't exist." });
     }
   }
 
@@ -64,9 +70,23 @@ public class UserController : ControllerBase
   [HttpPost("create")]
   public async Task<ActionResult<UserAccount>> CreateRegister(UserAccount ua)
   {
-    var newRegister = await _service.CreateRegister(ua);
+    if (ua == null)
+    {
+      return BadRequest(new { Message = "Parameters cannot be null." });
+    }
 
-    return CreatedAtAction(nameof(GetById), new { id = newRegister.Id }, newRegister);
+    var userExisting = await _service.GetByUserNameOrEmail(ua.UserName);
+    if (userExisting is not null)
+    {
+      return BadRequest(new { Message = "User or email already exist." });
+    }
+    else
+    {
+      ua.Password = _service.encryptPassword(ua.Password);
+      var newRegister = await _service.CreateRegister(ua);
+
+      return CreatedAtAction(nameof(GetById), new { id = newRegister.Id }, newRegister);
+    }
   }
 
   [HttpPut("edit/{id}")]

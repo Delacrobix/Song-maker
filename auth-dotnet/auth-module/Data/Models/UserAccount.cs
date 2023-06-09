@@ -13,7 +13,7 @@ public partial class UserAccount
   [EmailAddress(ErrorMessage = "The email address must be a valid email address")]
   public string? Email { get; set; }
 
-  [MaxLength(50, ErrorMessage = "Password must be at least 50 characters")]
+  [MaxLength(125, ErrorMessage = "Password must be at least 50 characters")]
   public string? Password { get; set; }
 
   public DateTime RegDate { get; set; }
