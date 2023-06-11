@@ -10,7 +10,7 @@ import ErrorAlert from '../components/feedback/errorAlert';
 import BreadCrumb from '../components/breadCrumb';
 import Score from '../components/scores/score';
 import Tab from '../components/scores/tab';
-import { getCurrentDate } from '../controllers/controllers';
+import { getCurrentDate, buildNewChordArr } from '../controllers/controllers';
 
 const Results = () => {
   const location = useLocation();
@@ -48,26 +48,33 @@ const Results = () => {
   function saveUserSong(event) {
     event.preventDefault();
 
-    const chordArr = chordsReceived.split('|');
-    console.log('chords received: ', chordsReceived);
+    const aiChordsArr = chordsReceived.split('|');
+    // console.log('chords from AI: ', chordsReceived);
+
+    const rhythmScoreCopy = [...rhythm.score];
+
+    const databaseScore = rhythmScoreCopy.map((element) => {
+      return element.chordName;
+    });
+
+    const newChordArr = buildNewChordArr(databaseScore, aiChordsArr);
+
+    // console.log('database score: ', databaseScore);
 
     // console.log('oldScore: ', rhythm.score);
-    let i = 0;
-    const newScore = rhythm.score.map((element) => {
-      console.log('Element: ', element);
+    const newScore = rhythmScoreCopy.map((element, index) => {
+      // console.log('Element: ', element);
 
       //Adding generated chords to the score
-      if (element.chordName !== 'rst') {
-        element.chordName = chordArr[i];
-        i++;
-      }
+      element.chordName = newChordArr[index];
 
       //Deleting __typename property of score
       const { __typename, ...rest } = element;
 
       return rest;
     });
-    // console.log('newScore: ', newScore);
+
+    console.log('newScore: ', newScore);
 
     const song = {
       owner: formData.userName,
@@ -109,10 +116,10 @@ const Results = () => {
         </div>
         <label>{chordsReceived}</label>
         <button>Play your song</button>
-        <div className='musical-representation-container'>
+        {/* <div className='musical-representation-container'>
           <Score />
           <Tab />
-        </div>
+        </div> */}
       </div>
       <div className='share-song-button-container'>
         <form onSubmit={saveUserSong}>

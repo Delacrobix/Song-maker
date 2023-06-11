@@ -26,3 +26,28 @@ export function binarySearch(array, data) {
 
   return -1;
 }
+
+export function buildNewChordArr(oldChordArr, newChords) {
+  // console.log('oldChordArr: ', oldChordArr);
+  // console.log('newChords: ', newChords);
+
+  let newChordsArr = [];
+  let i = 0;
+
+  oldChordArr.forEach((element, index) => {
+    // console.log('index: ', index, ' | i: ', i);
+
+    if (element === 'rst') {
+      newChordsArr.push('rst');
+    } else if (element === oldChordArr[index - 1]) {
+      newChordsArr.push(newChords[i - 1]);
+    } else {
+      newChordsArr.push(newChords[i]);
+      i++;
+    }
+    // console.log('newChordsArr: ', newChordsArr);
+  });
+
+  // console.log('newChordsArr: ', newChordsArr);
+  return newChordsArr;
+}

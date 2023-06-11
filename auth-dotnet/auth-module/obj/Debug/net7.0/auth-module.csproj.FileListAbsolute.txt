@@ -1,152 +1,228 @@
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\appsettings.Development.json
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\appsettings.json
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\auth-module.exe
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\auth-module.deps.json
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\auth-module.runtimeconfig.json
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\auth-module.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\auth-module.pdb
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.OpenApi.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.csproj.AssemblyReference.cache
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.GeneratedMSBuildEditorConfig.editorconfig
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.AssemblyInfoInputs.cache
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.AssemblyInfo.cs
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.csproj.CoreCompileInputs.cache
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.MvcApplicationPartsAssemblyInfo.cs
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.MvcApplicationPartsAssemblyInfo.cache
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\staticwebassets\msbuild.auth-module.Microsoft.AspNetCore.StaticWebAssets.props
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\staticwebassets\msbuild.build.auth-module.props
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.auth-module.props
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.auth-module.props
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\staticwebassets.pack.json
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\staticwebassets.build.json
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\staticwebassets.development.json
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\scopedcss\bundle\auth-module.styles.css
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.csproj.CopyComplete
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\refint\auth-module.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.pdb
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.genruntimeconfig.cache
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\obj\Debug\net7.0\ref\auth-module.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Azure.Core.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Azure.Identity.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.Identity.Client.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\System.Drawing.Common.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\System.Memory.Data.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\System.Runtime.Caching.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\System.Security.Permissions.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\System.Windows.Extensions.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Humanizer.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\Mono.TextTemplating.dll
-D:\PROGRAMACION\Curriculum\Song maker project\Song maker\auth-dotnet\auth-module\bin\Debug\net7.0\System.CodeDom.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\appsettings.Development.json
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\appsettings.json
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\auth-module.exe
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\auth-module.deps.json
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\auth-module.runtimeconfig.json
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\auth-module.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\auth-module.pdb
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Azure.Core.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Azure.Identity.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Humanizer.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.Identity.Client.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.OpenApi.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Mono.TextTemplating.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\System.CodeDom.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\System.Drawing.Common.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\System.Memory.Data.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\System.Runtime.Caching.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\System.Security.Permissions.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\System.Windows.Extensions.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.csproj.AssemblyReference.cache
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.GeneratedMSBuildEditorConfig.editorconfig
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.AssemblyInfoInputs.cache
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.AssemblyInfo.cs
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.csproj.CoreCompileInputs.cache
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.MvcApplicationPartsAssemblyInfo.cs
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.MvcApplicationPartsAssemblyInfo.cache
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\staticwebassets\msbuild.auth-module.Microsoft.AspNetCore.StaticWebAssets.props
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\staticwebassets\msbuild.build.auth-module.props
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.auth-module.props
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.auth-module.props
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\staticwebassets.pack.json
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\staticwebassets.build.json
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\staticwebassets.development.json
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\scopedcss\bundle\auth-module.styles.css
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.csproj.CopyComplete
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\refint\auth-module.dll
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.pdb
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\auth-module.genruntimeconfig.cache
-D:\PROGRAMACION\Curriculum\Song maker project\auth-dotnet\auth-module\obj\Debug\net7.0\ref\auth-module.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/appsettings.Development.json
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/appsettings.json
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/auth-module.exe
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/auth-module.deps.json
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/auth-module.runtimeconfig.json
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/auth-module.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/auth-module.pdb
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.AspNetCore.OpenApi.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.OpenApi.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.csproj.AssemblyReference.cache
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.GeneratedMSBuildEditorConfig.editorconfig
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.AssemblyInfoInputs.cache
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.AssemblyInfo.cs
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.csproj.CoreCompileInputs.cache
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.MvcApplicationPartsAssemblyInfo.cs
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.MvcApplicationPartsAssemblyInfo.cache
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/staticwebassets/msbuild.auth-module.Microsoft.AspNetCore.StaticWebAssets.props
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/staticwebassets/msbuild.build.auth-module.props
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.auth-module.props
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.auth-module.props
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/staticwebassets.pack.json
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/staticwebassets.build.json
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/staticwebassets.development.json
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/scopedcss/bundle/auth-module.styles.css
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.csproj.CopyComplete
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/refint/auth-module.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.pdb
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.genruntimeconfig.cache
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/obj/Debug/net7.0/ref/auth-module.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Azure.Core.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Azure.Identity.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.Data.SqlClient.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.Identity.Client.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.Identity.Client.Extensions.Msal.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.SqlServer.Server.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.Win32.SystemEvents.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/System.Configuration.ConfigurationManager.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/System.Drawing.Common.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/System.Memory.Data.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/System.Runtime.Caching.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/System.Security.Cryptography.ProtectedData.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/System.Security.Permissions.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/System.Windows.Extensions.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Humanizer.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Design.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/Mono.TextTemplating.dll
+D:/PROGRAMACION/Curriculum/Song maker project/Song maker/auth-dotnet/auth-module/bin/Debug/net7.0/System.CodeDom.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/appsettings.Development.json
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/appsettings.json
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/auth-module.exe
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/auth-module.deps.json
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/auth-module.runtimeconfig.json
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/auth-module.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/auth-module.pdb
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Azure.Core.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Azure.Identity.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Humanizer.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.AspNetCore.OpenApi.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.Data.SqlClient.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Design.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.Identity.Client.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.Identity.Client.Extensions.Msal.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.OpenApi.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.SqlServer.Server.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Microsoft.Win32.SystemEvents.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Mono.TextTemplating.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/System.CodeDom.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/System.Configuration.ConfigurationManager.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/System.Drawing.Common.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/System.Memory.Data.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/System.Runtime.Caching.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/System.Security.Cryptography.ProtectedData.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/System.Security.Permissions.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/System.Windows.Extensions.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.csproj.AssemblyReference.cache
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.GeneratedMSBuildEditorConfig.editorconfig
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.AssemblyInfoInputs.cache
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.AssemblyInfo.cs
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.csproj.CoreCompileInputs.cache
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.MvcApplicationPartsAssemblyInfo.cs
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.MvcApplicationPartsAssemblyInfo.cache
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/staticwebassets/msbuild.auth-module.Microsoft.AspNetCore.StaticWebAssets.props
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/staticwebassets/msbuild.build.auth-module.props
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.auth-module.props
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.auth-module.props
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/staticwebassets.pack.json
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/staticwebassets.build.json
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/staticwebassets.development.json
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/scopedcss/bundle/auth-module.styles.css
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.csproj.CopyComplete
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/refint/auth-module.dll
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.pdb
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/auth-module.genruntimeconfig.cache
+D:/PROGRAMACION/Curriculum/Song maker project/auth-dotnet/auth-module/obj/Debug/net7.0/ref/auth-module.dll
+/backend/dotnet/bin/Debug/net7.0/appsettings.Development.json
+/backend/dotnet/bin/Debug/net7.0/appsettings.json
+/backend/dotnet/bin/Debug/net7.0/auth-module
+/backend/dotnet/bin/Debug/net7.0/auth-module.deps.json
+/backend/dotnet/bin/Debug/net7.0/auth-module.runtimeconfig.json
+/backend/dotnet/bin/Debug/net7.0/auth-module.dll
+/backend/dotnet/bin/Debug/net7.0/auth-module.pdb
+/backend/dotnet/bin/Debug/net7.0/Azure.Core.dll
+/backend/dotnet/bin/Debug/net7.0/Azure.Identity.dll
+/backend/dotnet/bin/Debug/net7.0/Humanizer.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.AspNetCore.OpenApi.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.Data.SqlClient.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Design.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.Identity.Client.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.Identity.Client.Extensions.Msal.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.OpenApi.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.SqlServer.Server.dll
+/backend/dotnet/bin/Debug/net7.0/Microsoft.Win32.SystemEvents.dll
+/backend/dotnet/bin/Debug/net7.0/Mono.TextTemplating.dll
+/backend/dotnet/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
+/backend/dotnet/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/backend/dotnet/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/backend/dotnet/bin/Debug/net7.0/System.CodeDom.dll
+/backend/dotnet/bin/Debug/net7.0/System.Configuration.ConfigurationManager.dll
+/backend/dotnet/bin/Debug/net7.0/System.Drawing.Common.dll
+/backend/dotnet/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
+/backend/dotnet/bin/Debug/net7.0/System.Memory.Data.dll
+/backend/dotnet/bin/Debug/net7.0/System.Runtime.Caching.dll
+/backend/dotnet/bin/Debug/net7.0/System.Security.Cryptography.ProtectedData.dll
+/backend/dotnet/bin/Debug/net7.0/System.Security.Permissions.dll
+/backend/dotnet/bin/Debug/net7.0/System.Windows.Extensions.dll
+/backend/dotnet/bin/Debug/net7.0/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+/backend/dotnet/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+/backend/dotnet/bin/Debug/net7.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+/backend/dotnet/bin/Debug/net7.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+/backend/dotnet/bin/Debug/net7.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+/backend/dotnet/bin/Debug/net7.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+/backend/dotnet/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+/backend/dotnet/bin/Debug/net7.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+/backend/dotnet/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+/backend/dotnet/bin/Debug/net7.0/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+/backend/dotnet/bin/Debug/net7.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+/backend/dotnet/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+/backend/dotnet/obj/Debug/net7.0/auth-module.csproj.AssemblyReference.cache
+/backend/dotnet/obj/Debug/net7.0/auth-module.GeneratedMSBuildEditorConfig.editorconfig
+/backend/dotnet/obj/Debug/net7.0/auth-module.AssemblyInfoInputs.cache
+/backend/dotnet/obj/Debug/net7.0/auth-module.AssemblyInfo.cs
+/backend/dotnet/obj/Debug/net7.0/auth-module.csproj.CoreCompileInputs.cache
+/backend/dotnet/obj/Debug/net7.0/auth-module.MvcApplicationPartsAssemblyInfo.cs
+/backend/dotnet/obj/Debug/net7.0/auth-module.MvcApplicationPartsAssemblyInfo.cache
+/backend/dotnet/obj/Debug/net7.0/staticwebassets/msbuild.auth-module.Microsoft.AspNetCore.StaticWebAssets.props
+/backend/dotnet/obj/Debug/net7.0/staticwebassets/msbuild.build.auth-module.props
+/backend/dotnet/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.auth-module.props
+/backend/dotnet/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.auth-module.props
+/backend/dotnet/obj/Debug/net7.0/staticwebassets.pack.json
+/backend/dotnet/obj/Debug/net7.0/staticwebassets.build.json
+/backend/dotnet/obj/Debug/net7.0/staticwebassets.development.json
+/backend/dotnet/obj/Debug/net7.0/scopedcss/bundle/auth-module.styles.css
+/backend/dotnet/obj/Debug/net7.0/auth-module.csproj.CopyComplete
+/backend/dotnet/obj/Debug/net7.0/auth-module.dll
+/backend/dotnet/obj/Debug/net7.0/refint/auth-module.dll
+/backend/dotnet/obj/Debug/net7.0/auth-module.pdb
+/backend/dotnet/obj/Debug/net7.0/auth-module.genruntimeconfig.cache
+/backend/dotnet/obj/Debug/net7.0/ref/auth-module.dll

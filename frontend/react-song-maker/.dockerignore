@@ -1,1 +1,9 @@
 /node_modules
+Dockerfile
+.gitignore
+README.md
+
+# Ignoring sass files
+/src/modules/auth/assets/sass
+/src/modules/navigation/assets/sass
+/src/modules/songMaker/assets/sass

@@ -26,7 +26,7 @@ export function rhythmValidation(functionName, rhythm) {
   // console.log('Score: ' + JSON.stringify(score));
 
   score.forEach((item) => {
-    // console.log('forEach item: ', item);
+    console.log('forEach item: ', item);
 
     if (!item.chordName) {
       throw new ValidationError(

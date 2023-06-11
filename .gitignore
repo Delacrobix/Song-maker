@@ -1,6 +1,12 @@
 backend/node_modules
-/sound-bank
-backend/.env.local
 backend/_querys.js
 TODO.md
+
+# ENV
+backend/.env.local
+
+# Docker
 .devconitaner
+backend/Dockerfile.dev
+auth-dotnet/auth-module/Dockerfile.dev
+frontend/react-song-maker/Dockerfile.dev

@@ -36,12 +36,12 @@ const LoginForm = () => {
             <span className='hidden'>Username</span>
           </label>
           <input
-            autoComplete='username'
+            autoComplete='userName'
             id='login__username'
             type='text'
-            name='username'
+            name='userName'
             onChange={handleChange}
-            value={form.username}
+            value={form.userName}
             className='form__input'
             placeholder='Username'
             required

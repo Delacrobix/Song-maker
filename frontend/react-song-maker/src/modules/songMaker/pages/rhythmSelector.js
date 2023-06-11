@@ -29,9 +29,10 @@ const RhythmSelector = () => {
   const { loading, error, data } = useQuery(getAllRhythmsQuery);
 
   useEffect(() => {
-    if (data) {
-      const buttonsAux = [];
+    const buttonsAux = [];
 
+    if (data) {
+      console.log('Data: ' + JSON.stringify(data));
       data.getAllRhythms.forEach((rhythm) => {
         buttonsAux.push(
           <RhythmButton
@@ -44,6 +45,14 @@ const RhythmSelector = () => {
       });
 
       setButtonList(buttonsAux);
+    }
+
+    if (loading) {
+      buttonsAux.push(<Loading />);
+    }
+
+    if (error) {
+      buttonsAux.push(<ErrorAlert />);
     }
   }, [data, loading, error]);
 
