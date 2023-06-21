@@ -1,12 +1,32 @@
-backend/node_modules
-backend/_querys.js
+#General
+/.devcontainer
+/.mscbackup
+/.vscode
 TODO.md
 
-# ENV
-backend/.env.local
+#Frontend react
+/frontend/react-song-maker/node_modules
+/frontend/react-song-maker/.pnp
+/frontend/react-song-maker/.pnp.js
+/frontend/react-song-maker/coverage
+/frontend/react-song-maker/build
+/frontend/react-song-maker/.DS_Store
+/frontend/react-song-maker/.env.local
+/frontend/react-song-maker/.env.development.local
+/frontend/react-song-maker/.env.test.local
+/frontend/react-song-maker/.env.production.local
+/frontend/react-song-maker/npm-debug.log*
+/frontend/react-song-maker/yarn-debug.log*
+/frontend/react-song-maker/yarn-error.log*
 
-# Docker
-.devconitaner
-backend/Dockerfile.dev
-auth-dotnet/auth-module/Dockerfile.dev
-frontend/react-song-maker/Dockerfile.dev
+#Backend dotnet
+/auth-dotnet/auth-module/.vscode
+/auth-dotnet/auth-module/bin
+/auth-dotnet/auth-module/obj
+/auth-dotnet/auth-module/appsettings.json
+/auth-dotnet/auth-module/.vs
+
+#Backend nodejs
+/backend/node_modules
+/backend/_querys.js
+/backend/.env.local

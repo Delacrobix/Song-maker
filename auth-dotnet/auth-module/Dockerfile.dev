@@ -1,0 +1,18 @@
+FROM mcr.microsoft.com/dotnet/sdk:7.0
+ENV DOTNET_USE_POLLING_FILE_WATCHER 1
+
+WORKDIR /backend/dotnet
+
+COPY *.csproj .
+COPY appsettings.json ./
+
+RUN dotnet restore
+RUN dotnet dev-certs https --trust
+
+COPY . .
+
+VOLUME /backend/dotnet
+
+EXPOSE 5097
+
+ENTRYPOINT dotnet watch run --urls=http://+:5097 --project auth-module.csproj

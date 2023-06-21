@@ -11,9 +11,9 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //Styles
-import './modules/songMaker/assets/css/songMakerStyles.css';
-import './modules/navigation/assets/css/navigationStyles.css';
-import './modules/auth/assets/css/authStyles.css';
+import './modules/songMaker/assets/css/styles.css';
+import './modules/navigation/assets/css/styles.css';
+import './modules/auth/assets/css/styles.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

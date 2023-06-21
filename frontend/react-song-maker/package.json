@@ -5,10 +5,12 @@
   "dependencies": {
     "@apollo/client": "^3.7.14",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.3",
+    "concurrently": "^8.2.0",
     "fontawesome": "^5.6.3",
     "graphql": "^16.6.0",
     "react": "^18.2.0",
@@ -24,10 +26,14 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "sass-auth": "sass --watch src/modules/auth/assets/sass/index.scss:src/modules/auth/assets/css/styles.css",
+    "sass-navigation": "sass --watch src/modules/navigation/assets/sass/index.scss:src/modules/navigation/assets/css/styles.css",
+    "sass-songMaker": "sass --watch src/modules/songMaker/assets/sass/index.scss:src/modules/songMaker/assets/css/styles.css",
     "docker:dev": "WATCHPACK_POLLING=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev": "concurrently \"npm run sass-auth\" \"npm run sass-navigation\" \"npm run sass-songMaker\" \"npm start\""
   },
   "eslintConfig": {
     "extends": [
