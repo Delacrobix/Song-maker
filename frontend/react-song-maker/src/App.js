@@ -10,6 +10,8 @@ import CardInfo from './modules/songMaker/pages/cardInfo';
 import HomePage from './modules/songMaker/pages/homePage';
 import Login from './modules/auth/pages/login';
 import Signup from './modules/auth/pages/signup';
+import ProtectedRoute from './modules/auth/components/protectedRoute';
+import Profile from './modules/auth/pages/profile';
 
 function App() {
   return (
@@ -23,8 +25,16 @@ function App() {
         <Route path='/rhythm-selector' element={<RhythmSelector />} />
         <Route path='/results' element={<Results />} />
         <Route path='/about-me' element={<AboutMe />} />
-        <Route exact path='/create-song/tone' element={<ToneSelector />} />
-        <Route exact path='/home' element={<HomePage />} />
+        <Route path='/create-song/tone' element={<ToneSelector />} />
+        <Route path='/home' element={<HomePage />} />
+        <Route
+          path='/profile'
+          element={
+            <ProtectedRoute path='/login'>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       <Footer />
     </div>

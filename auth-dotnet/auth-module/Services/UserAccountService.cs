@@ -143,7 +143,12 @@ public class UserAccountService
 
   public string GenerateJwtToken(string userId)
   {
-    var secretKey = Environment.GetEnvironmentVariable("JWT_SECRET");
+    var configuration = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory).AddJsonFile("appsettings.json").AddEnvironmentVariables().Build();
+
+    string secretKey = configuration["AppSettings:JWT_SECRET"];
+    // Console.WriteLine("Enviroment: " + valorVariableEntorno);
+
+    // var secretKey = Environment.GetEnvironmentVariable("JWT_SECRET");
     var tokenHandler = new JwtSecurityTokenHandler();
     var key = Encoding.ASCII.GetBytes(secretKey);
 

@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { getAuth } from '../controllers/httpRequests';
+import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     userName: '',
     password: '',
@@ -21,7 +24,13 @@ const LoginForm = () => {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    await getAuth(form);
+    const response = await getAuth(form);
+    console.log(JSON.stringify(response));
+
+    if (response) {
+      // Cookies.set('token', response);
+      navigate('/profile');
+    }
     // console.log('form: ' + JSON.stringify(form));
   }
 
