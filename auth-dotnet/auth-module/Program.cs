@@ -1,8 +1,15 @@
 using auth_module.Data;
+using auth_module.Data.DTOs;
 using auth_module.Services;
 
 var myCorsPolicy = "policy";
 var builder = WebApplication.CreateBuilder(args);
+
+var config = new ConfigurationBuilder().SetBasePath(builder.Environment.ContentRootPath).AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).AddEnvironmentVariables().Build();
+
+builder.Configuration.AddConfiguration(config);
+
+
 
 // Add services to the container.
 
@@ -25,6 +32,7 @@ builder.Services.AddSwaggerGen();
 //DbContext 
 builder.Services.AddSqlServer<AuthContext>(builder.Configuration.GetConnectionString("AuthDBConnection"));
 
+builder.Services.AddSingleton<EnvironmentVariables>();
 builder.Services.AddScoped<UserAccountService>();
 
 var app = builder.Build();

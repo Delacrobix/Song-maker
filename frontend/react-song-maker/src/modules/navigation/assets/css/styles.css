@@ -1,5 +1,7 @@
 .nav-auth-dropdown {
-  margin-right: 2rem;
+  position: absolute;
+  padding: 0 6rem 0 0;
+  right: 0;
 }
 .nav-auth-dropdown a,
 .nav-auth-dropdown a:visited {
@@ -25,7 +27,7 @@
 .nav-auth-dropdown > ul > li > a {
   color: inherit;
   text-decoration: none !important;
-  font-size: 20px;
+  font-size: 1rem;
 }
 .nav-auth-dropdown li ul {
   position: absolute;
@@ -34,7 +36,6 @@
   width: 180px;
   left: 50%;
   margin-left: -90px;
-  top: 70px;
   font: bold 12px "Open Sans Condensed", sans-serif;
   max-height: 0px;
   overflow: hidden;
@@ -94,14 +95,17 @@
 header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 80px;
+  justify-content: center;
+  width: 100%;
+  height: 4.5rem;
   padding: 0 2rem;
   background-color: var(--mainColor);
   color: var(--textColor);
 }
-header nav {
-  margin-left: 15%;
+header h3 {
+  padding: 0 1rem;
+  position: absolute;
+  left: 0;
 }
 header nav a {
   margin: 0 2rem;
@@ -120,7 +124,6 @@ header .nav-login-btn:hover {
   color: var(--secondaryColor);
 }
 header .nav-btn {
-  padding: 5px;
   cursor: pointer;
   background: transparent;
   border: none;

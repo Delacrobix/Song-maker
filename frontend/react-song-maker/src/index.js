@@ -6,10 +6,6 @@ import { HashRouter } from 'react-router-dom';
 import { ApolloProvider } from '@apollo/client';
 import { apolloClient } from './config/graphQLConfig';
 
-//Bootstrap
-import 'bootstrap/dist/js/bootstrap.min.js';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 //Styles
 import './modules/songMaker/assets/css/styles.css';
 import './modules/navigation/assets/css/styles.css';

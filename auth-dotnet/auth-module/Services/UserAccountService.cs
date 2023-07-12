@@ -2,6 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using auth_module.Data;
+using auth_module.Data.DTOs;
 using auth_module.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -12,10 +13,12 @@ namespace auth_module.Services;
 public class UserAccountService
 {
   private readonly AuthContext _context;
+  private readonly EnvironmentVariables _env;
 
-  public UserAccountService(AuthContext _context)
+  public UserAccountService(AuthContext _context, EnvironmentVariables _env)
   {
     this._context = _context;
+    this._env = _env;
   }
 
   public async Task<IEnumerable<UserAccount>> GetList()
@@ -141,25 +144,21 @@ public class UserAccountService
     }
   }
 
-  public string GenerateJwtToken(string userId)
+  public string GenerateJwtToken(string jsonKey)
   {
-    var configuration = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory).AddJsonFile("appsettings.json").AddEnvironmentVariables().Build();
+    string secretKey = _env.JWT_SECRET();
 
-    string secretKey = configuration["AppSettings:JWT_SECRET"];
-    // Console.WriteLine("Enviroment: " + valorVariableEntorno);
-
-    // var secretKey = Environment.GetEnvironmentVariable("JWT_SECRET");
     var tokenHandler = new JwtSecurityTokenHandler();
-    var key = Encoding.ASCII.GetBytes(secretKey);
+    var key = Encoding.UTF8.GetBytes(secretKey);
 
     var tokenDescriptor = new SecurityTokenDescriptor
     {
       Subject = new ClaimsIdentity(new[]
         {
-            new Claim(ClaimTypes.NameIdentifier, userId),
+            new Claim(ClaimTypes.NameIdentifier, jsonKey),
             new Claim(ClaimTypes.Role, "composer")
         }),
-      Expires = DateTime.UtcNow.AddDays(30),
+      Expires = DateTime.UtcNow.AddDays(15),
       SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),
             SecurityAlgorithms.HmacSha256Signature)
     };

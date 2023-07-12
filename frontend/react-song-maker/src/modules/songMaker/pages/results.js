@@ -74,7 +74,7 @@ const Results = () => {
       return rest;
     });
 
-    console.log('newScore: ', newScore);
+    // console.log('newScore: ', newScore);
 
     const song = {
       owner: formData.userName,
@@ -107,15 +107,18 @@ const Results = () => {
 
   return (
     <div className='results-page-container'>
-      <h1 className='title-page'>RESULTS</h1>
+      <h2 className='title-page'>RESULTS</h2>
       <BreadCrumb />
       <div className='result-information-container'>
         <div className='song-information-container'>
           {isLoading && <Loading />}
           {query.error && <ErrorAlert />}
+          <div className='chords-gen'>
+            <h3>Chords:</h3>
+            <label>{chordsReceived}</label>
+          </div>
+          <button>Play your song</button>
         </div>
-        <label>{chordsReceived}</label>
-        <button>Play your song</button>
         {/* <div className='musical-representation-container'>
           <Score />
           <Tab />
@@ -125,22 +128,24 @@ const Results = () => {
         <form onSubmit={saveUserSong}>
           <h5>Would you like to share this with the community?</h5>
           <p>*The following fields are necessary</p>
-          <input
-            type='text'
-            onChange={handleChange}
-            name='songName'
-            value={formData.songName}
-            placeholder='Song name'
-            required
-          />
-          <input
-            type='text'
-            onChange={handleChange}
-            value={formData.userName}
-            name='userName'
-            placeholder='User name'
-            required
-          />
+          <div className='input-container'>
+            <input
+              type='text'
+              onChange={handleChange}
+              name='songName'
+              value={formData.songName}
+              placeholder='Song name'
+              required
+            />
+            <input
+              type='text'
+              onChange={handleChange}
+              value={formData.userName}
+              name='userName'
+              placeholder='User name'
+              required
+            />
+          </div>
           <button type='submit'>Share</button>
         </form>
       </div>

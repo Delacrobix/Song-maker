@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using auth_module.Services;
 using auth_module.Data.Models;
 using auth_module.Data.DTOs;
+using System.Text.Json;
 
 namespace auth_module.Controllers;
 
@@ -17,7 +18,7 @@ public class UserController : ControllerBase
   }
 
   [HttpPost("validate")]
-  public async Task<ActionResult<string>> ValidateUser([FromBody] UserCredentials credentials)
+  public async Task<ActionResult> ValidateUser([FromBody] UserCredentials credentials)
   {
     if (String.IsNullOrEmpty(credentials.UserName))
     {
@@ -34,8 +35,23 @@ public class UserController : ControllerBase
     {
       if (_service.VerifyPassword(credentials.Password, existingUser.Password))
       {
-        var token = _service.GenerateJwtToken(existingUser.Id.ToString());
-        return token;
+        var objectKey = new
+        {
+          id = existingUser.Id,
+          userName = credentials.UserName,
+        };
+
+        string jsonKey = JsonSerializer.Serialize(objectKey);
+        var token = _service.GenerateJwtToken(jsonKey);
+
+        Console.WriteLine(token);
+
+        var response = new
+        {
+          token
+        };
+
+        return Ok(response);
       }
       else
       {

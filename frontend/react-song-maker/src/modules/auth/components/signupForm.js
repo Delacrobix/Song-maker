@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { createUser } from '../controllers/httpRequests';
+import Cookies from 'js-cookie';
 
 const SignupForm = () => {
   const [form, setForm] = useState({
@@ -20,9 +21,11 @@ const SignupForm = () => {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    await createUser(form);
+    const response = await createUser(form);
 
-    // console.log('form: ' + JSON.stringify(form));
+    console.log('Token signup: ', response);
+
+    // Cookies.set('sesionToken', response, { httpOnly: true });
   }
 
   return (

@@ -18,11 +18,14 @@ const Navbar = () => {
         <Link to='/create-song/tone'>Create your song</Link>
         <Link to='/community'>Community Songs</Link>
         <Link to='/about-me'>About me</Link>
-        <Link to='/#'>Spanish</Link>
         <button className='nav-btn nav-close-btn' onClick={showNavbar}>
           <FaTimes />
         </button>
       </nav>
+      <select>
+        <option value='es'>Español</option>
+        <option value='en'>English</option>
+      </select>
       <button className='nav-btn' onClick={showNavbar}>
         <FaBars />
       </button>

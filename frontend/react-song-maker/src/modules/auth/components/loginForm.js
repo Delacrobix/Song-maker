@@ -25,13 +25,13 @@ const LoginForm = () => {
     event.preventDefault();
 
     const response = await getAuth(form);
-    console.log(JSON.stringify(response));
+    console.log('login response: ', response.token);
 
     if (response) {
-      // Cookies.set('token', response);
+      // Cookies.set('sesionToken', response.token, { httpOnly: true });
+
       navigate('/profile');
     }
-    // console.log('form: ' + JSON.stringify(form));
   }
 
   return (
