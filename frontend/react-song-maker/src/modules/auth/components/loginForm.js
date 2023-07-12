@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { getAuth } from '../controllers/httpRequests';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import ErrorInfo from './errorInfo';
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -9,8 +10,10 @@ const LoginForm = () => {
     userName: '',
     password: '',
   });
-
-  useEffect(() => {});
+  const [error, setError] = useState({
+    exist: false,
+    message: '',
+  });
 
   function handleChange(e) {
     e.preventDefault();
@@ -25,17 +28,23 @@ const LoginForm = () => {
     event.preventDefault();
 
     const response = await getAuth(form);
-    console.log('login response: ', response.token);
 
-    if (response) {
-      // Cookies.set('sesionToken', response.token, { httpOnly: true });
+    if (response.token) {
+      setCookie(response.token);
 
       navigate('/profile');
+    } else {
+      setError({ exist: true, message: response.message });
     }
+  }
+
+  async function setCookie(sessionToken) {
+    Cookies.set('sesionToken', sessionToken);
   }
 
   return (
     <div className='form-login-container'>
+      {error.exist ? <ErrorInfo error={error.message} /> : null}
       <form onSubmit={handleSubmit} method='POST' className='form login'>
         <div className='form__field'>
           <label htmlFor='login__username'>

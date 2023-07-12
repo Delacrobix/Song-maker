@@ -30,7 +30,7 @@ function App() {
         <Route
           path='/profile'
           element={
-            <ProtectedRoute path='/login'>
+            <ProtectedRoute redirectTo='/login'>
               <Profile />
             </ProtectedRoute>
           }

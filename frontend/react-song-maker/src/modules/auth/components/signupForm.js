@@ -25,7 +25,7 @@ const SignupForm = () => {
 
     console.log('Token signup: ', response);
 
-    // Cookies.set('sesionToken', response, { httpOnly: true });
+    // Cookies.set('sesionToken', response.token, { httpOnly: true });
   }
 
   return (

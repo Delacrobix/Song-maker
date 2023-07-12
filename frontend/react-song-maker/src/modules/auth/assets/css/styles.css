@@ -250,4 +250,23 @@
   display: none;
 }
 
+.auth-error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.auth-error-container p {
+  background-color: rgba(255, 0, 0, 0.2039215686);
+  border: 1px solid rgba(255, 0, 0, 0.5568627451);
+  border-radius: 7px;
+  padding: 0.2rem 0.8rem;
+  text-align: center;
+  transition: background 0.4s;
+  cursor: default;
+}
+.auth-error-container p:hover {
+  background-color: rgba(255, 0, 0, 0.3294117647);
+  transition: background 0.4s;
+}
+
 /*# sourceMappingURL=styles.css.map */
