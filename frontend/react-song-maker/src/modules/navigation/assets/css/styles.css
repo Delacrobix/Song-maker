@@ -1,89 +1,33 @@
-.nav-auth-dropdown {
-  position: absolute;
-  padding: 0 6rem 0 0;
-  right: 0;
-}
-.nav-auth-dropdown a,
-.nav-auth-dropdown a:visited {
-  text-decoration: none;
-  outline: none;
-  color: #000000;
-}
-.nav-auth-dropdown a:hover {
-  text-decoration: underline;
-}
-.nav-auth-dropdown > ul {
-  width: 5%;
-  margin: 0 auto;
-}
-.nav-auth-dropdown > ul > li {
-  list-style: none;
-  display: inline-block;
-  line-height: 1;
-  margin: 1px;
-  border-radius: 3px;
+.dropdown {
   position: relative;
+  display: inline-block;
 }
-.nav-auth-dropdown > ul > li > a {
-  color: inherit;
-  text-decoration: none !important;
-  font-size: 1rem;
+.dropdown__toggle {
+  background-color: #ccc;
+  color: #000;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
 }
-.nav-auth-dropdown li ul {
+.dropdown__items {
+  display: none;
   position: absolute;
-  list-style: none;
-  text-align: center;
-  width: 180px;
-  left: 50%;
-  margin-left: -90px;
-  font: bold 12px "Open Sans Condensed", sans-serif;
-  max-height: 0px;
-  overflow: hidden;
-  -webkit-transition: max-height 0.4s linear;
-  -moz-transition: max-height 0.4s linear;
-  transition: max-height 0.4s linear;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
-.nav-auth-dropdown li ul li {
-  background-color: #313131;
-}
-.nav-auth-dropdown li ul li a {
-  padding: 12px;
-  color: #fff !important;
-  text-decoration: none !important;
+.dropdown__items a {
+  color: #000;
+  padding: 12px 16px;
+  text-decoration: none;
   display: block;
 }
-.nav-auth-dropdown li ul li:nth-child(odd) {
-  background-color: #363636;
+.dropdown__items a:hover {
+  background-color: #a7a7a7;
 }
-.nav-auth-dropdown li ul li:hover {
-  background-color: #444;
-}
-.nav-auth-dropdown li ul li:first-child {
-  border-radius: 3px 3px 0 0;
-  margin-top: 25px;
-  position: relative;
-}
-.nav-auth-dropdown li ul li:first-child:before {
-  content: "";
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  border: 5px solid transparent;
-  border-bottom-color: #000000;
-  left: 50%;
-  top: -10px;
-  margin-left: -5px;
-}
-.nav-auth-dropdown li ul li:last-child {
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-}
-.nav-auth-dropdown li:hover ul {
-  max-height: 200px;
-}
-.nav-auth-dropdown li.options {
-  background-color: #81979e;
-  color: #000000;
+.dropdown:hover .dropdown__items {
+  display: block;
 }
 
 :root {

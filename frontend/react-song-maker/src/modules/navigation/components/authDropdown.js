@@ -18,42 +18,29 @@ const AuthDropdown = () => {
   }, [sesionToken]);
 
   function deleteSesion() {
+    console.log('cookie removed');
     Cookies.remove('sesionToken');
   }
 
   return (
-    <nav className='nav-auth-dropdown' id='colorNav'>
-      <ul>
-        <li className='options'>
-          <Link>
-            <FontAwesomeIcon icon={faCogs} />
+    <div className='dropdown'>
+      <Link className='dropdown__toggle'>
+        <FontAwesomeIcon icon={faCogs} />
+      </Link>
+      {isLoggedIn ? (
+        <div className='dropdown__items'>
+          <Link to='/profile'>Profile</Link>
+          <Link to='/home' className='logout-link' onClick={deleteSesion}>
+            Logout
           </Link>
-          <ul>
-            {isLoggedIn ? (
-              <>
-                <li id='profile' className='profile'>
-                  <Link to='/profile'>Profile</Link>
-                </li>
-                <li id='logout' className='logout'>
-                  <Link to='/home' onClick={deleteSesion}>
-                    Logout
-                  </Link>
-                </li>
-              </>
-            ) : (
-              <>
-                <li id='login'>
-                  <Link to='/login'>Login</Link>
-                </li>
-                <li id='signup'>
-                  <Link to='/signup'>Signup</Link>
-                </li>
-              </>
-            )}
-          </ul>
-        </li>
-      </ul>
-    </nav>
+        </div>
+      ) : (
+        <div className='dropdown__items'>
+          <Link to='/login'>Login</Link>
+          <Link to='/signup'>Signup</Link>
+        </div>
+      )}
+    </div>
   );
 };
 
