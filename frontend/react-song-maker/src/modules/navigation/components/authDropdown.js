@@ -2,13 +2,24 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCogs } from '@fortawesome/free-solid-svg-icons';
+import Cookies from 'js-cookie';
 
 const AuthDropdown = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(() => {});
+  const sesionToken = Cookies.get('sesionToken');
 
-  function logout() {}
+  useEffect(() => {
+    if (sesionToken) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [sesionToken]);
+
+  function deleteSesion() {
+    Cookies.remove('sesionToken');
+  }
 
   return (
     <nav className='nav-auth-dropdown' id='colorNav'>
@@ -24,7 +35,9 @@ const AuthDropdown = () => {
                   <Link to='/profile'>Profile</Link>
                 </li>
                 <li id='logout' className='logout'>
-                  <Link onClick={logout}>Logout</Link>
+                  <Link to='/home' onClick={deleteSesion}>
+                    Logout
+                  </Link>
                 </li>
               </>
             ) : (

@@ -23,9 +23,11 @@ const SignupForm = () => {
 
     const response = await createUser(form);
 
-    console.log('Token signup: ', response);
+    setCookie(response.token);
+  }
 
-    // Cookies.set('sesionToken', response.token, { httpOnly: true });
+  async function setCookie(sessionToken) {
+    Cookies.set('sesionToken', sessionToken);
   }
 
   return (

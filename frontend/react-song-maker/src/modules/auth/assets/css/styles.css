@@ -87,6 +87,10 @@
   vertical-align: middle;
 }
 
+.profile__container {
+  color: #fff;
+}
+
 .form-login-container .hidden {
   border: 0;
   clip: rect(0 0 0 0);
