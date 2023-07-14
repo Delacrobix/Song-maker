@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { useLocation } from 'react-router-dom';
 import {
@@ -10,11 +10,14 @@ import ErrorAlert from '../components/feedback/errorAlert';
 import BreadCrumb from '../components/breadCrumb';
 import Score from '../components/scores/score';
 import Tab from '../components/scores/tab';
+import useUser from '../../../hooks/useUser';
 import { getCurrentDate, buildNewChordArr } from '../controllers/controllers';
 
 const Results = () => {
   const location = useLocation();
   const { tonality, rhythm } = location.state;
+  const user = useUser();
+  const inputNameRef = useRef(null);
 
   const [chordsReceived, setChordsReceived] = useState('');
   const [isLoading, setIsLoading] = useState(true);
@@ -27,6 +30,17 @@ const Results = () => {
   const [insertMutation, mutation] = useMutation(insertUserSongMutation);
 
   useEffect(() => {
+    if (user) {
+      inputNameRef.current.disabled = true;
+
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        userName: user.userName,
+      }));
+    }
+  }, [user]);
+
+  useEffect(() => {
     if (query.error) {
       setIsLoading(false);
     }
@@ -35,7 +49,7 @@ const Results = () => {
       setChordsReceived(query.data.getAIChords);
       setIsLoading(false);
     }
-  }, [query.data, query.error, query.loading]);
+  }, [query.data, query.error]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -130,19 +144,20 @@ const Results = () => {
           <p>*The following fields are necessary</p>
           <div className='input-container'>
             <input
-              type='text'
-              onChange={handleChange}
-              name='songName'
-              value={formData.songName}
-              placeholder='Song name'
-              required
-            />
-            <input
+              ref={inputNameRef}
               type='text'
               onChange={handleChange}
               value={formData.userName}
               name='userName'
               placeholder='User name'
+              required
+            />
+            <input
+              type='text'
+              onChange={handleChange}
+              name='songName'
+              value={formData.songName}
+              placeholder='Song name'
               required
             />
           </div>
