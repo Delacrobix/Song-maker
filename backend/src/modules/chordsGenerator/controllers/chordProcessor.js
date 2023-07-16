@@ -1,3 +1,5 @@
+import { getValidChordCases, getExecutableCasesObject } from './utils';
+
 export function conditions(chords) {
   let chordArr;
   let isValid;
@@ -42,44 +44,7 @@ function verifyName(chordArr) {
 }
 
 function verifyCases(chordArr) {
-  let minorCases;
-  let majorCases;
-  let dimCases;
-  let susCases;
-  let sharpCases;
-  let flatCases;
-  const validCases = [
-    'major',
-    'maj',
-    'M',
-    'minor',
-    'min',
-    'm',
-    '°',
-    'dim',
-    'sus',
-    'sus4',
-    '7',
-    'm7',
-    'min7',
-    'maj7',
-    '∆7',
-    'dim7',
-    '#',
-    '#min',
-    '#m7',
-    '#min7',
-    '#minor7',
-    '#major7',
-    '#maj7',
-    '#M7',
-    '#7',
-    '#dim7',
-    '#dim',
-    '#°',
-    'b',
-    '♭',
-  ];
+  const validCases = getValidChordCases();
   let allCasesValid = true;
   console.log('chordArr: ', chordArr);
 
@@ -88,7 +53,7 @@ function verifyCases(chordArr) {
 
     if (chord.length > 1) {
       validCases.forEach((validCase) => {
-        const chordSliced = chord.slice(1, chord.length);
+        const chordSliced = chord.slice(1, chord.length).toLowerCase();
 
         if (chordSliced === validCase) {
           aux = true;
@@ -121,23 +86,12 @@ function changeToExecutableCase(chord, chordSliced) {
     chordSliced === '#m7' ||
     chordSliced === '#dim7' ||
     chordSliced === '#dim' ||
-    chordSliced === 'b' ||
-    chordSliced === '♭'
+    chordSliced === 'b'
   ) {
     return chord;
   }
 
-  const switchOptions = {
-    M: '',
-    maj: '',
-    major: '',
-    minor: 'm',
-    min: 'm',
-    min7: 'm7',
-    '∆7': 'maj7',
-    '°': 'dim',
-    '♭': 'b',
-  };
+  const switchOptions = getExecutableCasesObject();
 
   return chord.replace(chordSliced, switchOptions[chordSliced]);
 }

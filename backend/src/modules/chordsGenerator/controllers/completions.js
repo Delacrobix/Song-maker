@@ -1,11 +1,10 @@
 import { openai } from '../config/apiConfiguration';
 import modelsExported from '../models/exports';
 import { SavingError, ConnectionError } from '../Errors/errorsController';
-import { conditions } from './stringProcessor';
-
-let i = 0;
+import { conditions } from './chordProcessor';
 
 const temperature = 1.25;
+let i = 0;
 
 //This method send the prompt to the OpenAI server
 export async function openAIchordRequest(prompt) {

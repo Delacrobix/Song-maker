@@ -1,5 +1,5 @@
 import { GraphQLString } from 'graphql';
-import { chordsPrompt } from '../controllers/prompts';
+import { chordsPrompt } from '../controllers/utils';
 import { openAIchordRequest } from '../controllers/completions';
 
 export const getAIChords = {
