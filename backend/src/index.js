@@ -1,22 +1,26 @@
-import express from 'express';
 import '@babel/register';
+import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { createHandler } from 'graphql-http/lib/use/express';
-import('./server.js');
+import('./config/port');
 
 dotenv.config({ path: '.env.local' });
 
-const { dbConnection } = require('./db/index');
+//MongoDB connection
+const { dbConnection } = require('./config/mongo');
 dbConnection();
+
+//Redis config
+require('./config/redis');
 
 const app = express();
 
 app.use(cors());
 
-// This import prevents that the schema file charges before the dotenv is loaded
 const { schema } = require('./schema');
 
+//GraphQL schema config
 app.use(
   '/graphql',
   createHandler({
