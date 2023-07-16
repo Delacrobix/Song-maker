@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { getAuth } from '../controllers/httpRequests';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import ErrorInfo from './errorInfo';
+import { AuthContext } from '../../../context/AuthContext';
 
 const LoginForm = () => {
+  const { handleLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const [form, setForm] = useState({
     userName: '',
@@ -31,6 +33,7 @@ const LoginForm = () => {
 
     if (response.token) {
       setCookie(response.token);
+      handleLogin();
 
       navigate('/profile');
     } else {

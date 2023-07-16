@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import AuthDropdown from './authDropdown';
+import { AuthProvider } from '../../../context/AuthContext';
 
 const Navbar = () => {
   const navRef = useRef();
@@ -29,7 +30,9 @@ const Navbar = () => {
       <button className='nav-btn' onClick={showNavbar}>
         <FaBars />
       </button>
-      <AuthDropdown />
+      <AuthProvider>
+        <AuthDropdown />
+      </AuthProvider>
     </header>
   );
 };

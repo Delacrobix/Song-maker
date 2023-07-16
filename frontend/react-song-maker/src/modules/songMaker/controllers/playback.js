@@ -88,7 +88,7 @@ export function playSingleNote(octave, note, duration) {
 export async function doChord(name, inversion, seventh, duration) {
   let indexName = table.indexOf(name);
 
-  console.log('TONIC: ', table.find(indexName), 'INDEX: ', indexName);
+  // console.log('TONIC: ', table.find(indexName), 'INDEX: ', indexName);
 
   let chordArr = [];
 
@@ -110,14 +110,14 @@ export async function doChord(name, inversion, seventh, duration) {
     ];
   }
 
-  console.log(
-    'name: ' + name,
-    'inversion: ' + inversion,
-    'seventh: ' + seventh,
-    'duration: ' + duration
-  );
+  // console.log(
+  //   'name: ' + name,
+  //   'inversion: ' + inversion,
+  //   'seventh: ' + seventh,
+  //   'duration: ' + duration
+  // );
 
-  console.log(name, ' CHORD ARR: ', chordArr);
+  // console.log(name, ' CHORD ARR: ', chordArr);
 
   // If the chord have seventh
   const SWITCH_SEVENTH = {
@@ -167,9 +167,14 @@ function playChord(chordArr, duration) {
     baseUrl: `${REPOSITORY}/4/`,
   }).toDestination();
 
-  Tone.loaded().then(() => {
-    sampler.triggerAttackRelease(soundsArr, duration);
-  });
+  try {
+    Tone.loaded().then(() => {
+      sampler.triggerAttackRelease(soundsArr, duration);
+    });
+  } catch (e) {
+    console.error(e);
+    console.log('error al reproducir');
+  }
 }
 
 function buildNotesTable() {

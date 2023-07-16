@@ -12,14 +12,30 @@ import Login from './modules/auth/pages/login';
 import Signup from './modules/auth/pages/signup';
 import ProtectedRoute from './modules/auth/components/protectedRoute';
 import Profile from './modules/auth/pages/profile';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
+        <Route
+          path='/login'
+          element={
+            <AuthProvider>
+              <Login />
+            </AuthProvider>
+          }
+        />
+        <Route
+          path='/signup'
+          element={
+            <AuthProvider>
+              <Signup />
+            </AuthProvider>
+          }
+        />
+
         <Route path='/community' element={<CommunitySongs />} />
         <Route path='/community/:id' element={<CardInfo />} />
         <Route path='/rhythm-selector' element={<RhythmSelector />} />
@@ -30,9 +46,11 @@ function App() {
         <Route
           path='/profile'
           element={
-            <ProtectedRoute redirectTo='/login'>
-              <Profile />
-            </ProtectedRoute>
+            <AuthProvider>
+              <ProtectedRoute redirectTo='/login'>
+                <Profile />
+              </ProtectedRoute>
+            </AuthProvider>
           }
         />
       </Routes>

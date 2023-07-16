@@ -1,25 +1,45 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCogs } from '@fortawesome/free-solid-svg-icons';
+import { AuthContext } from '../../../context/AuthContext';
 import Cookies from 'js-cookie';
 
 const AuthDropdown = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const sesionToken = Cookies.get('sesionToken');
+  const { isLoggedIn, handleLogout } = useContext(AuthContext);
+  // const [sesionToken, setSesionToken] = useState(null);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [shouldUpdate, setShouldUpdate] = useState(false);
 
   useEffect(() => {
-    if (sesionToken) {
-      setIsLoggedIn(true);
-    } else {
-      setIsLoggedIn(false);
-    }
-  }, [sesionToken]);
+    console.log('isLoggedIn: ', isLoggedIn);
+  }, [isLoggedIn]);
+
+  // useEffect(() => {
+  //   const token = Cookies.get('sesionToken');
+
+  //   setSesionToken(token);
+  // }, [isLoggedIn]);
+
+  // useEffect(() => {
+  //   console.log('sesionToken: ', sesionToken);
+
+  // if (sesionToken) {
+  //   setIsLoggedIn(true);
+  // } else {
+  //   setIsLoggedIn(false);
+  // }
+  // }, [sesionToken, shouldUpdate]);
+
+  // console.log('setIsloggedIn: ', isLoggedIn);
 
   function deleteSesion() {
-    console.log('cookie removed');
     Cookies.remove('sesionToken');
+
+    handleLogout();
+
+    // setShouldUpdate(!shouldUpdate);
+    // setIsLoggedIn(false);
   }
 
   return (

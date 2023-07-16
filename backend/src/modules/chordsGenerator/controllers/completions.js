@@ -1,6 +1,7 @@
 import { openai } from '../config/apiConfiguration';
 import modelsExported from '../models/exports';
 import { SavingError, ConnectionError } from '../Errors/errorsController';
+import { conditions } from './stringProcessor';
 
 let i = 0;
 
@@ -9,38 +10,47 @@ const temperature = 1.25;
 //This method send the prompt to the OpenAI server
 export async function openAIchordRequest(prompt) {
   let data;
+  let isValid = true;
 
-  try {
-    const response = await openai.createCompletion({
-      model: 'text-davinci-003',
-      prompt: prompt,
-      temperature: temperature,
-      n: 1,
-      max_tokens: 25,
-    });
+  while (isValid) {
+    try {
+      const response = await openai.createCompletion({
+        model: 'text-davinci-003',
+        prompt: prompt,
+        temperature: temperature,
+        n: 1,
+        max_tokens: 25,
+      });
 
-    data = response.data;
-  } catch (error) {
-    console.error(error);
+      data = response.data;
+    } catch (error) {
+      console.error(error);
 
-    throw new ConnectionError('Error connecting to openAI api');
+      throw new ConnectionError('Error connecting to openAI api');
+    }
+    i++;
+
+    //Saving tokens spent
+    await saveTokensSpent(data);
+
+    const aux = [...data.choices];
+    let chords;
+
+    for (let i = 0; i < aux.length; i++) {
+      chords = aux[i].text.replace(/\s/g, '');
+      chords = chords.replace('.', '');
+
+      //Saving the response
+      await savePromptResults(chords, data);
+    }
+
+    const chordsValidated = conditions(chords);
+    console.log('Chords: ', chordsValidated);
+
+    if (chordsValidated.length > 0) {
+      return chords;
+    }
   }
-  i++;
-
-  //Saving tokens spent
-  await saveTokensSpent(data);
-
-  const aux = [...data.choices];
-  let chords;
-
-  for (let i = 0; i < aux.length; i++) {
-    chords = aux[i].text.replace(/\s/g, '');
-
-    //Saving the response
-    await savePromptResults(chords, data);
-  }
-
-  return chords;
 }
 
 //This method save in a MongoDB database the number of OpenAi tokens spent by the api request

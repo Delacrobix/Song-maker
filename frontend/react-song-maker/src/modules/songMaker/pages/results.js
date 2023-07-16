@@ -30,7 +30,9 @@ const Results = () => {
   const [insertMutation, mutation] = useMutation(insertUserSongMutation);
 
   useEffect(() => {
-    if (user) {
+    console.log('user: ', user);
+
+    if (user.userName) {
       inputNameRef.current.disabled = true;
 
       setFormData((prevFormData) => ({
