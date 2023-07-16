@@ -1,17 +1,17 @@
-const bcrypt = require("bcryptjs");
-const mongoose = require("mongoose");
-const findOrCreate = require("mongoose-findorcreate");
+const bcrypt = require('bcryptjs');
+const mongoose = require('mongoose');
+const findOrCreate = require('mongoose-findorcreate');
 const Schema = mongoose.Schema;
 
 /**
  * *Esquema dedicado al usuario. Tiene como campo irrepetible el 'user'.
  */
-var UserSchema = new Schema({
+const AudioFileSchema = new Schema({
   user: {
     type: String,
   },
   email: {
-    type: String
+    type: String,
   },
   password: {
     type: String,
@@ -29,4 +29,4 @@ UserSchema.methods.comparePassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model('User', UserSchema);

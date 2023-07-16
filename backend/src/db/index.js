@@ -5,5 +5,6 @@ const MONGODB_CONNECTION =
 
 export const dbConnection = async () => {
   await mongoose.connect(MONGODB_CONNECTION);
+
   console.log('Mongodb connection established on: ' + MONGODB_CONNECTION);
 };
