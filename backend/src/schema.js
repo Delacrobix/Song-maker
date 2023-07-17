@@ -1,10 +1,11 @@
 import { GraphQLSchema, GraphQLObjectType } from 'graphql';
+import { getAIChords } from './modules/chordsGenerator/graphql/queries';
+import { setAudioFiles } from './modules/mediaManager/graphql/mutations';
 import {
   getAllUserSongs,
   findSong,
   getAllRhythms,
 } from './modules/songMakerApi/graphql/queries';
-import { getAIChords } from './modules/chordsGenerator/graphql/queries';
 import {
   insertRhythm,
   insertSong,
@@ -27,6 +28,7 @@ const MutationType = new GraphQLObjectType({
   fields: {
     insertRhythm,
     insertSong,
+    setAudioFiles,
   },
 });
 
