@@ -1,7 +1,7 @@
 import * as Tone from 'tone';
 import { CircularList } from '../classes/circularList';
 
-const REPOSITORY = process.env.REACT_APP_G_CLOUD_BUCKET_REPOSITORY;
+const REPOSITORY = process.env.REACT_APP_BUCKET_REPOSITORY;
 
 //This build a circular list with the twelve sounds of occidental music
 const table = buildNotesTable();

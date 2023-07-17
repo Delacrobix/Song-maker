@@ -2,14 +2,18 @@ import AudioFile from '../models/audioFile';
 import redisClient from '../../../config/redis';
 
 (async () => {
-  try {
-    const mongoAudios = await AudioFile.find();
-    const jsonAudios = JSON.stringify(mongoAudios);
+  const redisJson = await redisClient.get('AudioFiles');
 
-    await redisClient.set('AudioFiles', jsonAudios);
+  if (!Object.keys(redisJson).length > 0) {
+    try {
+      const mongoAudios = await AudioFile.find();
+      const jsonAudios = JSON.stringify(mongoAudios);
 
-    console.log('AudioFiles saved to Redis');
-  } catch (e) {
-    throw new Error(`Cannot save AudioFiles to Redis: `, e);
+      await redisClient.set('AudioFiles', jsonAudios);
+
+      console.log('AudioFiles saved to Redis');
+    } catch (e) {
+      throw new Error(`Cannot save AudioFiles to Redis: `, e);
+    }
   }
 })();

@@ -28,6 +28,7 @@ app.use(
   })
 );
 
-require('./modules/mediaManager/controllers/redisSave');
+//This line save the audio files in the redis database
+// require('./modules/mediaManager/controllers/redisSave');
 
 export default app;
