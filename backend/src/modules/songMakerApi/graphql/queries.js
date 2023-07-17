@@ -44,9 +44,9 @@ export const findSong = {
 
       return song;
     } catch (err) {
-      console.error(err);
-
-      throw new Error(`Error while searching song by id in: ${functionName}`);
+      throw new Error(
+        `Error while searching song by id in: ${functionName} ${err}`
+      );
     }
   },
 };

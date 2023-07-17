@@ -1,11 +1,8 @@
 import fs from 'fs';
-// import path from 'path';
 
 export async function getFileNames(folderPath) {
   try {
     const files = await fs.promises.readdir(folderPath);
-
-    console.log('files: ', files);
 
     return files;
   } catch (e) {

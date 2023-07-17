@@ -1,6 +1,7 @@
 import { GraphQLSchema, GraphQLObjectType } from 'graphql';
 import { getAIChords } from './modules/chordsGenerator/graphql/queries';
 import { setAudioFiles } from './modules/mediaManager/graphql/mutations';
+import { getAllAudios } from './modules/mediaManager/graphql/queries';
 import {
   getAllUserSongs,
   findSong,
@@ -19,6 +20,7 @@ const QueryType = new GraphQLObjectType({
     findSong,
     getAllRhythms,
     getAIChords,
+    getAllAudios,
   },
 });
 

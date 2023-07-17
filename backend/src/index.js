@@ -28,4 +28,6 @@ app.use(
   })
 );
 
+require('./modules/mediaManager/controllers/redisSave');
+
 export default app;
