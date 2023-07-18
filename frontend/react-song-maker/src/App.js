@@ -4,7 +4,6 @@ import CommunitySongs from './modules/songMaker/pages/communitySongs';
 import Results from './modules/songMaker/pages/results';
 import RhythmSelector from './modules/songMaker/pages/rhythmSelector';
 import ToneSelector from './modules/songMaker/pages/toneSelector';
-import AboutMe from './modules/songMaker/pages/aboutMe';
 import Footer from './modules/navigation/components/footer';
 import CardInfo from './modules/songMaker/pages/cardInfo';
 import HomePage from './modules/songMaker/pages/homePage';
@@ -40,7 +39,6 @@ function App() {
         <Route path='/community/:id' element={<CardInfo />} />
         <Route path='/rhythm-selector' element={<RhythmSelector />} />
         <Route path='/results' element={<Results />} />
-        <Route path='/about-me' element={<AboutMe />} />
         <Route path='/create-song/tone' element={<ToneSelector />} />
         <Route path='/home' element={<HomePage />} />
         <Route

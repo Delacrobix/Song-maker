@@ -18,7 +18,6 @@ const Navbar = () => {
         <Link to='/home'>Home</Link>
         <Link to='/create-song/tone'>Create your song</Link>
         <Link to='/community'>Community Songs</Link>
-        <Link to='/about-me'>About me</Link>
         <button className='nav-btn nav-close-btn' onClick={showNavbar}>
           <FaTimes />
         </button>

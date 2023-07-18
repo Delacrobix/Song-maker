@@ -62,7 +62,7 @@ const CircleOfFifths = () => {
           className='menu-items-select__label'
           htmlFor='menu-items-to-show'
         >
-          Select musical cipher
+          Tonalities
         </label>
         <select
           className='menu-items-select__select'
@@ -70,8 +70,8 @@ const CircleOfFifths = () => {
           id='menu-items-to-show'
           defaultValue='1'
         >
-          <option value='1'>American</option>
-          <option value='2'>Roman</option>
+          <option value='1'>Major</option>
+          <option value='2'>Minor</option>
         </select>
       </div>
     </div>

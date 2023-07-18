@@ -6,8 +6,6 @@ $space-separator: 8px;
 $offset: 187;
 $duration: 1.4s;
 
-// TOOLS - FUNCTIONS
-
 /// Returns SVG-Image embedded in a Data-URI.
 /// @parameter {color} Hexadecimal value for stroke color
 /// @returns {string} Data-URI
@@ -17,7 +15,6 @@ $duration: 1.4s;
   @if (type_of($color) == 'color') and (str-index(inspect($color), '#') == 1) {
     $encoded-color: '%23' + str-slice(inspect($color), 2);
 
-    // MS Edge is turning single quotes to double quotes. (`url('data:` -> `url("data:`)
     $icon-set: (
       arrow-left:
         "%3Cline x1='19' y1='12' x2='5' y2='12'%3E%3C/line%3E%3Cpolyline points='12 19 5 12 12 5'%3E%3C/polyline%3E",

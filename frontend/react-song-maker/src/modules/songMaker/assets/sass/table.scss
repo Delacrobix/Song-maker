@@ -2,7 +2,6 @@
   font-family: 'Open Sans', sans-serif;
   color: #a7a1ae;
   text-align: left;
-  // overflow: hidden;
   width: 80%;
   margin: 0 auto;
   display: table;
@@ -33,12 +32,11 @@
         color: #185875;
       }
     }
-    /* Background-color of the odd rows */
+
     &:nth-child(odd) {
       background-color: #323c50;
     }
 
-    /* Background-color of the even rows */
     &:nth-child(even) {
       background-color: #2c3446;
     }

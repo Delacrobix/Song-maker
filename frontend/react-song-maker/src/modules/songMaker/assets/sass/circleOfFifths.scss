@@ -1,6 +1,3 @@
-//
-//  BASIC STYLES
-//–––––––––––––––––––––––––––––––––––––
 *,
 *:before,
 *:after {
@@ -14,9 +11,6 @@ body {
   width: 100%;
 }
 
-//
-//  COLOR
-//–––––––––––––––––––––––––––––––––––––s
 $white: #fff;
 $black: #000;
 
@@ -32,9 +26,6 @@ $color-secondary-lightest: lighten($color-secondary, 6%);
 $color-secondary-darker: darken($color-secondary, 2%);
 $color-secondary-darkest: darken($color-secondary, 6%);
 
-//
-//  MENU
-//–––––––––––––––––––––––––––––––––––––
 $radial-menu-dimensions: 600px;
 
 $radial-menu-bg: $color-primary-darkest;
@@ -45,9 +36,6 @@ $radial-menu-item-hovered-bg: $color-secondary;
 $radial-menu-item-hovered-border-width: 0;
 $radial-menu-item-hovered-border-color: transparent;
 
-//
-//  LABEL
-//–––––––––––––––––––––––––––––––––––––
 $radial-menu-label-dimensions: 100px;
 
 $radial-menu-label-font-size: 16px;
@@ -58,9 +46,6 @@ $radial-menu-label-border-width: 3px;
 $radial-menu-label-border-color: $color-primary-darker;
 $radial-menu-label-font-color: $color-primary-darkest;
 
-//
-//  MENU CONTENT
-//–––––––––––––––––––––––––––––––––––––
 $radial-menu-content-dimensions: 80px;
 
 $radial-menu-content-bg: $color-primary-lightest;
@@ -78,9 +63,6 @@ $radial-menu-content-description-font-size: 0.4em;
 $radial-menu-content-description-font-weight: normal;
 $radial-menu-content-description-font-color: rgba($white, 0.5);
 
-//
-//  MENU ICON
-//–––––––––––––––––––––––––––––––––––––
 $radial-menu-icon-default-transform: translateY(-50%) translateX(-50%);
 $radial-menu-icon-dimensions: 25px;
 $radial-menu-icon-dimensions-hover: 50px;
@@ -96,9 +78,6 @@ $radial-menu-icon-color: darken($color-primary-darkest, 16%);
 $radial-menu-icon-color-hover: $white;
 $radial-menu-icon-color-not-hovered: darken($color-primary-darkest, 8%);
 
-//
-//  MENU ITEM
-//–––––––––––––––––––––––––––––––––––––
 $radial-menu-item-default-transform: translateY(-50%);
 $radial-menu-item-trapezoid-transform: perspective(200px) rotateY(-77.5deg)
   scaleX(1.25);
@@ -113,22 +92,17 @@ $radial-menu-item-border-color-hover: $color-secondary;
 $radial-menu-inset-bg: $color-primary-darkest;
 $radial-menu-inset-bg-hover: $color-secondary;
 
-//
-//  RADIAL MENU
-//–––––––––––––––––––––––––––––––––––––
 .radial-menu {
+  @include flex-center;
   background: $radial-menu-bg;
   border: $radial-menu-border-width solid $radial-menu-border-color;
   border-radius: 50%;
   box-shadow: 0 25px 50px rgba($black, 0.05);
-  height: $radial-menu-dimensions;
-  left: 50%;
-  opacity: 1;
-  position: absolute;
-  top: 38%;
-  transform: translate(-50%, -50%) scale(1);
-  transition: opacity 0.1s ease, background 0.1s ease;
   width: $radial-menu-dimensions;
+  height: $radial-menu-dimensions;
+  opacity: 1;
+  position: relative;
+  transition: opacity 0.1s ease, background 0.1s ease;
 
   &.is-hidden {
     animation-name: scale-down;
@@ -379,7 +353,7 @@ $radial-menu-inset-bg-hover: $color-secondary;
 
   &:after {
     background: $radial-menu-inset-bg;
-    content: "";
+    content: '';
     display: none;
     height: 106%;
     right: -1px;
@@ -435,7 +409,7 @@ $radial-menu-inset-bg-hover: $color-secondary;
   background-color: $color-primary-lightest;
 
   // Black dropdown arrow.
-  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3ppVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpjYmU2ZGJmMC0zMWRkLTQyN2EtYjIyYi02YjExMGU5ZDVmODciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6REM2MzE0REVCNjkzMTFFNkIxODVBOTBFNDM1NDFDOEUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6REM2MzE0RERCNjkzMTFFNkIxODVBOTBFNDM1NDFDOEUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUuNSAoTWFjaW50b3NoKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOmI4YTU2Zjg5LTM0MzAtNDcxNS1iOGQyLWQ5NWM4NzdmYmIyOSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpjYmU2ZGJmMC0zMWRkLTQyN2EtYjIyYi02YjExMGU5ZDVmODciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4RdGokAAAAf0lEQVR42mL8//8/AzUBEwOVwaiBlAMWbIKMjIxEG4CeSujq5fkgB+DBC3E6GR1DARcQX8Zh2HUg5samH5+BIKABxF/QDPsKxLq4HETIQBCIQTMwFZ8PiTEQBGZBDVtKKMiINZATiFcCMS8hAxmxGUBJOmQhRtFo4UBfAwECDADAD7B6p+ae7AAAAABJRU5ErkJggg==");
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3ppVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpjYmU2ZGJmMC0zMWRkLTQyN2EtYjIyYi02YjExMGU5ZDVmODciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6REM2MzE0REVCNjkzMTFFNkIxODVBOTBFNDM1NDFDOEUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6REM2MzE0RERCNjkzMTFFNkIxODVBOTBFNDM1NDFDOEUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUuNSAoTWFjaW50b3NoKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOmI4YTU2Zjg5LTM0MzAtNDcxNS1iOGQyLWQ5NWM4NzdmYmIyOSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpjYmU2ZGJmMC0zMWRkLTQyN2EtYjIyYi02YjExMGU5ZDVmODciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4RdGokAAAAf0lEQVR42mL8//8/AzUBEwOVwaiBlAMWbIKMjIxEG4CeSujq5fkgB+DBC3E6GR1DARcQX8Zh2HUg5samH5+BIKABxF/QDPsKxLq4HETIQBCIQTMwFZ8PiTEQBGZBDVtKKMiINZATiFcCMS8hAxmxGUBJOmQhRtFo4UBfAwECDADAD7B6p+ae7AAAAABJRU5ErkJggg==');
 
   background-position: 97.5% 50%;
   background-repeat: no-repeat;

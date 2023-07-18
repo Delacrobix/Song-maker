@@ -31,7 +31,11 @@ const BreadCrumb = () => {
             }`}
             key={index}
           >
-            <Link className='c-navigation-breadcrumbs__link'>
+            <Link
+              className='c-navigation-breadcrumbs__link'
+              to={`${breadcrumb.path.slice(1, breadcrumb.path.length)}`}
+              replace
+            >
               {breadcrumb.name}
             </Link>
             <meta property='position' content={index + 1} />
