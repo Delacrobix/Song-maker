@@ -11,8 +11,6 @@ function peek(stack) {
 }
 
 export async function playRhythm(tempoAndMapObject) {
-  // console.log('tempoAndMapObject: ', tempoAndMapObject);
-
   let score = [...tempoAndMapObject.score];
 
   //The first element now will be the last for use this array like a stack object
@@ -29,9 +27,6 @@ export async function playRhythm(tempoAndMapObject) {
     durationArr[aux.length - 1] = aux.pop().duration * quarterNote * 1000;
   }
 
-  // console.log('durationArr: ', durationArr);
-  // console.log("score-1: ", score);
-
   playMeasures(score, quarterNote, durationArr);
 }
 
@@ -42,9 +37,7 @@ function playMeasures(score, quarterNote, durationArr) {
   }
 
   setTimeout(() => {
-    //console.log("score-2: ", score);
     let lastElement = peek(score);
-    //console.log("lastElement: ", lastElement);
     let duration = lastElement.duration * quarterNote;
 
     //rst is a rest
@@ -86,29 +79,39 @@ export function playSingleNote(octave, note, duration) {
  * @param {duration: float} duration is the duration of the playback in seconds
  */
 export async function doChord(name, inversion, seventh, duration) {
-  let indexName = table.indexOf(name);
+  const tonic = getTonic(name);
+  let indexName;
 
-  // console.log('TONIC: ', table.find(indexName), 'INDEX: ', indexName);
-
-  let chordArr = [];
-
-  //If is not a major chord
-  if (indexName === -1) {
-    //Extracting the tonic
-    indexName = table.indexOf(name.charAt(0));
-
-    chordArr = [
-      table.find(indexName),
-      table.find(indexName + 3),
-      table.find(indexName + 7),
-    ];
+  //If the chordName have not 'b' letter, is not bemol
+  if (name.indexOf('b') === -1) {
+    indexName = table.indexOf(tonic);
   } else {
-    chordArr = [
+    //if bemol case, the array index is one less than the table index
+    indexName = table.indexOf(tonic) - 1;
+  }
+
+  const typeChord = getTypeChord(name, seventh);
+  console.log('typeChord: ', typeChord);
+  const switchChord = {
+    major: [
       table.find(indexName),
       table.find(indexName + 4),
       table.find(indexName + 7),
-    ];
-  }
+    ],
+
+    minor: [
+      table.find(indexName),
+      table.find(indexName + 3),
+      table.find(indexName + 7),
+    ],
+
+    dim: [
+      table.find(indexName),
+      table.find(indexName + 3),
+      table.find(indexName + 6),
+    ],
+  };
+  let chordArr = switchChord[typeChord];
 
   // If the chord have seventh
   const SWITCH_SEVENTH = {
@@ -135,13 +138,14 @@ export async function doChord(name, inversion, seventh, duration) {
   //inverting chord
   [chordArr[0], chordArr[inversion]] = [chordArr[inversion], chordArr[0]];
 
-  //console.log("ChordArr: ", chordArr);
   playChord(chordArr, duration);
 }
 
 function playChord(chordArr, duration) {
-  const urls = {};
+  let urls = {};
   let soundsArr = [];
+
+  console.log('chordArr:  ', chordArr);
 
   urls[`${chordArr[0]}4`] = `${chordArr[0].replace(/#/g, '%23')}.mp3`;
   //setting the tonic one octave down
@@ -155,7 +159,7 @@ function playChord(chordArr, duration) {
   const sampler = new Tone.Sampler({
     urls: urls,
     release: 1,
-    baseUrl: `${REPOSITORY}/4/`,
+    baseUrl: `${REPOSITORY}`,
   }).toDestination();
 
   try {
@@ -177,4 +181,35 @@ function buildNotesTable() {
   }
 
   return table;
+}
+
+function getTypeChord(chord, seventh) {
+  //Major chords
+  if (chord.length === 1) {
+    return 'major';
+  } else if (chord.length === 2 && (chord[1] === 'b' || chord[1] === '#')) {
+    return 'major';
+  }
+
+  //Minor chords
+  if (chord[1] === 'm' && chord[2] !== 'a') {
+    return 'minor';
+  } else if (chord[1] === '#' || chord[1] === 'b') {
+    if (chord[2] === 'm' && chord[3] !== 'a') {
+      return 'minor';
+    }
+  }
+
+  //Dim chords
+  if (seventh === '7dim') {
+    return 'dim';
+  }
+}
+
+function getTonic(chord) {
+  if (chord[1] === '#') {
+    return chord.slice(0, 2);
+  } else {
+    return chord.slice(0, 1);
+  }
 }

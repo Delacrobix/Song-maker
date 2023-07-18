@@ -44,9 +44,10 @@ export async function openAIchordRequest(prompt) {
     }
 
     const chordsValidated = conditions(chords);
-    console.log('Chords: ', chordsValidated);
+    // console.log('Chords: ', chordsValidated);
 
     if (chordsValidated.length > 0) {
+      // console.log('Chords: ', chords);
       return chords;
     }
   }

@@ -28,15 +28,10 @@ export function binarySearch(array, data) {
 }
 
 export function buildNewChordArr(oldChordArr, newChords) {
-  // console.log('oldChordArr: ', oldChordArr);
-  console.log('newChords: ', newChords);
-
   let newChordsArr = [];
   let i = 0;
 
   oldChordArr.forEach((element, index) => {
-    // console.log('index: ', index, ' | i: ', i);
-
     if (element === 'rst') {
       newChordsArr.push('rst');
     } else if (element === oldChordArr[index - 1]) {
@@ -45,10 +40,8 @@ export function buildNewChordArr(oldChordArr, newChords) {
       newChordsArr.push(newChords[i]);
       i++;
     }
-    // console.log('newChordsArr: ', newChordsArr);
   });
 
-  // console.log('newChordsArr: ', newChordsArr);
   return newChordsArr;
 }
 
@@ -63,12 +56,8 @@ export function buildNewScore(rhythmObject, chordArr) {
       chordName = chordArrCopy[index];
     } else {
       chordName = getChordName(chordArrCopy[index]);
-      console.log('chordName: ', chordName);
       seventh = getSeventh(chordArrCopy[index], chordName);
-      console.log('seventh: ', seventh);
     }
-
-    // console.log('Element: ', element);
 
     //Adding generated chords to the score
     element.chordName = chordName;
@@ -83,8 +72,7 @@ export function buildNewScore(rhythmObject, chordArr) {
   return newScore;
 }
 
-function getChordName(chord) {
-  // console.log(chord.slice(0, 2));
+export function getChordName(chord) {
   if (chord[1] === 'm' && chord[2] !== 'a') {
     return chord.slice(0, 2);
   } else if (chord[1] === '#' || chord[1] === 'b') {

@@ -26,8 +26,6 @@ export function conditions(chords) {
     return [];
   }
 
-  const rhythmObject = buildRhythmObject(chordArr);
-
   return chordArr;
 }
 
@@ -48,7 +46,6 @@ function verifyName(chordArr) {
 function verifyCases(chordArr) {
   const validCases = getValidChordCases();
   let allCasesValid = true;
-  console.log('chordArr: ', chordArr);
 
   chordArr.forEach((chord) => {
     let aux = false;
@@ -76,8 +73,6 @@ function verifyCases(chordArr) {
 }
 
 function changeToExecutableCase(chord, chordSliced) {
-  // console.log('chord: ', chord);
-
   if (
     chordSliced === 'm' ||
     chordSliced === '7' ||

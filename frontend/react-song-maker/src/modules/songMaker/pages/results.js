@@ -16,6 +16,7 @@ import {
   buildNewChordArr,
   buildNewScore,
 } from '../controllers/controllers';
+import { playRhythm } from '../controllers/playback';
 
 const Results = () => {
   const location = useLocation();
@@ -24,6 +25,7 @@ const Results = () => {
   const inputNameRef = useRef(null);
 
   const [chordsReceived, setChordsReceived] = useState('');
+  const [song, setSong] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [formData, setFormData] = useState({
     userName: '',
@@ -34,8 +36,6 @@ const Results = () => {
   const [insertMutation, mutation] = useMutation(insertUserSongMutation);
 
   useEffect(() => {
-    // console.log('user: ', user);
-
     if (user.userName) {
       inputNameRef.current.disabled = true;
 
@@ -53,9 +53,16 @@ const Results = () => {
 
     if (query.data) {
       setChordsReceived(query.data.getAIChords);
+
       setIsLoading(false);
     }
   }, [query.data, query.error]);
+
+  useEffect(() => {
+    if (chordsReceived) {
+      buildSong();
+    }
+  }, [chordsReceived]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -65,9 +72,13 @@ const Results = () => {
     }));
   };
 
-  function saveUserSong(event) {
-    event.preventDefault();
+  function playSong() {
+    console.log('song: ', song);
 
+    playRhythm(song.rhythmType);
+  }
+
+  function buildSong() {
     const aiChordsArr = chordsReceived.split('|');
     const rhythmScoreCopy = [...rhythm.score];
 
@@ -76,28 +87,9 @@ const Results = () => {
     });
 
     const newChordArr = buildNewChordArr(databaseScore, aiChordsArr);
-    console.log('newChordArr: ', newChordArr);
-
-    // console.log('database score: ', databaseScore);
-
-    // console.log('oldScore: ', rhythm.score);
-    // const newScore = rhythmScoreCopy.map((element, index) => {
-    //   // console.log('Element: ', element);
-
-    //   //Adding generated chords to the score
-    //   element.chordName = newChordArr[index];
-
-    //   //Deleting __typename property of score
-    //   const { __typename, ...rest } = element;
-
-    //   return rest;
-    // });
-
     const newScore = buildNewScore(rhythmScoreCopy, newChordArr);
 
-    // console.log('newScore: ', newScore);
-
-    const song = {
+    const songObj = {
       owner: formData.userName,
       songName: formData.songName,
       rhythmType: {
@@ -108,7 +100,16 @@ const Results = () => {
       date: getCurrentDate(),
     };
 
-    console.log('song: ', song);
+    // console.log('song: ', songObj);
+    setSong(songObj);
+  }
+
+  function submitUserSong(event) {
+    if (!song) {
+      buildSong();
+    }
+
+    event.preventDefault();
 
     insertMutation({ variables: song }).catch((error) => {
       console.error(error);
@@ -135,7 +136,7 @@ const Results = () => {
             <h3>Chords:</h3>
             <label>{chordsReceived}</label>
           </div>
-          <button>Play your song</button>
+          <button onClick={playSong}>Play your song</button>
         </div>
         {/* <div className='musical-representation-container'>
           <Score />
@@ -143,7 +144,7 @@ const Results = () => {
         </div> */}
       </div>
       <div className='share-song-button-container'>
-        <form onSubmit={saveUserSong}>
+        <form onSubmit={submitUserSong}>
           <h5>Would you like to share this with the community?</h5>
           <p>*The following fields are necessary</p>
           <div className='input-container'>
