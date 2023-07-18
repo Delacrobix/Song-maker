@@ -1,20 +1,22 @@
 .rhythm-selector-container {
+  height: 85vh;
   color: #fff;
 
   .rhythm-selector-title {
-    padding: 20px 0px 0px 10px;
-    text-transform: uppercase;
+    text-align: center;
     font-size: 1.2rem;
+    padding: 2rem 0 0 0.8rem;
+    text-transform: uppercase;
   }
 
   h5 {
-    padding: 20px 0px 0px 10px;
+    text-align: center;
+    padding: 2rem 0 0 0.8rem;
     font-size: 1rem;
   }
 
   .rhythm-btn-component-container {
-    display: flex;
-    flex-wrap: wrap;
+    @include flex-center;
 
     .rhythm-button-container {
       padding: 40px;

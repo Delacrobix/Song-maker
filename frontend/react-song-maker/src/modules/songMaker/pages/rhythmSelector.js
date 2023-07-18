@@ -13,11 +13,7 @@ const RhythmSelector = () => {
   const [buttonList, setButtonList] = useState([]);
 
   const location = useLocation();
-  let tonality;
-
-  if (location.state.tonality) {
-    tonality = location.state.tonality;
-  }
+  const tonality = location.state.tonality;
 
   const getRhythmObject = (rhythmObject) => {
     setRhythmResult(rhythmObject);
