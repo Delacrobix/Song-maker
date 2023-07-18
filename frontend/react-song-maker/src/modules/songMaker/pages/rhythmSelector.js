@@ -32,7 +32,7 @@ const RhythmSelector = () => {
     const buttonsAux = [];
 
     if (data) {
-      console.log('Data: ' + JSON.stringify(data));
+      // console.log('Data: ' + JSON.stringify(data));
       data.getAllRhythms.forEach((rhythm) => {
         buttonsAux.push(
           <RhythmButton

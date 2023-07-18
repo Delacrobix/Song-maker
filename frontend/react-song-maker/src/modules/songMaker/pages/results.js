@@ -11,7 +11,11 @@ import BreadCrumb from '../components/breadCrumb';
 import Score from '../components/scores/score';
 import Tab from '../components/scores/tab';
 import useUser from '../../../hooks/useUser';
-import { getCurrentDate, buildNewChordArr } from '../controllers/controllers';
+import {
+  getCurrentDate,
+  buildNewChordArr,
+  buildNewScore,
+} from '../controllers/controllers';
 
 const Results = () => {
   const location = useLocation();
@@ -30,7 +34,7 @@ const Results = () => {
   const [insertMutation, mutation] = useMutation(insertUserSongMutation);
 
   useEffect(() => {
-    console.log('user: ', user);
+    // console.log('user: ', user);
 
     if (user.userName) {
       inputNameRef.current.disabled = true;
@@ -65,8 +69,6 @@ const Results = () => {
     event.preventDefault();
 
     const aiChordsArr = chordsReceived.split('|');
-    // console.log('chords from AI: ', chordsReceived);
-
     const rhythmScoreCopy = [...rhythm.score];
 
     const databaseScore = rhythmScoreCopy.map((element) => {
@@ -74,21 +76,24 @@ const Results = () => {
     });
 
     const newChordArr = buildNewChordArr(databaseScore, aiChordsArr);
+    console.log('newChordArr: ', newChordArr);
 
     // console.log('database score: ', databaseScore);
 
     // console.log('oldScore: ', rhythm.score);
-    const newScore = rhythmScoreCopy.map((element, index) => {
-      // console.log('Element: ', element);
+    // const newScore = rhythmScoreCopy.map((element, index) => {
+    //   // console.log('Element: ', element);
 
-      //Adding generated chords to the score
-      element.chordName = newChordArr[index];
+    //   //Adding generated chords to the score
+    //   element.chordName = newChordArr[index];
 
-      //Deleting __typename property of score
-      const { __typename, ...rest } = element;
+    //   //Deleting __typename property of score
+    //   const { __typename, ...rest } = element;
 
-      return rest;
-    });
+    //   return rest;
+    // });
+
+    const newScore = buildNewScore(rhythmScoreCopy, newChordArr);
 
     // console.log('newScore: ', newScore);
 
@@ -103,14 +108,11 @@ const Results = () => {
       date: getCurrentDate(),
     };
 
-    insertMutation({ variables: song })
-      .then((response) => {
-        console.log(response.data.insertSong);
-        alert(response.data.insertSong);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    console.log('song: ', song);
+
+    insertMutation({ variables: song }).catch((error) => {
+      console.error(error);
+    });
 
     if (mutation.error) {
       return <ErrorAlert />;

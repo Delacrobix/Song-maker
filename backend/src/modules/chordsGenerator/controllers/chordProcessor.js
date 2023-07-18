@@ -8,7 +8,7 @@ export function conditions(chords) {
   try {
     chordArr = chords.split('|');
   } catch (e) {
-    console.log('Error separating chords');
+    console.error('Error separating chords');
 
     return [];
   }
@@ -25,6 +25,8 @@ export function conditions(chords) {
   if (!isValid) {
     return [];
   }
+
+  const rhythmObject = buildRhythmObject(chordArr);
 
   return chordArr;
 }

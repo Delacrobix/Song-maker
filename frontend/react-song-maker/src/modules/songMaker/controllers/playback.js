@@ -110,15 +110,6 @@ export async function doChord(name, inversion, seventh, duration) {
     ];
   }
 
-  // console.log(
-  //   'name: ' + name,
-  //   'inversion: ' + inversion,
-  //   'seventh: ' + seventh,
-  //   'duration: ' + duration
-  // );
-
-  // console.log(name, ' CHORD ARR: ', chordArr);
-
   // If the chord have seventh
   const SWITCH_SEVENTH = {
     '7dim': () => {
@@ -172,8 +163,7 @@ function playChord(chordArr, duration) {
       sampler.triggerAttackRelease(soundsArr, duration);
     });
   } catch (e) {
-    console.error(e);
-    console.log('error al reproducir');
+    console.error('error al reproducir: ', e);
   }
 }
 
