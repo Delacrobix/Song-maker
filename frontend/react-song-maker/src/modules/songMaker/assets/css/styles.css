@@ -632,11 +632,10 @@ body .title-page {
   font-family: "Open Sans", sans-serif;
   color: #a7a1ae;
   text-align: left;
-  overflow: hidden;
   width: 80%;
   margin: 0 auto;
   display: table;
-  padding: 0 0 8em 0;
+  padding: 0 0 8rem 0;
 }
 .table-container td {
   font-weight: normal;
