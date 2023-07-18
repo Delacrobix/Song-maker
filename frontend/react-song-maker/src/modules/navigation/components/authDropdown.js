@@ -11,10 +11,6 @@ const AuthDropdown = () => {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
   // const [shouldUpdate, setShouldUpdate] = useState(false);
 
-  useEffect(() => {
-    console.log('isLoggedIn: ', isLoggedIn);
-  }, [isLoggedIn]);
-
   // useEffect(() => {
   //   const token = Cookies.get('sesionToken');
 
@@ -22,7 +18,6 @@ const AuthDropdown = () => {
   // }, [isLoggedIn]);
 
   // useEffect(() => {
-  //   console.log('sesionToken: ', sesionToken);
 
   // if (sesionToken) {
   //   setIsLoggedIn(true);
@@ -30,8 +25,6 @@ const AuthDropdown = () => {
   //   setIsLoggedIn(false);
   // }
   // }, [sesionToken, shouldUpdate]);
-
-  // console.log('setIsloggedIn: ', isLoggedIn);
 
   function deleteSesion() {
     Cookies.remove('sesionToken');

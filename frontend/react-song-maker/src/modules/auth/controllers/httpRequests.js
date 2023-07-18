@@ -2,7 +2,6 @@ const AUTH_MODULE = process.env.REACT_APP_AUTH_MODULE;
 
 export async function getAuth(credentials) {
   var response;
-  // console.log('Credentials: ', credentials);
 
   await window
     .fetch(`${AUTH_MODULE}/user/validate`, {
@@ -16,13 +15,12 @@ export async function getAuth(credentials) {
     .then((data) => {
       response = data;
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.error(err));
 
   return response;
 }
 
 export async function createUser(ua) {
-  // console.log('UserAccount: ', ua);
   var response = null;
 
   await window
@@ -35,7 +33,6 @@ export async function createUser(ua) {
     })
     .then((res) => res.json())
     .then((data) => {
-      // console.log(data);
       response = data;
     })
     .catch((err) => console.error(err));

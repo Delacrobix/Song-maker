@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import ToneLayer from './toneLayer';
-
 import {
   setupLinks,
   setupLinkHovers,
@@ -70,7 +69,6 @@ const CircleOfFifths = () => {
           name='menu-items-to-show'
           id='menu-items-to-show'
           defaultValue='1'
-          onChange={changeCipher}
         >
           <option value='1'>American</option>
           <option value='2'>Roman</option>

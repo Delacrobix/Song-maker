@@ -19,10 +19,11 @@ import {
 import { playRhythm } from '../controllers/playback';
 
 const Results = () => {
-  const location = useLocation();
-  const { tonality, rhythm } = location.state;
-  const user = useUser();
   const inputNameRef = useRef(null);
+  const location = useLocation();
+  const user = useUser();
+
+  const { tonality, rhythm } = location.state;
 
   const [chordsReceived, setChordsReceived] = useState('');
   const [song, setSong] = useState({});
@@ -72,12 +73,6 @@ const Results = () => {
     }));
   };
 
-  function playSong() {
-    console.log('song: ', song);
-
-    playRhythm(song.rhythmType);
-  }
-
   function buildSong() {
     const aiChordsArr = chordsReceived.split('|');
     const rhythmScoreCopy = [...rhythm.score];
@@ -100,7 +95,6 @@ const Results = () => {
       date: getCurrentDate(),
     };
 
-    // console.log('song: ', songObj);
     setSong(songObj);
   }
 
@@ -136,7 +130,9 @@ const Results = () => {
             <h3>Chords:</h3>
             <label>{chordsReceived}</label>
           </div>
-          <button onClick={playSong}>Play your song</button>
+          <button onClick={() => playRhythm(song.rhythmType)}>
+            Play your song
+          </button>
         </div>
         {/* <div className='musical-representation-container'>
           <Score />

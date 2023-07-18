@@ -91,7 +91,6 @@ export async function doChord(name, inversion, seventh, duration) {
   }
 
   const typeChord = getTypeChord(name, seventh);
-  console.log('typeChord: ', typeChord);
   const switchChord = {
     major: [
       table.find(indexName),
@@ -144,8 +143,6 @@ export async function doChord(name, inversion, seventh, duration) {
 function playChord(chordArr, duration) {
   let urls = {};
   let soundsArr = [];
-
-  console.log('chordArr:  ', chordArr);
 
   urls[`${chordArr[0]}4`] = `${chordArr[0].replace(/#/g, '%23')}.mp3`;
   //setting the tonic one octave down
