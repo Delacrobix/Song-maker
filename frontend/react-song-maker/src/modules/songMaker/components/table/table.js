@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Row from './row';
 import { useNavigate } from 'react-router-dom';
 import { binarySearch } from '../../controllers/controllers';
@@ -9,7 +10,7 @@ const Table = (props) => {
 
   useEffect(() => {
     setSongList(props.songList);
-  }, [props]);
+  }, [props.songList]);
 
   function watchRowDetails(id) {
     //Searching the song in the array list
@@ -23,22 +24,22 @@ const Table = (props) => {
       <thead>
         <tr>
           <th>
-            <h1>OWNER</h1>
+            <h6>OWNER</h6>
           </th>
           <th>
-            <h1>NAME</h1>
+            <h6>NAME</h6>
           </th>
           <th>
-            <h1>RHYTHM</h1>
+            <h6>RHYTHM</h6>
           </th>
           <th>
-            <h1>CHORDS</h1>
+            <h6>CHORDS</h6>
           </th>
           <th>
-            <h1>DATE</h1>
+            <h6>DATE</h6>
           </th>
           <th>
-            <h1>ID</h1>
+            <h6>ID</h6>
           </th>
         </tr>
       </thead>
@@ -46,7 +47,7 @@ const Table = (props) => {
         {songList.map((song) => {
           return (
             <Row
-              key={song.id}
+              key={uuidv4()}
               clickFunction={() => watchRowDetails(song.id)}
               song={song}
             />
@@ -58,11 +59,3 @@ const Table = (props) => {
 };
 
 export default Table;
-
-/**
- * This table and its styles were created by Pablo Garcia
- * and originally taken from Codepen.io source:
- * https://codepen.io/pablorgarcia/pen/ARdVgx
- * it has been adapted for this application by Jeffrey Rerín (Delacrobix).
- * Pablo's github source: https://github.com/pablorgarcia
- */

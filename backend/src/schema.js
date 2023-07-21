@@ -1,11 +1,10 @@
 import { GraphQLSchema, GraphQLObjectType } from 'graphql';
 import { getAIChords } from './modules/chordsGenerator/graphql/queries';
-// import { setAudioFiles } from './modules/mediaManager/graphql/mutations';
-// import { getAllAudios } from './modules/mediaManager/graphql/queries';
 import {
   getAllUserSongs,
   findSong,
   getAllRhythms,
+  getAllSongsByUserName,
 } from './modules/songMakerApi/graphql/queries';
 import {
   insertRhythm,
@@ -20,7 +19,7 @@ const QueryType = new GraphQLObjectType({
     findSong,
     getAllRhythms,
     getAIChords,
-    // getAllAudios,
+    getAllSongsByUserName,
   },
 });
 
@@ -30,7 +29,6 @@ const MutationType = new GraphQLObjectType({
   fields: {
     insertRhythm,
     insertSong,
-    // setAudioFiles,
   },
 });
 

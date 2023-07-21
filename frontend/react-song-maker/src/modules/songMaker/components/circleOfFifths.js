@@ -4,7 +4,6 @@ import {
   setupLinks,
   setupLinkHovers,
   positionIcons,
-  changeCipher,
 } from '../assets/js/circleOfFifths.js';
 
 const CircleOfFifths = () => {

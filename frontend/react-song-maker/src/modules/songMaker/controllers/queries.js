@@ -55,3 +55,18 @@ export const getAllUserSongsQuery = gql`
     }
   }
 `;
+
+export const getAllSongsByUserNameQuery = (userName) => {
+  return gql`
+  query {
+    getAllSongsByUserName(userName: "${userName}") {
+      id
+      owner
+      songName
+      rhythm
+      chords
+      date
+    }
+  }
+`;
+};

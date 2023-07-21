@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Table from '../components/table/table';
-import Sort from '../components/table/sort';
+// import Sort from '../components/table/sort';
 import ErrorAlert from '../components/feedback/errorAlert';
 import Loading from '../components/feedback/loading';
 import { useQuery } from '@apollo/client';
@@ -27,7 +27,7 @@ const CommunitySongs = () => {
   return (
     <div className='community-songs-container'>
       <h1 className='title-page'>COMMUNITY SONGS</h1>
-      <Sort />
+      {/* <Sort /> */}
       <Table songList={songList} />
     </div>
   );

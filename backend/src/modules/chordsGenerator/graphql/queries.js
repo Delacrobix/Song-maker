@@ -15,8 +15,6 @@ export const getAIChords = {
 
     const result = await openAIchordRequest(prompt);
 
-    console.log('result: ', result);
-
     return result;
   },
 };
