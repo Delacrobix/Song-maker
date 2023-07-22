@@ -10,11 +10,13 @@
     margin-bottom: 0;
 
     .c-navigation-breadcrumbs__link {
-      color: #e1e8eb;
+      color: rgba(white, 0.7);
       text-decoration: none;
+      transition: 0.2s color;
 
       &:hover {
-        color: #0de1f8;
+        transition: 0.4s color;
+        color: white;
         outline: 0;
       }
     }
@@ -23,8 +25,8 @@
 
 .c-navigation-breadcrumbs__active {
   .c-navigation-breadcrumbs__link {
-    text-shadow: 0 0 5px #696565, 0 0 5px #7a7777, 0 0 10px #a79191,
-      0 0 15px #00e4ff, 0 0 20px #00e4ff, 0 0 25px #00e4ff, 0 0 20px #434747,
+    text-shadow: 0 0 5px #696565, 0 0 5px #7a7777, 0 0 10px #726874,
+      0 0 15px #645c69, 0 0 20px #635068, 0 0 25px #4f4053, 0 0 20px #434747,
       0 0 10px #343535, 0 0 125px #3f4242;
   }
 }

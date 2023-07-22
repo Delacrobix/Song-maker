@@ -8,6 +8,10 @@ const useUser = () => {
   useEffect(() => {
     const sesionToken = Cookies.get('sesionToken');
 
+    if (!sesionToken) {
+      return;
+    }
+
     try {
       const decodedToken = jwtDecode(sesionToken);
 

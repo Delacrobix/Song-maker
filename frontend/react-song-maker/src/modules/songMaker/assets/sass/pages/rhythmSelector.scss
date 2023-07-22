@@ -1,13 +1,6 @@
 .rhythm-selector-container {
-  height: 85vh;
+  height: 90vh;
   color: #fff;
-
-  .rhythm-selector-title {
-    text-align: center;
-    font-size: 1.2rem;
-    padding: 2rem 0 0 0.8rem;
-    text-transform: uppercase;
-  }
 
   h5 {
     text-align: center;
@@ -16,38 +9,38 @@
   }
 
   .rhythm-btn-component-container {
+    padding: 2rem 0;
     @include flex-center;
 
     .rhythm-button-container {
-      padding: 40px;
-      margin-left: 10px;
+      margin-left: 0.8rem;
 
       .rhythm-btn-title {
         font-size: 1.3rem;
       }
 
       .rhythm-btn-left {
-        background-color: rgba($color: #14729e, $alpha: 0.7);
+        border: 1px solid white;
+        background: rgba(black, 0);
         padding: 0.8rem 3rem;
-        border: none;
+        color: white;
         font-size: 1rem;
         cursor: pointer;
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
+        border-radius: 7px 0 0 7px;
       }
 
       .rhythm-btn-right {
-        background-color: rgba($color: #14729e, $alpha: 0.7);
+        border: 1px solid white;
+        background: rgba(black, 0);
         padding: 0.8rem 1rem;
-        border: none;
+        color: white;
         font-size: 1rem;
         cursor: pointer;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
+        border-radius: 0 7px 7px 0;
       }
 
       button:hover {
-        background-color: rgba($color: #5992ac, $alpha: 0.8);
+        background: rgba(white, 0.18);
       }
     }
   }
@@ -59,5 +52,47 @@
   .selected-rhythm-container-visible {
     visibility: visible;
     display: block;
+
+    .selected-rhythm-container {
+      padding: 1.5rem 0 0 0;
+      @include flex-center;
+      flex-direction: column;
+
+      ul {
+        list-style: none;
+        width: 15%;
+        flex-direction: column;
+        color: map-get($dark-mode, champagne);
+
+        li {
+          padding: 0.2rem 0;
+          font-size: 1.5rem;
+          font-weight: bold;
+
+          span {
+            font-weight: 100;
+          }
+        }
+      }
+
+      .continue-button-container {
+        display: flex;
+        flex-direction: column;
+        padding: 3rem 0;
+
+        .button {
+          background: rgba(#000000, 0);
+          border-radius: 7px;
+          color: white;
+          border: white solid 1px;
+          padding: 1rem 1.5rem;
+          cursor: pointer;
+
+          &:hover {
+            background: rgba(white, 0.18);
+          }
+        }
+      }
+    }
   }
 }

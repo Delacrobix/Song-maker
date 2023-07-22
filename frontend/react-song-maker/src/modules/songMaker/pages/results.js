@@ -8,8 +8,8 @@ import {
 import Loading from '../components/feedback/loading';
 import ErrorAlert from '../components/feedback/errorAlert';
 import BreadCrumb from '../components/breadCrumb';
-import Score from '../components/scores/score';
-import Tab from '../components/scores/tab';
+// import Score from '../components/scores/score';
+// import Tab from '../components/scores/tab';
 import useUser from '../../../hooks/useUser';
 import {
   getCurrentDate,
@@ -27,7 +27,7 @@ const Results = () => {
 
   const [chordsReceived, setChordsReceived] = useState('');
   const [song, setSong] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
   const [formData, setFormData] = useState({
     userName: '',
     songName: '',
@@ -48,14 +48,14 @@ const Results = () => {
   }, [user]);
 
   useEffect(() => {
-    if (query.error) {
-      setIsLoading(false);
-    }
+    // if (query.error) {
+    //   setIsLoading(false);
+    // }
 
     if (query.data) {
       setChordsReceived(query.data.getAIChords);
 
-      setIsLoading(false);
+      // setIsLoading(false);
     }
   }, [query.data, query.error]);
 
@@ -67,6 +67,7 @@ const Results = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
@@ -124,7 +125,7 @@ const Results = () => {
       <BreadCrumb />
       <div className='result-information-container'>
         <div className='song-information-container'>
-          {isLoading && <Loading />}
+          {query.loading && <Loading />}
           {query.error && <ErrorAlert />}
           <div className='chords-gen'>
             <h3>Chords:</h3>
@@ -141,8 +142,10 @@ const Results = () => {
       </div>
       <div className='share-song-button-container'>
         <form onSubmit={submitUserSong}>
-          <h5>Would you like to share this with the community?</h5>
-          <p>*The following fields are necessary</p>
+          <p className='p p-1'>
+            Would you like to share this with the community?
+          </p>
+          <p className='p'>*The following fields are necessary</p>
           <div className='input-container'>
             <input
               ref={inputNameRef}

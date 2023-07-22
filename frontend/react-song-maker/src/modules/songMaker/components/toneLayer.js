@@ -28,7 +28,9 @@ const ToneLayer = (props) => {
         className='radial-menu__menu-link'
         id='select-tonality'
         onClick={handleClick}
-      ></p>
+      >
+        {title}
+      </p>
     </li>
   );
 };

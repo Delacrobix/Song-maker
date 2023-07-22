@@ -18,7 +18,7 @@ body {
   position: relative;
 }
 body .title-page {
-  color: #efe1d1;
+  color: white;
   padding: 1rem 0;
   font-size: 3rem;
   font-weight: 500;
@@ -90,34 +90,38 @@ body .title-page {
 
 .results-page-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: aliceblue;
+  flex-direction: column;
+  color: white;
+  margin: 0 0 5rem 0;
 }
-.results-page-container .result-information-container {
+.results-page-container .result-information-container .song-information-container {
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   padding: 2rem;
 }
-.results-page-container .result-information-container .chords-gen {
+.results-page-container .result-information-container .song-information-container .chords-gen {
   padding: 1rem;
   text-align: center;
 }
-.results-page-container .result-information-container .chords-gen h3 {
+.results-page-container .result-information-container .song-information-container .chords-gen h3 {
   font-weight: bold;
   font-size: 1.5rem;
 }
-.results-page-container .result-information-container .chords-gen label {
+.results-page-container .result-information-container .song-information-container .chords-gen label {
   font-size: 1.2rem;
 }
 .results-page-container .result-information-container button {
-  color: #fff;
+  color: white;
   background: rgba(255, 255, 255, 0);
-  border: #fff 1px solid;
+  border: white 1px solid;
   border-radius: 7px;
   padding: 1rem 2rem;
   transition: background 0.4s;
+  cursor: pointer;
 }
 .results-page-container .result-information-container button:hover {
   transition: background 0.4s;
@@ -131,13 +135,26 @@ body .title-page {
   margin-top: 2rem;
   color: aliceblue;
 }
+.results-page-container .share-song-button-container {
+  padding: 0.8rem 0;
+}
+.results-page-container .share-song-button-container form {
+  width: 100%;
+}
+.results-page-container .share-song-button-container form .p-1 {
+  font-weight: bold;
+}
+.results-page-container .share-song-button-container form .p {
+  font-size: 0.9rem;
+}
 .results-page-container .share-song-button-container form .input-container {
   display: flex;
   flex-direction: column;
   padding: 1rem 0;
 }
 .results-page-container .share-song-button-container form .input-container input {
-  border: #000000 1px solid;
+  width: 100%;
+  border: black 1px solid;
   padding: 0.5rem;
   border-radius: 5px;
   margin: 0.5rem 0;
@@ -150,6 +167,7 @@ body .title-page {
   background: rgba(255, 255, 255, 0);
   padding: 0.6rem 0;
   transition: background 0.4s;
+  cursor: pointer;
 }
 .results-page-container .share-song-button-container form button:hover {
   transition: background 0.4s;
@@ -157,14 +175,8 @@ body .title-page {
 }
 
 .rhythm-selector-container {
-  height: 85vh;
+  height: 90vh;
   color: #fff;
-}
-.rhythm-selector-container .rhythm-selector-title {
-  text-align: center;
-  font-size: 1.2rem;
-  padding: 2rem 0 0 0.8rem;
-  text-transform: uppercase;
 }
 .rhythm-selector-container h5 {
   text-align: center;
@@ -172,37 +184,37 @@ body .title-page {
   font-size: 1rem;
 }
 .rhythm-selector-container .rhythm-btn-component-container {
+  padding: 2rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .rhythm-selector-container .rhythm-btn-component-container .rhythm-button-container {
-  padding: 40px;
-  margin-left: 10px;
+  margin-left: 0.8rem;
 }
 .rhythm-selector-container .rhythm-btn-component-container .rhythm-button-container .rhythm-btn-title {
   font-size: 1.3rem;
 }
 .rhythm-selector-container .rhythm-btn-component-container .rhythm-button-container .rhythm-btn-left {
-  background-color: rgba(20, 114, 158, 0.7);
+  border: 1px solid white;
+  background: rgba(0, 0, 0, 0);
   padding: 0.8rem 3rem;
-  border: none;
+  color: white;
   font-size: 1rem;
   cursor: pointer;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-radius: 7px 0 0 7px;
 }
 .rhythm-selector-container .rhythm-btn-component-container .rhythm-button-container .rhythm-btn-right {
-  background-color: rgba(20, 114, 158, 0.7);
+  border: 1px solid white;
+  background: rgba(0, 0, 0, 0);
   padding: 0.8rem 1rem;
-  border: none;
+  color: white;
   font-size: 1rem;
   cursor: pointer;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-radius: 0 7px 7px 0;
 }
 .rhythm-selector-container .rhythm-btn-component-container .rhythm-button-container button:hover {
-  background-color: rgba(89, 146, 172, 0.8);
+  background: rgba(255, 255, 255, 0.18);
 }
 .rhythm-selector-container .selected-rhythm-container-invisible {
   display: none;
@@ -210,6 +222,43 @@ body .title-page {
 .rhythm-selector-container .selected-rhythm-container-visible {
   visibility: visible;
   display: block;
+}
+.rhythm-selector-container .selected-rhythm-container-visible .selected-rhythm-container {
+  padding: 1.5rem 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.rhythm-selector-container .selected-rhythm-container-visible .selected-rhythm-container ul {
+  list-style: none;
+  width: 15%;
+  flex-direction: column;
+  color: #efe1d1;
+}
+.rhythm-selector-container .selected-rhythm-container-visible .selected-rhythm-container ul li {
+  padding: 0.2rem 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.rhythm-selector-container .selected-rhythm-container-visible .selected-rhythm-container ul li span {
+  font-weight: 100;
+}
+.rhythm-selector-container .selected-rhythm-container-visible .selected-rhythm-container .continue-button-container {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 0;
+}
+.rhythm-selector-container .selected-rhythm-container-visible .selected-rhythm-container .continue-button-container .button {
+  background: rgba(0, 0, 0, 0);
+  border-radius: 7px;
+  color: white;
+  border: white solid 1px;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+}
+.rhythm-selector-container .selected-rhythm-container-visible .selected-rhythm-container .continue-button-container .button:hover {
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .tone-selector-page-container {
@@ -236,16 +285,18 @@ body .title-page {
   margin-bottom: 0;
 }
 .c-navigation-breadcrumbs__directory .c-navigation-breadcrumbs__link {
-  color: #e1e8eb;
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
+  transition: 0.2s color;
 }
 .c-navigation-breadcrumbs__directory .c-navigation-breadcrumbs__link:hover {
-  color: #0de1f8;
+  transition: 0.4s color;
+  color: white;
   outline: 0;
 }
 
 .c-navigation-breadcrumbs__active .c-navigation-breadcrumbs__link {
-  text-shadow: 0 0 5px #696565, 0 0 5px #7a7777, 0 0 10px #a79191, 0 0 15px #00e4ff, 0 0 20px #00e4ff, 0 0 25px #00e4ff, 0 0 20px #434747, 0 0 10px #343535, 0 0 125px #3f4242;
+  text-shadow: 0 0 5px #696565, 0 0 5px #7a7777, 0 0 10px #726874, 0 0 15px #645c69, 0 0 20px #635068, 0 0 25px #4f4053, 0 0 20px #434747, 0 0 10px #343535, 0 0 125px #3f4242;
 }
 
 *,
@@ -458,6 +509,7 @@ body {
   border-top: 1px solid transparent;
   display: block;
   z-index: 3;
+  color: transparent;
 }
 
 .radial-menu__menu-link-bg {

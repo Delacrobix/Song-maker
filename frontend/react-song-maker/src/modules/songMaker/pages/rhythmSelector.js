@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { getAllRhythmsQuery } from '../controllers/queries';
 import { useQuery } from '@apollo/client';
@@ -9,21 +9,11 @@ import BreadCrumb from '../components/breadCrumb';
 
 const RhythmSelector = () => {
   const navigate = useNavigate();
+  const containerRef = useRef(null);
   const [rhythmResult, setRhythmResult] = useState([]);
   const [buttonList, setButtonList] = useState([]);
-
   const location = useLocation();
   const tonality = location.state.tonality;
-
-  const getRhythmObject = (rhythmObject) => {
-    setRhythmResult(rhythmObject);
-
-    const container = document.querySelector(
-      '.selected-rhythm-container-invisible'
-    );
-
-    container.classList.add('selected-rhythm-container-visible');
-  };
 
   //Get requests
   const { loading, error, data } = useQuery(getAllRhythmsQuery);
@@ -45,22 +35,13 @@ const RhythmSelector = () => {
 
       setButtonList(buttonsAux);
     }
-
-    if (loading) {
-      buttonsAux.push(<Loading />);
-    }
-
-    if (error) {
-      buttonsAux.push(<ErrorAlert />);
-    }
   }, [data, loading, error]);
 
-  if (loading) {
-    return <Loading />;
-  }
+  function getRhythmObject(rhythmObject) {
+    const container = containerRef.current;
+    setRhythmResult(rhythmObject);
 
-  if (error) {
-    return <ErrorAlert />;
+    container.classList.add('selected-rhythm-container-visible');
   }
 
   function resultNavigation() {
@@ -70,29 +51,39 @@ const RhythmSelector = () => {
   }
 
   return (
-    <div className='rhythm-selector-container'>
-      <h1 className='title-page'>RHYTHM SELECTOR</h1>
+    <section className='rhythm-selector-container'>
+      <h2 className='title-page'>SELECT RHYTHM</h2>
       <BreadCrumb />
-      <div className='rhythm-selector-title'>
-        <h1>Select rhythm</h1>
-      </div>
       <h5>Your actually tonality: {tonality}</h5>
       <div className='rhythm-btn-component-container'>
-        {buttonList.map((button) => {
-          return button;
-        })}
+        {error && <ErrorAlert />}
+        {loading && <Loading />}
+        {data &&
+          buttonList.map((button) => {
+            return button;
+          })}
       </div>
-      <div className='selected-rhythm-container-invisible'>
-        <h3>
+      <div className=' selected-rhythm-container-invisible ' ref={containerRef}>
+        <div className='selected-rhythm-container'>
           <ul>
-            <li>Tonalidad: {tonality}</li>
-            <li>Rhythm: {rhythmResult.rhythmName}</li>
+            <li>
+              Tonalidad:
+              <span>{' ' + tonality}</span>
+            </li>
+            <li>
+              Rhythm:
+              <span>{' ' + rhythmResult.rhythmName}</span>
+            </li>
           </ul>
-        </h3>
-        <span>Please press the button if you want to continue</span>
-        <button onClick={resultNavigation}>Continue</button>
+          <div className='continue-button-container'>
+            <span>Press the button if you want to continue</span>
+            <button className='button' onClick={resultNavigation}>
+              Continue
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
