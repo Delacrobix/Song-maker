@@ -15,7 +15,7 @@ const Navbar = () => {
     <header>
       <h3>Logo</h3>
       <nav ref={navRef}>
-        <Link to='/home'>Home</Link>
+        {/* <Link to='/home'>Home</Link> */}
         <Link to='/create-song/tone'>Create your song</Link>
         <Link to='/community'>Community Songs</Link>
         <button className='nav-btn nav-close-btn' onClick={showNavbar}>
@@ -29,9 +29,7 @@ const Navbar = () => {
       <button className='nav-btn' onClick={showNavbar}>
         <FaBars />
       </button>
-      <AuthProvider>
-        <AuthDropdown />
-      </AuthProvider>
+      <AuthProvider>{/* <AuthDropdown /> */}</AuthProvider>
     </header>
   );
 };

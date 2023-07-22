@@ -40,8 +40,8 @@ function App() {
         <Route path='/rhythm-selector' element={<RhythmSelector />} />
         <Route path='/results' element={<Results />} />
         <Route path='/create-song/tone' element={<ToneSelector />} />
-        <Route path='/home' element={<HomePage />} />
-        <Route
+        {/* <Route path='/home' element={<HomePage />} /> */}
+        {/* <Route
           path='/profile'
           element={
             <AuthProvider>
@@ -50,7 +50,7 @@ function App() {
               </ProtectedRoute>
             </AuthProvider>
           }
-        />
+        /> */}
       </Routes>
       <Footer />
     </div>
