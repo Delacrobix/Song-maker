@@ -117,7 +117,7 @@ $radial-menu-inset-bg-hover: $color-secondary;
 
   &.is-active {
     animation-name: scale-up;
-    // animation-duration: 0.2s;
+    animation-duration: 0.2s;
     animation-delay: 0;
     animation-iteration-count: 1;
     animation-fill-mode: forwards; /* this prevents the animation from restarting! */
@@ -218,7 +218,7 @@ $radial-menu-inset-bg-hover: $color-secondary;
   color: $radial-menu-content-title-font-color;
   font-size: $radial-menu-content-title-font-size;
   font-weight: $radial-menu-content-title-font-weight;
-  line-height: 1.3;
+  line-height: 5;
 }
 
 .radial-menu__menu-content-description {
@@ -243,11 +243,13 @@ $radial-menu-inset-bg-hover: $color-secondary;
   top: 0;
   transform: $radial-menu-icon-default-transform;
   width: $radial-menu-icon-dimensions;
-  z-index: 2;
+  z-index: 3;
 
   .oi {
-    color: $radial-menu-icon-color;
-    font-size: $radial-menu-icon-icon-size;
+    position: relative;
+    opacity: 0.7;
+    color: map-get($dark-mode, dark-purple);
+    font-size: 1rem;
     line-height: $radial-menu-icon-dimensions;
     transition: font-size 0.3s cubic-bezier(0.25, 0.25, 0.25, 1.5),
       color 0.1s ease;
@@ -345,7 +347,7 @@ $radial-menu-inset-bg-hover: $color-secondary;
     $radial-menu-item-border-color;
   border-top: $radial-menu-item-border-width solid
     $radial-menu-item-border-color;
-  font-size: 12px;
+  font-size: 25px;
   text-decoration: none;
   text-transform: uppercase;
   transition: background 0.05s ease;
@@ -397,9 +399,9 @@ $radial-menu-inset-bg-hover: $color-secondary;
 .menu-items-select__label {
   color: $color-primary-darkest;
   display: block;
-  font-size: 0.7em;
+  font-size: 0.7rem;
   font-weight: bold;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.05rem;
   margin-bottom: 10px;
   text-transform: uppercase;
 }
@@ -407,17 +409,13 @@ $radial-menu-inset-bg-hover: $color-secondary;
 .menu-items-select__select {
   appearance: none;
   background-color: $color-primary-lightest;
-
-  // Black dropdown arrow.
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3ppVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpjYmU2ZGJmMC0zMWRkLTQyN2EtYjIyYi02YjExMGU5ZDVmODciIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6REM2MzE0REVCNjkzMTFFNkIxODVBOTBFNDM1NDFDOEUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6REM2MzE0RERCNjkzMTFFNkIxODVBOTBFNDM1NDFDOEUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUuNSAoTWFjaW50b3NoKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOmI4YTU2Zjg5LTM0MzAtNDcxNS1iOGQyLWQ5NWM4NzdmYmIyOSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpjYmU2ZGJmMC0zMWRkLTQyN2EtYjIyYi02YjExMGU5ZDVmODciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4RdGokAAAAf0lEQVR42mL8//8/AzUBEwOVwaiBlAMWbIKMjIxEG4CeSujq5fkgB+DBC3E6GR1DARcQX8Zh2HUg5samH5+BIKABxF/QDPsKxLq4HETIQBCIQTMwFZ8PiTEQBGZBDVtKKMiINZATiFcCMS8hAxmxGUBJOmQhRtFo4UBfAwECDADAD7B6p+ae7AAAAABJRU5ErkJggg==');
-
   background-position: 97.5% 50%;
   background-repeat: no-repeat;
   border: 2px solid $color-primary;
   border-radius: 0;
   display: block;
   font-family: sans-serif;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   font-weight: bold;
   height: 40px;
   padding: 5px 10px;
