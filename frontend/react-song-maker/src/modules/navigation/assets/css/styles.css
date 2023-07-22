@@ -7,8 +7,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: #121212;
-  color: white;
+  background: #3f2e3e;
+  color: #efe1d1;
 }
 .footer .footer-container {
   width: 100%;
@@ -39,16 +39,18 @@
   font-size: 2rem;
 }
 .footer .footer-content-container .menu-item-footer {
+  color: #efe1d1;
   margin: 0.2rem 0;
   opacity: 0.7;
-  color: white;
   text-decoration: none;
   transition: 0.4s;
 }
 .footer .footer-content-container .menu-item-footer:hover {
   opacity: 1;
+  color: white;
 }
 .footer .footer-content-container .menu-title {
+  color: white;
   font-size: 1rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -138,49 +140,45 @@
   display: block;
 }
 
-:root {
-  --mainColor: #29335c;
-  --secondaryColor: #de2e39;
-  --textColor: #eee;
-}
-
 header {
+  background: #a78295;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 4.5rem;
   padding: 0 2rem;
-  background-color: var(--mainColor);
-  color: var(--textColor);
 }
 header h3 {
+  color: white;
   padding: 0 1rem;
   position: absolute;
   left: 0;
 }
 header nav a {
   margin: 0 2rem;
-  color: var(--textColor);
+  color: white;
   text-decoration: none;
+  transition: 0.2s color;
 }
 header nav a:hover {
-  color: var(--secondaryColor);
+  transition: color 0.3s;
+  color: #331d2c;
 }
 header .nav-login-btn {
-  color: var(--textColor);
+  color: #efe1d1;
   cursor: pointer;
   text-decoration: none;
 }
 header .nav-login-btn:hover {
-  color: var(--secondaryColor);
+  color: #331d2c;
 }
 header .nav-btn {
   cursor: pointer;
   background: transparent;
   border: none;
   outline: none;
-  color: var(--textColor);
+  color: #efe1d1;
   visibility: hidden;
   opacity: 0;
   font-size: 1.8rem;

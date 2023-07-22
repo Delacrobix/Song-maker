@@ -8,7 +8,35 @@ import {
 
 const CircleOfFifths = () => {
   const selectRef = useRef(null);
-  const [tonArr, setTonArr] = useState([]);
+  const minorArr = [
+    'F#m',
+    'C#m',
+    'G#m',
+    'Ebm',
+    'Bbm',
+    'Fm',
+    'Cm',
+    'Gm',
+    'Dm',
+    'Am',
+    'Em',
+    'Bm',
+  ];
+  const majorArr = [
+    'A',
+    'E',
+    'B',
+    'F#',
+    'Db',
+    'Ab',
+    'Eb',
+    'Bb',
+    'F',
+    'C',
+    'G',
+    'D',
+  ];
+  const [tonArr, setTonArr] = useState(majorArr);
 
   useEffect(() => {
     var container = document.querySelector('.radial-menu');
@@ -39,39 +67,13 @@ const CircleOfFifths = () => {
     positionIcons(icons, iconDistance, menuItems);
   });
 
-  function handleChange(e) {
+  function handleChange() {
     const value = selectRef.current.value;
 
     if (value === 'minor') {
-      setTonArr([
-        'F#m',
-        'C#m',
-        'G#m',
-        'Ebm',
-        'Bbm',
-        'Fm',
-        'Cm',
-        'Gm',
-        'Dm',
-        'Am',
-        'Em',
-        'Bm',
-      ]);
+      setTonArr(minorArr);
     } else {
-      setTonArr([
-        'A',
-        'E',
-        'B',
-        'F#',
-        'Db',
-        'Ab',
-        'Eb',
-        'Bb',
-        'F',
-        'C',
-        'G',
-        'D',
-      ]);
+      setTonArr(majorArr);
     }
   }
 
@@ -106,9 +108,9 @@ const CircleOfFifths = () => {
           className='menu-items-select__select'
           name='menu-items-to-show'
           id='menu-items-to-show'
-          defaultValue='1'
+          defaultValue='major'
           ref={selectRef}
-          onChange={(e) => handleChange()}
+          onChange={handleChange}
         >
           <option value='major'>Major</option>
           <option value='minor'>Minor</option>

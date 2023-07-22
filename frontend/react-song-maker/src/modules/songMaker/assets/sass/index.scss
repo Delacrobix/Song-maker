@@ -1,23 +1,25 @@
-@import './variables';
 @import './fonts.scss';
+@import './variables';
+@import '../../../../sass/globalVariables.scss';
 @import '../../../../sass/mixins.scss';
-
-//Responsive desing
-@import './responsive.scss';
+@import './general.scss';
 
 //Pages
-@import './rhythmSelector.scss';
-@import './toneSelector.scss';
-@import './result.scss';
+@import './pages/cardInfo.scss';
+@import './pages/communitySongs.scss';
+@import './pages/result.scss';
+@import './pages/rhythmSelector.scss';
+@import './pages/toneSelector.scss';
 
 //Components
-@import './circleOfFifths.scss';
-@import './general.scss';
-@import './errorAlert.scss';
-@import './loading.scss';
-@import './table.scss';
-@import './cardInfo.scss';
-@import './breadCrumb.scss';
-@import './score.scss';
-@import './tab.scss';
-@import './sort.scss';
+@import './components/breadCrumb.scss';
+@import './components/circleOfFifths.scss';
+@import './components/errorAlert.scss';
+@import './components/loading.scss';
+@import './components/score.scss';
+@import './components/sort.scss';
+@import './components/tab.scss';
+@import './components/table.scss';
+
+//Responsive
+@import './responsive.scss';

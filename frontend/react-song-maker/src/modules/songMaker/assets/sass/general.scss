@@ -8,16 +8,16 @@
 }
 
 body {
-  background-color: rgb(75, 51, 104);
+  background-color: map-get($dark-mode, dark-purple);
   height: 128vh;
   width: 100%;
   position: relative;
 
   .title-page {
+    color: map-get($dark-mode, champagne);
     padding: 1rem 0;
     font-size: 3rem;
     font-weight: 500;
     text-align: center;
-    color: #4dc3fa;
   }
 }

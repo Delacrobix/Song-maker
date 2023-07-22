@@ -34,7 +34,6 @@ function App() {
             </AuthProvider>
           }
         />
-
         <Route path='/community' element={<CommunitySongs />} />
         <Route path='/community/:id' element={<CardInfo />} />
         <Route path='/rhythm-selector' element={<RhythmSelector />} />

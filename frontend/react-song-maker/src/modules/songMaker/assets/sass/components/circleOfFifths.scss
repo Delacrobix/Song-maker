@@ -14,13 +14,13 @@ body {
 $white: #fff;
 $black: #000;
 
-$color-primary: #d4dde5;
+$color-primary: #d4dde5da;
 $color-primary-lighter: lighten($color-primary, 2%);
 $color-primary-lightest: lighten($color-primary, 6%);
 $color-primary-darker: darken($color-primary, 2%);
 $color-primary-darkest: darken($color-primary, 6%);
 
-$color-secondary: #6d9bc5;
+$color-secondary: #726472;
 $color-secondary-lighter: lighten($color-secondary, 2%);
 $color-secondary-lightest: lighten($color-secondary, 6%);
 $color-secondary-darker: darken($color-secondary, 2%);
@@ -117,7 +117,7 @@ $radial-menu-inset-bg-hover: $color-secondary;
 
   &.is-active {
     animation-name: scale-up;
-    animation-duration: 0.2s;
+    // animation-duration: 0.2s;
     animation-delay: 0;
     animation-iteration-count: 1;
     animation-fill-mode: forwards; /* this prevents the animation from restarting! */

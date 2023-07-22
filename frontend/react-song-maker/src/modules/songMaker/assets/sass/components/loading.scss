@@ -1,7 +1,5 @@
 .loading-animation-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
 
   .load-spinner {
     margin-top: 25%;
