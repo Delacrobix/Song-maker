@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Row = (props) => {
   const { clickFunction } = props;
   const { owner, rhythm, chords, songName, id, date } = props.song;
 
-  const parsedDate = new Date(parseInt(date));
+  const [printableDate, setPrintableDate] = useState('');
 
-  const year = parsedDate.getFullYear();
-  const month = String(parsedDate.getMonth() + 1).padStart(2, '0');
-  const day = String(parsedDate.getDate()).padStart(2, '0');
+  useEffect(() => {
+    const parsedDate = new Date(date);
+
+    const year = parsedDate.getFullYear();
+    const month = String(parsedDate.getMonth() + 1).padStart(2, '0');
+    const day = String(parsedDate.getDate()).padStart(2, '0');
+
+    setPrintableDate(`${year}/${month}/${day}`);
+  }, [date]);
 
   return (
     <tr onClick={clickFunction}>
@@ -16,7 +22,7 @@ const Row = (props) => {
       <td>{songName}</td>
       <td>{rhythm}</td>
       <td>{chords}</td>
-      <td>{`${year}/${month}/${day}`}</td>
+      <td>{printableDate}</td>
       <td>{id}</td>
     </tr>
   );
