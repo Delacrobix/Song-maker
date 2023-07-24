@@ -10,7 +10,7 @@ import ErrorAlert from '../components/feedback/errorAlert';
 import BreadCrumb from '../components/breadCrumb';
 // import Score from '../components/scores/score';
 // import Tab from '../components/scores/tab';
-import useUser from '../../../hooks/useUser';
+// import useUser from '../../../hooks/useUser';
 import {
   getCurrentDate,
   buildNewChordArr,
@@ -21,12 +21,12 @@ import { playRhythm } from '../controllers/playback';
 const Results = () => {
   const inputNameRef = useRef(null);
   const location = useLocation();
-  const user = useUser();
+  // const user = useUser();
 
   const { tonality, rhythm } = location.state;
 
   const [chordsReceived, setChordsReceived] = useState('');
-  const [song, setSong] = useState({});
+  const [rhythmType, setRhythmType] = useState({});
   // const [isLoading, setIsLoading] = useState(true);
   const [formData, setFormData] = useState({
     userName: '',
@@ -36,34 +36,29 @@ const Results = () => {
   const query = useQuery(getAIChordsQuery(tonality));
   const [insertMutation, mutation] = useMutation(insertUserSongMutation);
 
+  //Setting userName if the user is logged in
+  // useEffect(() => {
+  //   if (user.userName) {
+  //     inputNameRef.current.disabled = true;
+
+  //     setFormData((prevFormData) => ({
+  //       ...prevFormData,
+  //       userName: user.userName,
+  //     }));
+  //   }
+  // }, [user]);
+
   useEffect(() => {
-    if (user.userName) {
-      inputNameRef.current.disabled = true;
-
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        userName: user.userName,
-      }));
-    }
-  }, [user]);
-
-  useEffect(() => {
-    // if (query.error) {
-    //   setIsLoading(false);
-    // }
-
     if (query.data) {
       setChordsReceived(query.data.getAIChords);
-
-      // setIsLoading(false);
     }
   }, [query.data, query.error]);
 
-  useEffect(() => {
-    if (chordsReceived) {
-      buildSong();
-    }
-  }, [chordsReceived]);
+  // useEffect(() => {
+  //   if (chordsReceived) {
+  //     buildSong();
+  //   }
+  // }, [chordsReceived]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -96,17 +91,17 @@ const Results = () => {
       date: getCurrentDate(),
     };
 
-    setSong(songObj);
+    setRhythmType(songObj.rhythmType);
+
+    return songObj;
   }
 
   function submitUserSong(event) {
-    if (!song) {
-      buildSong();
-    }
+    const songObj = buildSong();
 
     event.preventDefault();
 
-    insertMutation({ variables: song }).catch((error) => {
+    insertMutation({ variables: songObj }).catch((error) => {
       console.error(error);
     });
 
@@ -131,9 +126,7 @@ const Results = () => {
             <h3>Chords:</h3>
             <label>{chordsReceived}</label>
           </div>
-          <button onClick={() => playRhythm(song.rhythmType)}>
-            Play your song
-          </button>
+          <button onClick={() => playRhythm(rhythmType)}>Play your song</button>
         </div>
         {/* <div className='musical-representation-container'>
           <Score />

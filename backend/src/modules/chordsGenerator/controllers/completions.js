@@ -23,8 +23,6 @@ export async function openAIchordRequest(prompt) {
 
       data = response.data;
     } catch (error) {
-      console.error(error);
-
       throw new ConnectionError('Error connecting to openAI api');
     }
     i++;
@@ -44,10 +42,8 @@ export async function openAIchordRequest(prompt) {
     }
 
     const chordsValidated = conditions(chords);
-    // console.log('Chords: ', chordsValidated);
 
     if (chordsValidated.length > 0) {
-      // console.log('Chords: ', chords);
       return chords;
     }
   }
@@ -65,8 +61,6 @@ async function saveTokensSpent(data) {
 
     console.log('Tokens consumed saved successfully ', i);
   } catch (err) {
-    console.log(err);
-
     throw new SavingError('Error saving tokens consumed');
   }
 }
@@ -84,8 +78,6 @@ async function savePromptResults(chords, data) {
 
     console.log('Chords for test saved ', i);
   } catch (err) {
-    console.error(err);
-
     throw new SavingError('Error saving chords for testing');
   }
 }

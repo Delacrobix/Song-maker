@@ -38,9 +38,9 @@ const Table = (props) => {
           <th>
             <h6>DATE</h6>
           </th>
-          <th>
+          {/* <th>
             <h6>ID</h6>
-          </th>
+          </th> */}
         </tr>
       </thead>
       <tbody>

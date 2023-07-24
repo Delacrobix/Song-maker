@@ -11,6 +11,7 @@ import {
   SongValidation,
 } from '../validations/dataValidations';
 import moment from 'moment';
+import redisClient from '../../../config/redis';
 
 //Mongoose models
 const { UserSongInfo, Rhythm, Song } = modelsExported;
@@ -35,9 +36,9 @@ export const insertRhythm = {
 
       return true;
     } catch (err) {
-      console.error(err);
-
-      throw new DataMutationError(`Error inserting rhythm in: ${functionName}`);
+      throw new DataMutationError(
+        `Error inserting rhythm in: ${functionName} ${err}`
+      );
     }
   },
 };
@@ -51,26 +52,20 @@ export const insertSong = {
   },
   async resolve(__, args) {
     const functionName = insertSong.name;
-
     const { song } = args;
-    // console.log('Song: ', song);
 
     SongValidation(functionName, song);
 
     let chordList = '';
 
-    console.log('song.rhythm: ' + song.rhythmType.score);
     //Extract the information from the song
     song.rhythmType.score.forEach((item) => {
       if (item.chordName !== 'rst') {
         chordList += item.chordName + item.seventh + '|';
       }
     });
-    // console.log('chordList: ', chordList);
 
-    // console.log('song.date: ', song.date);
     song.date = moment(song.date, 'DD/MM/YYYY').format('YYYY-MM-DD');
-    // console.log('date: ', date);
 
     try {
       //Changing the name of object property
@@ -80,7 +75,7 @@ export const insertSong = {
 
       //Saving song
       const songInstance = new Song(song);
-      let songResult = await songInstance.save();
+      const songResult = await songInstance.save();
 
       const songInfo = {
         owner: song.owner,
@@ -93,13 +88,28 @@ export const insertSong = {
 
       //Saving song information
       const userSongInfoInstance = new UserSongInfo(songInfo);
-      let userSongResult = await userSongInfoInstance.save();
+      const userSongResult = await userSongInfoInstance.save();
+
+      //Updating redis info
+      try {
+        const allSongs = await UserSongInfo.find();
+        const allUserSongsString = JSON.stringify(allSongs);
+
+        await redisClient.set(
+          'song-maker:communitySongList',
+          allUserSongsString
+        );
+      } catch (err) {
+        throw new DataMutationError(
+          `Error updating redis info in: ${functionName} ${err}`
+        );
+      }
 
       return { id: userSongResult.id };
     } catch (err) {
-      console.error(err);
-
-      throw new DataMutationError(`Error inserting Song in: ${functionName}`);
+      throw new DataMutationError(
+        `Error inserting Song in: ${functionName} ${err}`
+      );
     }
   },
 };

@@ -14,6 +14,10 @@ const CommunitySongs = () => {
     if (data) {
       setSongList(data.getAllUserSongs);
     }
+
+    if (error) {
+      console.error(error);
+    }
   }, [data, error, loading]);
 
   return (
