@@ -96,25 +96,26 @@ const CircleOfFifths = () => {
         </ul>
         <div className='radial-menu__label'>Tonality</div>
       </div>
-
-      <div className='menu-items-select'>
-        <label
-          className='menu-items-select__label'
-          htmlFor='menu-items-to-show'
-        >
-          Tonalities
-        </label>
-        <select
-          className='menu-items-select__select'
-          name='menu-items-to-show'
-          id='menu-items-to-show'
-          defaultValue='major'
-          ref={selectRef}
-          onChange={handleChange}
-        >
-          <option value='major'>Major</option>
-          <option value='minor'>Minor</option>
-        </select>
+      <div className='menu-items'>
+        <div className='menu-items-select'>
+          <label
+            className='menu-items-select__label'
+            htmlFor='menu-items-to-show'
+          >
+            Tonalities
+          </label>
+          <select
+            className='menu-items-select__select'
+            name='menu-items-to-show'
+            id='menu-items-to-show'
+            defaultValue='major'
+            ref={selectRef}
+            onChange={handleChange}
+          >
+            <option value='major'>Major</option>
+            <option value='minor'>Minor</option>
+          </select>
+        </div>
       </div>
     </div>
   );

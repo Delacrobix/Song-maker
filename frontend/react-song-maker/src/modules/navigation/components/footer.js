@@ -41,6 +41,9 @@ const Footer = () => {
             <Link to='#' target='_blank' className='menu-item-footer'>
               Report a bug
             </Link>
+            <Link to='#' target='_blank' className='menu-item-footer'>
+              Any suggestion?
+            </Link>
           </div>
           <div className='footer-content-container'>
             <span className='menu-title'>Legal</span>
