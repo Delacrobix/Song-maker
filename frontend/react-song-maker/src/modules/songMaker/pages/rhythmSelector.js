@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getAllRhythmsQuery } from '../controllers/queries';
+import { useDispatch, useSelector } from 'react-redux';
+import { setRhythm } from '../../../redux/rhythmSlice';
 import { useQuery } from '@apollo/client';
 import Loading from '../components/feedback/loading';
 import ErrorAlert from '../components/feedback/errorAlert';
@@ -8,15 +10,26 @@ import RhythmButton from '../components/rhythmButton';
 import BreadCrumb from '../components/breadCrumb';
 
 const RhythmSelector = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const containerRef = useRef(null);
   const [rhythmResult, setRhythmResult] = useState([]);
   const [buttonList, setButtonList] = useState([]);
-  const location = useLocation();
-  const tonality = location.state.tonality;
+  const [tonality, setTonality] = useState('');
+  const reduxTonality = useSelector((state) => state.tonality.value);
 
   //Get requests
   const { loading, error, data } = useQuery(getAllRhythmsQuery);
+
+  useEffect(() => {
+    if (reduxTonality) {
+      setTonality(reduxTonality);
+    } else {
+      alert('Please, select your tonality first');
+
+      navigate('/create-song/tone');
+    }
+  }, [reduxTonality, navigate]);
 
   useEffect(() => {
     const buttonsAux = [];
@@ -45,9 +58,9 @@ const RhythmSelector = () => {
   }
 
   function resultNavigation() {
-    navigate('/results', {
-      state: { tonality: tonality, rhythm: rhythmResult },
-    });
+    dispatch(setRhythm(rhythmResult));
+
+    navigate('/results');
   }
 
   return (

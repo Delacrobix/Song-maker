@@ -1,14 +1,17 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setTonality } from '../../../redux/tonalitySlice';
 
 const ToneLayer = (props) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { title } = props;
 
   function handleClick({ target: { innerHTML } }) {
-    navigate('/rhythm-selector', {
-      state: { tonality: innerHTML },
-    });
+    dispatch(setTonality(innerHTML));
+
+    navigate('/rhythm-selector');
   }
 
   return (

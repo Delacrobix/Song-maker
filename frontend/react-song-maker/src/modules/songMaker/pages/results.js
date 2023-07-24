@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   getAIChordsQuery,
   insertUserSongMutation,
@@ -17,24 +17,35 @@ import {
   buildNewScore,
 } from '../controllers/controllers';
 import { playRhythm } from '../controllers/playback';
+import { useSelector } from 'react-redux';
 
 const Results = () => {
+  const navigate = useNavigate();
   const inputNameRef = useRef(null);
-  const location = useLocation();
-  // const user = useUser();
-
-  const { tonality, rhythm } = location.state;
-
+  const reduxRhythm = useSelector((state) => state.rhythm.value);
+  const reduxTonality = useSelector((state) => state.tonality.value);
   const [chordsReceived, setChordsReceived] = useState('');
   const [rhythmType, setRhythmType] = useState({});
-  // const [isLoading, setIsLoading] = useState(true);
   const [formData, setFormData] = useState({
     userName: '',
     songName: '',
   });
 
-  const query = useQuery(getAIChordsQuery(tonality));
+  const query = useQuery(getAIChordsQuery(reduxTonality));
   const [insertMutation, mutation] = useMutation(insertUserSongMutation);
+  // const user = useUser();
+
+  useEffect(() => {
+    if (!reduxTonality) {
+      alert('Please, select a tonality first');
+
+      navigate('/create-song/tone');
+    } else if (!reduxRhythm) {
+      alert('Please, select a rhythm first');
+
+      navigate('/rhythm-selector');
+    }
+  }, [navigate, reduxRhythm, reduxTonality]);
 
   //Setting userName if the user is logged in
   // useEffect(() => {
@@ -52,13 +63,13 @@ const Results = () => {
     if (query.data) {
       setChordsReceived(query.data.getAIChords);
     }
-  }, [query.data, query.error]);
+  }, [query.data]);
 
-  // useEffect(() => {
-  //   if (chordsReceived) {
-  //     buildSong();
-  //   }
-  // }, [chordsReceived]);
+  useEffect(() => {
+    if (chordsReceived) {
+      buildSong();
+    }
+  }, [chordsReceived]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -71,10 +82,11 @@ const Results = () => {
 
   function buildSong() {
     const aiChordsArr = chordsReceived.split('|');
-    const rhythmScoreCopy = [...rhythm.score];
+    const rhythmScoreCopy = [...reduxRhythm.score];
+    let databaseScore = [];
 
-    const databaseScore = rhythmScoreCopy.map((element) => {
-      return element.chordName;
+    rhythmScoreCopy.forEach((element) => {
+      databaseScore.push(element.chordName);
     });
 
     const newChordArr = buildNewChordArr(databaseScore, aiChordsArr);
@@ -84,8 +96,8 @@ const Results = () => {
       owner: formData.userName,
       songName: formData.songName,
       rhythmType: {
-        rhythmName: rhythm.rhythmName,
-        tempo: rhythm.tempo,
+        rhythmName: reduxRhythm.rhythmName,
+        tempo: reduxRhythm.tempo,
         score: newScore,
       },
       date: getCurrentDate(),

@@ -60,11 +60,14 @@ export function buildNewScore(rhythmObject, chordArr) {
     }
 
     //Adding generated chords to the score
-    element.chordName = chordName;
-    element.seventh = seventh;
+    const updatedElement = {
+      ...element,
+      chordName: chordName,
+      seventh: seventh,
+    };
 
     //Deleting __typename property of score
-    const { __typename, ...rest } = element;
+    const { __typename, ...rest } = updatedElement;
 
     return rest;
   });
