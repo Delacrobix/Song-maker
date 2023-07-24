@@ -742,7 +742,7 @@ body {
 
 .table-container {
   font-family: "Open Sans", sans-serif;
-  color: #a7a1ae;
+  color: #cac9ca;
   text-align: left;
   width: 80%;
   margin: 0 auto;
@@ -753,21 +753,22 @@ body {
   cursor: pointer;
 }
 .table-container tr th {
-  background-color: #1f2739;
+  border: rgba(202, 201, 202, 0.26) 1px solid;
+  background: #3f2e3e;
 }
 .table-container tr th h6 {
+  color: #efe1d1;
   padding: 0 0 0 1rem;
   margin: 0 0 0 1rem;
   font-weight: bold;
   font-size: 1rem;
   text-align: left;
-  color: #185875;
 }
 .table-container tr:nth-child(odd) {
-  background-color: #323c50;
+  background: rgba(122, 49, 111, 0.3);
 }
 .table-container tr:nth-child(even) {
-  background-color: #2c3446;
+  background: rgba(122, 49, 111, 0.5);
 }
 .table-container tr:hover {
   background-color: #464a52;
@@ -776,17 +777,18 @@ body {
   box-shadow: 0 6px 6px -6px #0e1119;
 }
 .table-container tr:not(thead tr):hover {
-  background-color: #515a6b;
-  color: #ffffff;
+  background: rgba(205, 102, 136, 0.3);
+  color: white;
   font-weight: bold;
   transition-delay: 0s;
   transition-duration: 0.2s;
   transition-property: all;
   transition-timing-function: line;
-  box-shadow: #597a8a -1px 1px, #597a8a -2px 2px, #597a8a -3px 3px, #597a8a -4px 4px, #597a8a -5px 5px, #597a8a -6px 6px;
-  transform: translate3d(6px, -6px, 0);
+  box-shadow: #cd6688 -1px 1px, #cd6688 -2px 2px, #cd6688 -3px 3px, #cd6688 -4px 4px, #cd6688 -5px 5px, #cd6688 -6px 6px;
+  transform: translate3d(5px, -5px, 0);
 }
 .table-container tbody td {
+  border: rgba(202, 201, 202, 0.26) 1px solid;
   font-weight: normal;
   font-size: 1rem;
   -webkit-box-shadow: 0 2px 2px -2px #0e1119;
@@ -794,7 +796,8 @@ body {
   box-shadow: 0 2px 2px -2px #0e1119;
 }
 .table-container tbody td:first-child {
-  color: #fb667a;
+  font-weight: bold;
+  color: #cd6688;
 }
 .table-container td,
 .table-container th {

@@ -22,15 +22,12 @@ const Footer = () => {
             <Link to='/community' className='menu-item-footer'>
               Community song
             </Link>
-            <Link to='/about-me' className='menu-item-footer'>
-              About me
-            </Link>
           </div>
           <div className='footer-content-container'>
             <span className='menu-title'>Help us</span>
-            <Link to='/#' className='menu-item-footer'>
+            {/* <Link to='/#' className='menu-item-footer'>
               Donations
-            </Link>
+            </Link> */}
             <Link
               to='https://github.com/Delacrobix/Song-maker'
               target='_blank'
@@ -38,19 +35,19 @@ const Footer = () => {
             >
               Repository
             </Link>
-            <Link to='#' target='_blank' className='menu-item-footer'>
+            {/* <Link to='#' target='_blank' className='menu-item-footer'>
               Report a bug
             </Link>
             <Link to='#' target='_blank' className='menu-item-footer'>
               Any suggestion?
-            </Link>
+            </Link> */}
           </div>
-          <div className='footer-content-container'>
+          {/* <div className='footer-content-container'>
             <span className='menu-title'>Legal</span>
             <Link to='/#' className='menu-item-footer'>
               Terms and conditions
             </Link>
-          </div>
+          </div> */}
         </div>
         <div className='footer-content-container'>
           <span className='menu-title'>Follow me</span>
