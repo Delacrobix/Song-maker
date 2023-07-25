@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/song-maker/static/css/main.5a626044.css",
-    "main.js": "/song-maker/static/js/main.f8e9415e.js",
+    "main.js": "/song-maker/static/js/main.7d768dc3.js",
     "static/js/787.ab0561a6.chunk.js": "/song-maker/static/js/787.ab0561a6.chunk.js",
     "static/media/mundo.png": "/song-maker/static/media/mundo.72f7cc3f16db9b866979.png",
     "static/media/github.png": "/song-maker/static/media/github.a855c3975c028d8069f5.png",
     "index.html": "/song-maker/index.html",
     "main.5a626044.css.map": "/song-maker/static/css/main.5a626044.css.map",
-    "main.f8e9415e.js.map": "/song-maker/static/js/main.f8e9415e.js.map",
+    "main.7d768dc3.js.map": "/song-maker/static/js/main.7d768dc3.js.map",
     "787.ab0561a6.chunk.js.map": "/song-maker/static/js/787.ab0561a6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5a626044.css",
-    "static/js/main.f8e9415e.js"
+    "static/js/main.7d768dc3.js"
   ]
 }
