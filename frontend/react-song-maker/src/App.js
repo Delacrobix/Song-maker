@@ -6,11 +6,11 @@ import RhythmSelector from './modules/songMaker/pages/rhythmSelector';
 import ToneSelector from './modules/songMaker/pages/toneSelector';
 import Footer from './modules/navigation/components/footer';
 import CardInfo from './modules/songMaker/pages/cardInfo';
-import HomePage from './modules/songMaker/pages/homePage';
+// import HomePage from './modules/songMaker/pages/homePage';
 import Login from './modules/auth/pages/login';
 import Signup from './modules/auth/pages/signup';
-import ProtectedRoute from './modules/auth/components/protectedRoute';
-import Profile from './modules/auth/pages/profile';
+// import ProtectedRoute from './modules/auth/components/protectedRoute';
+// import Profile from './modules/auth/pages/profile';
 import { AuthProvider } from './context/AuthContext';
 
 function App() {

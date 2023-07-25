@@ -7,7 +7,6 @@ export const rhythmSlice = createSlice({
   },
   reducers: {
     setRhythm: (state, action) => {
-      console.log('state: ', state.value, ' action: ', action.payload);
       state.value = action.payload;
     },
   },

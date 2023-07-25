@@ -22,8 +22,11 @@ import { useSelector } from 'react-redux';
 const Results = () => {
   const navigate = useNavigate();
   const inputNameRef = useRef(null);
+  const inputSongRef = useRef(null);
+  const submitRef = useRef(null);
   const reduxRhythm = useSelector((state) => state.rhythm.value);
   const reduxTonality = useSelector((state) => state.tonality.value);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [chordsReceived, setChordsReceived] = useState('');
   const [rhythmType, setRhythmType] = useState({});
   const [formData, setFormData] = useState({
@@ -108,14 +111,36 @@ const Results = () => {
     return songObj;
   }
 
+  function handleElement(condition) {
+    const inputName = inputNameRef.current;
+    const inputSong = inputSongRef.current;
+    const submit = submitRef.current;
+
+    inputName.disabled = condition;
+    inputSong.disabled = condition;
+    submit.disabled = condition;
+  }
+
   function submitUserSong(event) {
+    event.preventDefault();
     const songObj = buildSong();
 
-    event.preventDefault();
+    //Blocking html elements
+    handleElement(true);
+    setIsSubmitting(true);
 
-    insertMutation({ variables: songObj }).catch((error) => {
-      console.error(error);
-    });
+    insertMutation({ variables: songObj })
+      .then(() => {
+        setIsSubmitting(false);
+
+        alert('Song shared successfully');
+      })
+      .catch((error) => {
+        handleElement(false);
+        setIsSubmitting(false);
+        alert('Error trying to share the song, please, try again');
+        console.error(error);
+      });
 
     if (mutation.error) {
       return <ErrorAlert />;
@@ -158,11 +183,12 @@ const Results = () => {
               onChange={handleChange}
               value={formData.userName}
               name='userName'
-              placeholder='User name'
+              placeholder='Composer'
               required
             />
             <input
               type='text'
+              ref={inputSongRef}
               onChange={handleChange}
               name='songName'
               value={formData.songName}
@@ -170,7 +196,9 @@ const Results = () => {
               required
             />
           </div>
-          <button type='submit'>Share</button>
+          <button type='submit' ref={submitRef}>
+            Share
+          </button>
         </form>
       </div>
     </div>

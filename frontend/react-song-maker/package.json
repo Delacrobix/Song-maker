@@ -2,6 +2,7 @@
   "name": "react-song-maker",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://delacrobix.github.io/song-maker",
   "dependencies": {
     "@apollo/client": "3.7.14",
     "@fortawesome/fontawesome-svg-core": "6.4.0",
@@ -37,7 +38,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "concurrently \"npm run sass-auth\" \"npm run sass-navigation\" \"npm run sass-songMaker\" \"npm start\""
+    "dev": "concurrently \"npm run sass-auth\" \"npm run sass-navigation\" \"npm run sass-songMaker\" \"npm start\"",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -60,6 +63,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "14.0.0",
-    "concurrently": "8.2.0"
+    "concurrently": "8.2.0",
+    "gh-pages": "5.0.0"
   }
 }
