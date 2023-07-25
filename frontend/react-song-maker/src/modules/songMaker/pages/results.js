@@ -196,9 +196,13 @@ const Results = () => {
               required
             />
           </div>
-          <button type='submit' ref={submitRef}>
-            Share
-          </button>
+          {isSubmitting ? (
+            <Loading />
+          ) : (
+            <button type='submit' ref={submitRef}>
+              Share
+            </button>
+          )}
         </form>
       </div>
     </div>
