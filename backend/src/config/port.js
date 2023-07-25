@@ -1,6 +1,6 @@
 import app from '../index';
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 
 try {
   app.listen(PORT);
