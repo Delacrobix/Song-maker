@@ -4,6 +4,7 @@ const Row = (props) => {
   const { clickFunction } = props;
   const { owner, rhythm, chords, songName, id, date } = props.song;
 
+  const [chordsToPrint, setChordsToPrint] = useState('');
   const [printableDate, setPrintableDate] = useState('');
 
   useEffect(() => {
@@ -16,12 +17,22 @@ const Row = (props) => {
     setPrintableDate(`${year}/${month}/${day}`);
   }, [date]);
 
+  useEffect(() => {
+    const chordsArray = chords.split('|');
+
+    let result = chordsArray.filter((__, index) => index % 2 === 0);
+    result.pop();
+    result = result.join('-');
+
+    setChordsToPrint(result);
+  }, [chords]);
+
   return (
     <tr onClick={clickFunction}>
       <td>{owner}</td>
       <td>{songName}</td>
       <td>{rhythm}</td>
-      <td>{chords}</td>
+      <td>{chordsToPrint}</td>
       <td>{printableDate}</td>
       {/* <td>{id}</td> */}
     </tr>

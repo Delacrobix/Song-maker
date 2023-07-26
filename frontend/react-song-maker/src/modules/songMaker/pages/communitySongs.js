@@ -8,7 +8,7 @@ import { getAllUserSongsQuery } from '../controllers/queries';
 
 const CommunitySongs = () => {
   const [songList, setSongList] = useState([]);
-  const { data, error, loading } = useQuery(getAllUserSongsQuery);
+  const { data, error, loading, refetch } = useQuery(getAllUserSongsQuery);
 
   useEffect(() => {
     if (data) {
@@ -19,6 +19,14 @@ const CommunitySongs = () => {
       console.error(error);
     }
   }, [data, error, loading]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      refetch();
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [refetch]);
 
   return (
     <div className='community-songs-container'>

@@ -17,6 +17,12 @@ public class UserController : ControllerBase
     this._service = _service;
   }
 
+  [HttpGet("works")]
+  public ActionResult Works()
+  {
+    return Ok("Works");
+  }
+
   [HttpPost("validate")]
   public async Task<ActionResult> ValidateUser([FromBody] UserCredentials credentials)
   {
@@ -77,7 +83,7 @@ public class UserController : ControllerBase
 
     if (result is null)
     {
-      return ClientNotFound(id);
+      return NotFound(new { message = $"The client with ID {id} does not exist" });
     }
 
     return Ok(result);
@@ -122,7 +128,7 @@ public class UserController : ControllerBase
     }
     else
     {
-      return ClientNotFound(id);
+      return NotFound(new { message = $"The client with ID {id} does not exist" });
     }
   }
 
@@ -138,12 +144,7 @@ public class UserController : ControllerBase
     }
     else
     {
-      return ClientNotFound(id);
+      return NotFound(new { message = $"The client with ID {id} does not exist" });
     }
-  }
-
-  public NotFoundObjectResult ClientNotFound(int id)
-  {
-    return NotFound(new { message = $"The client with ID {id} does not exist" });
   }
 }
