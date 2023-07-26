@@ -11,6 +11,7 @@ TODO.md
 /frontend/react-song-maker/coverage
 /frontend/react-song-maker/build
 /frontend/react-song-maker/.DS_Store
+/frontend/react-song-maker/.env
 /frontend/react-song-maker/.env.local
 /frontend/react-song-maker/.env.development.local
 /frontend/react-song-maker/.env.test.local
