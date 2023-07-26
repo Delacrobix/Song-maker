@@ -5,16 +5,17 @@ import { useNavigate } from 'react-router-dom';
 import { binarySearch } from '../../controllers/controllers';
 
 const Table = (props) => {
+  const { songList } = props;
   const navigate = useNavigate();
-  const [songList, setSongList] = useState([]);
+  const [songListState, setSongListState] = useState([]);
 
   useEffect(() => {
-    setSongList(props.songList);
-  }, [props.songList]);
+    setSongListState(songList);
+  }, [songList]);
 
   function watchRowDetails(id) {
     //Searching the song in the array list
-    const song = songList[binarySearch(songList, id)];
+    const song = songListState[binarySearch(songListState, id)];
 
     navigate(`/community/${id}`, { state: { song: song } });
   }
@@ -48,7 +49,7 @@ const Table = (props) => {
           return (
             <Row
               key={uuidv4()}
-              clickFunction={() => watchRowDetails(song.id)}
+              clickFunction={() => watchRowDetails(song._id)}
               song={song}
             />
           );

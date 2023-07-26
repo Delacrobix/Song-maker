@@ -141,13 +141,13 @@
 }
 
 header {
-  background: #a78295;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 4.5rem;
   padding: 0 2rem;
+  background: #3f2e3e;
 }
 header h3 {
   color: white;
@@ -157,13 +157,13 @@ header h3 {
 }
 header nav a {
   margin: 0 2rem;
-  color: white;
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   transition: 0.2s color;
 }
 header nav a:hover {
   transition: color 0.3s;
-  color: #331d2c;
+  color: white;
 }
 header .nav-login-btn {
   color: #efe1d1;

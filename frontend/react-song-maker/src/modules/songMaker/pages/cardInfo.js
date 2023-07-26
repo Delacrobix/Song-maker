@@ -1,10 +1,33 @@
-import React from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const CardInfo = () => {
   const location = useLocation();
   const { song } = location.state;
-  const { songName, id, owner, rhythm, chords, date } = song;
+  const { songName, _id, owner, rhythm, chords, date } = song;
+
+  const [printableDate, setPrintableDate] = useState('');
+  const [chordsToPrint, setChordsToPrint] = useState('');
+
+  useEffect(() => {
+    const parsedDate = new Date(date);
+
+    const year = parsedDate.getFullYear();
+    const month = String(parsedDate.getMonth() + 1).padStart(2, '0');
+    const day = String(parsedDate.getDate()).padStart(2, '0');
+
+    setPrintableDate(`${year}/${month}/${day}`);
+  }, [date]);
+
+  useEffect(() => {
+    const chordsArray = chords.split('|');
+
+    let result = chordsArray.filter((__, index) => index % 2 === 0);
+    result.pop();
+    result = result.join('-');
+
+    setChordsToPrint(result);
+  }, [chords]);
 
   return (
     <div>
@@ -14,18 +37,18 @@ const CardInfo = () => {
           <legend className='u-visually-hidden'>
             Information Card with text and images.
           </legend>
-          <img
+          {/* <img
             className='c-card_image'
             src='http://placeimg.com/640/480/any/sepia'
             alt='Card'
-          />
+          /> */}
           <div className='c-card_body'>
             <h2 className='c-card_title'>{songName}</h2>
             <h5 className='c-card_secondary-title'>{`By ${owner}`}</h5>
             <hr />
             <p className='c-card_text'>
               <strong>ID: </strong>
-              {id}
+              {_id}
             </p>
             <p className='c-card_text'>
               <strong>RHYTHM: </strong>
@@ -33,23 +56,23 @@ const CardInfo = () => {
             </p>
             <p className='c-card_text'>
               <strong>CHORDS: </strong>
-              {chords}
+              {chordsToPrint}
             </p>
             <p className='c-card_text'>
               <strong>DATE: </strong>
-              {date}
+              {printableDate}
             </p>
-            <p className='c-card_text'>
+            {/* <p className='c-card_text'>
               <strong>Watch tabs: </strong>
-              <Link>Watch</Link>
-            </p>
+              <Link to='#'>Watch</Link>
+            </p> */}
           </div>
-          <button
+          {/* <button
             className='c-card_expand-button js-card-expand'
             data-expanded='false'
           >
             Play song
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

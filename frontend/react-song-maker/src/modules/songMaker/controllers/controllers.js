@@ -15,9 +15,9 @@ export function binarySearch(array, data) {
   while (left <= right) {
     const middle = Math.floor((left + right) / 2);
 
-    if (array[middle].id === data) {
+    if (array[middle]._id === data) {
       return middle;
-    } else if (array[middle].id < data) {
+    } else if (array[middle]._id < data) {
       left = middle + 1;
     } else {
       right = middle - 1;

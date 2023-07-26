@@ -46,7 +46,7 @@ export const insertUserSongMutation = gql`
 export const getAllUserSongsQuery = gql`
   query {
     getAllUserSongs {
-      id
+      _id
       owner
       songName
       rhythm
@@ -60,7 +60,7 @@ export const getAllSongsByUserNameQuery = (userName) => {
   return gql`
   query {
     getAllSongsByUserName(userName: "${userName}") {
-      id
+      _id
       owner
       songName
       rhythm

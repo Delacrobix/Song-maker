@@ -39,8 +39,7 @@ body .title-page {
 }
 
 .c-card {
-  border-radius: 10px;
-  box-shadow: 0px 5px 30px 0px rgb(241, 241, 241);
+  border-radius: 7px;
 }
 .c-card .u-visually-hidden {
   position: absolute;
@@ -49,11 +48,10 @@ body .title-page {
 .c-card_body {
   padding: 20px;
   overflow: hidden;
-  background-color: aliceblue;
+  background: rgba(255, 255, 255, 0.94);
 }
 .c-card_image {
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+  border-radius: 7px;
   width: 100%;
 }
 .c-card_title {
@@ -66,14 +64,18 @@ body .title-page {
   font-size: 1em;
 }
 .c-card_expand-button {
-  border: 0;
+  cursor: pointer;
   width: 100%;
   text-align: center;
   color: white;
   padding: 5px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  background-color: rgba(122, 175, 231, 0.747);
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  background-color: rgba(0, 0, 0, 0);
+  border: white solid 1px;
+}
+.c-card_expand-button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
 }
 .c-card_expand-block {
   padding: 0 20px;

@@ -57,7 +57,7 @@ export const UserSongOutputType = new GraphQLObjectType({
   description:
     'This type is used to model a user created song that will be displayed in the community songs list (output)',
   fields: {
-    id: { type: GraphQLID },
+    _id: { type: GraphQLID },
     owner: { type: GraphQLString },
     songName: { type: GraphQLString },
     rhythm: { type: GraphQLString },
