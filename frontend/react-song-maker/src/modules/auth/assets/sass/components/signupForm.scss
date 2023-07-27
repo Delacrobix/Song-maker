@@ -1,15 +1,4 @@
 .form-signup-container {
-  // a {
-  //   color: var(--anchorColor);
-  //   outline: 0;
-  //   text-decoration: none;
-  // }
-
-  // a:focus,
-  // a:hover {
-  //   text-decoration: underline;
-  // }
-
   .form {
     display: grid;
     gap: var(--formGap);
@@ -94,14 +83,15 @@
   }
 
   .signup input[type='submit'] {
-    background-color: var(--loginSubmitBackgroundColor);
+    background: rgba(white, 0);
     color: var(--loginSubmitColor);
+    border: 1px white solid;
     font-weight: 700;
     text-transform: uppercase;
   }
 
   .signup input[type='submit']:focus,
   .signup input[type='submit']:hover {
-    background-color: var(--loginSubmitHoverBackgroundColor);
+    background: rgba(white, 0.1);
   }
 }

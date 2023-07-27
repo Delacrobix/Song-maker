@@ -1,12 +1,13 @@
 @import './variables.scss';
+@import '../../../../sass/globalVariables.scss';
 
 //Pages
-@import './login.scss';
-@import './signup.scss';
-@import './profile.scss';
+@import './pages/login.scss';
+@import './pages/signup.scss';
+@import './pages/profile.scss';
 
 //Components
-@import './loginForm.scss';
-@import './signupForm.scss';
-@import './svgIcons.scss';
-@import './errorInfo.scss';
+@import './components/loginForm.scss';
+@import './components/signupForm.scss';
+@import './components/svgIcons.scss';
+@import './components/errorInfo.scss';

@@ -78,7 +78,8 @@
   }
 
   .login input[type='submit'] {
-    background-color: var(--loginSubmitBackgroundColor);
+    background: rgba(white, 0);
+    border: 1px solid white;
     color: var(--loginSubmitColor);
     font-weight: 700;
     text-transform: uppercase;
@@ -86,6 +87,6 @@
 
   .login input[type='submit']:focus,
   .login input[type='submit']:hover {
-    background-color: var(--loginSubmitHoverBackgroundColor);
+    background: rgba(white, 0.1);
   }
 }

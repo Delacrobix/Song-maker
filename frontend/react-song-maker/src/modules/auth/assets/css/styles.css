@@ -23,8 +23,8 @@
 
 .align-login {
   display: grid;
-  margin-top: 15%;
-  color: #9e9dd6;
+  padding: 10% 0;
+  color: white;
 }
 .align-login p {
   margin-block: 1.5rem;
@@ -38,7 +38,7 @@
   text-align: center;
 }
 .align-login .grid .text--center a {
-  color: var(--anchorColor);
+  color: #aed8cc;
   outline: 0;
   text-decoration: none;
 }
@@ -47,17 +47,17 @@
   text-decoration: underline;
 }
 .align-login .grid .icon {
-  block-size: 1em;
+  block-size: 1rem;
   display: inline-block;
   fill: var(--iconFill);
-  inline-size: 1em;
+  inline-size: 1rem;
   vertical-align: middle;
 }
 
 .align-signup {
   display: grid;
-  margin-top: 15%;
-  color: #9e9dd6;
+  padding: 10% 0;
+  color: white;
 }
 .align-signup .grid {
   inline-size: 90%;
@@ -71,7 +71,7 @@
   text-align: center;
 }
 .align-signup .grid .text--center a {
-  color: var(--anchorColor);
+  color: #aed8cc;
   outline: 0;
   text-decoration: none;
 }
@@ -158,14 +158,15 @@
   background-color: var(--loginInputHoverBackgroundColor);
 }
 .form-login-container .login input[type=submit] {
-  background-color: var(--loginSubmitBackgroundColor);
+  background: rgba(255, 255, 255, 0);
+  border: 1px solid white;
   color: var(--loginSubmitColor);
   font-weight: 700;
   text-transform: uppercase;
 }
 .form-login-container .login input[type=submit]:focus,
 .form-login-container .login input[type=submit]:hover {
-  background-color: var(--loginSubmitHoverBackgroundColor);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .form-signup-container .form {
@@ -240,14 +241,15 @@
   background-color: var(--loginInputHoverBackgroundColor);
 }
 .form-signup-container .signup input[type=submit] {
-  background-color: var(--loginSubmitBackgroundColor);
+  background: rgba(255, 255, 255, 0);
   color: var(--loginSubmitColor);
+  border: 1px white solid;
   font-weight: 700;
   text-transform: uppercase;
 }
 .form-signup-container .signup input[type=submit]:focus,
 .form-signup-container .signup input[type=submit]:hover {
-  background-color: var(--loginSubmitHoverBackgroundColor);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .auth-icons {

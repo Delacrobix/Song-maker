@@ -10,8 +10,8 @@ const Signup = () => {
         <div className='grid'>
           <SignupForm />
           <p className='text--center'>
-            {'Are you register?'}
-            <Link to='/login'>{'Login now'}</Link>
+            {'Are you register? '}
+            <Link to='/login'>{' Login now'}</Link>
           </p>
         </div>
         <SvgIcons />

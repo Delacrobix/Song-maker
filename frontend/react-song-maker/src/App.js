@@ -9,8 +9,8 @@ import CardInfo from './modules/songMaker/pages/cardInfo';
 // import HomePage from './modules/songMaker/pages/homePage';
 import Login from './modules/auth/pages/login';
 import Signup from './modules/auth/pages/signup';
-// import ProtectedRoute from './modules/auth/components/protectedRoute';
-// import Profile from './modules/auth/pages/profile';
+import ProtectedRoute from './modules/auth/components/protectedRoute';
+import Profile from './modules/auth/pages/profile';
 import { AuthProvider } from './context/AuthContext';
 
 function App() {
@@ -40,7 +40,7 @@ function App() {
         <Route path='/results' element={<Results />} />
         <Route path='/create-song/tone' element={<ToneSelector />} />
         {/* <Route path='/home' element={<HomePage />} /> */}
-        {/* <Route
+        <Route
           path='/profile'
           element={
             <AuthProvider>
@@ -49,7 +49,7 @@ function App() {
               </ProtectedRoute>
             </AuthProvider>
           }
-        /> */}
+        />
       </Routes>
       <Footer />
     </div>

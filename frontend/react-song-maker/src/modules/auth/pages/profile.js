@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useQuery } from '@apollo/client';
+import { getAllSongsByUserNameQuery } from '../../../utils/queries';
 import useUser from '../../../hooks/useUser';
 import Table from '../../songMaker/components/table/table';
-import { getAllSongsByUserNameQuery } from '../../songMaker/controllers/queries';
-import { useQuery } from '@apollo/client';
 import ErrorAlert from '../../songMaker/components/feedback/errorAlert';
 import Loading from '../../songMaker/components/feedback/loading';
 

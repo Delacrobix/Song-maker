@@ -1,22 +1,22 @@
-.align-login {
+.align-signup {
   display: grid;
-  margin-top: 15%;
-  color: #9e9dd6;
-
-  p {
-    margin-block: 1.5rem;
-  }
+  padding: 10% 0;
+  color: white;
 
   .grid {
     inline-size: 90%;
     margin-inline: auto;
     max-inline-size: 20rem;
 
+    p {
+      margin-block: 1.5rem;
+    }
+
     .text--center {
       text-align: center;
 
       a {
-        color: var(--anchorColor);
+        color: map-get($table-colors, _4);
         outline: 0;
         text-decoration: none;
       }

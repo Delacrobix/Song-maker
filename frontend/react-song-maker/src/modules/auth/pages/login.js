@@ -10,8 +10,8 @@ const Login = () => {
         <div className='grid'>
           <LoginForm />
           <p className='text--center'>
-            {'Not a member?'}
-            <Link to='/signup'>{'Sign up now'}</Link>
+            {'Not a member? '}
+            <Link to='/signup'>{' Sign up'}</Link>
           </p>
         </div>
         <SvgIcons />

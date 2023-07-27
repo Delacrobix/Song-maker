@@ -68,7 +68,6 @@ const LoginForm = () => {
             required
           />
         </div>
-
         <div className='form__field'>
           <label htmlFor='login__password'>
             <svg className='icon'>
