@@ -1,7 +1,8 @@
 import React from 'react';
-import { playRhythm } from '../controllers/playback';
+import usePlaySounds from '../../../hooks/usePlaySounds';
 
 const RhythmButton = (props) => {
+  const playRhythm = usePlaySounds();
   const { rhythmName, setRhythmObject, rhythm } = props;
 
   function selectRhythm() {

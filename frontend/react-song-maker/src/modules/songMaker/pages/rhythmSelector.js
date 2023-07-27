@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getAllRhythmsQuery } from '../controllers/queries';
 import { useDispatch, useSelector } from 'react-redux';
 import { setRhythm } from '../../../redux/rhythmSlice';
 import { useQuery } from '@apollo/client';
@@ -8,14 +7,18 @@ import Loading from '../components/feedback/loading';
 import ErrorAlert from '../components/feedback/errorAlert';
 import RhythmButton from '../components/rhythmButton';
 import BreadCrumb from '../components/breadCrumb';
+import { getAllRhythmsQuery } from '../../../utils/queries';
 
 const RhythmSelector = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const containerRef = useRef(null);
+
+  //States
   const [rhythmResult, setRhythmResult] = useState([]);
   const [buttonList, setButtonList] = useState([]);
   const [tonality, setTonality] = useState('');
+
   const reduxTonality = useSelector((state) => state.tonality.value);
 
   //Get requests

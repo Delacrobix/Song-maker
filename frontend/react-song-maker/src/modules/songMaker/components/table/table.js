@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Row from './row';
 import { useNavigate } from 'react-router-dom';
-import { binarySearch } from '../../controllers/controllers';
+import { binarySearch } from '../../../../utils/sorts';
 
 const Table = (props) => {
   const { songList } = props;

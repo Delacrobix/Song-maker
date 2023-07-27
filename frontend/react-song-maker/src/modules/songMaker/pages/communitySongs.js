@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Table from '../components/table/table';
+import { useQuery } from '@apollo/client';
 // import Sort from '../components/table/sort';
 import ErrorAlert from '../components/feedback/errorAlert';
 import Loading from '../components/feedback/loading';
-import { useQuery } from '@apollo/client';
-import { getAllUserSongsQuery } from '../controllers/queries';
+import { getAllUserSongsQuery } from '../../../utils/queries';
 
 const CommunitySongs = () => {
   const [songList, setSongList] = useState([]);

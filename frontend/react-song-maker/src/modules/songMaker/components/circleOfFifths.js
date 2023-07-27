@@ -7,21 +7,21 @@ import {
 } from '../assets/js/circleOfFifths.js';
 
 const CircleOfFifths = () => {
-  const selectRef = useRef(null);
-  const minorArr = [
-    'F#m',
-    'C#m',
-    'G#m',
-    'Ebm',
-    'Bbm',
-    'Fm',
-    'Cm',
-    'Gm',
-    'Dm',
-    'Am',
-    'Em',
-    'Bm',
-  ];
+  // const selectRef = useRef(null);
+  // const minorArr = [
+  //   'F#m',
+  //   'C#m',
+  //   'G#m',
+  //   'Ebm',
+  //   'Bbm',
+  //   'Fm',
+  //   'Cm',
+  //   'Gm',
+  //   'Dm',
+  //   'Am',
+  //   'Em',
+  //   'Bm',
+  // ];
   const majorArr = [
     'A',
     'E',
@@ -41,7 +41,7 @@ const CircleOfFifths = () => {
   useEffect(() => {
     var container = document.querySelector('.radial-menu');
     var menuItems = container.querySelectorAll('.radial-menu__menu-item');
-    var menuItemsSelect = document.getElementById('menu-items-to-show');
+    var menuItemsSelect = document.querySelector('#menu-items-to-show');
     var links = document.querySelectorAll('.radial-menu__menu-link');
     var linkBGs = document.querySelectorAll('.radial-menu__menu-link-bg');
     var icons = document.querySelectorAll('.radial-menu__menu-icon');
@@ -67,15 +67,15 @@ const CircleOfFifths = () => {
     positionIcons(icons, iconDistance, menuItems);
   });
 
-  function handleChange() {
-    const value = selectRef.current.value;
+  // function handleChange() {
+  //   const value = selectRef.current.value;
 
-    if (value === 'minor') {
-      setTonArr(minorArr);
-    } else {
-      setTonArr(majorArr);
-    }
-  }
+  //   if (value === 'minor') {
+  //     setTonArr(minorArr);
+  //   } else {
+  //     setTonArr(majorArr);
+  //   }
+  // }
 
   return (
     <div>
@@ -96,7 +96,7 @@ const CircleOfFifths = () => {
         </ul>
         <div className='radial-menu__label'>Tonality</div>
       </div>
-      <div className='menu-items'>
+      {/* <div className='menu-items'>
         <div className='menu-items-select'>
           <label
             className='menu-items-select__label'
@@ -116,7 +116,7 @@ const CircleOfFifths = () => {
             <option value='minor'>Minor</option>
           </select>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -4,38 +4,49 @@ import { useNavigate } from 'react-router-dom';
 import {
   getAIChordsQuery,
   insertUserSongMutation,
-} from '../controllers/queries';
+} from '../../../utils/queries';
 import Loading from '../components/feedback/loading';
 import ErrorAlert from '../components/feedback/errorAlert';
 import BreadCrumb from '../components/breadCrumb';
 // import Score from '../components/scores/score';
 // import Tab from '../components/scores/tab';
 // import useUser from '../../../hooks/useUser';
-import {
-  getCurrentDate,
-  buildNewChordArr,
-  buildNewScore,
-} from '../controllers/controllers';
-import { playRhythm } from '../controllers/playback';
+// import { playRhythm } from '../utils/playback';
 import { useSelector } from 'react-redux';
+import usePlayableSong from '../../../hooks/usePlayableSong';
+import usePlaySounds from '../../../hooks/usePlaySounds';
 
 const Results = () => {
   const navigate = useNavigate();
+
+  //Refs
   const inputNameRef = useRef(null);
   const inputSongRef = useRef(null);
   const submitRef = useRef(null);
+
+  //Redux variables
   const reduxRhythm = useSelector((state) => state.rhythm.value);
   const reduxTonality = useSelector((state) => state.tonality.value);
+
+  //States
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [chordsReceived, setChordsReceived] = useState('');
-  const [rhythmType, setRhythmType] = useState({});
   const [formData, setFormData] = useState({
     userName: '',
     songName: '',
   });
 
+  //Requests
   const query = useQuery(getAIChordsQuery(reduxTonality));
   const [insertMutation, mutation] = useMutation(insertUserSongMutation);
+
+  //Customs hooks
+  const song = usePlayableSong({
+    userName: formData.userName,
+    songName: formData.songName,
+    chordsReceived: chordsReceived,
+  });
+  const playRhythm = usePlaySounds();
   // const user = useUser();
 
   useEffect(() => {
@@ -66,13 +77,7 @@ const Results = () => {
     if (query.data) {
       setChordsReceived(query.data.getAIChords);
     }
-  }, [query.data]);
-
-  useEffect(() => {
-    if (chordsReceived) {
-      buildSong();
-    }
-  }, [chordsReceived]);
+  }, [query.data, song]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -82,34 +87,6 @@ const Results = () => {
       [name]: value,
     }));
   };
-
-  function buildSong() {
-    const aiChordsArr = chordsReceived.split('|');
-    const rhythmScoreCopy = [...reduxRhythm.score];
-    let databaseScore = [];
-
-    rhythmScoreCopy.forEach((element) => {
-      databaseScore.push(element.chordName);
-    });
-
-    const newChordArr = buildNewChordArr(databaseScore, aiChordsArr);
-    const newScore = buildNewScore(rhythmScoreCopy, newChordArr);
-
-    const songObj = {
-      owner: formData.userName,
-      songName: formData.songName,
-      rhythmType: {
-        rhythmName: reduxRhythm.rhythmName,
-        tempo: reduxRhythm.tempo,
-        score: newScore,
-      },
-      date: getCurrentDate(),
-    };
-
-    setRhythmType(songObj.rhythmType);
-
-    return songObj;
-  }
 
   function handleElement(condition) {
     const inputName = inputNameRef.current;
@@ -123,13 +100,12 @@ const Results = () => {
 
   function submitUserSong(event) {
     event.preventDefault();
-    const songObj = buildSong();
 
     //Blocking html elements
     handleElement(true);
     setIsSubmitting(true);
 
-    insertMutation({ variables: songObj })
+    insertMutation({ variables: song })
       .then(() => {
         setIsSubmitting(false);
 
@@ -138,16 +114,13 @@ const Results = () => {
       .catch((error) => {
         handleElement(false);
         setIsSubmitting(false);
+
         alert('Error trying to share the song, please, try again');
         console.error(error);
       });
 
     if (mutation.error) {
       return <ErrorAlert />;
-    }
-
-    if (mutation.loading) {
-      return <Loading />;
     }
   }
 
@@ -163,7 +136,9 @@ const Results = () => {
             <h3>Chords:</h3>
             <label>{chordsReceived}</label>
           </div>
-          <button onClick={() => playRhythm(rhythmType)}>Play your song</button>
+          <button onClick={() => playRhythm(song.rhythmType)}>
+            Play your song
+          </button>
         </div>
         {/* <div className='musical-representation-container'>
           <Score />
