@@ -1,4 +1,13 @@
 .community-songs-container {
   @include flex-center;
   flex-direction: column;
+
+  .content-container {
+    width: 100%;
+
+    .feedback {
+      padding: 0 0 3rem 0;
+      @include flex-center;
+    }
+  }
 }

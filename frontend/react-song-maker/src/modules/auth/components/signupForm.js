@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { createUser } from '../controllers/httpRequests';
 import Cookies from 'js-cookie';
+import { createUser } from '../../../utils/httpRequests';
 
 const SignupForm = () => {
   const [form, setForm] = useState({

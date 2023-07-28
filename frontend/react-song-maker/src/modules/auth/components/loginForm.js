@@ -1,13 +1,18 @@
-import React, { useContext, useState } from 'react';
-import { getAuth } from '../controllers/httpRequests';
+import React, { useContext, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
-import ErrorInfo from './errorInfo';
+import { getAuth } from '../../../utils/httpRequests';
 import { AuthContext } from '../../../context/AuthContext';
+import ErrorInfo from './errorInfo';
+import Loading from '../../songMaker/components/feedback/loading';
 
 const LoginForm = () => {
   const { handleLogin } = useContext(AuthContext);
   const navigate = useNavigate();
+  const userNameRef = useRef(null);
+  const songNameRef = useRef(null);
+
+  //States
   const [form, setForm] = useState({
     userName: '',
     password: '',
@@ -16,6 +21,7 @@ const LoginForm = () => {
     exist: false,
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function handleChange(e) {
     e.preventDefault();
@@ -26,14 +32,29 @@ const LoginForm = () => {
     });
   }
 
+  function blockItems() {
+    const userNameInput = userNameRef.current;
+    const songNameInput = songNameRef.current;
+
+    userNameInput.disabled = isSubmitting;
+    songNameInput.disabled = isSubmitting;
+    songNameInput.disabled = isSubmitting;
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
 
+    blockItems();
+    setIsSubmitting(true);
+
     const response = await getAuth(form);
 
+    setIsSubmitting(false);
+    blockItems();
+
     if (response.token) {
-      setCookie(response.token);
       handleLogin();
+      setCookie(response.token);
 
       navigate('/profile');
     } else {
@@ -57,6 +78,7 @@ const LoginForm = () => {
             <span className='hidden'>Username</span>
           </label>
           <input
+            ref={userNameRef}
             autoComplete='userName'
             id='login__username'
             type='text'
@@ -76,6 +98,7 @@ const LoginForm = () => {
             <span className='hidden'>Password</span>
           </label>
           <input
+            ref={songNameRef}
             id='login__password'
             type='password'
             name='password'
@@ -86,9 +109,8 @@ const LoginForm = () => {
             required
           />
         </div>
-
         <div className='form__field'>
-          <input type='submit' value='Sign In' />
+          {isSubmitting ? <Loading /> : <input type='submit' value='Sign In' />}
         </div>
       </form>
     </div>

@@ -7,8 +7,6 @@ const ProtectedRoute = (props) => {
   const { isLoggedIn } = useContext(AuthContext);
   const { children, redirectTo } = props;
 
-  // const sesionToken = Cookies.get('sesionToken');
-
   if (!isLoggedIn) {
     return <Navigate to={redirectTo} />;
   } else {

@@ -16,11 +16,13 @@ import './modules/auth/assets/css/styles.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ApolloProvider client={apolloClient}>
-    <HashRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </HashRouter>
+    <Provider store={store}>
+      <HashRouter>
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      </HashRouter>
+    </Provider>
   </ApolloProvider>
 );
 

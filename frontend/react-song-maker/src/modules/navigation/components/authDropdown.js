@@ -1,39 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCogs } from '@fortawesome/free-solid-svg-icons';
 import { AuthContext } from '../../../context/AuthContext';
-import Cookies from 'js-cookie';
 
 const AuthDropdown = () => {
   const { isLoggedIn, handleLogout } = useContext(AuthContext);
-  // const [sesionToken, setSesionToken] = useState(null);
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // const [shouldUpdate, setShouldUpdate] = useState(false);
 
-  // useEffect(() => {
-  //   const token = Cookies.get('sesionToken');
-
-  //   setSesionToken(token);
-  // }, [isLoggedIn]);
-
-  // useEffect(() => {
-
-  // if (sesionToken) {
-  //   setIsLoggedIn(true);
-  // } else {
-  //   setIsLoggedIn(false);
-  // }
-  // }, [sesionToken, shouldUpdate]);
-
-  function deleteSesion() {
-    Cookies.remove('sesionToken');
-
-    handleLogout();
-
-    // setShouldUpdate(!shouldUpdate);
-    // setIsLoggedIn(false);
-  }
+  useEffect(() => {
+    console.log('use: ', isLoggedIn);
+  }, [isLoggedIn]);
 
   return (
     <div className='dropdown'>
@@ -43,7 +19,7 @@ const AuthDropdown = () => {
       {isLoggedIn ? (
         <div className='dropdown__items'>
           <Link to='/profile'>Profile</Link>
-          <Link to='/home' className='logout-link' onClick={deleteSesion}>
+          <Link to='/login' className='logout-link' onClick={handleLogout}>
             Logout
           </Link>
         </div>

@@ -11,6 +11,9 @@
   }
 
   .alert {
+    padding: 0.1rem 0.8rem;
+    border-radius: 3px;
+
     & > .start-icon {
       margin-right: 0;
       min-width: 20px;

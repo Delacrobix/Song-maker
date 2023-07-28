@@ -11,7 +11,6 @@ import BreadCrumb from '../components/breadCrumb';
 // import Score from '../components/scores/score';
 // import Tab from '../components/scores/tab';
 // import useUser from '../../../hooks/useUser';
-// import { playRhythm } from '../utils/playback';
 import { useSelector } from 'react-redux';
 import usePlayableSong from '../../../hooks/usePlayableSong';
 import usePlaySounds from '../../../hooks/usePlaySounds';

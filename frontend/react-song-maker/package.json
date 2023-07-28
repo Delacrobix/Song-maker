@@ -1,8 +1,8 @@
 {
-  "name": "react-song-maker",
+  "name": "sm-react",
+  "homepage": "https://Delacrobix.github.io/",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://delacrobix.github.io/song-maker",
   "dependencies": {
     "@apollo/client": "3.7.14",
     "@fortawesome/fontawesome-svg-core": "6.4.0",

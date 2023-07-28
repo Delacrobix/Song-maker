@@ -31,12 +31,14 @@ const CommunitySongs = () => {
   return (
     <div className='community-songs-container'>
       <h1 className='title-page'>COMMUNITY SONGS</h1>
-      <div className='feedback__container'>
-        {loading && <Loading />}
-        {error && <ErrorAlert />}
+      <div className='content-container'>
+        <div className='feedback'>
+          {loading && <Loading />}
+          {error && <ErrorAlert />}
+        </div>
+        {/* <Sort /> */}
+        {data && <Table songList={songList} />}
       </div>
-      {/* <Sort /> */}
-      {data && <Table songList={songList} />}
     </div>
   );
 };
