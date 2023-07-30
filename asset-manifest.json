@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/song-maker/static/css/main.ff6a304c.css",
-    "main.js": "/song-maker/static/js/main.d6f846ed.js",
-    "static/js/787.ab0561a6.chunk.js": "/song-maker/static/js/787.ab0561a6.chunk.js",
-    "static/media/mundo.png": "/song-maker/static/media/mundo.72f7cc3f16db9b866979.png",
-    "static/media/github.png": "/song-maker/static/media/github.a855c3975c028d8069f5.png",
-    "index.html": "/song-maker/index.html",
-    "main.ff6a304c.css.map": "/song-maker/static/css/main.ff6a304c.css.map",
-    "main.d6f846ed.js.map": "/song-maker/static/js/main.d6f846ed.js.map",
-    "787.ab0561a6.chunk.js.map": "/song-maker/static/js/787.ab0561a6.chunk.js.map"
+    "main.css": "/static/css/main.3a213385.css",
+    "main.js": "/static/js/main.d4512183.js",
+    "static/js/787.2e958ed0.chunk.js": "/static/js/787.2e958ed0.chunk.js",
+    "static/media/mundo.png": "/static/media/mundo.72f7cc3f16db9b866979.png",
+    "static/media/github.png": "/static/media/github.a855c3975c028d8069f5.png",
+    "index.html": "/index.html",
+    "main.3a213385.css.map": "/static/css/main.3a213385.css.map",
+    "main.d4512183.js.map": "/static/js/main.d4512183.js.map",
+    "787.2e958ed0.chunk.js.map": "/static/js/787.2e958ed0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ff6a304c.css",
-    "static/js/main.d6f846ed.js"
+    "static/css/main.3a213385.css",
+    "static/js/main.d4512183.js"
   ]
 }
