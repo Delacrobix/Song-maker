@@ -4,15 +4,15 @@ import { useQuery } from '@apollo/client';
 // import Sort from '../components/table/sort';
 import ErrorAlert from '../components/feedback/errorAlert';
 import Loading from '../components/feedback/loading';
-import { getAllUserSongsQuery } from '../../../utils/queries';
+import { getAllSongsQuery } from '../../../utils/queries';
 
 const CommunitySongs = () => {
   const [songList, setSongList] = useState([]);
-  const { data, error, loading, refetch } = useQuery(getAllUserSongsQuery);
+  const { data, error, loading, refetch } = useQuery(getAllSongsQuery);
 
   useEffect(() => {
     if (data) {
-      setSongList(data.getAllUserSongs);
+      setSongList(data.getAllSongs);
     }
 
     if (error) {

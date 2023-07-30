@@ -52,20 +52,6 @@ export const RhythmInputType = new GraphQLInputObjectType({
   },
 });
 
-export const UserSongOutputType = new GraphQLObjectType({
-  name: 'UserSongOutputType',
-  description:
-    'This type is used to model a user created song that will be displayed in the community songs list (output)',
-  fields: {
-    _id: { type: GraphQLID },
-    owner: { type: GraphQLString },
-    songName: { type: GraphQLString },
-    rhythm: { type: GraphQLString },
-    chords: { type: GraphQLString },
-    date: { type: GraphQLString },
-  },
-});
-
 export const InsertSongResponseType = new GraphQLObjectType({
   name: 'InsertSongResponseType',
   description: 'This type is used to return song id when the song is created',
@@ -75,26 +61,27 @@ export const InsertSongResponseType = new GraphQLObjectType({
 });
 
 export const SongInputType = new GraphQLInputObjectType({
-  name: 'UserSongInputType',
+  name: 'SongInputType',
   description:
     'This type is used to model a song with its playable information (input)',
   fields: {
-    id: { type: GraphQLID },
     owner: { type: GraphQLString },
     songName: { type: GraphQLString },
+    chords: { type: GraphQLString },
     rhythmType: { type: RhythmInputType },
     date: { type: GraphQLString },
   },
 });
 
 export const SongOutputType = new GraphQLObjectType({
-  name: 'UserSongOutputType',
+  name: 'SongOutputType',
   description:
     'This type is used to model a song with its playable information (output)',
   fields: {
-    id: { type: GraphQLID },
+    _id: { type: GraphQLID },
     owner: { type: GraphQLString },
     songName: { type: GraphQLString },
+    chords: { type: GraphQLString },
     rhythmType: { type: RhythmOutputType },
     date: { type: GraphQLString },
   },

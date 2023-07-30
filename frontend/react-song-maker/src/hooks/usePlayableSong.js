@@ -3,10 +3,11 @@ import { useSelector } from 'react-redux';
 import usePrintableDate from './usePrintableDate';
 
 const usePlayableSong = (props) => {
+  const { userName, songName, chordsReceived } = props;
+
   const reduxRhythm = useSelector((state) => state.rhythm.value);
   const [song, setSong] = useState(null);
 
-  const { userName, songName, chordsReceived } = props;
   const currentDate = usePrintableDate(new Date());
 
   useEffect(() => {
@@ -26,6 +27,7 @@ const usePlayableSong = (props) => {
     setSong({
       owner: userName,
       songName: songName,
+      chords: chordsReceived,
       rhythmType: {
         rhythmName: reduxRhythm.rhythmName,
         tempo: reduxRhythm.tempo,

@@ -2,9 +2,10 @@ import React, { useContext, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { getAuth } from '../../../utils/httpRequests';
-import { AuthContext } from '../../../context/AuthContext';
+import { AuthContext } from '../../../context/authContext';
 import ErrorInfo from './errorInfo';
 import Loading from '../../songMaker/components/feedback/loading';
+import { setIsLogged } from '../../../redux/isLoggedSlice';
 
 const LoginForm = () => {
   const { handleLogin } = useContext(AuthContext);
@@ -53,7 +54,11 @@ const LoginForm = () => {
     blockItems();
 
     if (response.token) {
+      //Switch auth context
       handleLogin();
+      //Switch auth slice
+      setIsLogged(true);
+
       setCookie(response.token);
 
       navigate('/profile');

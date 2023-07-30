@@ -8,6 +8,10 @@ const SongSchema = new Schema({
     type: String,
     required: true,
   },
+  chords: {
+    type: String,
+    required: true,
+  },
   rhythmObject: {
     rhythmName: {
       type: String,

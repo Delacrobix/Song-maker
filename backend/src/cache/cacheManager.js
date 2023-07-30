@@ -1,7 +1,7 @@
 import modelsExported from '../modules/songMakerApi/models/exports';
 import redisClient from '../config/redis';
 
-const { UserSongInfo, Rhythm } = modelsExported;
+const { Song, Rhythm } = modelsExported;
 
 (async function saveAllRhythmsOnRedis() {
   try {
@@ -20,7 +20,7 @@ const { UserSongInfo, Rhythm } = modelsExported;
 
 (async function saveAllSongsOnRedis() {
   try {
-    const songList = await UserSongInfo.find();
+    const songList = await Song.find();
     const songString = JSON.stringify(songList);
 
     const data = await redisClient.get('song-maker:communitySongList');

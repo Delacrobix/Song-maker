@@ -1,9 +1,9 @@
-import UserSongInfo from './UserSongInfoSchema';
+// import UserSongInfo from './UserSongInfoSchema';
 import Rhythm from './RhythmSchema';
 import Song from './SongSchema';
 
+// UserSongInfo: UserSongInfo,
 const modelsExported = {
-  UserSongInfo: UserSongInfo,
   Rhythm: Rhythm,
   Song: Song,
 };

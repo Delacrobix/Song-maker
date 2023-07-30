@@ -1,17 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
-import {
-  getAIChordsQuery,
-  insertUserSongMutation,
-} from '../../../utils/queries';
+import { useSelector } from 'react-redux';
+import { getAIChordsQuery, insertSongMutation } from '../../../utils/queries';
 import Loading from '../components/feedback/loading';
 import ErrorAlert from '../components/feedback/errorAlert';
 import BreadCrumb from '../components/breadCrumb';
 // import Score from '../components/scores/score';
 // import Tab from '../components/scores/tab';
 // import useUser from '../../../hooks/useUser';
-import { useSelector } from 'react-redux';
 import usePlayableSong from '../../../hooks/usePlayableSong';
 import usePlaySounds from '../../../hooks/usePlaySounds';
 
@@ -37,7 +34,7 @@ const Results = () => {
 
   //Requests
   const query = useQuery(getAIChordsQuery(reduxTonality));
-  const [insertMutation, mutation] = useMutation(insertUserSongMutation);
+  const [insertMutation, mutation] = useMutation(insertSongMutation);
 
   //Customs hooks
   const song = usePlayableSong({
@@ -104,6 +101,8 @@ const Results = () => {
     handleElement(true);
     setIsSubmitting(true);
 
+    console.log('Song: ', song);
+
     insertMutation({ variables: song })
       .then(() => {
         setIsSubmitting(false);
@@ -111,7 +110,7 @@ const Results = () => {
         alert('Song shared successfully');
       })
       .catch((error) => {
-        handleElement(false);
+        // handleElement(false);
         setIsSubmitting(false);
 
         alert('Error trying to share the song, please, try again');

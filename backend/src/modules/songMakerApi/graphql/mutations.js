@@ -10,11 +10,10 @@ import {
   rhythmValidation,
   SongValidation,
 } from '../validations/dataValidations';
-import moment from 'moment';
 import redisClient from '../../../config/redis';
 
 //Mongoose models
-const { UserSongInfo, Rhythm, Song } = modelsExported;
+const { Rhythm, Song } = modelsExported;
 
 export const insertRhythm = {
   name: 'insertRhythm',
@@ -56,16 +55,9 @@ export const insertSong = {
 
     SongValidation(functionName, song);
 
-    let chordList = '';
-
-    //Extract the information from the song
-    song.rhythmType.score.forEach((item) => {
-      if (item.chordName !== 'rst') {
-        chordList += item.chordName + item.seventh + '|';
-      }
-    });
-
-    song.date = moment(song.date, 'DD/MM/YYYY').format('YYYY-MM-DD');
+    const [day, month, year] = song.date.split('/').map(Number);
+    const date = new Date(year, month - 1, day);
+    song.date = date;
 
     try {
       //Changing the name of object property
@@ -77,35 +69,18 @@ export const insertSong = {
       const songInstance = new Song(song);
       const songResult = await songInstance.save();
 
-      const songInfo = {
-        owner: song.owner,
-        songName: song.songName,
-        rhythm: song.rhythmObject.rhythmName,
-        chords: chordList,
-        date: song.date,
-        refId: songResult.id,
-      };
-
-      //Saving song information
-      const userSongInfoInstance = new UserSongInfo(songInfo);
-      const userSongResult = await userSongInfoInstance.save();
-
       //Updating redis info
       try {
-        const allSongs = await UserSongInfo.find();
-        const allUserSongsString = JSON.stringify(allSongs);
-
-        await redisClient.set(
-          'song-maker:communitySongList',
-          allUserSongsString
-        );
+        const allSongs = await Song.find();
+        const allSongsString = JSON.stringify(allSongs);
+        await redisClient.set('song-maker:communitySongList', allSongsString);
       } catch (err) {
         throw new DataMutationError(
           `Error updating redis info in: ${functionName} ${err}`
         );
       }
 
-      return { id: userSongResult.id };
+      return { id: songResult._id };
     } catch (err) {
       throw new DataMutationError(
         `Error inserting Song in: ${functionName} ${err}`

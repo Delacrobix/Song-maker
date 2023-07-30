@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setRhythm } from '../../../redux/rhythmSlice';
 import { useQuery } from '@apollo/client';
 import Loading from '../components/feedback/loading';
 import ErrorAlert from '../components/feedback/errorAlert';
 import RhythmButton from '../components/rhythmButton';
 import BreadCrumb from '../components/breadCrumb';
+import { setRhythm } from '../../../redux/rhythmSlice';
 import { getAllRhythmsQuery } from '../../../utils/queries';
 
 const RhythmSelector = () => {
@@ -19,6 +19,7 @@ const RhythmSelector = () => {
   const [buttonList, setButtonList] = useState([]);
   const [tonality, setTonality] = useState('');
 
+  //Redux
   const reduxTonality = useSelector((state) => state.tonality.value);
 
   //Get requests

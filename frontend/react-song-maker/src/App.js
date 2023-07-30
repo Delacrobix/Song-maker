@@ -11,7 +11,7 @@ import Login from './modules/auth/pages/login';
 import Signup from './modules/auth/pages/signup';
 import ProtectedRoute from './modules/auth/components/protectedRoute';
 import Profile from './modules/auth/pages/profile';
-import { AuthProvider } from './context/AuthContext';
+import AuthProvider from './context/authProvider';
 
 function App() {
   return (

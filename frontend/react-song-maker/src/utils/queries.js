@@ -23,17 +23,19 @@ export const getAIChordsQuery = (ton) => {
   `;
 };
 
-export const insertUserSongMutation = gql`
-  mutation InsertUserSong(
+export const insertSongMutation = gql`
+  mutation InsertSong(
     $owner: String!
     $songName: String!
     $rhythmType: RhythmInputType!
     $date: String!
+    $chords: String!
   ) {
     insertSong(
       song: {
         owner: $owner
         songName: $songName
+        chords: $chords
         rhythmType: $rhythmType
         date: $date
       }
@@ -43,15 +45,24 @@ export const insertUserSongMutation = gql`
   }
 `;
 
-export const getAllUserSongsQuery = gql`
+export const getAllSongsQuery = gql`
   query {
-    getAllUserSongs {
+    getAllSongs {
       _id
       owner
       songName
-      rhythm
-      chords
       date
+      chords
+      rhythmType {
+        rhythmName
+        tempo
+        score {
+          chordName
+          seventh
+          inversion
+          duration
+        }
+      }
     }
   }
 `;
@@ -63,9 +74,18 @@ export const getAllSongsByUserNameQuery = (userName) => {
       _id
       owner
       songName
-      rhythm
-      chords
       date
+      chords
+      rhythmType {
+        rhythmName
+        tempo
+        score {
+          chordName
+          seventh
+          inversion
+          duration
+        }
+      }
     }
   }
 `;

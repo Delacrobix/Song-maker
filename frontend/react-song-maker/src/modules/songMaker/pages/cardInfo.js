@@ -6,10 +6,12 @@ const CardInfo = () => {
   const { song } = location.state;
   const { songName, _id, owner, rhythm, chords, date } = song;
 
+  //States
   const [printableDate, setPrintableDate] = useState('');
   const [chordsToPrint, setChordsToPrint] = useState('');
 
   useEffect(() => {
+    console.log('rhityhm: ', song);
     const parsedDate = new Date(date);
 
     const year = parsedDate.getFullYear();
@@ -67,12 +69,13 @@ const CardInfo = () => {
               <Link to='#'>Watch</Link>
             </p> */}
           </div>
-          {/* <button
+          <button
             className='c-card_expand-button js-card-expand'
             data-expanded='false'
+            onClick={() => console.log('clicked')}
           >
             Play song
-          </button> */}
+          </button>
         </div>
       </div>
     </div>

@@ -1,17 +1,17 @@
 import { GraphQLID, GraphQLList, GraphQLString } from 'graphql';
-import { UserSongOutputType, RhythmOutputType } from './types';
+import { SongOutputType, RhythmOutputType } from './types';
 import modelsExported from '../models/exports';
 import redisClient from '../../../config/redis';
 
-const { UserSongInfo, Rhythm, Song } = modelsExported;
+const { Rhythm, Song } = modelsExported;
 
-export const getAllUserSongs = {
-  name: 'getAllUserSongs',
-  type: new GraphQLList(UserSongOutputType),
+export const getAllSongs = {
+  name: 'getAllSongs',
+  type: new GraphQLList(SongOutputType),
   description:
     'Return a list of users created songs for be displayed on the community songs list',
   async resolve() {
-    const functionName = getAllUserSongs.name;
+    const functionName = getAllSongs.name;
 
     try {
       // Trying to get the list from redis cache
@@ -20,7 +20,16 @@ export const getAllUserSongs = {
       if (redisData) {
         return JSON.parse(redisData);
       } else {
-        const songs = await UserSongInfo.find();
+        const result = await Song.find();
+
+        const songs = result.map((song) => ({
+          _id: song._id,
+          owner: song.owner,
+          songName: song.songName,
+          chords: song.chords,
+          date: song.date,
+          rhythmType: song.rhythmObject,
+        }));
 
         return songs;
       }
@@ -32,15 +41,15 @@ export const getAllUserSongs = {
   },
 };
 
-export const getAllSongsByUserName = {
-  name: 'getAllSongsByUserName',
-  type: new GraphQLList(UserSongOutputType),
+export const getSongsByUserName = {
+  name: 'getSongsByUserName',
+  type: new GraphQLList(SongOutputType),
   description: 'Return a list of songs by a specific user',
   args: {
     userName: { type: GraphQLString },
   },
   async resolve(__, args) {
-    const functionName = getAllSongsByUserName.name;
+    const functionName = getSongsByUserName.name;
     const { userName } = args;
 
     try {
@@ -60,7 +69,7 @@ export const getAllSongsByUserName = {
 
         return songsFiltered;
       } else {
-        const songs = await UserSongInfo.find({ owner: userName });
+        const songs = await Song.find({ owner: userName });
 
         return songs;
       }

@@ -7,8 +7,6 @@ export function rhythmValidation(functionName, rhythm) {
     );
   }
 
-  // console.log('Rhythm: ' + JSON.stringify(rhythm));
-
   const { tempo, rhythmName, score } = rhythm;
 
   if (!tempo || !rhythmName || !score) {
@@ -22,8 +20,6 @@ export function rhythmValidation(functionName, rhythm) {
       `Data required: rhythm.score arr is empty in: ${functionName}`
     );
   }
-
-  // console.log('Score: ' + JSON.stringify(score));
 
   score.forEach((item) => {
     if (!item.chordName) {
@@ -53,11 +49,9 @@ export function SongValidation(functionName, Song) {
     );
   }
 
-  const { owner, songName, rhythmType, date } = Song;
+  const { owner, songName, rhythmType, date, chords } = Song;
 
-  console.log('owner: ', owner, 'songName: ', songName, 'date: ', date);
-
-  if (!owner || !songName || !date) {
+  if (!owner || !songName || !date || !chords) {
     throw new ValidationError(
       `Data required: All fields in Song arg are needed in: ${functionName}`
     );
