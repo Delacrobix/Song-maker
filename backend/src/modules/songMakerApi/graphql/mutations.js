@@ -71,9 +71,20 @@ export const insertSong = {
 
       //Updating redis info
       try {
-        const allSongs = await Song.find();
-        const allSongsString = JSON.stringify(allSongs);
-        await redisClient.set('song-maker:communitySongList', allSongsString);
+        const result = await Song.find();
+
+        const songs = result.map((song) => ({
+          _id: song._id,
+          owner: song.owner,
+          songName: song.songName,
+          chords: song.chords,
+          date: song.date,
+          rhythmType: song.rhythmObject,
+        }));
+
+        const songsString = JSON.stringify(songs);
+
+        await redisClient.set('song-maker:communitySongList', songsString);
       } catch (err) {
         throw new DataMutationError(
           `Error updating redis info in: ${functionName} ${err}`

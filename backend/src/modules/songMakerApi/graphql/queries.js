@@ -69,7 +69,16 @@ export const getSongsByUserName = {
 
         return songsFiltered;
       } else {
-        const songs = await Song.find({ owner: userName });
+        const result = await Song.find({ owner: userName });
+
+        const songs = result.map((song) => ({
+          _id: song._id,
+          owner: song.owner,
+          songName: song.songName,
+          chords: song.chords,
+          date: song.date,
+          rhythmType: song.rhythmObject,
+        }));
 
         return songs;
       }

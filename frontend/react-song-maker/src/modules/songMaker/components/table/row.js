@@ -10,7 +10,6 @@ const Row = (props) => {
   const [chordsToPrint, setChordsToPrint] = useState('');
 
   useEffect(() => {
-    console.log('rhythmType: ', props.song);
     let result = chords.split('|');
     result = result.join('-');
 
@@ -21,7 +20,7 @@ const Row = (props) => {
     <tr onClick={clickFunction}>
       <td>{owner}</td>
       <td>{songName}</td>
-      {/* <td>{rhythmType.rhythmName}</td> */}
+      <td>{rhythmType.rhythmName}</td>
       <td>{chordsToPrint}</td>
       <td>{printableDate}</td>
     </tr>
