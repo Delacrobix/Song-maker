@@ -55,7 +55,7 @@ const Profile = () => {
             <label>Change password:</label>
           </div>
           <div className='right-box'>
-            <label>{'email'}</label>
+            <label>{user.email}</label>
             <label>{user.userName}</label>
             <button className='change-password'>Change </button>
           </div>

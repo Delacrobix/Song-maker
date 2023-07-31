@@ -167,5 +167,4 @@ public class UserAccountService
 
     return tokenHandler.WriteToken(token);
   }
-
 }

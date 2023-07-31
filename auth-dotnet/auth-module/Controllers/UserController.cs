@@ -45,6 +45,7 @@ public class UserController : ControllerBase
         {
           id = existingUser.Id,
           userName = credentials.UserName,
+          email = existingUser.Email
         };
 
         string jsonKey = JsonSerializer.Serialize(objectKey);

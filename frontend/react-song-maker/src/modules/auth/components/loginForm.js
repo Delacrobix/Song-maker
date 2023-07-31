@@ -5,7 +5,7 @@ import { getAuth } from '../../../utils/httpRequests';
 import { AuthContext } from '../../../context/authContext';
 import ErrorInfo from './errorInfo';
 import Loading from '../../songMaker/components/feedback/loading';
-import { setIsLogged } from '../../../redux/isLoggedSlice';
+// import { setIsLogged } from '../../../redux/isLoggedSlice';
 
 const LoginForm = () => {
   const { handleLogin } = useContext(AuthContext);
@@ -57,7 +57,7 @@ const LoginForm = () => {
       //Switch auth context
       handleLogin();
       //Switch auth slice
-      setIsLogged(true);
+      // setIsLogged(true);
 
       setCookie(response.token);
 
