@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCogs } from '@fortawesome/free-solid-svg-icons';
 // import { setIsLogged } from '../../../redux/isLoggedSlice';
@@ -9,7 +8,6 @@ import Cookies from 'js-cookie';
 
 const AuthDropdown = () => {
   const cookie = Cookies.get('sesionToken');
-  // const reduxIsLoggedIn = useSelector((state) => state.isLogged.value);
   const [isLogged, setIsLogged] = useState(cookie ? true : false);
   const { handleLogout } = useContext(AuthContext);
 
@@ -22,14 +20,14 @@ const AuthDropdown = () => {
   }
 
   useEffect(() => {
-    console.log('isLogged: ', isLogged);
-    if (cookie) {
-      console.log('cookie: ');
-      setIsLogged(true);
-    }
+    const interval = setInterval(() => {
+      const cookieAux = Cookies.get('sesionToken');
 
-    // setIsLogged(false);
-  }, [cookie, isLogged]);
+      setIsLogged(cookieAux ? true : false);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className='dropdown'>

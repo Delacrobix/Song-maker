@@ -1,17 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit';
+// import { createSlice } from '@reduxjs/toolkit';
 
-export const isLoggedSlice = createSlice({
-  name: 'isLogged',
-  initialState: {
-    value: false,
-  },
-  reducers: {
-    setIsLogged: (state, action) => {
-      state.value = action.payload;
-    },
-  },
-});
+// export const isLoggedSlice = createSlice({
+//   name: 'isLogged',
+//   initialState: {
+//     value: false,
+//   },
+//   reducers: {
+//     setIsLogged: (state, action) => {
+//       state.value = action.payload;
+//     },
+//   },
+// });
 
-export const { setIsLogged } = isLoggedSlice.actions;
+// export const { setIsLogged } = isLoggedSlice.actions;
 
-export default isLoggedSlice.reducer;
+// export default isLoggedSlice.reducer;
