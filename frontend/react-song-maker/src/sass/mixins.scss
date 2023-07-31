@@ -3,3 +3,17 @@
   align-items: center;
   justify-content: center;
 }
+
+@mixin transparent-button {
+  color: white;
+  cursor: pointer;
+  padding: 0.65rem 1.1rem;
+  border: 1px solid white;
+  border-radius: 7px;
+  background: rgba(white, 0);
+  transition: background 0.4s;
+}
+
+@mixin transparent-button_hover {
+  background: rgba(white, 0.18);
+}

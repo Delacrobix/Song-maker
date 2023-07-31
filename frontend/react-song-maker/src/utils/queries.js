@@ -67,10 +67,10 @@ export const getAllSongsQuery = gql`
   }
 `;
 
-export const getAllSongsByUserNameQuery = (userName) => {
+export const getSongsByUserNameQuery = (userName) => {
   return gql`
   query {
-    getAllSongsByUserName(userName: "${userName}") {
+    getSongsByUserName(userName: "${userName}") {
       _id
       owner
       songName

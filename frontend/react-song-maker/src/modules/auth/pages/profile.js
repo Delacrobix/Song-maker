@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { getAllSongsByUserNameQuery } from '../../../utils/queries';
+import { getSongsByUserNameQuery } from '../../../utils/queries';
 import useUser from '../../../hooks/useUser';
 import Table from '../../songMaker/components/table/table';
 import ErrorAlert from '../../songMaker/components/feedback/errorAlert';
@@ -13,9 +13,8 @@ const Profile = () => {
   const userHook = useUser();
 
   const { data, error, loading } = useQuery(
-    getAllSongsByUserNameQuery(userHook.userName)
+    getSongsByUserNameQuery(userHook.userName)
   );
-  // const { data, error, loading } = useQuery(getAllUserSongsQuery);
 
   useEffect(() => {
     setUser(userHook);
@@ -23,10 +22,16 @@ const Profile = () => {
 
   useEffect(() => {
     if (data) {
-      setPrintable(<Table songList={data.getAllSongsByUserName} />);
+      if (data.getSongsByUserName.length === 0) {
+        setPrintable(<p>You have no songs yet</p>);
+      } else {
+        setPrintable(<Table songList={data.getSongsByUserName} />);
+      }
     }
 
     if (error) {
+      console.error('Apollo error: ', error);
+
       setPrintable(<ErrorAlert />);
     }
 
@@ -42,11 +47,23 @@ const Profile = () => {
   return (
     <section className='profile'>
       <div className='profile__container'>
-        <h1>Profile</h1>
-        <div>{'User name: ' + user.userName}</div>
-        <div>User email:</div>
-        <div className='profile__container--user-songs'>
-          <button onClick={handleClick}>Watch your songs</button>
+        <h2 className='title-page'>Profile</h2>
+        <div className='boxes'>
+          <div className='left-box'>
+            <label>Email:</label>
+            <label>User name:</label>
+            <label>Change password:</label>
+          </div>
+          <div className='right-box'>
+            <label>{'email'}</label>
+            <label>{user.userName}</label>
+            <button className='change-password'>Change </button>
+          </div>
+        </div>
+        <div className='profile__container__user-songs'>
+          <button onClick={handleClick} className='profile-button'>
+            Watch your songs
+          </button>
           {watchSongs ? printable : null}
         </div>
       </div>

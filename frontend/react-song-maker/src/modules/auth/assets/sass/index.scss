@@ -1,5 +1,6 @@
-@import './variables.scss';
 @import '../../../../sass/globalVariables.scss';
+@import '../../../../sass/mixins.scss';
+@import './variables.scss';
 
 //Pages
 @import './pages/login.scss';

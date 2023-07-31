@@ -88,7 +88,56 @@
 }
 
 .profile__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-direction: column;
   color: #fff;
+}
+.profile__container .boxes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile__container .boxes .left-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
+}
+.profile__container .boxes .right-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-left: 1px white solid;
+  padding: 0 0.5rem;
+}
+.profile__container .boxes .right-box .change-password {
+  border: none;
+  padding: 0.1rem 0.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.profile__container__user-songs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem 0;
+  gap: 1rem;
+}
+.profile__container__user-songs .profile-button {
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: 1px solid white;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0);
+  transition: background 0.4s;
+}
+.profile__container__user-songs .profile-button:hover {
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .form-login-container .hidden {

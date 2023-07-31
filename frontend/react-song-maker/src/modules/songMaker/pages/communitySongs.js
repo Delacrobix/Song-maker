@@ -30,7 +30,7 @@ const CommunitySongs = () => {
 
   return (
     <div className='community-songs-container'>
-      <h1 className='title-page'>COMMUNITY SONGS</h1>
+      <h2 className='title-page'>COMMUNITY SONGS</h2>
       <div className='content-container'>
         <div className='feedback'>
           {loading && <Loading />}

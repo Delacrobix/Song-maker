@@ -1,5 +1,49 @@
 .profile {
   &__container {
+    @include flex-center;
+    font-size: 1.2rem;
+    flex-direction: column;
     color: #fff;
+
+    .boxes {
+      @include flex-center;
+
+      .left-box {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0 0.5rem;
+      }
+
+      .right-box {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        border-left: 1px white solid;
+        padding: 0 0.5rem;
+
+        .change-password {
+          border: none;
+          padding: 0.1rem 0.6rem;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    &__user-songs {
+      @include flex-center;
+      flex-direction: column;
+      padding: 2rem 0;
+      gap: 1rem;
+
+      .profile-button {
+        @include transparent-button;
+
+        &:hover {
+          @include transparent-button_hover;
+        }
+      }
+    }
   }
 }
