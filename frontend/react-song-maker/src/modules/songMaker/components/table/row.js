@@ -5,7 +5,7 @@ const Row = (props) => {
   const { clickFunction } = props;
   const { owner, rhythmType, chords, songName, date } = props.song;
 
-  const printableDate = usePrintableDate(new Date(parseInt(date)));
+  const printableDate = usePrintableDate(new Date(date));
 
   const [chordsToPrint, setChordsToPrint] = useState('');
 
