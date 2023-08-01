@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import usePrintableDate from './usePrintableDate';
 
 const usePlayableSong = (props) => {
-  const { userName, songName, chordsReceived } = props;
+  const { chordsReceived } = props;
+
+  const [rhythmType, setRhythmType] = useState(null);
 
   const reduxRhythm = useSelector((state) => state.rhythm.value);
-  const [song, setSong] = useState(null);
-
-  const currentDate = usePrintableDate(new Date());
 
   useEffect(() => {
     if (!chordsReceived) return;
@@ -24,16 +22,10 @@ const usePlayableSong = (props) => {
     const newChordArr = buildNewChordArr(databaseScore, aiChordsArr);
     const newScore = buildNewScore(rhythmScoreCopy, newChordArr);
 
-    setSong({
-      owner: userName,
-      songName: songName,
-      chords: chordsReceived,
-      rhythmType: {
-        rhythmName: reduxRhythm.rhythmName,
-        tempo: reduxRhythm.tempo,
-        score: newScore,
-      },
-      date: currentDate,
+    setRhythmType({
+      rhythmName: reduxRhythm.rhythmName,
+      tempo: reduxRhythm.tempo,
+      score: newScore,
     });
 
     function buildNewChordArr(oldChordArr, newChords) {
@@ -111,9 +103,9 @@ const usePlayableSong = (props) => {
         return ''.toString();
       }
     }
-  }, [chordsReceived, reduxRhythm, userName, songName, currentDate]);
+  }, [chordsReceived, reduxRhythm]);
 
-  return song;
+  return rhythmType;
 };
 
 export default usePlayableSong;

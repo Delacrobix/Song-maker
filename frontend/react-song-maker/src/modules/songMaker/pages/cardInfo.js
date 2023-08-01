@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import usePlaySounds from '../../../hooks/usePlaySounds';
 
 const CardInfo = () => {
   const location = useLocation();
+
   const { song } = location.state;
-  const { songName, _id, owner, rhythm, chords, date } = song;
+  const { songName, _id, rhythmType, owner, chords, date } = song;
 
   //States
   const [printableDate, setPrintableDate] = useState('');
   const [chordsToPrint, setChordsToPrint] = useState('');
 
+  //Custom Hooks
+  const playRhythm = usePlaySounds();
+
   useEffect(() => {
-    console.log('rhityhm: ', song);
     const parsedDate = new Date(date);
 
     const year = parsedDate.getFullYear();
@@ -24,11 +28,7 @@ const CardInfo = () => {
   useEffect(() => {
     const chordsArray = chords.split('|');
 
-    let result = chordsArray.filter((__, index) => index % 2 === 0);
-    result.pop();
-    result = result.join('-');
-
-    setChordsToPrint(result);
+    setChordsToPrint(chordsArray.join('-'));
   }, [chords]);
 
   return (
@@ -54,7 +54,7 @@ const CardInfo = () => {
             </p>
             <p className='c-card_text'>
               <strong>RHYTHM: </strong>
-              {rhythm}
+              {rhythmType.rhythmName}
             </p>
             <p className='c-card_text'>
               <strong>CHORDS: </strong>
@@ -72,7 +72,7 @@ const CardInfo = () => {
           <button
             className='c-card_expand-button js-card-expand'
             data-expanded='false'
-            onClick={() => console.log('clicked')}
+            onClick={() => playRhythm(rhythmType)}
           >
             Play song
           </button>

@@ -9,8 +9,8 @@ import BreadCrumb from '../components/breadCrumb';
 // import Score from '../components/scores/score';
 // import Tab from '../components/scores/tab';
 // import useUser from '../../../hooks/useUser';
-import usePlayableSong from '../../../hooks/usePlayableSong';
 import usePlaySounds from '../../../hooks/usePlaySounds';
+import useSubmitSong from '../../../hooks/useSubmitSong';
 
 const Results = () => {
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ const Results = () => {
   const [insertMutation, mutation] = useMutation(insertSongMutation);
 
   //Customs hooks
-  const song = usePlayableSong({
+  const song = useSubmitSong({
     userName: formData.userName,
     songName: formData.songName,
     chordsReceived: chordsReceived,
@@ -100,8 +100,6 @@ const Results = () => {
     //Blocking html elements
     handleElement(true);
     setIsSubmitting(true);
-
-    console.log('Song: ', song);
 
     insertMutation({ variables: song })
       .then(() => {
