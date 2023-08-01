@@ -8,7 +8,7 @@ import ErrorAlert from '../components/feedback/errorAlert';
 import BreadCrumb from '../components/breadCrumb';
 // import Score from '../components/scores/score';
 // import Tab from '../components/scores/tab';
-// import useUser from '../../../hooks/useUser';
+import useUser from '../../../hooks/useUser';
 import usePlaySounds from '../../../hooks/usePlaySounds';
 import useSubmitSong from '../../../hooks/useSubmitSong';
 
@@ -43,7 +43,7 @@ const Results = () => {
     chordsReceived: chordsReceived,
   });
   const playRhythm = usePlaySounds();
-  // const user = useUser();
+  const user = useUser();
 
   useEffect(() => {
     if (!reduxTonality) {
@@ -58,16 +58,16 @@ const Results = () => {
   }, [navigate, reduxRhythm, reduxTonality]);
 
   //Setting userName if the user is logged in
-  // useEffect(() => {
-  //   if (user.userName) {
-  //     inputNameRef.current.disabled = true;
+  useEffect(() => {
+    if (user.userName) {
+      inputNameRef.current.disabled = true;
 
-  //     setFormData((prevFormData) => ({
-  //       ...prevFormData,
-  //       userName: user.userName,
-  //     }));
-  //   }
-  // }, [user]);
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        userName: user.userName,
+      }));
+    }
+  }, [user]);
 
   useEffect(() => {
     if (query.data) {

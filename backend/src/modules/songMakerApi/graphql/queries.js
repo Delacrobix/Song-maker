@@ -60,7 +60,7 @@ export const getSongsByUserName = {
         let songsFiltered = [];
 
         songs.forEach((song) => {
-          if (song.owner === userName) {
+          if (song.owner.toLowerCase() === userName.toLowerCase()) {
             song.id = song._id;
 
             songsFiltered.push(song);
