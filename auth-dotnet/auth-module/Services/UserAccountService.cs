@@ -72,7 +72,6 @@ public class UserAccountService
 
   public async Task Update(int id, UserAccount ua)
   {
-
     var existingUser = await GetById(id);
 
     existingUser.UserName = ua.UserName;
@@ -85,7 +84,7 @@ public class UserAccountService
     }
     catch (Exception e)
     {
-      throw new InvalidOperationException("Could not update user account: " + e.Message);
+      throw new InvalidOperationException("Cannot update user account: " + e.Message);
     }
   }
 

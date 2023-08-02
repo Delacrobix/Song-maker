@@ -69,6 +69,7 @@ const Results = () => {
     }
   }, [user]);
 
+  //Setting chordsReceived if the query is successful
   useEffect(() => {
     if (query.data) {
       setChordsReceived(query.data.getAIChords);

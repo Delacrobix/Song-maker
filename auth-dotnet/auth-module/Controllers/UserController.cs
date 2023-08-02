@@ -112,19 +112,41 @@ public class UserController : ControllerBase
     }
   }
 
-  [HttpPut("edit/{id}")]
-  public async Task<ActionResult<UserAccount>> Update(int id, UserAccount ua)
+  [HttpPut("edit/email/{id}/{email}")]
+  public async Task<ActionResult<UserAccount>> UpdateEmail(int id, string email)
   {
-    if (id != ua.Id)
+    var userFromDatabase = await _service.GetByUserNameOrEmail(email);
+
+    if (userFromDatabase is not null)
     {
-      return BadRequest(new { message = $"The URL ID {id} does not match with the body request ID {ua.Id}." });
+      return BadRequest(new { message = $"The email {email} already exist." });
     }
 
     var existingUser = await _service.GetById(id);
 
     if (existingUser is not null)
     {
-      await _service.Update(id, ua);
+      existingUser.Email = email;
+
+      await _service.Update(id, existingUser);
+      return NoContent();
+    }
+    else
+    {
+      return NotFound(new { message = $"The client with ID {id} does not exist" });
+    }
+  }
+
+  [HttpPut("edit/password/{id}/{password}")]
+  public async Task<ActionResult<UserAccount>> UpdateEmail(int id, string password)
+  {
+    var existingUser = await _service.GetById(id);
+
+    if (existingUser is not null)
+    {
+      existingUser.Password = _service.encryptPassword(password);
+
+      await _service.Update(id, existingUser);
       return NoContent();
     }
     else
