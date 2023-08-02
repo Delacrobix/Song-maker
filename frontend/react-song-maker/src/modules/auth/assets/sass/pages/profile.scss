@@ -15,14 +15,23 @@
         padding: 0 0.5rem;
       }
 
+      .center-box {
+        display: flex;
+        flex-direction: column;
+        border-left: 1px white solid;
+        border-right: 1px white solid;
+        gap: 0.5rem;
+        padding: 0 0.5rem;
+      }
+
       .right-box {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
-        border-left: 1px white solid;
+        gap: 2.5rem;
         padding: 0 0.5rem;
 
-        .change-password {
+        .change-button {
+          font-size: 0.8rem;
           border: none;
           padding: 0.1rem 0.6rem;
           border-radius: 5px;
@@ -34,6 +43,7 @@
     &__user-songs {
       @include flex-center;
       flex-direction: column;
+      width: 100%;
       padding: 2rem 0;
       gap: 1rem;
 

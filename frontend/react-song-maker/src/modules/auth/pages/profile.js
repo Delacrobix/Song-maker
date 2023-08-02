@@ -5,10 +5,13 @@ import useUser from '../../../hooks/useUser';
 import Table from '../../songMaker/components/table/table';
 import ErrorAlert from '../../songMaker/components/feedback/errorAlert';
 import Loading from '../../songMaker/components/feedback/loading';
+import ChangeInfo from '../components/changeInfo';
 
 const Profile = () => {
   const [watchSongs, setWatchSongs] = useState(false);
+  const [showChangeCompo, setShowChangeCompo] = useState(false);
   const [printable, setPrintable] = useState({});
+  const [isPass, setIsPass] = useState(false);
   const [user, setUser] = useState({});
   const userHook = useUser();
 
@@ -38,7 +41,17 @@ const Profile = () => {
     if (loading) {
       setPrintable(<Loading />);
     }
-  }, [data, error, loading]);
+  }, [data, error, loading, user]);
+
+  function handleShowComponent(condition) {
+    setShowChangeCompo(true);
+
+    if (condition) {
+      setIsPass(true);
+    } else {
+      setIsPass(false);
+    }
+  }
 
   function handleClick() {
     setWatchSongs(true);
@@ -52,14 +65,29 @@ const Profile = () => {
           <div className='left-box'>
             <label>Email:</label>
             <label>User name:</label>
-            <label>Change password:</label>
+            <label>Password:</label>
           </div>
-          <div className='right-box'>
+          <div className='center-box'>
             <label>{user.email}</label>
             <label>{user.userName}</label>
-            <button className='change-password'>Change </button>
+            <label>***********</label>
+          </div>
+          <div className='right-box'>
+            <button
+              onClick={() => handleShowComponent(false)}
+              className='change-button'
+            >
+              Change email
+            </button>
+            <button
+              onClick={() => handleShowComponent(true)}
+              className='change-button'
+            >
+              Change password
+            </button>
           </div>
         </div>
+        {showChangeCompo ? <ChangeInfo isPass={isPass} id={user.id} /> : null}
         <div className='profile__container__user-songs'>
           <button onClick={handleClick} className='profile-button'>
             Watch your songs

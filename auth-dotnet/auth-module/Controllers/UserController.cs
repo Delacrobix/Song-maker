@@ -137,9 +137,14 @@ public class UserController : ControllerBase
     }
   }
 
-  [HttpPut("edit/password/{id}/{password}")]
-  public async Task<ActionResult<UserAccount>> UpdateEmail(int id, string password)
+  [HttpPut("edit/password/{id}/{pass}/{dupPass}")]
+  public async Task<ActionResult<UserAccount>> UpdateEmail(int id, string pass, string dupPass)
   {
+    if (pass != dupPass)
+    {
+      return BadRequest(new { message = $"The passwords do not match." });
+    }
+
     var existingUser = await _service.GetById(id);
 
     if (existingUser is not null)
