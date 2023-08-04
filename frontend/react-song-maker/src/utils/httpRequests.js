@@ -1,79 +1,99 @@
 const AUTH_MODULE = process.env.REACT_APP_AUTH_MODULE;
 
 export async function getAuth(credentials) {
-  let response;
-
-  await window
-    .fetch(`${AUTH_MODULE}/user/validate`, {
+  try {
+    const response = await window.fetch(`${AUTH_MODULE}/user/validate`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
       },
       body: JSON.stringify(credentials),
-    })
-    .then((res) => res.json())
-    .then((data) => {
-      response = data;
-    })
-    .catch((err) => console.error(err));
+    });
 
-  return response;
+    const data = await response.json();
+
+    return data;
+  } catch (err) {
+    console.error(err);
+
+    return null;
+  }
 }
 
 export async function createUser(ua) {
-  let response;
-
-  await window
-    .fetch(`${AUTH_MODULE}/user/create`, {
+  try {
+    const response = await window.fetch(`${AUTH_MODULE}/user/create`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
       },
       body: JSON.stringify(ua),
-    })
-    .then((res) => res.json())
-    .then((data) => {
-      response = data;
-    })
-    .catch((err) => console.error(err));
+    });
 
-  return response;
+    const data = await response.json();
+
+    return data;
+  } catch (err) {
+    console.error(err);
+
+    return null;
+  }
 }
 
 export async function updateEmail(ua) {
-  let response;
+  try {
+    const response = await window.fetch(
+      `${AUTH_MODULE}/user/edit/email/${ua.id}/${ua.email}`,
+      {
+        method: 'PUT',
+        headers: {
+          'content-type': 'application/json',
+        },
+      }
+    );
 
-  await window
-    .fetch(`${AUTH_MODULE}/edit/email/${ua.id}/${ua.email}`, {
-      method: 'PUT',
-      headers: {
-        'content-type': 'application/json',
-      },
-    })
-    .then((res) => res.json())
-    .then((data) => {
-      response = data;
-    })
-    .catch((err) => console.error(err));
+    const statusCode = response.status;
+    const data = await response.json();
 
-  return response;
+    return {
+      data,
+      statusCode,
+    };
+  } catch (err) {
+    console.error(err);
+
+    return null;
+  }
 }
 
 export async function updatePassword(ua) {
-  let response;
+  console.log('ua: ', ua);
+  try {
+    const response = await window.fetch(
+      `${AUTH_MODULE}/user/edit/password/${ua.id}/${ua.pass}/${ua.dupPass}`,
+      {
+        method: 'PUT',
+        headers: {
+          'content-type': 'application/json',
+        },
+      }
+    );
+    const statusCode = response.status;
 
-  await window
-    .fetch(`${AUTH_MODULE}/edit/password/${ua.id}/${ua.pass}/${ua.dupPass}`, {
-      method: 'PUT',
-      headers: {
-        'content-type': 'application/json',
-      },
-    })
-    .then((res) => res.json())
-    .then((data) => {
-      response = data;
-    })
-    .catch((err) => console.error(err));
+    console.log('statusCode: ', statusCode);
+    if (statusCode === 204) {
+      return { statusCode: 0 };
+    }
 
-  return response;
+    const data = await response.json();
+
+    return {
+      data,
+      statusCode,
+    };
+  } catch (err) {
+    console.error(err);
+
+    return null;
+  }
 }

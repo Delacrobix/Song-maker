@@ -13,6 +13,7 @@ const Profile = () => {
   const [printable, setPrintable] = useState({});
   const [isPass, setIsPass] = useState(false);
   const [user, setUser] = useState({});
+
   const userHook = useUser();
 
   const { data, error, loading } = useQuery(

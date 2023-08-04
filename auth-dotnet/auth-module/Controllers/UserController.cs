@@ -51,8 +51,6 @@ public class UserController : ControllerBase
         string jsonKey = JsonSerializer.Serialize(objectKey);
         var token = _service.GenerateJwtToken(jsonKey);
 
-        Console.WriteLine(token);
-
         var response = new
         {
           token
@@ -113,7 +111,7 @@ public class UserController : ControllerBase
   }
 
   [HttpPut("edit/email/{id}/{email}")]
-  public async Task<ActionResult<UserAccount>> UpdateEmail(int id, string email)
+  public async Task<ActionResult> UpdateEmail(int id, string email)
   {
     var userFromDatabase = await _service.GetByUserNameOrEmail(email);
 
@@ -128,8 +126,26 @@ public class UserController : ControllerBase
     {
       existingUser.Email = email;
 
+      var objectKey = new
+      {
+        id = existingUser.Id,
+        userName = existingUser.UserName,
+        email = existingUser.Email
+      };
+
+      string jsonKey = JsonSerializer.Serialize(objectKey);
+      var token = _service.GenerateJwtToken(jsonKey);
+
+      var response = new
+      {
+        token
+      };
+
       await _service.Update(id, existingUser);
-      return NoContent();
+
+      Console.WriteLine("RESPONSE: " + response);
+
+      return Ok(response);
     }
     else
     {
@@ -138,18 +154,18 @@ public class UserController : ControllerBase
   }
 
   [HttpPut("edit/password/{id}/{pass}/{dupPass}")]
-  public async Task<ActionResult<UserAccount>> UpdateEmail(int id, string pass, string dupPass)
+  public async Task<ActionResult> UpdateEmail(int id, string pass, string dupPass)
   {
     if (pass != dupPass)
     {
-      return BadRequest(new { message = $"The passwords do not match." });
+      return BadRequest(new { message = $"The passwords does not match." });
     }
 
     var existingUser = await _service.GetById(id);
 
     if (existingUser is not null)
     {
-      existingUser.Password = _service.encryptPassword(password);
+      existingUser.Password = _service.encryptPassword(pass);
 
       await _service.Update(id, existingUser);
       return NoContent();
