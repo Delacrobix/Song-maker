@@ -1,3 +1,21 @@
-.change-info-container {
+.change-info {
   padding: 2rem 0;
+
+  &__form {
+    &-input {
+      border: none;
+      border-radius: 7px;
+      margin: 0 0.5rem;
+      padding: 0.5rem;
+    }
+
+    &-submit {
+      @include transparent-button;
+      margin: 0 0.5rem;
+
+      &:hover {
+        @include transparent-button_hover;
+      }
+    }
+  }
 }

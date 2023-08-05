@@ -121,11 +121,16 @@
   padding: 0 0.5rem;
 }
 .profile__container .boxes .right-box .change-button {
+  background: rgba(255, 255, 255, 0.7);
   font-size: 0.8rem;
   border: none;
   padding: 0.1rem 0.6rem;
   border-radius: 5px;
   cursor: pointer;
+  transition: background 0.3s;
+}
+.profile__container .boxes .right-box .change-button:hover {
+  background: white;
 }
 .profile__container__user-songs {
   display: flex;
@@ -333,8 +338,27 @@
   transition: background 0.4s;
 }
 
-.change-info-container {
+.change-info {
   padding: 2rem 0;
+}
+.change-info__form-input {
+  border: none;
+  border-radius: 7px;
+  margin: 0 0.5rem;
+  padding: 0.5rem;
+}
+.change-info__form-submit {
+  color: white;
+  cursor: pointer;
+  padding: 0.65rem 1.1rem;
+  border: 1px solid white;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0);
+  transition: background 0.4s;
+  margin: 0 0.5rem;
+}
+.change-info__form-submit:hover {
+  background: rgba(255, 255, 255, 0.18);
 }
 
 /*# sourceMappingURL=styles.css.map */

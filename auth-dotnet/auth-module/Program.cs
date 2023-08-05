@@ -18,7 +18,7 @@ builder.Services.AddCors(options =>
 {
   options.AddPolicy(name: myCorsPolicy, policy =>
   {
-    policy.WithOrigins("http://localhost:3000", "https://song-maker-front.netlify.app")
+    policy.WithOrigins("http://localhost:3000", "https://64ce701edad64a4e932bab54--song-maker-front.netlify.app", "https://song-maker-front.netlify.app")
       .AllowAnyMethod()
       .AllowAnyHeader();
   });

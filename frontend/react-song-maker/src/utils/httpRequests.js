@@ -67,7 +67,6 @@ export async function updateEmail(ua) {
 }
 
 export async function updatePassword(ua) {
-  console.log('ua: ', ua);
   try {
     const response = await window.fetch(
       `${AUTH_MODULE}/user/edit/password/${ua.id}/${ua.pass}/${ua.dupPass}`,
@@ -78,9 +77,9 @@ export async function updatePassword(ua) {
         },
       }
     );
+
     const statusCode = response.status;
 
-    console.log('statusCode: ', statusCode);
     if (statusCode === 204) {
       return { statusCode: 0 };
     }
