@@ -1,45 +1,52 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className='footer'>
       <section className='footer-container'>
         <div className='footer-content-container'>
           <div className='logo-container'>
-            <h3 className='website-logo'>Song Maker</h3>
+            <h2 className='website-logo'>{t('Navigation.footer.logo')}</h2>
           </div>
         </div>
         <div className='footer-menus'>
           <div className='footer-content-container'>
-            <span className='menu-title'>Menu</span>
+            <span className='menu-title'>
+              {t('Navigation.footer.menu.title')}
+            </span>
             {/* <Link to='/home' className='menu-item-footer'>
-              Home
+              {t('Navigation.footer.menu.element-1')}
             </Link> */}
             <Link to='/create-song/tone' className='menu-item-footer'>
-              Create your own song
+              {t('Navigation.footer.menu.element-2')}
             </Link>
             <Link to='/community' className='menu-item-footer'>
-              Community song
+              {t('Navigation.footer.menu.element-3')}
             </Link>
           </div>
           <div className='footer-content-container'>
-            <span className='menu-title'>Help us</span>
+            <span className='menu-title'>
+              {t('Navigation.footer.help-us.title')}
+            </span>
             {/* <Link to='/#' className='menu-item-footer'>
-              Donations
+              {t('Navigation.footer.help-us.donations')}
             </Link> */}
             <Link
               to='https://github.com/Delacrobix/Song-maker'
               target='_blank'
               className='menu-item-footer'
             >
-              Repository
+              {t('Navigation.footer.help-us.repo')}
             </Link>
             {/* <Link to='#' target='_blank' className='menu-item-footer'>
-              Report a bug
+              {t('Navigation.footer.help-us.bugs')}
             </Link>
             <Link to='#' target='_blank' className='menu-item-footer'>
-              Any suggestion?
+              {t('Navigation.footer.help-us.suggestions')}
             </Link> */}
           </div>
           {/* <div className='footer-content-container'>
@@ -50,7 +57,7 @@ const Footer = () => {
           </div> */}
         </div>
         <div className='footer-content-container'>
-          <span className='menu-title'>Follow me</span>
+          <span className='menu-title'>{t('Navigation.footer.follow')}</span>
           <div className='social-container'>
             <Link
               to='https://www.linkedin.com/in/jeffrey-rerin/'
@@ -71,7 +78,7 @@ const Footer = () => {
         </div>
       </section>
       <div className='copyright-container'>
-        <span className='copyright'>&copy;2023, jeffrm.com.co</span>
+        <span className='copyright'>&copy;{t('Navigation.footer.copy')}</span>
       </div>
     </footer>
   );

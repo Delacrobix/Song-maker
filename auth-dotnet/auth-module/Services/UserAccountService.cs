@@ -1,4 +1,5 @@
 using System.IdentityModel.Tokens.Jwt;
+using System.Text.RegularExpressions;
 using System.Security.Claims;
 using System.Text;
 using auth_module.Data;
@@ -51,11 +52,11 @@ public class UserAccountService
   {
     try
     {
-      await _context.AddAsync(ua);
+      var test = await _context.AddAsync(ua);
 
       try
       {
-        await _context.SaveChangesAsync();
+        var test1 = await _context.SaveChangesAsync();
       }
       catch (Exception e)
       {
@@ -68,6 +69,15 @@ public class UserAccountService
     {
       throw new InvalidOperationException("Could not do the operation: " + e.Message);
     }
+  }
+
+  public bool IsEmailValid(string email)
+  {
+    string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+
+    Regex regex = new Regex(pattern);
+
+    return regex.IsMatch(email);
   }
 
   public async Task Update(int id, UserAccount ua)

@@ -2,14 +2,15 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCogs } from '@fortawesome/free-solid-svg-icons';
-// import { setIsLogged } from '../../../redux/isLoggedSlice';
 import { AuthContext } from '../../../context/authContext';
 import Cookies from 'js-cookie';
+import { useTranslation } from 'react-i18next';
 
 const AuthDropdown = () => {
   const cookie = Cookies.get('sesionToken');
   const [isLogged, setIsLogged] = useState(cookie ? true : false);
   const { handleLogout } = useContext(AuthContext);
+  const { t } = useTranslation();
 
   function logout() {
     //switch auth slice
@@ -36,15 +37,15 @@ const AuthDropdown = () => {
       </Link>
       {isLogged ? (
         <div className='dropdown__items'>
-          <Link to='/profile'>Profile</Link>
+          <Link to='/profile'>{t('Navigation.authDropdown.profile')}</Link>
           <Link to='/login' className='logout-link' onClick={logout}>
-            Logout
+            {t('Navigation.authDropdown.logout')}
           </Link>
         </div>
       ) : (
         <div className='dropdown__items'>
-          <Link to='/login'>Login</Link>
-          <Link to='/signup'>Signup</Link>
+          <Link to='/login'>{t('Navigation.authDropdown.login')}</Link>
+          <Link to='/signup'>{t('Navigation.authDropdown.signup')}</Link>
         </div>
       )}
     </div>

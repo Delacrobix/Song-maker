@@ -9,9 +9,13 @@ import store from './redux/store';
 import { Provider } from 'react-redux';
 
 //Styles
+import './assets/css/styles.css';
 import './modules/songMaker/assets/css/styles.css';
 import './modules/navigation/assets/css/styles.css';
 import './modules/auth/assets/css/styles.css';
+
+//Translations
+import './config/i18n';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

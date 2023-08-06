@@ -1,0 +1,19 @@
+.feedback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.feedback-message {
+  padding: 0.3rem 0.5rem;
+  border-radius: 7px;
+}
+.feedback-green {
+  background: rgba(0, 128, 0, 0.4);
+  border: 1px green solid;
+}
+.feedback-red {
+  background: rgba(255, 0, 0, 0.3);
+  border: 1px red solid;
+}
+
+/*# sourceMappingURL=styles.css.map */

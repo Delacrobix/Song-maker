@@ -1,5 +1,5 @@
-@import '../../../../sass/globalVariables.scss';
-@import '../../../../sass/mixins.scss';
+@import '../../../../assets/sass/globalVariables.scss';
+@import '../../../../assets/sass/mixins.scss';
 @import './variables.scss';
 
 //Pages
@@ -11,7 +11,6 @@
 @import './components/loginForm.scss';
 @import './components/signupForm.scss';
 @import './components/svgIcons.scss';
-@import './components/errorInfo.scss';
 @import './components/changeInfo.scss';
 
 //Responsive

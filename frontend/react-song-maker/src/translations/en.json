@@ -1,0 +1,61 @@
+{
+  "Navigation": {
+    "navbar": {
+      "title": "Chords Generator",
+      "navLink-1": "Create your song",
+      "navLink-2": "Community Songs",
+      "navLink-3": "Home",
+      "languages": {
+        "es": "Español",
+        "en": "English"
+      }
+    },
+    "authDropdown": {
+      "login": "Login",
+      "signup": "Signup",
+      "profile": "Profile",
+      "logout": "Logout"
+    },
+    "footer": {
+      "logo": "Chords generator",
+      "menu": {
+        "title": "Menu",
+        "element-1": "Home",
+        "element-2": "Create your own song",
+        "element-3": "Community songs"
+      },
+      "help-us": {
+        "title": "Help us",
+        "donations": "Donations",
+        "repo": "Repository",
+        "bugs": "Report a bug",
+        "suggestions": "Any suggestion?"
+      },
+      "follow": "Follow me",
+      "copy": "2023, jeffrm.com.co"
+    }
+  },
+  "Auth": {
+    "login": {
+      "isNot": "Not a member?",
+      "signup": " Signup",
+      "form": {
+        "user": "Username",
+        "pass": "Password",
+        "submit": "Sign In"
+      }
+    },
+    "signup": {
+      "isNot": "Are you register?",
+      "login": " Login now",
+      "form": {
+        "user": "Username",
+        "email": "Email Address",
+        "pass": "Password",
+        "submit": "Sign Up"
+      }
+    },
+    "profile": {}
+  },
+  "SongMaker": {}
+}

@@ -1,13 +1,15 @@
 import React, { useContext, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Cookies from 'js-cookie';
 import { getAuth } from '../../../utils/httpRequests';
 import { AuthContext } from '../../../context/authContext';
-import ErrorInfo from './errorInfo';
 import Loading from '../../songMaker/components/feedback/loading';
+import FeedbackCompo from '../../../components/successComponent';
 // import { setIsLogged } from '../../../redux/isLoggedSlice';
 
 const LoginForm = () => {
+  const { t } = useTranslation();
   const { handleLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const userNameRef = useRef(null);
@@ -56,8 +58,6 @@ const LoginForm = () => {
     if (response.token) {
       //Switch auth context
       handleLogin();
-      //Switch auth slice
-      // setIsLogged(true);
 
       setCookie(response.token);
 
@@ -73,14 +73,16 @@ const LoginForm = () => {
 
   return (
     <div className='form-login-container'>
-      {error.exist ? <ErrorInfo error={error.message} /> : null}
+      {error.exist ? (
+        <FeedbackCompo message={error.message} color={'red'} />
+      ) : null}
       <form onSubmit={handleSubmit} method='POST' className='form login'>
         <div className='form__field'>
           <label htmlFor='login__username'>
             <svg className='icon'>
               <use xlinkHref='#icon-user'></use>
             </svg>
-            <span className='hidden'>Username</span>
+            <span className='hidden'>{t('Auth.login.form.user')}</span>
           </label>
           <input
             ref={userNameRef}
@@ -100,7 +102,7 @@ const LoginForm = () => {
             <svg className='icon'>
               <use xlinkHref='#icon-lock'></use>
             </svg>
-            <span className='hidden'>Password</span>
+            <span className='hidden'>{t('Auth.login.form.pass')}</span>
           </label>
           <input
             ref={songNameRef}
@@ -115,7 +117,11 @@ const LoginForm = () => {
           />
         </div>
         <div className='form__field'>
-          {isSubmitting ? <Loading /> : <input type='submit' value='Sign In' />}
+          {isSubmitting ? (
+            <Loading />
+          ) : (
+            <input type='submit' value={t('Auth.login.form.submit')} />
+          )}
         </div>
       </form>
     </div>

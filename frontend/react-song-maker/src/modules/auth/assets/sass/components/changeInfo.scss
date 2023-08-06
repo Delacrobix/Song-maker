@@ -2,6 +2,9 @@
   padding: 2rem 0;
 
   &__form {
+    @include flex-center;
+    padding: 0 0 1rem 0;
+
     &-input {
       border: none;
       border-radius: 7px;

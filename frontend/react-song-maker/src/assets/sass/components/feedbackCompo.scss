@@ -1,0 +1,18 @@
+.feedback {
+  @include flex-center;
+
+  &-message {
+    padding: 0.3rem 0.5rem;
+    border-radius: 7px;
+  }
+
+  &-green {
+    background: rgba(green, 0.4);
+    border: 1px green solid;
+  }
+
+  &-red {
+    background: rgba(red, 0.3);
+    border: 1px red solid;
+  }
+}

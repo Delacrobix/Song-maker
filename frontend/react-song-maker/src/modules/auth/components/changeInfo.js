@@ -1,15 +1,21 @@
 import React, { useRef, useState } from 'react';
 import Cookies from 'js-cookie';
 import { updatePassword, updateEmail } from '../../../utils/httpRequests';
-import ErrorInfo from './errorInfo';
+import FeedbackCompo from '../../../components/successComponent';
 
 const ChangeInfo = (props) => {
+  //Refs
   const passRef = useRef(null);
   const passDupRef = useRef(null);
+  const emailRef = useRef(null);
+
   const { isPass, id } = props;
+
+  //States
   const [formInfo, setFormInfo] = useState(null);
-  const [error, setError] = useState({
-    exist: false,
+  const [feedback, setFeedback] = useState({
+    isError: false,
+    isSuccessfully: false,
     message: '',
   });
 
@@ -23,9 +29,12 @@ const ChangeInfo = (props) => {
   }
 
   async function handleSubmit(e) {
-    const passElement = passRef.current;
-    const passDupElement = passDupRef.current;
     e.preventDefault();
+
+    setFeedback({
+      isError: false,
+      isSuccessfully: false,
+    });
 
     let userAccount = {};
 
@@ -40,15 +49,20 @@ const ChangeInfo = (props) => {
       const response = await updatePassword(userAccount);
 
       if (response.statusCode === 400 || response.statusCode === 500) {
-        setError({
-          exist: true,
+        setFeedback({
+          isError: true,
+          isSuccessfully: false,
           message: response.data.message,
         });
       } else {
-        passDupElement.value = '';
-        passElement.value = '';
+        passRef.current.value = '';
+        passDupRef.current.value = '';
 
-        alert('Password changed successfully.');
+        setFeedback({
+          isError: false,
+          isSuccessfully: true,
+          message: 'Password changed successfully.',
+        });
       }
     } else {
       //Change email code
@@ -60,16 +74,20 @@ const ChangeInfo = (props) => {
       const response = await updateEmail(userAccount);
 
       if (response.statusCode === 400 || response.statusCode === 500) {
-        setError({
-          exist: true,
+        setFeedback({
+          isError: true,
+          isSuccessfully: false,
           message: response.data.message,
         });
       } else {
+        emailRef.current.value = '';
         Cookies.set('sesionToken', response.data.token);
 
-        alert('Email changed successfully.');
-
-        window.location.reload();
+        setFeedback({
+          isError: false,
+          isSuccessfully: true,
+          message: 'Email changed successfully.',
+        });
       }
     }
   }
@@ -103,6 +121,7 @@ const ChangeInfo = (props) => {
       ) : (
         <form onSubmit={handleSubmit} className='change-info__form'>
           <input
+            ref={emailRef}
             className='change-info__form-input'
             type='email'
             name='email'
@@ -115,7 +134,12 @@ const ChangeInfo = (props) => {
           </button>
         </form>
       )}
-      {error.exist ? <ErrorInfo error={error.message} /> : null}
+      {feedback.isError && (
+        <FeedbackCompo message={feedback.message} color={'red'} />
+      )}
+      {feedback.isSuccessfully && (
+        <FeedbackCompo message={feedback.message} color={'green'} />
+      )}
     </div>
   );
 };

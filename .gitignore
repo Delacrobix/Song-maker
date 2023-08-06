@@ -26,6 +26,7 @@ TODO.md
 /auth-dotnet/auth-module/obj
 /auth-dotnet/auth-module/appsettings.json
 /auth-dotnet/auth-module/.vs
+/auth-dotnet/auth-module/out
 
 #Backend nodejs
 /backend/node_modules

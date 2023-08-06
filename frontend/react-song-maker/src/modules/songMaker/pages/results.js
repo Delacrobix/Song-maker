@@ -11,6 +11,7 @@ import BreadCrumb from '../components/breadCrumb';
 import useUser from '../../../hooks/useUser';
 import usePlaySounds from '../../../hooks/usePlaySounds';
 import useSubmitSong from '../../../hooks/useSubmitSong';
+import FeedbackCompo from '../../../components/successComponent';
 
 const Results = () => {
   const navigate = useNavigate();
@@ -18,7 +19,6 @@ const Results = () => {
   //Refs
   const inputNameRef = useRef(null);
   const inputSongRef = useRef(null);
-  const submitRef = useRef(null);
 
   //Redux variables
   const reduxRhythm = useSelector((state) => state.rhythm.value);
@@ -30,6 +30,11 @@ const Results = () => {
   const [formData, setFormData] = useState({
     userName: '',
     songName: '',
+  });
+  const [feedback, setFeedback] = useState({
+    message: '',
+    isSuccessful: false,
+    isError: false,
   });
 
   //Requests
@@ -88,11 +93,9 @@ const Results = () => {
   function handleElement(condition) {
     const inputName = inputNameRef.current;
     const inputSong = inputSongRef.current;
-    const submit = submitRef.current;
 
     inputName.disabled = condition;
     inputSong.disabled = condition;
-    submit.disabled = condition;
   }
 
   function submitUserSong(event) {
@@ -106,13 +109,22 @@ const Results = () => {
       .then(() => {
         setIsSubmitting(false);
 
-        alert('Song shared successfully');
+        setFeedback({
+          message: 'Your song was successfully shared',
+          isError: false,
+          isSuccessful: true,
+        });
       })
       .catch((error) => {
-        // handleElement(false);
+        handleElement(false);
         setIsSubmitting(false);
 
-        alert('Error trying to share the song, please, try again');
+        setFeedback({
+          message: 'Error trying to share the song, please, try again',
+          isError: true,
+          isSuccessful: false,
+        });
+
         console.error(error);
       });
 
@@ -150,8 +162,8 @@ const Results = () => {
           <p className='p'>*The following fields are necessary</p>
           <div className='input-container'>
             <input
-              ref={inputNameRef}
               type='text'
+              ref={inputNameRef}
               onChange={handleChange}
               value={formData.userName}
               name='userName'
@@ -162,19 +174,24 @@ const Results = () => {
               type='text'
               ref={inputSongRef}
               onChange={handleChange}
-              name='songName'
               value={formData.songName}
+              name='songName'
               placeholder='Song name'
               required
             />
           </div>
           {isSubmitting ? (
             <Loading />
+          ) : feedback.isSuccessful ? (
+            <FeedbackCompo color={'green'} message={feedback.message} />
           ) : (
-            <button type='submit' ref={submitRef}>
+            <button type='submit' disabled={feedback.isSuccessful}>
               Share
             </button>
-          )}
+          )}{' '}
+          {feedback.isError ? (
+            <FeedbackCompo color={'red'} message={feedback.message} />
+          ) : null}
         </form>
       </div>
     </div>
