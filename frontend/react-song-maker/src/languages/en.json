@@ -55,7 +55,43 @@
         "submit": "Sign Up"
       }
     },
-    "profile": {}
+    "profile": {
+      "title": "Profile",
+      "email": "email:",
+      "userName": "User name:",
+      "pass": "Password:",
+      "btns": {
+        "changeEmail": "Change email",
+        "changePass": "Change password",
+        "watchSongs": "Watch your songs",
+        "submit": "Send"
+      }
+    }
   },
-  "SongMaker": {}
+  "SongMaker": {
+    "community": {
+      "title": "COMMUNITY SONGS",
+      "table": {
+        "head": {
+          "t1": "OWNER",
+          "t2": "NAME",
+          "t3": "RHYTHM",
+          "t4": "CHORDS",
+          "t5": "DATE",
+          "t6": "ID"
+        }
+      },
+      "card": {
+        "title": "SONG INFORMATION",
+        "elem1": "ID: ",
+        "elem2": "RHYTHM: ",
+        "elem3": "CHORDS: ",
+        "elem4": "DATE: ",
+        "btn": "Play song"
+      }
+    },
+    "toneSelector": {
+      "title": "SELECT TONALITY"
+    }
+  }
 }

@@ -189,6 +189,12 @@
 .form-login-container .form__field {
   display: flex;
 }
+.form-login-container .form__field .loading-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .form-login-container .form__input {
   flex: 1;
 }
@@ -267,6 +273,12 @@
 }
 .form-signup-container .form__field {
   display: flex;
+}
+.form-signup-container .form__field .loading-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .form-signup-container .form__input {
   flex: 1;

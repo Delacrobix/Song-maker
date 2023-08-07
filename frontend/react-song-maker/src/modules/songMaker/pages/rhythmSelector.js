@@ -80,7 +80,7 @@ const RhythmSelector = () => {
             return button;
           })}
       </div>
-      <div className=' selected-rhythm-container-invisible ' ref={containerRef}>
+      <div className='selected-rhythm-container-invisible' ref={containerRef}>
         <div className='selected-rhythm-container'>
           <ul>
             <li>

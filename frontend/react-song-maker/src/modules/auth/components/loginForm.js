@@ -12,8 +12,10 @@ const LoginForm = () => {
   const { t } = useTranslation();
   const { handleLogin } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  //Refs
   const userNameRef = useRef(null);
-  const songNameRef = useRef(null);
+  const passRef = useRef(null);
 
   //States
   const [form, setForm] = useState({
@@ -37,22 +39,23 @@ const LoginForm = () => {
 
   function blockItems() {
     const userNameInput = userNameRef.current;
-    const songNameInput = songNameRef.current;
+    const passInput = passRef.current;
 
     userNameInput.disabled = isSubmitting;
-    songNameInput.disabled = isSubmitting;
-    songNameInput.disabled = isSubmitting;
+    passInput.disabled = isSubmitting;
   }
 
   async function handleSubmit(event) {
     event.preventDefault();
 
+    //Block items
     blockItems();
     setIsSubmitting(true);
 
     const response = await getAuth(form);
 
     setIsSubmitting(false);
+    //Unblock items
     blockItems();
 
     if (response.token) {
@@ -105,7 +108,7 @@ const LoginForm = () => {
             <span className='hidden'>{t('Auth.login.form.pass')}</span>
           </label>
           <input
-            ref={songNameRef}
+            ref={passRef}
             id='login__password'
             type='password'
             name='password'
@@ -118,7 +121,9 @@ const LoginForm = () => {
         </div>
         <div className='form__field'>
           {isSubmitting ? (
-            <Loading />
+            <div className='loading-container'>
+              <Loading />
+            </div>
           ) : (
             <input type='submit' value={t('Auth.login.form.submit')} />
           )}

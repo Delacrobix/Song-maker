@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import usePlaySounds from '../../../hooks/usePlaySounds';
+import { useTranslation } from 'react-i18next';
 
 const CardInfo = () => {
   const location = useLocation();
 
+  const { t } = useTranslation();
   const { song } = location.state;
   const { songName, _id, rhythmType, owner, chords, date } = song;
 
@@ -33,35 +35,27 @@ const CardInfo = () => {
 
   return (
     <div>
-      <h1 className='title-page'>SONG INFORMATION</h1>
+      <h1 className='title-page'>{t('SongMaker.community.card.title')}</h1>
       <div className='o-card o-card--mod-small'>
         <div className='c-card'>
-          <legend className='u-visually-hidden'>
-            Information Card with text and images.
-          </legend>
-          {/* <img
-            className='c-card_image'
-            src='http://placeimg.com/640/480/any/sepia'
-            alt='Card'
-          /> */}
           <div className='c-card_body'>
             <h2 className='c-card_title'>{songName}</h2>
             <h5 className='c-card_secondary-title'>{`By ${owner}`}</h5>
             <hr />
             <p className='c-card_text'>
-              <strong>ID: </strong>
+              <strong>{t('SongMaker.community.card.elem1')}</strong>
               {_id}
             </p>
             <p className='c-card_text'>
-              <strong>RHYTHM: </strong>
+              <strong>{t('SongMaker.community.card.elem2')}</strong>
               {rhythmType.rhythmName}
             </p>
             <p className='c-card_text'>
-              <strong>CHORDS: </strong>
+              <strong>{t('SongMaker.community.card.elem3')} </strong>
               {chordsToPrint}
             </p>
             <p className='c-card_text'>
-              <strong>DATE: </strong>
+              <strong>{t('SongMaker.community.card.elem4')}</strong>
               {printableDate}
             </p>
             {/* <p className='c-card_text'>
@@ -74,7 +68,7 @@ const CardInfo = () => {
             data-expanded='false'
             onClick={() => playRhythm(rhythmType)}
           >
-            Play song
+            {t('SongMaker.community.card.btn')}
           </button>
         </div>
       </div>

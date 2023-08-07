@@ -1,14 +1,21 @@
 import React, { useContext, useState } from 'react';
+import Cookies from 'js-cookie';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
 import { createUser } from '../../../utils/httpRequests';
 import { AuthContext } from '../../../context/authContext';
 import FeedbackCompo from '../../../components/successComponent';
+import { useRef } from 'react';
+import Loading from '../../songMaker/components/feedback/loading';
 
 const SignupForm = () => {
   const { t } = useTranslation();
   const { navigate } = useNavigate();
+
+  //Refs
+  const userNameRef = useRef(null);
+  const passRef = useRef(null);
+  const emailRef = useRef(null);
 
   //States
   const { handleLogin } = useContext(AuthContext);
@@ -21,6 +28,7 @@ const SignupForm = () => {
     exist: false,
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function handleChange(e) {
     e.preventDefault();
@@ -31,12 +39,30 @@ const SignupForm = () => {
     });
   }
 
+  function blockItems() {
+    const userNameInput = userNameRef.current;
+    const passInput = passRef.current;
+    const emailInput = emailRef.current;
+
+    userNameInput.disabled = isSubmitting;
+    passInput.disabled = isSubmitting;
+    emailInput.disabled = isSubmitting;
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
 
     setError({ exist: false, message: '' });
 
+    //Block items
+    blockItems();
+    setIsSubmitting(true);
+
     const response = await createUser(form);
+
+    setIsSubmitting(false);
+    //Unblock items
+    blockItems();
 
     if (response.token) {
       //Switch auth context
@@ -66,6 +92,7 @@ const SignupForm = () => {
             <span className='hidden'>{t('Auth.signup.form.user')}</span>
           </label>
           <input
+            ref={userNameRef}
             autoComplete='username'
             id='signup__username'
             type='text'
@@ -85,6 +112,7 @@ const SignupForm = () => {
             <span className='hidden'>{t('Auth.signup.form.email')}</span>
           </label>
           <input
+            ref={emailRef}
             id='signup__email'
             type='email'
             name='email'
@@ -103,6 +131,7 @@ const SignupForm = () => {
             <span className='hidden'>{t('Auth.signup.form.pass')}</span>
           </label>
           <input
+            ref={passRef}
             id='signup__password'
             type='password'
             name='password'
@@ -114,7 +143,13 @@ const SignupForm = () => {
           />
         </div>
         <div className='form__field'>
-          <input type='submit' value={t('Auth.signup.form.submit')} />
+          {isSubmitting ? (
+            <div className='loading-container'>
+              <Loading />
+            </div>
+          ) : (
+            <input type='submit' value={t('Auth.signup.form.submit')} />
+          )}
         </div>
       </form>
     </div>

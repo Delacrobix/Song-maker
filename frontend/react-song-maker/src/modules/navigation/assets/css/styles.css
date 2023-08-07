@@ -188,6 +188,9 @@
   body .navbar {
     height: 5.3rem;
   }
+  body .navbar h1 {
+    margin: 0 0 0.5rem 2.2rem;
+  }
   body .navbar h3 {
     visibility: hidden;
   }
@@ -228,42 +231,51 @@
   }
 }
 @media (max-width: 768px) {
-  .footer-container {
-    padding: 2rem;
-    flex-direction: column;
+  body .footer {
+    padding: 0 0 0.5rem 0;
   }
-  .footer-container .footer-content-container {
+  body .footer .footer-container {
+    flex-direction: column;
+    padding: 0;
+  }
+  body .footer .footer-container .footer-content-container {
     width: 100%;
-    padding: 2rem 0;
+    padding: 1rem 0;
     border-bottom: 1px solid #2a2a2a;
     justify-content: center;
     align-items: center;
   }
-  .footer-container .footer-content-container:nth-of-type(2) {
-    align-items: flex-start;
-  }
-  .footer-container .footer-content-container:nth-of-type(3) {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-  .footer-menus {
+  body .footer .footer-container .footer-menus {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
     align-items: flex-start;
     border-bottom: 1px solid #2a2a2a;
   }
-  .footer-menus,
-  .footer-content-container:nth-of-type(1) {
-    width: 45%;
-    align-items: flex-start;
-    border-bottom: none;
+}
+@media (max-width: 440px) {
+  body .navbar h1 {
+    font-size: 1.5rem;
   }
-  .footer-menus,
-  .footer-content-container:nth-of-type(2) {
-    width: 45%;
-    align-items: flex-start;
-    border-bottom: none;
+  body .navbar .responsive-nav {
+    margin: 1.6rem 0 0 0;
+  }
+  body .navbar .dropdown {
+    padding: 0 1rem 0 0;
+  }
+  body .tone-selector-page-container .c-navigation-breadcrumbs {
+    padding: 0;
+    margin: 0;
+  }
+  body .tone-selector-page-container .circle-container {
+    padding: 0;
+    height: 70%;
+  }
+  body .tone-selector-page-container .circle-container .radial-menu {
+    margin: 0;
+    padding: 0;
+    transform: scale(0.62);
+  }
+  body .rhythm-selector-container .selected-rhythm-container-invisible .selected-rhythm-container ul {
+    width: 50%;
   }
 }
 

@@ -3,10 +3,14 @@ import { v4 as uuidv4 } from 'uuid';
 import Row from './row';
 import { useNavigate } from 'react-router-dom';
 import { binarySearch } from '../../../../utils/sorts';
+import { useTranslation } from 'react-i18next';
 
 const Table = (props) => {
   const { songList } = props;
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
+
   const [songListState, setSongListState] = useState([]);
 
   useEffect(() => {
@@ -25,22 +29,22 @@ const Table = (props) => {
       <thead>
         <tr>
           <th>
-            <h6>OWNER</h6>
+            <h6>{t('SongMaker.community.table.head.t1')}</h6>
           </th>
           <th>
-            <h6>NAME</h6>
+            <h6>{t('SongMaker.community.table.head.t2')}</h6>
           </th>
           <th>
-            <h6>RHYTHM</h6>
+            <h6>{t('SongMaker.community.table.head.t3')}</h6>
           </th>
           <th>
-            <h6>CHORDS</h6>
+            <h6>{t('SongMaker.community.table.head.t4')}</h6>
           </th>
           <th>
-            <h6>DATE</h6>
+            <h6>{t('SongMaker.community.table.head.t5')}</h6>
           </th>
           {/* <th>
-            <h6>ID</h6>
+            <h6>{t('SongMaker.community.table.head.t6')}</h6>
           </th> */}
         </tr>
       </thead>

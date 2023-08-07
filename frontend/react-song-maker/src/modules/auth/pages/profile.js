@@ -6,6 +6,7 @@ import Table from '../../songMaker/components/table/table';
 import ErrorAlert from '../../songMaker/components/feedback/errorAlert';
 import Loading from '../../songMaker/components/feedback/loading';
 import ChangeInfo from '../components/changeInfo';
+import { useTranslation } from 'react-i18next';
 
 const Profile = () => {
   const [watchSongs, setWatchSongs] = useState(false);
@@ -15,6 +16,8 @@ const Profile = () => {
   const [user, setUser] = useState({});
 
   const userHook = useUser();
+
+  const { t } = useTranslation();
 
   const { data, error, loading } = useQuery(
     getSongsByUserNameQuery(userHook.userName)
@@ -61,12 +64,12 @@ const Profile = () => {
   return (
     <section className='profile'>
       <div className='profile__container'>
-        <h2 className='title-page'>Profile</h2>
+        <h2 className='title-page'>{t('Auth.profile.title')}</h2>
         <div className='boxes'>
           <div className='left-box'>
-            <label>Email:</label>
-            <label>User name:</label>
-            <label>Password:</label>
+            <label>{t('Auth.profile.email')}</label>
+            <label>{t('Auth.profile.userName')}</label>
+            <label>{t('Auth.profile.pass')}</label>
           </div>
           <div className='center-box'>
             <label>{user.email}</label>
@@ -78,20 +81,20 @@ const Profile = () => {
               onClick={() => handleShowComponent(false)}
               className='change-button'
             >
-              Change email
+              {t('Auth.profile.btns.changeEmail')}
             </button>
             <button
               onClick={() => handleShowComponent(true)}
               className='change-button'
             >
-              Change password
+              {t('Auth.profile.btns.changePass')}
             </button>
           </div>
         </div>
         {showChangeCompo ? <ChangeInfo isPass={isPass} id={user.id} /> : null}
         <div className='profile__container__user-songs'>
           <button onClick={handleClick} className='profile-button'>
-            Watch your songs
+            {t('Auth.profile.btns.watchSongs')}
           </button>
           {watchSongs ? printable : null}
         </div>

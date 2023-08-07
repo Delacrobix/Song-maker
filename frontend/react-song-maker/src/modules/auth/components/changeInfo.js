@@ -2,14 +2,16 @@ import React, { useRef, useState } from 'react';
 import Cookies from 'js-cookie';
 import { updatePassword, updateEmail } from '../../../utils/httpRequests';
 import FeedbackCompo from '../../../components/successComponent';
+import { useTranslation } from 'react-i18next';
 
 const ChangeInfo = (props) => {
+  const { isPass, id } = props;
+  const { t } = useTranslation();
+
   //Refs
   const passRef = useRef(null);
   const passDupRef = useRef(null);
   const emailRef = useRef(null);
-
-  const { isPass, id } = props;
 
   //States
   const [formInfo, setFormInfo] = useState(null);
@@ -115,7 +117,7 @@ const ChangeInfo = (props) => {
             required
           />
           <button type='submit' className='change-info__form-submit'>
-            Send
+            {t('Auth.profile.btns.submit')}
           </button>
         </form>
       ) : (
@@ -130,7 +132,7 @@ const ChangeInfo = (props) => {
             required
           />
           <button type='submit' className='change-info__form-submit'>
-            Send
+            {t('Auth.profile.btns.submit')}
           </button>
         </form>
       )}

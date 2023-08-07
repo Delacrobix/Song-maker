@@ -39,6 +39,11 @@
 
   .form__field {
     display: flex;
+
+    .loading-container {
+      width: 100%;
+      @include flex-center;
+    }
   }
 
   .form__input {

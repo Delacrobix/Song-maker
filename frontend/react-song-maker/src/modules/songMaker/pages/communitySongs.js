@@ -5,9 +5,12 @@ import { useQuery } from '@apollo/client';
 import ErrorAlert from '../components/feedback/errorAlert';
 import Loading from '../components/feedback/loading';
 import { getAllSongsQuery } from '../../../utils/queries';
+import { useTranslation } from 'react-i18next';
 
 const CommunitySongs = () => {
   const [songList, setSongList] = useState([]);
+
+  const { t } = useTranslation();
   const { data, error, loading, refetch } = useQuery(getAllSongsQuery);
 
   useEffect(() => {
@@ -30,7 +33,7 @@ const CommunitySongs = () => {
 
   return (
     <div className='community-songs-container'>
-      <h2 className='title-page'>COMMUNITY SONGS</h2>
+      <h2 className='title-page'>{t('SongMaker.community.title')}</h2>
       <div className='content-container'>
         <div className='feedback'>
           {loading && <Loading />}
