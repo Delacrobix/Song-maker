@@ -19,29 +19,22 @@ This application allow to generate chord progressions and play it for be used in
     - OpenAI API
     - JWT
 
-- <strong>Installation:</strong>
+## <strong>How to run</strong>
 
-  Posterior a la clonación del repositorio realizar los siguientes pasos:
+The first step is clone the repository.
 
-  Para la instalación de dependencias, en la dirección:
+      git clone https://github.com/Delacrobix/Song-maker.git
 
-        /juego-dados
+### Using docker
 
-  se instalaran todas las dependencias ejecutando el comando
+- Navigate into the folder <strong>/Song-maker</strong>
+- Replace environment variables for your local environment
 
-        npm install
+- Execute <strong>docker-compose.yml</strong> file:
 
-  Si se desea, se recomienda configurar las variables de entorno MONGODB y PORT en el archivo
+      docker-compose up --build
 
-        /juego-dados/.env
-
-  En la misma dirección es posible ejecutar el programa escribiendo el comando
-
-        nodemon app
-
-  En el navegador es posible visualizar la pagina de inicio en la siguiente ruta
-
-        localhost:8080/home
+- On web browser for open the app paste the path:
 
 ## <strong>AUTOR</strong>
 
