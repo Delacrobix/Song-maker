@@ -13,6 +13,7 @@ const CardInfo = () => {
   //States
   const [printableDate, setPrintableDate] = useState('');
   const [chordsToPrint, setChordsToPrint] = useState('');
+  const [isPlaying, setIsPlaying] = useState(false);
 
   //Custom Hooks
   const playRhythm = usePlaySounds();
@@ -32,6 +33,16 @@ const CardInfo = () => {
 
     setChordsToPrint(chordsArray.join('-'));
   }, [chords]);
+
+  async function handlerPlay() {
+    setIsPlaying(!isPlaying);
+
+    // while (isPlaying) {
+    // console.log('is playing: ', isPlaying);
+    // await playRhythm(rhythmType);
+    await playRhythm(rhythmType);
+    // }
+  }
 
   return (
     <div>
@@ -66,9 +77,9 @@ const CardInfo = () => {
           <button
             className='c-card_expand-button js-card-expand'
             data-expanded='false'
-            onClick={() => playRhythm(rhythmType)}
+            onClick={handlerPlay}
           >
-            {t('SongMaker.community.card.btn')}
+            {isPlaying ? 'stop' : t('SongMaker.community.card.btn')}
           </button>
         </div>
       </div>

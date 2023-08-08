@@ -360,4 +360,15 @@
   background: rgba(255, 255, 255, 0.18);
 }
 
+@media (max-width: 440px) {
+  body .profile__container .boxes {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+  body .profile__container .boxes .right-box .change-button {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.4rem;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */

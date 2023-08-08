@@ -14,35 +14,23 @@
         padding: 0 1rem 0 0;
       }
     }
+  }
+}
 
-    //Tone selector
-    .tone-selector-page-container {
-      //Breadcrumb
-      .c-navigation-breadcrumbs {
-        padding: 0;
-        margin: 0;
+@media (max-width: 360px) {
+  body {
+    //Navbar
+    .navbar {
+      h1 {
+        display: none;
       }
 
-      .circle-container {
-        padding: 0;
-        height: 70%;
-
-        .radial-menu {
-          margin: 0;
-          padding: 0;
-          transform: scale(0.62);
-        }
+      .responsive-nav {
+        margin: 1.6rem 0 0 0;
       }
-    }
 
-    //Rhythm selector
-    .rhythm-selector-container {
-      .selected-rhythm-container-invisible {
-        .selected-rhythm-container {
-          ul {
-            width: 50%;
-          }
-        }
+      .dropdown {
+        padding: 0 1rem 0 0;
       }
     }
   }

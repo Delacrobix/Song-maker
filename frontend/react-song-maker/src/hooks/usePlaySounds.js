@@ -28,6 +28,14 @@ const usePlaySounds = () => {
       durationArr[aux.length - 1] = aux.pop().duration * quarterNote * 1000;
     }
 
+    // durationArr = [
+    //   ...durationArr,
+    //   ...durationArr,
+    //   ...durationArr,
+    //   ...durationArr,
+    // ];
+    // const test = [...score, ...score, ...score, ...score];
+
     playMeasures(score, quarterNote, durationArr);
   }
 
@@ -36,6 +44,10 @@ const usePlaySounds = () => {
     if (score.length === 0) {
       return;
     }
+
+    // if (i === score.length) {
+    //   playMeasures(score, quarterNote, durationArr, 0);
+    // }
 
     setTimeout(() => {
       let lastElement = peek(score);

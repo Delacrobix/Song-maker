@@ -1,0 +1,23 @@
+@media (max-width: 440px) {
+  body {
+    //Profile
+    .profile {
+      &__container {
+        .boxes {
+          width: 100%;
+          font-size: 0.9rem;
+
+          .right-box {
+            .change-button {
+              font-size: 0.7rem;
+              padding: 0.4rem 0.4rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+}
