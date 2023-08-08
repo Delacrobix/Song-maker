@@ -28,17 +28,32 @@ const usePlayableSong = (props) => {
       score: newScore,
     });
 
+    //This method is used to build a new chord array using the selected chords order from rhythm
     function buildNewChordArr(oldChordArr, newChords) {
-      let newChordsArr = [];
-      let i = 0;
+      let chordsMap = [];
 
       oldChordArr.forEach((element, index) => {
-        if (element === 'rst') {
-          newChordsArr.push('rst');
-        } else if (element === oldChordArr[index - 1]) {
-          newChordsArr.push(newChords[i - 1]);
+        if (element !== 'rst') {
+          chordsMap.push({
+            pos: index,
+            chord: element,
+          });
+        }
+      });
+
+      let newChordsArr = [...oldChordArr];
+      let i = 0;
+
+      chordsMap.forEach((element, index) => {
+        const aux = chordsMap[index + 1];
+
+        if (!aux) {
+          newChordsArr[element.pos] = newChords[i];
+          i++;
+        } else if (element.chord === aux.chord) {
+          newChordsArr[element.pos] = newChords[i];
         } else {
-          newChordsArr.push(newChords[i]);
+          newChordsArr[element.pos] = newChords[i];
           i++;
         }
       });

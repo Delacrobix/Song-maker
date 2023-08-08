@@ -96,6 +96,7 @@ public class UserController : ControllerBase
       return BadRequest(new { Message = "Parameters cannot be null." });
     }
 
+    //Empty files validations
     if (string.IsNullOrEmpty(ua.UserName))
     {
       return BadRequest(new { Message = "User name cannot be empty." });
@@ -129,7 +130,6 @@ public class UserController : ControllerBase
     {
       ua.Password = _service.encryptPassword(ua.Password);
       var newRegister = await _service.CreateRegister(ua);
-
 
       //Creating JWT
       var objectKey = new

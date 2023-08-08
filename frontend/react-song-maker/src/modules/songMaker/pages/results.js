@@ -159,6 +159,9 @@ const Results = () => {
           <p className='p p-1'>
             Would you like to share this with the community?
           </p>
+          {feedback.control && (
+            <FeedbackCompo message={feedback.message} color={'red'} />
+          )}
           <p className='p'>*The following fields are necessary</p>
           <div className='input-container'>
             <input
@@ -168,6 +171,8 @@ const Results = () => {
               value={formData.userName}
               name='userName'
               placeholder='Composer'
+              minLength='3'
+              maxLength='25'
               required
             />
             <input
@@ -177,6 +182,8 @@ const Results = () => {
               value={formData.songName}
               name='songName'
               placeholder='Song name'
+              minLength='3'
+              maxLength='30'
               required
             />
           </div>

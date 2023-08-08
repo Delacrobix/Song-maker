@@ -21,10 +21,17 @@ export function rhythmValidation(functionName, rhythm) {
     );
   }
 
-  score.forEach((item) => {
+  score.forEach((item, index) => {
     if (!item.chordName) {
       throw new ValidationError(
         `Data required: All fields in rhythm.score arg are needed in: ${functionName}`
+      );
+    }
+
+    //Validating that there is no two 'rst' in line
+    if (item.chordName === 'rst' && score[index + 1].chordName === 'rst') {
+      throw new ValidationError(
+        `Format Error: Cannot exist two 'rst' in line.`
       );
     }
 

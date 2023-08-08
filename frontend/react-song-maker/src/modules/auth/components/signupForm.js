@@ -20,7 +20,7 @@ const SignupForm = () => {
   //States
   const { handleLogin } = useContext(AuthContext);
   const [form, setForm] = useState({
-    username: '',
+    userName: '',
     email: '',
     password: '',
   });
@@ -96,11 +96,13 @@ const SignupForm = () => {
             autoComplete='username'
             id='signup__username'
             type='text'
-            name='username'
+            name='userName'
             onChange={handleChange}
-            value={form.username}
+            value={form.userName}
             className='form__input'
             placeholder='Username'
+            minLength='3'
+            maxLength='25'
             required
           />
         </div>
@@ -132,6 +134,8 @@ const SignupForm = () => {
           </label>
           <input
             ref={passRef}
+            minLength='5'
+            maxLength='30'
             id='signup__password'
             type='password'
             name='password'

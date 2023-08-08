@@ -134,6 +134,13 @@ export const getAllRhythms = {
       } else {
         const rhythmsList = await Rhythm.find();
 
+        try {
+          const rhythmsListString = JSON.stringify(rhythmsList);
+          await redisClient.set('song-maker:rhythmList', rhythmsListString);
+        } catch (e) {
+          console.error(`Error saving on redis database in: ${functionName}`);
+        }
+
         return rhythmsList;
       }
     } catch (err) {

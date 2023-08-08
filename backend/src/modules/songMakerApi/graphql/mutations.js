@@ -33,6 +33,18 @@ export const insertRhythm = {
       const rhythmInstance = new Rhythm(rhythm);
       await rhythmInstance.save();
 
+      //Updating redis database
+      try {
+        const rhythmsList = await Rhythm.find();
+        const rhythmsListString = JSON.stringify(rhythmsList);
+
+        await redisClient.set('song-maker:rhythmList', rhythmsListString);
+      } catch (e) {
+        throw new DataMutationError(
+          `Error saving redis information in: ${functionName} ${err}`
+        );
+      }
+
       return true;
     } catch (err) {
       throw new DataMutationError(

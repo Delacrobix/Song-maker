@@ -105,6 +105,8 @@ const ChangeInfo = (props) => {
             name='pass'
             placeholder='New password'
             onChange={handleChange}
+            minLength='5'
+            maxLength='30'
             required
           />
           <input
@@ -114,6 +116,8 @@ const ChangeInfo = (props) => {
             name='dupPass'
             placeholder='Repeat password'
             onChange={handleChange}
+            minLength='5'
+            maxLength='30'
             required
           />
           <button type='submit' className='change-info__form-submit'>
