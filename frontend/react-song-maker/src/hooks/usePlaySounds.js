@@ -28,14 +28,6 @@ const usePlaySounds = () => {
       durationArr[aux.length - 1] = aux.pop().duration * quarterNote * 1000;
     }
 
-    // durationArr = [
-    //   ...durationArr,
-    //   ...durationArr,
-    //   ...durationArr,
-    //   ...durationArr,
-    // ];
-    // const test = [...score, ...score, ...score, ...score];
-
     playMeasures(score, quarterNote, durationArr);
   }
 
@@ -44,10 +36,6 @@ const usePlaySounds = () => {
     if (score.length === 0) {
       return;
     }
-
-    // if (i === score.length) {
-    //   playMeasures(score, quarterNote, durationArr, 0);
-    // }
 
     setTimeout(() => {
       let lastElement = peek(score);
@@ -153,7 +141,7 @@ const usePlaySounds = () => {
     playChord(chordArr, duration);
   }
 
-  function playChord(chordArr, duration) {
+  async function playChord(chordArr, duration) {
     let urls = {};
     let soundsArr = [];
 
@@ -173,7 +161,8 @@ const usePlaySounds = () => {
     }).toDestination();
 
     try {
-      Tone.loaded().then(() => {
+      // await Tone.loaded();
+      await Tone.loaded().then(() => {
         sampler.triggerAttackRelease(soundsArr, duration);
       });
     } catch (e) {

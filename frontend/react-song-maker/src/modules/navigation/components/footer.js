@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import ShareCompo from './shareCompo';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -21,7 +22,7 @@ const Footer = () => {
             {/* <Link to='/home' className='menu-item-footer'>
               {t('Navigation.footer.menu.element-1')}
             </Link> */}
-            <Link to='/create-song/tone' className='menu-item-footer'>
+            <Link to='/tone-selector' className='menu-item-footer'>
               {t('Navigation.footer.menu.element-2')}
             </Link>
             <Link to='/community' className='menu-item-footer'>
@@ -75,6 +76,7 @@ const Footer = () => {
               className='social-link'
             ></Link>
           </div>
+          <ShareCompo />
         </div>
       </section>
       <div className='copyright-container'>

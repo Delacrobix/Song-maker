@@ -13,7 +13,6 @@ const CardInfo = () => {
   //States
   const [printableDate, setPrintableDate] = useState('');
   const [chordsToPrint, setChordsToPrint] = useState('');
-  const [isPlaying, setIsPlaying] = useState(false);
 
   //Custom Hooks
   const playRhythm = usePlaySounds();
@@ -35,13 +34,7 @@ const CardInfo = () => {
   }, [chords]);
 
   async function handlerPlay() {
-    setIsPlaying(!isPlaying);
-
-    // while (isPlaying) {
-    // console.log('is playing: ', isPlaying);
-    // await playRhythm(rhythmType);
     await playRhythm(rhythmType);
-    // }
   }
 
   return (
@@ -79,7 +72,7 @@ const CardInfo = () => {
             data-expanded='false'
             onClick={handlerPlay}
           >
-            {isPlaying ? 'stop' : t('SongMaker.community.card.btn')}
+            {t('SongMaker.community.card.btn')}
           </button>
         </div>
       </div>

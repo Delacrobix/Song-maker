@@ -1,0 +1,28 @@
+.share-container {
+  padding: 2rem 0;
+  gap: 1rem;
+
+  .title-container {
+    text-align: center;
+    margin: 0 0 1rem 0;
+
+    .share-text {
+      color: map-get($dark-mode, champagne);
+      text-decoration: none;
+    }
+  }
+
+  .share-link {
+    font-size: 1.3rem;
+    margin: 0 0.6rem;
+    color: white;
+
+    svg {
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.5);
+      }
+    }
+  }
+}

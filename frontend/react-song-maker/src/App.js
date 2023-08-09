@@ -40,7 +40,7 @@ function App() {
         <Route path='/community/:id' element={<CardInfo />} />
         <Route path='/rhythm-selector' element={<RhythmSelector />} />
         <Route path='/results' element={<Results />} />
-        <Route path='/create-song/tone' element={<ToneSelector />} />
+        <Route path='/tone-selector' element={<ToneSelector />} />
         {/* <Route path='/home' element={<HomePage />} /> */}
         <Route
           path='/profile'

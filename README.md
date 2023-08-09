@@ -1,7 +1,7 @@
 # Song maker
 
 <strong> Live app:
-<a href="https://juego-dados-production.up.railway.app/home">SONG MAKER PROJECT</a></strong>
+<a href="https://chordgenerator.site/tone-selector">SONG MAKER PROJECT</a></strong>
 
 This application allow to generate chord progressions and play it for be used in real life songs. The chords are generated consuming the OpenAI api.
 

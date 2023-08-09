@@ -184,6 +184,30 @@
   font-size: 1.8rem;
 }
 
+.share-container {
+  padding: 2rem 0;
+  gap: 1rem;
+}
+.share-container .title-container {
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+.share-container .title-container .share-text {
+  color: #efe1d1;
+  text-decoration: none;
+}
+.share-container .share-link {
+  font-size: 1.3rem;
+  margin: 0 0.6rem;
+  color: white;
+}
+.share-container .share-link svg {
+  cursor: pointer;
+}
+.share-container .share-link svg:hover {
+  transform: scale(1.5);
+}
+
 @media (max-width: 1120px) {
   body .navbar {
     height: 5.3rem;
