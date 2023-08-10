@@ -12,6 +12,7 @@ import useUser from '../../../hooks/useUser';
 import usePlaySounds from '../../../hooks/usePlaySounds';
 import useSubmitSong from '../../../hooks/useSubmitSong';
 import FeedbackCompo from '../../../components/successComponent';
+import { useTranslation } from 'react-i18next';
 
 const Results = () => {
   const navigate = useNavigate();
@@ -36,6 +37,8 @@ const Results = () => {
     isSuccessful: false,
     isError: false,
   });
+
+  const { t } = useTranslation();
 
   //Requests
   const query = useQuery(getAIChordsQuery(reduxTonality));
@@ -135,18 +138,18 @@ const Results = () => {
 
   return (
     <div className='results-page-container'>
-      <h2 className='title-page'>RESULTS</h2>
+      <h2 className='title-page'>{t('SongMaker.results.title')}</h2>
       <BreadCrumb />
       <div className='result-information-container'>
         <div className='song-information-container'>
           {query.loading && <Loading />}
           {query.error && <ErrorAlert />}
           <div className='chords-gen'>
-            <h3>Chords:</h3>
+            <h3>{t('SongMaker.results.h3')}</h3>
             <label>{chordsReceived}</label>
           </div>
           <button onClick={() => playRhythm(song.rhythmType)}>
-            Play your song
+            {t('SongMaker.results.play-btn')}
           </button>
         </div>
         {/* <div className='musical-representation-container'>
@@ -156,13 +159,11 @@ const Results = () => {
       </div>
       <div className='share-song-button-container'>
         <form onSubmit={submitUserSong}>
-          <p className='p p-1'>
-            Would you like to share this with the community?
-          </p>
+          <p className='p p-1'>{t('SongMaker.results.share.text')}</p>
           {feedback.control && (
             <FeedbackCompo message={feedback.message} color={'red'} />
           )}
-          <p className='p'>*The following fields are necessary</p>
+          <p className='p'>{t('SongMaker.results.share.msg-btn')}</p>
           <div className='input-container'>
             <input
               type='text'
@@ -193,7 +194,7 @@ const Results = () => {
             <FeedbackCompo color={'green'} message={feedback.message} />
           ) : (
             <button type='submit' disabled={feedback.isSuccessful}>
-              Share
+              {t('SongMaker.results.share.btn')}
             </button>
           )}{' '}
           {feedback.isError && (

@@ -105,6 +105,16 @@
         "msg-btn": "Press the button if you want to continue.",
         "btn": "Continue"
       }
+    },
+    "results": {
+      "title": "RESULTS",
+      "h3": "Chords: ",
+      "play-btn": "Play your song",
+      "share": {
+        "text": "Would you like to share this with the community?",
+        "msg-btn": "*The following fields are necessary",
+        "btn": "Share"
+      }
     }
   }
 }
