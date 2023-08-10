@@ -8,11 +8,14 @@ import RhythmButton from '../components/rhythmButton';
 import BreadCrumb from '../components/breadCrumb';
 import { setRhythm } from '../../../redux/rhythmSlice';
 import { getAllRhythmsQuery } from '../../../utils/queries';
+import { useTranslation } from 'react-i18next';
 
 const RhythmSelector = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const containerRef = useRef(null);
+
+  const { t } = useTranslation();
 
   //States
   const [rhythmResult, setRhythmResult] = useState([]);
@@ -69,9 +72,11 @@ const RhythmSelector = () => {
 
   return (
     <section className='rhythm-selector-container'>
-      <h2 className='title-page'>SELECT RHYTHM</h2>
+      <h2 className='title-page'>{t('SongMaker.rhythmSelector.title')}</h2>
       <BreadCrumb />
-      <h5>Your actually tonality: {tonality}</h5>
+      <h5>
+        {t('SongMaker.rhythmSelector.tonality')} {tonality}
+      </h5>
       <div className='rhythm-btn-component-container'>
         {error && <ErrorAlert />}
         {loading && <Loading />}
@@ -84,18 +89,18 @@ const RhythmSelector = () => {
         <div className='selected-rhythm-container'>
           <ul>
             <li>
-              Tonalidad:
+              {t('SongMaker.rhythmSelector.resume.tonality')}
               <span>{' ' + tonality}</span>
             </li>
             <li>
-              Rhythm:
+              {t('SongMaker.rhythmSelector.resume.rhythm')}
               <span>{' ' + rhythmResult.rhythmName}</span>
             </li>
           </ul>
           <div className='continue-button-container'>
-            <span>Press the button if you want to continue</span>
+            <span>{t('SongMaker.rhythmSelector.resume.msg-btn')}</span>
             <button className='button' onClick={resultNavigation}>
-              Continue
+              <span>{t('SongMaker.rhythmSelector.resume.btn')}</span>
             </button>
           </div>
         </div>

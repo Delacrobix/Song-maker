@@ -9,19 +9,23 @@ import { useTranslation } from 'react-i18next';
 
 const CommunitySongs = () => {
   const [songList, setSongList] = useState([]);
+  const [isData, setIsData] = useState(false);
 
   const { t } = useTranslation();
   const { data, error, loading, refetch } = useQuery(getAllSongsQuery);
 
   useEffect(() => {
     if (data) {
-      setSongList(data.getAllSongs);
+      if (!(data.getAllSongs.length === 0)) {
+        setIsData(true);
+        setSongList(data.getAllSongs);
+      }
     }
 
     if (error) {
       console.error(error);
     }
-  }, [data, error, loading]);
+  }, [data, error, loading, t]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,7 +44,11 @@ const CommunitySongs = () => {
           {error && <ErrorAlert />}
         </div>
         {/* <Sort /> */}
-        {data && <Table songList={songList} />}
+        {isData ? (
+          <Table songList={songList} />
+        ) : (
+          <p>There are no songs yet.</p>
+        )}
       </div>
     </div>
   );

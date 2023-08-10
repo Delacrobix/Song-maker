@@ -96,7 +96,7 @@ const Profile = () => {
           <button onClick={handleClick} className='profile-button'>
             {t('Auth.profile.btns.watchSongs')}
           </button>
-          {watchSongs ? printable : null}
+          {watchSongs && printable}
         </div>
       </div>
     </section>

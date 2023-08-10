@@ -9,5 +9,12 @@
       padding: 0 0 3rem 0;
       @include flex-center;
     }
+
+    p {
+      color: white;
+      text-align: center;
+      font-size: 1.5rem;
+      padding: 0 0 1rem 0;
+    }
   }
 }

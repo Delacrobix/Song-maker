@@ -31,7 +31,10 @@
         "bugs": "Report a bug",
         "suggestions": "Any suggestion?"
       },
-      "follow": "Follow me",
+      "socials": {
+        "follow": "Follow me",
+        "share": "Share this website"
+      },
       "copy": "2023, jeffrm.com.co"
     }
   },
@@ -92,6 +95,16 @@
     },
     "toneSelector": {
       "title": "SELECT TONALITY"
+    },
+    "rhythmSelector": {
+      "title": "SELECT RHYTHM",
+      "tonality": "Your actually tonality: ",
+      "resume": {
+        "tonality": "Tonality: ",
+        "rhythm": "Rhythm: ",
+        "msg-btn": "Press the button if you want to continue.",
+        "btn": "Continue"
+      }
     }
   }
 }

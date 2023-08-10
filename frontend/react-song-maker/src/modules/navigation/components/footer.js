@@ -58,7 +58,9 @@ const Footer = () => {
           </div> */}
         </div>
         <div className='footer-content-container'>
-          <span className='menu-title'>{t('Navigation.footer.follow')}</span>
+          <span className='menu-title'>
+            {t('Navigation.footer.socials.follow')}
+          </span>
           <div className='social-container'>
             <Link
               to='https://www.linkedin.com/in/jeffrey-rerin/'

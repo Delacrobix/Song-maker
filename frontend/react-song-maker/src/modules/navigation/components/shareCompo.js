@@ -9,9 +9,19 @@ import {
   faTelegram,
   faSquarePinterest,
 } from '@fortawesome/free-brands-svg-icons';
+import { useTranslation } from 'react-i18next';
 
 const ShareCompo = () => {
+  const { t } = useTranslation();
+
   const url = window.location.href;
+
+  const FACEBOOK_URL = process.env.REACT_APP_FACEBOOK;
+  const TWITTER_URL = process.env.REACT_APP_TWITTER;
+  const LINKEDIN_URL = process.env.REACT_APP_LINKEDIN;
+  const WHATSAPP_URL = process.env.REACT_APP_WHATSAPP;
+  const PRINTEREST_URL = process.env.REACT_APP_PRINTEREST;
+  const TELEGRAM_URL = process.env.REACT_APP_TELEGRAM;
 
   function handleClick(socialUrl) {
     const shareUrl = `${socialUrl}${encodeURIComponent(url)}`;
@@ -19,7 +29,7 @@ const ShareCompo = () => {
   }
 
   function linkedinShareUrl() {
-    const linkedinShareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+    const linkedinShareUrl = `${LINKEDIN_URL}${encodeURIComponent(
       url
     )}&title=${encodeURIComponent(
       `chord generator`
@@ -30,43 +40,29 @@ const ShareCompo = () => {
   return (
     <div className='share-container'>
       <div className='title-container'>
-        <Link className='share-text'>Share this website</Link>
+        <Link className='share-text'>
+          {t('Navigation.footer.socials.share')}
+        </Link>
       </div>
-      <Link
-        onClick={() =>
-          handleClick('https://www.facebook.com/sharer/sharer.php?u=')
-        }
-        className={'share-link'}
-      >
+      <Link onClick={() => handleClick(FACEBOOK_URL)} className={'share-link'}>
         <FontAwesomeIcon icon={faFacebook} />
       </Link>
-      <Link
-        onClick={() => handleClick('https://telegram.me/share/url?url=')}
-        className={'share-link'}
-      >
+      <Link onClick={() => handleClick(TELEGRAM_URL)} className={'share-link'}>
         <FontAwesomeIcon icon={faTelegram} />
       </Link>
       <Link
-        onClick={() =>
-          handleClick('https://www.pinterest.com/pin/create/button/?url=')
-        }
+        onClick={() => handleClick(PRINTEREST_URL)}
         className={'share-link'}
       >
         <FontAwesomeIcon icon={faSquarePinterest} />
       </Link>
-      <Link
-        onClick={() => handleClick('https://twitter.com/intent/tweet?url=')}
-        className={'share-link'}
-      >
+      <Link onClick={() => handleClick(TWITTER_URL)} className={'share-link'}>
         <FontAwesomeIcon icon={faTwitter} />
       </Link>
       <Link onClick={linkedinShareUrl} className={'share-link'}>
         <FontAwesomeIcon icon={faLinkedin} />
       </Link>
-      <Link
-        onClick={() => handleClick('https://api.whatsapp.com/send?text=')}
-        className={'share-link'}
-      >
+      <Link onClick={() => handleClick(WHATSAPP_URL)} className={'share-link'}>
         <FontAwesomeIcon icon={faWhatsapp} />
       </Link>
     </div>

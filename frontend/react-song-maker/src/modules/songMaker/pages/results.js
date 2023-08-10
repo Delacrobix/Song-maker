@@ -196,9 +196,9 @@ const Results = () => {
               Share
             </button>
           )}{' '}
-          {feedback.isError ? (
+          {feedback.isError && (
             <FeedbackCompo color={'red'} message={feedback.message} />
-          ) : null}
+          )}
         </form>
       </div>
     </div>
