@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import Row from './row';
 import { useNavigate } from 'react-router-dom';
-import { binarySearch } from '../../../../utils/sorts';
+// import { binarySearch } from '../../../../utils/sorts';
 import { useTranslation } from 'react-i18next';
 
 const Table = (props) => {
@@ -11,17 +11,17 @@ const Table = (props) => {
 
   const navigate = useNavigate();
 
-  const [songListState, setSongListState] = useState([]);
+  // const [songListState, setSongListState] = useState([]);
 
-  useEffect(() => {
-    setSongListState(songList);
-  }, [songList]);
+  // useEffect(() => {
+  //   setSongListState(songList);
+  // }, [songList]);
 
   function watchRowDetails(id) {
     //Searching the song in the array list
-    const song = songListState[binarySearch(songListState, id)];
+    // const song = songListState[binarySearch(songListState, id)];
 
-    navigate(`/community/${id}`, { state: { song: song } });
+    navigate(`/community/${id}`);
   }
 
   return (

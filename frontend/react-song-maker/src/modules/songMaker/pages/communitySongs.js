@@ -8,10 +8,11 @@ import { getAllSongsQuery } from '../../../utils/queries';
 import { useTranslation } from 'react-i18next';
 
 const CommunitySongs = () => {
+  const { t } = useTranslation();
+
   const [songList, setSongList] = useState([]);
   const [isData, setIsData] = useState(false);
 
-  const { t } = useTranslation();
   const { data, error, loading, refetch } = useQuery(getAllSongsQuery);
 
   useEffect(() => {

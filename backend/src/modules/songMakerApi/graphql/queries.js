@@ -92,7 +92,7 @@ export const getSongsByUserName = {
 
 export const findSong = {
   name: 'findSong',
-  type: GraphQLString,
+  type: SongOutputType,
   description: 'Returns a user created song by id',
   args: {
     id: { type: GraphQLID },
@@ -103,6 +103,25 @@ export const findSong = {
 
     if (id === 'undefined') {
       return `Data required: ID arg is needed in: ${functionName}`;
+    }
+
+    try {
+      const allSongsString = await redisClient.get(
+        'song-maker:communitySongList'
+      );
+      const allSongs = JSON.parse(allSongsString);
+
+      const song = await allSongs.find((element) => element._id === id);
+
+      console.log('Song: ', song);
+
+      if (song) {
+        return song;
+      }
+    } catch (err) {
+      throw new Error(
+        `Error getting redis information in: ${functionName} ${err}`
+      );
     }
 
     try {

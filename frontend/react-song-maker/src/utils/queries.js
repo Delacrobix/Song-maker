@@ -90,3 +90,26 @@ export const getSongsByUserNameQuery = (userName) => {
   }
 `;
 };
+
+export const getSongByIdQuery = (id) => {
+  return gql`
+    query {
+      findSong(id: "${id}") {
+        _id
+        owner
+        songName
+        date
+        chords
+        rhythmType {
+          rhythmName
+          tempo
+          score {
+            chordName
+            seventh
+            inversion
+            duration
+          }
+        }
+      }
+    }`;
+};

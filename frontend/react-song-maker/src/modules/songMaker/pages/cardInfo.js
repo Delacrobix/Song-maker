@@ -1,40 +1,54 @@
 import React, { useState, useEffect } from 'react';
+import { useQuery } from '@apollo/client';
 import { useLocation } from 'react-router-dom';
 import usePlaySounds from '../../../hooks/usePlaySounds';
 import { useTranslation } from 'react-i18next';
+import usePrintableDate from '../../../hooks/usePrintableDate';
+import { getSongByIdQuery } from '../../../utils/queries';
 
 const CardInfo = () => {
+  const { t } = useTranslation();
+
   const location = useLocation();
 
-  const { t } = useTranslation();
-  const { song } = location.state;
-  const { songName, _id, rhythmType, owner, chords, date } = song;
+  const locationPath = location.pathname;
+  const parts = locationPath.split('/');
+  const pathId = parts[parts.length - 1];
+
+  const { data, error, loading } = useQuery(getSongByIdQuery(pathId));
 
   //States
-  const [printableDate, setPrintableDate] = useState('');
   const [chordsToPrint, setChordsToPrint] = useState('');
+  const [song, setSong] = useState({
+    _id: '',
+    chords: '',
+    date: '',
+    rhythmType: {
+      rhythmName: '',
+    },
+    owner: '',
+    songName: '',
+  });
 
   //Custom Hooks
   const playRhythm = usePlaySounds();
 
   useEffect(() => {
-    const parsedDate = new Date(date);
-
-    const year = parsedDate.getFullYear();
-    const month = String(parsedDate.getMonth() + 1).padStart(2, '0');
-    const day = String(parsedDate.getDate()).padStart(2, '0');
-
-    setPrintableDate(`${year}/${month}/${day}`);
-  }, [date]);
+    if (data) {
+      setSong(data.findSong);
+    }
+  }, [data, error, loading]);
 
   useEffect(() => {
-    const chordsArray = chords.split('|');
+    if (song) {
+      const chordsArray = song.chords.split('|');
 
-    setChordsToPrint(chordsArray.join('-'));
-  }, [chords]);
+      setChordsToPrint(chordsArray.join('-'));
+    }
+  }, [song]);
 
   async function handlerPlay() {
-    await playRhythm(rhythmType);
+    await playRhythm(song.rhythmType);
   }
 
   return (
@@ -43,16 +57,16 @@ const CardInfo = () => {
       <div className='o-card o-card--mod-small'>
         <div className='c-card'>
           <div className='c-card_body'>
-            <h2 className='c-card_title'>{songName}</h2>
-            <h5 className='c-card_secondary-title'>{`By ${owner}`}</h5>
+            <h2 className='c-card_title'>{song.songName}</h2>
+            <h5 className='c-card_secondary-title'>{`By ${song.owner}`}</h5>
             <hr />
             <p className='c-card_text'>
               <strong>{t('SongMaker.community.card.elem1')}</strong>
-              {_id}
+              {song._id}
             </p>
             <p className='c-card_text'>
               <strong>{t('SongMaker.community.card.elem2')}</strong>
-              {rhythmType.rhythmName}
+              {song.rhythmType.rhythmName}
             </p>
             <p className='c-card_text'>
               <strong>{t('SongMaker.community.card.elem3')} </strong>
@@ -60,7 +74,7 @@ const CardInfo = () => {
             </p>
             <p className='c-card_text'>
               <strong>{t('SongMaker.community.card.elem4')}</strong>
-              {printableDate}
+              {usePrintableDate(new Date(song.date))}
             </p>
             {/* <p className='c-card_text'>
               <strong>Watch tabs: </strong>
