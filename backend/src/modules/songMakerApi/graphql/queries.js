@@ -113,8 +113,6 @@ export const findSong = {
 
       const song = await allSongs.find((element) => element._id === id);
 
-      console.log('Song: ', song);
-
       if (song) {
         return song;
       }
