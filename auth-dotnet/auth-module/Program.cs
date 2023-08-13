@@ -35,6 +35,7 @@ builder.Services.AddSqlServer<AuthContext>(builder.Configuration.GetConnectionSt
 
 builder.Services.AddSingleton<EnvironmentVariables>();
 builder.Services.AddScoped<UserAccountService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 var app = builder.Build();
 

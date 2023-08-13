@@ -28,15 +28,6 @@ const ShareCompo = () => {
     window.open(shareUrl, '_blank');
   }
 
-  function linkedinShareUrl() {
-    const linkedinShareUrl = `${LINKEDIN_URL}${encodeURIComponent(
-      url
-    )}&title=${encodeURIComponent(
-      `chord generator`
-    )}&source=${encodeURIComponent(url)}`;
-    window.open(linkedinShareUrl, '_blank');
-  }
-
   return (
     <div className='share-container'>
       <div className='title-container'>
@@ -58,9 +49,6 @@ const ShareCompo = () => {
       </Link>
       <Link onClick={() => handleClick(TWITTER_URL)} className={'share-link'}>
         <FontAwesomeIcon icon={faTwitter} />
-      </Link>
-      <Link onClick={linkedinShareUrl} className={'share-link'}>
-        <FontAwesomeIcon icon={faLinkedin} />
       </Link>
       <Link onClick={() => handleClick(WHATSAPP_URL)} className={'share-link'}>
         <FontAwesomeIcon icon={faWhatsapp} />

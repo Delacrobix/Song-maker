@@ -1,0 +1,129 @@
+.bug-report-form {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bug-report-form .description {
+  font-size: 1.1rem;
+  float: left;
+  border: 1px white solid;
+  border-radius: 7px;
+  padding: 1rem 0.3rem 1rem 2rem;
+  margin: 2rem;
+  max-width: 45rem;
+}
+.bug-report-form .description h2 {
+  padding: 1rem 0;
+}
+.bug-report-form .description ol li .minor {
+  color: green;
+}
+.bug-report-form .description ol li .moderate {
+  color: yellow;
+}
+.bug-report-form .description ol li .major {
+  color: orange;
+}
+.bug-report-form .description ol li .game_breaking {
+  color: red;
+}
+.bug-report-form .submit_form {
+  font-size: 1.1rem;
+  border: 1px white solid;
+  border-radius: 7px;
+  padding: 1rem 0.3rem 1rem 2rem;
+  margin: 2rem;
+  float: left;
+  max-width: 45rem;
+}
+.bug-report-form .submit_form form .email_input {
+  border-radius: 6px;
+  padding: 0.4rem 0.5rem;
+  width: 19rem;
+}
+.bug-report-form .submit_form form .bug_severity {
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+  width: 16rem;
+}
+.bug-report-form .submit_form form hr {
+  margin: 1rem 2rem 1rem 0;
+}
+.bug-report-form .submit_form form .radius_input {
+  margin: 0.3rem;
+}
+.bug-report-form .submit_form form .over-message {
+  font-size: 0.9rem;
+}
+.bug-report-form .submit_form form .debug_info {
+  width: 40rem;
+  height: 7rem;
+  border-radius: 7px;
+  padding: 0.4rem 0.5rem;
+}
+.bug-report-form .submit_form form .details {
+  width: 40rem;
+  height: 7rem;
+  border-radius: 7px;
+  padding: 0.4rem 0.5rem;
+}
+.bug-report-form .submit_form form .submit {
+  color: white;
+  cursor: pointer;
+  padding: 0.65rem 1.1rem;
+  border: 1px solid white;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0);
+  transition: background 0.4s;
+  margin: 1rem 0 0 0;
+}
+.bug-report-form .submit_form form .submit:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.suggestions-form {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.suggestions-form .submit_form {
+  font-size: 1.1rem;
+  border: 1px white solid;
+  border-radius: 7px;
+  padding: 1rem 0.3rem 1rem 2rem;
+  margin: 2rem;
+  float: left;
+  max-width: 45rem;
+}
+.suggestions-form .submit_form form .email_input {
+  border-radius: 6px;
+  padding: 0.4rem 0.5rem;
+  width: 19rem;
+}
+.suggestions-form .submit_form form .over-message {
+  margin: 1rem 0 0 0;
+  font-size: 0.9rem;
+}
+.suggestions-form .submit_form form .details {
+  width: 40rem;
+  height: 7rem;
+  border-radius: 7px;
+  padding: 0.4rem 0.5rem;
+}
+.suggestions-form .submit_form form .submit {
+  color: white;
+  cursor: pointer;
+  padding: 0.65rem 1.1rem;
+  border: 1px solid white;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0);
+  transition: background 0.4s;
+  margin: 1rem 0 0 0;
+}
+.suggestions-form .submit_form form .submit:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/*# sourceMappingURL=styles.css.map */

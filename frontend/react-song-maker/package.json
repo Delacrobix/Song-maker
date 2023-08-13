@@ -37,11 +37,12 @@
     "sass-navigation": "sass --watch src/modules/navigation/assets/sass/index.scss:src/modules/navigation/assets/css/styles.css",
     "sass-songMaker": "sass --watch src/modules/songMaker/assets/sass/index.scss:src/modules/songMaker/assets/css/styles.css",
     "sass-generals": "sass --watch src/assets/sass/index.scss:src/assets/css/styles.css",
+    "sass-reports": "sass --watch src/modules/reports/assets/sass/index.scss:src/modules/reports/assets/css/styles.css",
     "docker:dev": "WATCHPACK_POLLING=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "concurrently \"npm run sass-auth\" \"npm run sass-navigation\" \"npm run sass-generals\" \"npm run sass-songMaker\" \"npm start\"",
+    "dev": "concurrently \"npm run sass-auth\" \"npm run sass-navigation\" \"npm run sass-generals\" \"npm run sass-songMaker\" \"npm run sass-reports\" \"npm start\"",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },

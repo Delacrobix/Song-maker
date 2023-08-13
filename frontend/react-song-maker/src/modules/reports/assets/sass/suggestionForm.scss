@@ -1,0 +1,43 @@
+.suggestions-form {
+  color: white;
+  @include flex-center;
+
+  .submit_form {
+    font-size: 1.1rem;
+    border: 1px white solid;
+    border-radius: 7px;
+    padding: 1rem 0.3rem 1rem 2rem;
+    margin: 2rem;
+    float: left;
+    max-width: 45rem;
+
+    form {
+      .email_input {
+        border-radius: 6px;
+        padding: 0.4rem 0.5rem;
+        width: 19rem;
+      }
+
+      .over-message {
+        margin: 1rem 0 0 0;
+        font-size: 0.9rem;
+      }
+
+      .details {
+        width: 40rem;
+        height: 7rem;
+        border-radius: 7px;
+        padding: 0.4rem 0.5rem;
+      }
+
+      .submit {
+        @include transparent-button;
+        margin: 1rem 0 0 0;
+
+        &:hover {
+          @include transparent-button_hover;
+        }
+      }
+    }
+  }
+}

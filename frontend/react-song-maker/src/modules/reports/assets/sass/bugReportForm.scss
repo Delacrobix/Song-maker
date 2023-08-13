@@ -1,0 +1,97 @@
+.bug-report-form {
+  color: white;
+  @include flex-center;
+
+  .description {
+    font-size: 1.1rem;
+    float: left;
+    border: 1px white solid;
+    border-radius: 7px;
+    padding: 1rem 0.3rem 1rem 2rem;
+    margin: 2rem;
+    max-width: 45rem;
+
+    h2 {
+      padding: 1rem 0;
+    }
+
+    ol {
+      li {
+        .minor {
+          color: green;
+        }
+
+        .moderate {
+          color: yellow;
+        }
+
+        .major {
+          color: orange;
+        }
+
+        .game_breaking {
+          color: red;
+        }
+      }
+    }
+  }
+
+  .submit_form {
+    font-size: 1.1rem;
+    border: 1px white solid;
+    border-radius: 7px;
+    padding: 1rem 0.3rem 1rem 2rem;
+    margin: 2rem;
+    float: left;
+    max-width: 45rem;
+
+    form {
+      .email_input {
+        border-radius: 6px;
+        padding: 0.4rem 0.5rem;
+        width: 19rem;
+      }
+
+      .bug_severity {
+        border-radius: 6px;
+        padding: 0.2rem 0.5rem;
+        width: 16rem;
+      }
+
+      hr {
+        margin: 1rem 2rem 1rem 0;
+      }
+
+      .radius_input {
+        margin: 0.3rem;
+      }
+
+      .over-message {
+        font-size: 0.9rem;
+      }
+
+      .debug_info {
+        width: 40rem;
+        height: 7rem;
+        border-radius: 7px;
+        padding: 0.4rem 0.5rem;
+      }
+
+      .details {
+        width: 40rem;
+        height: 7rem;
+        border-radius: 7px;
+        padding: 0.4rem 0.5rem;
+      }
+
+      .submit {
+        @include transparent-button;
+        margin: 1rem 0 0 0;
+
+        &:hover {
+          @include transparent-button_hover;
+        }
+      }
+    }
+  }
+}

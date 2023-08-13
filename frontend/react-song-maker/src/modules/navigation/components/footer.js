@@ -43,12 +43,16 @@ const Footer = () => {
             >
               {t('Navigation.footer.help-us.repo')}
             </Link>
-            {/* <Link to='#' target='_blank' className='menu-item-footer'>
+            <Link to='/bug-report' target='_blank' className='menu-item-footer'>
               {t('Navigation.footer.help-us.bugs')}
             </Link>
-            <Link to='#' target='_blank' className='menu-item-footer'>
+            <Link
+              to='/suggestions'
+              target='_blank'
+              className='menu-item-footer'
+            >
               {t('Navigation.footer.help-us.suggestions')}
-            </Link> */}
+            </Link>
           </div>
           {/* <div className='footer-content-container'>
             <span className='menu-title'>Legal</span>

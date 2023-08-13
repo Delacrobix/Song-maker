@@ -13,6 +13,7 @@ import './assets/css/styles.css';
 import './modules/songMaker/assets/css/styles.css';
 import './modules/navigation/assets/css/styles.css';
 import './modules/auth/assets/css/styles.css';
+import './modules/reports/assets/css/styles.css';
 
 //Translations
 import './config/i18n';
