@@ -96,3 +96,47 @@ export async function updatePassword(ua) {
     return null;
   }
 }
+
+export async function sendBugReport(formData) {
+  try {
+    const response = await window.fetch(`${AUTH_MODULE}/Email/bug`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({ jsonEmailData: JSON.stringify(formData) }),
+    });
+
+    const statusCode = response.status;
+    const data = await response.json();
+
+    return {
+      statusCode,
+      data,
+    };
+  } catch (err) {
+    throw new Error(`Error while sending bug report ${err}`);
+  }
+}
+
+export async function sendSuggestions(formData) {
+  try {
+    const response = await window.fetch(`${AUTH_MODULE}/Email/suggestions`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({ jsonEmailData: JSON.stringify(formData) }),
+    });
+
+    const statusCode = response.status;
+    const data = await response.json();
+
+    return {
+      statusCode,
+      data,
+    };
+  } catch (err) {
+    throw new Error(`Error while sending suggestions ${err}`);
+  }
+}

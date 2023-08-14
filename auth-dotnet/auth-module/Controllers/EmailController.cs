@@ -1,46 +1,62 @@
+using System.Text.Json;
+using auth_module.Data.DTOs;
+using auth_module.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace auth_module.Controllers
+namespace auth_module.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+public class EmailController : ControllerBase
 {
+  private readonly IEmailService _emailService;
 
-  [Route("[controller]/email")]
-  [ApiController]
-  public class EmailController : ControllerBase
+  public EmailController(IEmailService emailService)
   {
-    [HttpPost("/bug")]
-    public async Task<IActionResult> SendEmailBig()
+    _emailService = emailService;
+  }
+
+  [HttpPost("bug")]
+  public IActionResult SendEmailBug(EmailDTO emailDTO)
+  {
+    if (emailDTO == null)
     {
-      try
-      {
-        // Enviar el correo
-        var smtpClient = new SmtpClient("smtp.gmail.com")
-        {
-          Port = 587,
-          Credentials = new NetworkCredential("tu_correo@gmail.com", "tu_contraseña"),
-          EnableSsl = true,
-        };
-
-        var mailMessage = new MailMessage
-        {
-          From = new MailAddress("tu_correo@gmail.com"),
-          Subject = "Nuevo mensaje desde el formulario",
-          Body = $"Nombre: {formData.Nombre}\nEmail: {formData.Email}\nMensaje: {formData.Mensaje}",
-        };
-        mailMessage.To.Add("tu_correo@gmail.com");
-
-        await smtpClient.SendMailAsync(mailMessage);
-
-        return Ok(new { mensaje = "Correo enviado con éxito" });
-      }
-      catch (Exception ex)
-      {
-        return StatusCode(500, new { error = "Error al enviar el correo" });
-      }
+      return BadRequest(new { error = "Data cannot be null" });
     }
 
-    [HttpPost("/suggestion")]
-    public async Task<IActionResult> SendEmailSuggestion()
+    try
     {
+      var smtpClient = _emailService.GetStmClient();
+
+      _emailService.SendEmail(emailDTO, smtpClient);
+
+      return Ok(new { mensaje = "Email sended successfully" });
+    }
+    catch (Exception ex)
+    {
+      return StatusCode(500, new { error = $"Error sending bug report:  {ex.Message}" });
+    }
+  }
+
+  [HttpPost("suggestions")]
+  public IActionResult SendEmailSuggestion(EmailDTO emailDTO)
+  {
+    if (emailDTO == null)
+    {
+      return BadRequest(new { error = "Data cannot be null" });
+    }
+
+    try
+    {
+      var smtpClient = _emailService.GetStmClient();
+
+      _emailService.SendEmail(emailDTO, smtpClient);
+
+      return Ok(new { mensaje = "Email sended successfully" });
+    }
+    catch (Exception ex)
+    {
+      return StatusCode(500, new { error = $"Error sending suggestion:  {ex.Message}" });
     }
   }
 }

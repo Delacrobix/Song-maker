@@ -1,33 +1,51 @@
-using System.Net.Mail.SmtpClient;
+using System.Net;
+using System.Net.Mail;
+using System.Text.Json;
+using auth_module.Data.DTOs;
+using auth_module.Data.Models;
 
-namespace auth_module.Services
+namespace auth_module.Services;
+
+public class EmailService : IEmailService
 {
-  public class EmailService : IEmailService
+
+  private readonly IConfiguration _configuration;
+
+  public EmailService(IConfiguration configuration)
   {
+    _configuration = configuration;
+  }
 
-    private readonly AppEnvironments _appEnvironments;
+  public async void SendEmail(EmailDTO emailDTO, SmtpClient smtpClient)
+  {
+    string emailAccount = _configuration["AppEnvironments:EMAIL_ACCOUNT"];
+    var emailData = JsonSerializer.Deserialize<EmailData>(emailDTO.JsonEmailData);
 
-    public EmailService(AppEnvironments appEnvironments)
+    var mailMessage = new MailMessage
     {
-      _appEnvironments = appEnvironments;
-    }
+      From = new MailAddress(emailAccount),
+      Subject = emailData.Subject,
+      Body = emailData.Body,
+      IsBodyHtml = true,
+    };
+    mailMessage.To.Add(emailAccount);
 
-    public void SendEmail(string head, string sender, string body) { }
+    await smtpClient.SendMailAsync(mailMessage);
+  }
 
-    public SmtpClient ConfigureStmClient()
+  public SmtpClient GetStmClient()
+  {
+    string emailAccount = _configuration["AppEnvironments:EMAIL_ACCOUNT"];
+    string emailPassword = _configuration["AppEnvironments:EMAIL_PASSWORD"];
+    string smtp = _configuration["AppEnvironments:EMAIL_SMTP"];
+
+    var smtpClient = new SmtpClient(smtp)
     {
-      string emailAccount = _appEnvironments.EMAIL_ACCOUNT;
-      string emailPassword = _appEnvironments.EMAIL_PASSWORD;
-      string smtp = _appEnvironments.EMAIL_SMTP;
+      Port = 587,
+      Credentials = new NetworkCredential(emailAccount, emailPassword),
+      EnableSsl = true,
+    };
 
-      var smtpClient = new SmtpClient(smtp)
-      {
-        Port = 587,
-        Credentials = new NetworkCredential(emailAccount, emailPassword),
-        EnableSsl = true,
-      };
-
-      return smtpClient;
-    }
+    return smtpClient;
   }
 }

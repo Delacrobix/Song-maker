@@ -1,11 +1,7 @@
 namespace auth_module.Data.Models;
 
-namespace auth_module.Data.Models
+public class EmailData
 {
-  public class EmailData
-  {
-    string Head { get; set; }
-    string Sender { get; set; }
-    string Body { get; set; }
-  }
+  public string Subject { get; set; } = String.Empty;
+  public string Body { get; set; } = String.Empty;
 }

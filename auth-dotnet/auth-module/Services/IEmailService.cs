@@ -1,7 +1,11 @@
-namespace auth_module.Services
+using System.Net.Mail;
+using auth_module.Data.DTOs;
+
+namespace auth_module.Services;
+
+public interface IEmailService
 {
-  public interface IEmailService
-  {
-    public Task SendEmail(string head, string sender, string body);
-  }
+  public void SendEmail(EmailDTO emailDTO, SmtpClient smtpClient);
+
+  public SmtpClient GetStmClient();
 }
