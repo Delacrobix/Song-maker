@@ -1,0 +1,23 @@
+@media (max-width: 768px) {
+  body {
+    //Bug report
+    .bug-report-form {
+      flex-direction: column;
+
+      .description {
+        margin: 1rem;
+      }
+
+      .submit_form {
+        margin: 1rem;
+      }
+    }
+
+    //Suggestions
+    .suggestions-form {
+      .submit_form {
+        margin: 1rem;
+      }
+    }
+  }
+}

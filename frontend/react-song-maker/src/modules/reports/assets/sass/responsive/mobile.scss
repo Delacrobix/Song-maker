@@ -1,0 +1,65 @@
+@media (max-width: 440px) {
+  body {
+    //Bug report
+    .bug-report-form {
+      flex-direction: column;
+
+      .description {
+        margin: 0;
+        padding: 0.7rem 0.1rem 0.8rem 1.5rem;
+        font-size: 1rem;
+      }
+
+      .submit_form {
+        max-width: 100%;
+        padding: 0.7rem 0.1rem 0.8rem 0.5rem;
+        margin: 0;
+
+        form {
+          .email-input {
+            font-size: 1rem;
+          }
+
+          .debug_info {
+            width: 100%;
+            height: 5rem;
+          }
+
+          .details {
+            width: 100%;
+            height: 5rem;
+          }
+
+          .submit {
+            padding: 1rem 2rem;
+          }
+        }
+      }
+    }
+
+    //Suggestions
+    .suggestions-form {
+      .submit_form {
+        margin: 0;
+        padding: 0.7rem 0.1rem 0.8rem 0.5rem;
+        width: 100%;
+
+        form {
+          margin: 0;
+
+          .details {
+            width: 100%;
+            margin: 0 1rem 0 0;
+          }
+
+          .submit {
+            padding: 1rem 2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+}

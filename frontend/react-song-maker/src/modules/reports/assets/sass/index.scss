@@ -1,4 +1,10 @@
 @import '../../../../assets/sass/mixins.scss';
 
+//Components
 @import './bugReportForm.scss';
 @import './suggestionForm.scss';
+
+//Responsive
+@import './responsive/mobile.scss';
+@import './responsive/tablet.scss';
+@import './responsive/desktop.scss';

@@ -3,8 +3,11 @@ import { sendSuggestions } from '../../../utils/httpRequests';
 import { transformToHTMLSuggestion } from '../../../utils/htmlTransforms';
 import Loading from '../../songMaker/components/feedback/loading';
 import FeedbackCompo from '../../../components/successComponent';
+import { useTranslation } from 'react-i18next';
 
 const SuggestionsForm = () => {
+  const { t } = useTranslation();
+
   //States
   const [form, setForm] = useState({
     email: '',
@@ -64,9 +67,11 @@ const SuggestionsForm = () => {
   return (
     <section className='suggestions-form'>
       <div className='submit_form'>
-        <h2>SUGGESTIONS</h2>
+        <h2>{t('Reports.suggestionsForm.title')}</h2>
         <form onSubmit={submitSuggestion}>
-          <p className='over-message'>Email (optional).</p>
+          <p className='over-message'>
+            {t('Reports.suggestionsForm.input-title-1')}
+          </p>
           <input
             onChange={handleChange}
             type='email'
@@ -74,7 +79,9 @@ const SuggestionsForm = () => {
             name='email'
             placeholder='email@example.com'
           />
-          <p className='over-message'>Write your suggestion:</p>
+          <p className='over-message'>
+            {t('Reports.suggestionsForm.input-title-2')}
+          </p>
           <input
             onChange={handleChange}
             type='text'
@@ -86,7 +93,7 @@ const SuggestionsForm = () => {
             <Loading />
           ) : (
             <button type='submit' className='submit' name='submit'>
-              Submit
+              {t('Reports.suggestionsForm.submit')}
             </button>
           )}
         </form>

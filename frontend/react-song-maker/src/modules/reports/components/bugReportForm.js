@@ -3,8 +3,11 @@ import { sendBugReport } from '../../../utils/httpRequests';
 import { transformToHTMLBugReport } from '../../../utils/htmlTransforms';
 import FeedbackCompo from '../../../components/successComponent';
 import Loading from '../../songMaker/components/feedback/loading';
+import { useTranslation } from 'react-i18next';
 
 const BugReportForm = () => {
+  const { t } = useTranslation();
+
   //States
   const [form, setForm] = useState({
     email: '',
@@ -64,34 +67,26 @@ const BugReportForm = () => {
   return (
     <section className='bug-report-form'>
       <div className='description'>
-        <h2>BUG REPORT</h2>
-        <p>
-          Use this form to report any bugs you may find. Here is what each of
-          the "bug severity" options mean:
-        </p>
+        <h2>{t('Reports.bugForm.title')}</h2>
+        <p>{t('Reports.bugForm.description')}</p>
         <ol>
           <li>
-            <div className='minor'>Minor:</div> These are bugs that don't really
-            affect the application usability. Things like error in the interface
-            would fit into this category.
+            <div className='minor'>{t('Reports.bugForm.minor')}</div>{' '}
+            {t('Reports.bugForm.minor-description')}
           </li>
           <li>
-            <div className='moderate'>Moderate:</div> The moderate category
-            would include bugs that affect the functionality of some of the
-            application less important features. For example, a problem with an
-            button or something menu item invisible.
+            <div className='moderate'>{t('Reports.bugForm.moderate')}</div>{' '}
+            {t('Reports.bugForm.moderate-description')}
           </li>
           <li>
-            <div className='major'>Major:</div> A major bug affects the
-            usability of the application's more important feature. Something
-            that stops the application execution could be example of a major
-            bug.
+            <div className='major'>{t('Reports.bugForm.major')}</div>{' '}
+            {t('Reports.bugForm.major-description')}
           </li>
         </ol>
       </div>
       <div className='submit_form'>
         <form onSubmit={submitBugReport}>
-          <p>Email (optional):</p>
+          <p>{t('Reports.bugForm.input-title-1')}</p>
           <input
             type='email'
             className='email_input'
@@ -99,66 +94,53 @@ const BugReportForm = () => {
             placeholder='email@example.com'
             onChange={handleChange}
           />
-          <p>Bug Severity (optional):</p>
+          <p>{t('Reports.bugForm.bugSeverity.title')}</p>
           <select
             name='bugSeverity'
             className='bug_severity'
             onChange={handleChange}
           >
-            <option value='--Please Select--'>--Please Select--</option>
-            <option value='Minor'>Minor</option>
-            <option value='Moderate'>Moderate</option>
-            <option value='Major'>Major</option>
-          </select>
-          <hr />
-          <p>How often does it occur?</p>
-          <select name='occurrence' onChange={handleChange}>
-            <option value='--Please Select--'>--Please Select--</option>
-            <option
-              type='radio'
-              className='rarely'
-              name='rarely'
-              value='Rarely'
-            >
-              Rarely
+            <option value='--Please Select--'>
+              {t('Reports.bugForm.bugSeverity.op1')}
             </option>
-            <option
-              type='radio'
-              className='somewhat_rare radius_input'
-              name='somewhat_rare'
-              value='Somewhat Rarely'
-            >
-              Somewhat Rarely
+            <option value='Minor'>
+              {t('Reports.bugForm.bugSeverity.op2')}
             </option>
-            <option
-              type='radio'
-              className='somewhat_often radius_input'
-              name='somewhat_often'
-              value='Somewhat Often'
-            >
-              Somewhat Often
+            <option value='Moderate'>
+              {t('Reports.bugForm.bugSeverity.op3')}
             </option>
-            <option
-              type='radio'
-              className='common radius_input'
-              name='common'
-              value='Commonly'
-            >
-              Commonly
-            </option>
-            <option
-              type='radio'
-              className='very_often radius_input'
-              name='very_often'
-              value='Very Often'
-            >
-              Very Commonly
+            <option value='Major'>
+              {t('Reports.bugForm.bugSeverity.op4')}
             </option>
           </select>
           <hr />
-          <p className='over-message'>
-            Please input any debug information here:
-          </p>
+          <p>{t('Reports.bugForm.occurrence.title')}</p>
+          <select
+            name='occurrence'
+            onChange={handleChange}
+            className='occurrence'
+          >
+            <option value='--Please Select--'>
+              {t('Reports.bugForm.occurrence.op1')}
+            </option>
+            <option value='Rarely'>
+              {t('Reports.bugForm.occurrence.op2')}
+            </option>
+            <option value='Somewhat Rarely'>
+              {t('Reports.bugForm.occurrence.op3')}
+            </option>
+            <option value='Somewhat Often'>
+              {t('Reports.bugForm.occurrence.op4')}
+            </option>
+            <option value='Commonly'>
+              {t('Reports.bugForm.occurrence.op5')}
+            </option>
+            <option value='Very Often'>
+              {t('Reports.bugForm.occurrence.op6')}
+            </option>
+          </select>
+          <hr />
+          <p className='over-message'>{t('Reports.bugForm.input-title-2')}</p>
           <input
             type='text'
             name='debugInfo'
@@ -166,9 +148,7 @@ const BugReportForm = () => {
             onChange={handleChange}
             placeholder='Ex. Exception at 0x0000000 - memory map'
           />
-          <p className='over-message'>
-            Any further questions, comments or issues:
-          </p>
+          <p className='over-message'>{t('Reports.bugForm.input-title-3')}</p>
           <input
             type='text'
             name='details'
@@ -177,10 +157,7 @@ const BugReportForm = () => {
             placeholder='Ex. I noticed strange game performance in some areas.'
             required
           />
-          <p>
-            Once you have confirmed everything in your bug report, hit 'submit'.
-            You won't be able to change your bug report later.
-          </p>
+          <p>{t('Reports.bugForm.footer-text')}</p>
           {isSubmitting ? (
             <Loading />
           ) : (

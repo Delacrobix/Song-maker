@@ -116,5 +116,43 @@
         "btn": "Share"
       }
     }
+  },
+  "Reports": {
+    "bugForm": {
+      "title": "BUG REPORT",
+      "description": "Use this form to report any bugs you may find. Here is what each of the 'bug severity' options mean: ",
+      "minor": "Minor: ",
+      "minor-description": "These are bugs that don't really affect the application usability. Things like error in the interface would fit into this category.",
+      "moderate": "Moderate: ",
+      "moderate-description": "The moderate category would include bugs that affect the functionality of some of the application less important features. For example, a problem with an button or something menu item invisible.",
+      "major": "Major: ",
+      "major-description": "A major bug affects the usability of the application's more important feature. Something that stops the application execution could be example of a major bug.",
+      "input-title-1": "Email (optional): ",
+      "bugSeverity": {
+        "title": "Bug Severity (optional): ",
+        "op1": "--Please Select--",
+        "op2": "Minor",
+        "op3": "Moderate",
+        "op4": "Major"
+      },
+      "occurrence": {
+        "title": "How often does it occur?: ",
+        "op1": "--Please Select--",
+        "op2": "Rarely",
+        "op3": "Somewhat Rarely",
+        "op4": "Somewhat Often",
+        "op5": "Commonly",
+        "op6": "Very Commonly"
+      },
+      "input-title-2": "Please input any debug information here: ",
+      "input-title-3": "Any further questions, comments or issues: ",
+      "footer-text": "Once you have confirmed everything in your bug report, hit 'submit'. You won't be able to change your bug report later."
+    },
+    "suggestionsForm": {
+      "title": "SUGGESTIONS",
+      "input-title-1": "Email (optional): ",
+      "input-title-2": "Write your suggestion: ",
+      "submit": "Submit"
+    }
   }
 }
