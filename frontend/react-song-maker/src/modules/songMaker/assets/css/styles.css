@@ -25,6 +25,40 @@ body .title-page {
   text-align: center;
 }
 
+.home-page {
+  color: white;
+}
+.home-page .header {
+  text-align: center;
+  padding: 20px;
+}
+.home-page .content {
+  text-align: center;
+  max-width: 32rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+.home-page .content .cta-button {
+  color: white;
+  cursor: pointer;
+  padding: 0.65rem 1.1rem;
+  border: 1px solid white;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0);
+  transition: background 0.4s;
+  margin: 0.5rem;
+}
+.home-page .content .cta-button:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+.home-page .content .changelogs-link {
+  color: #cd6688;
+  transition: color 0.3s;
+}
+.home-page .content .changelogs-link:hover {
+  color: #aed8cc;
+}
+
 .o-card {
   margin: 20px auto;
 }

@@ -16,7 +16,7 @@ const Navbar = () => {
     <header className='navbar'>
       <h1>{t('Navigation.navbar.title')}</h1>
       <nav ref={navRef}>
-        {/* <Link to='/home'>{t('Navigation.navbar.navLink-3')}</Link> */}
+        <Link to='/'>{t('Navigation.navbar.navLink-3')}</Link>
         <Link to='/tone-selector'>{t('Navigation.navbar.navLink-1')}</Link>
         <Link to='/community'>{t('Navigation.navbar.navLink-2')}</Link>
         {/* <button className='nav-btn nav-close-btn' onClick={showNavbar}>

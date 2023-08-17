@@ -12,14 +12,6 @@ const AuthDropdown = () => {
   const { handleLogout } = useContext(AuthContext);
   const { t } = useTranslation();
 
-  function logout() {
-    //switch auth slice
-    handleLogout();
-
-    //switch auth slice
-    setIsLogged(false);
-  }
-
   useEffect(() => {
     const interval = setInterval(() => {
       const cookieAux = Cookies.get('sesionToken');
@@ -29,6 +21,14 @@ const AuthDropdown = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  function logout() {
+    //switch auth slice
+    handleLogout();
+
+    //switch auth slice
+    setIsLogged(false);
+  }
 
   return (
     <div className='dropdown'>

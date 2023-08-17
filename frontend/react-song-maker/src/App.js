@@ -14,6 +14,8 @@ import Profile from './modules/auth/pages/profile';
 import AuthProvider from './context/authProvider';
 import SuggestionsForm from './modules/reports/components/suggestionsForm';
 import BugReportForm from './modules/reports/components/bugReportForm';
+import HomePage from './modules/songMaker/pages/homePage';
+import Donations from './modules/navigation/pages/donations';
 
 function App() {
   return (
@@ -44,8 +46,9 @@ function App() {
         <Route path='/results' element={<Results />} />
         <Route path='/tone-selector' element={<ToneSelector />} />
         <Route path='/suggestions' element={<SuggestionsForm />} />
+        <Route path='/donations' element={<Donations />} />
         <Route path='/bug-report' element={<BugReportForm />} />
-        {/* <Route path='/home' element={<HomePage />} /> */}
+        <Route path='/' element={<HomePage />} />
         <Route
           path='/profile'
           element={

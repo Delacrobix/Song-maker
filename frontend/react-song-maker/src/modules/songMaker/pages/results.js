@@ -84,14 +84,14 @@ const Results = () => {
     }
   }, [query.data, song]);
 
-  const handleChange = (event) => {
+  function handleChange(event) {
     const { name, value } = event.target;
 
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
     }));
-  };
+  }
 
   function handleElement(condition) {
     const inputName = inputNameRef.current;

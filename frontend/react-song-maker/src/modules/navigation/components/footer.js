@@ -19,9 +19,9 @@ const Footer = () => {
             <span className='menu-title'>
               {t('Navigation.footer.menu.title')}
             </span>
-            {/* <Link to='/home' className='menu-item-footer'>
+            <Link to='/' className='menu-item-footer'>
               {t('Navigation.footer.menu.element-1')}
-            </Link> */}
+            </Link>
             <Link to='/tone-selector' className='menu-item-footer'>
               {t('Navigation.footer.menu.element-2')}
             </Link>
@@ -33,9 +33,9 @@ const Footer = () => {
             <span className='menu-title'>
               {t('Navigation.footer.help-us.title')}
             </span>
-            {/* <Link to='/#' className='menu-item-footer'>
+            <Link to='/donations' className='menu-item-footer'>
               {t('Navigation.footer.help-us.donations')}
-            </Link> */}
+            </Link>
             <Link
               to='https://github.com/Delacrobix/Song-maker'
               target='_blank'

@@ -1,0 +1,33 @@
+.home-page {
+  color: white;
+
+  .header {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .content {
+    text-align: center;
+    max-width: 32rem;
+    margin: 0 auto;
+    padding: 2rem;
+
+    .cta-button {
+      @include transparent-button;
+      margin: 0.5rem;
+
+      &:hover {
+        @include transparent-button_hover;
+      }
+    }
+
+    .changelogs-link {
+      color: map-get($table-colors, _3);
+      transition: color 0.3s;
+
+      &:hover {
+        color: map-get($table-colors, _4);
+      }
+    }
+  }
+}

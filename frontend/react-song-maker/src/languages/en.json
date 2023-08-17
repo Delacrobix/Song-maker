@@ -115,6 +115,20 @@
         "msg-btn": "*The following fields are necessary",
         "btn": "Share"
       }
+    },
+    "homePage": {
+      "title": "WELCOME",
+      "header-title": "Chord AI Generator",
+      "header-text": "",
+      "content": {
+        "title": "How it works?",
+        "p-1": "",
+        "p-2": "",
+        "p-3": "",
+        "btn": "Create your chord progression",
+        "title-2": "Help to sustain the website",
+        "title-3": "Changelogs"
+      }
     }
   },
   "Reports": {
