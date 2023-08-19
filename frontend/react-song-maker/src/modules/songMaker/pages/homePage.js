@@ -7,7 +7,13 @@ const HomePage = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
+  //States
   const [showDonations, setShowDonations] = useState(false);
+  const [donationAmount, setDonationAmount] = useState('2.00');
+
+  function changeDonationAmount(e) {
+    setDonationAmount(e.target.value);
+  }
 
   function handleShowDonation() {
     setShowDonations(!showDonations);
@@ -36,18 +42,29 @@ const HomePage = () => {
           Simplemente presiona el botón a continuación para generar una nueva
           progresión armónica.
         </p>
-        <button onClick={handleRedirect} className='cta-button'>
+        <button onClick={handleRedirect} className='button'>
           {t('SongMaker.homePage.content.btn')}
         </button>
       </div>
       <div className='content'>
-        <h2>{t('SongMaker.homePage.content.title-2')}</h2>
+        <h3>{t('SongMaker.homePage.content.title-2')}</h3>
         <p>This money will be used for pay the billing payment.</p>
-        <button onClick={handleShowDonation}>PayPal</button>
-        {showDonations && <PayPalButton />}
+        <div className='donation-input'>
+          <p>How much in USD?</p>
+          <input
+            type='number'
+            step='0.5'
+            value={donationAmount}
+            onChange={changeDonationAmount}
+          />
+        </div>
+        <button className='button' onClick={handleShowDonation}>
+          Select mount
+        </button>
+        {showDonations && <PayPalButton donationAmount={donationAmount} />}
       </div>
       <div className='content'>
-        <h2>{t('SongMaker.homePage.content.title-3')}</h2>
+        <h3>{t('SongMaker.homePage.content.title-3')}</h3>
         <p>See our Changelogs here: </p>
         <Link
           to='https://github.com/Delacrobix/Song-maker/blob/0db670d4e6324cbf622d4d11f8989f9b287f629f/changelog/changelog.md'

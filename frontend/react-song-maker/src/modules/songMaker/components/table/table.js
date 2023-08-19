@@ -11,12 +11,6 @@ const Table = (props) => {
 
   const navigate = useNavigate();
 
-  // const [songListState, setSongListState] = useState([]);
-
-  // useEffect(() => {
-  //   setSongListState(songList);
-  // }, [songList]);
-
   function watchRowDetails(id) {
     //Searching the song in the array list
     // const song = songListState[binarySearch(songListState, id)];
@@ -35,10 +29,10 @@ const Table = (props) => {
             <h6>{t('SongMaker.community.table.head.t2')}</h6>
           </th>
           <th>
-            <h6>{t('SongMaker.community.table.head.t3')}</h6>
+            <h6>{t('SongMaker.community.table.head.t4')}</h6>
           </th>
           <th>
-            <h6>{t('SongMaker.community.table.head.t4')}</h6>
+            <h6>{t('SongMaker.community.table.head.t3')}</h6>
           </th>
           <th>
             <h6>{t('SongMaker.community.table.head.t5')}</h6>

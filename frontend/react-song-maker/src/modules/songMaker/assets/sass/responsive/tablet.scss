@@ -15,3 +15,34 @@
     }
   }
 }
+
+@media (max-width: 650px) {
+  body {
+    //Tone Selector
+    .tone-selector-page-container {
+      height: 100vh;
+
+      .circle-container {
+        transform: scale(0.95);
+      }
+    }
+
+    //Community songs
+    .community-songs-container {
+      .content-container {
+        .table-container {
+          tr th h6 {
+            font-size: 0.7rem;
+            padding: 0 0.3rem;
+          }
+
+          tbody {
+            td {
+              font-size: 0.7rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

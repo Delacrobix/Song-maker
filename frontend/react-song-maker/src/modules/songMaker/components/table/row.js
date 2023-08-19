@@ -20,8 +20,8 @@ const Row = (props) => {
     <tr onClick={clickFunction}>
       <td>{owner}</td>
       <td>{songName}</td>
-      <td>{rhythmType.rhythmName}</td>
       <td>{chordsToPrint}</td>
+      <td>{rhythmType.rhythmName}</td>
       <td>{printableDate}</td>
     </tr>
   );
