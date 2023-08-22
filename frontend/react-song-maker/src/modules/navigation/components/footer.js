@@ -6,6 +6,8 @@ import ShareCompo from './shareCompo';
 const Footer = () => {
   const { t } = useTranslation();
 
+  const VERSION = process.env.REACT_APP_VERSION;
+
   return (
     <footer className='footer'>
       <section className='footer-container'>
@@ -87,6 +89,9 @@ const Footer = () => {
       </section>
       <div className='copyright-container'>
         <span className='copyright'>&copy;{t('Navigation.footer.copy')}</span>
+        <div className='version-container'>
+          <span>{VERSION}</span>
+        </div>
       </div>
     </footer>
   );

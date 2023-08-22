@@ -83,16 +83,25 @@
 }
 .footer .copyright-container {
   width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  flex-direction: column;
 }
 .footer .copyright-container .copyright {
-  font-size: 12px;
+  font-size: 0.75rem;
   opacity: 0.7;
-  font-weight: 400;
-  padding: 10px 0;
+  padding: 0.4rem 0 0 0;
+}
+.footer .copyright-container .version-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer .copyright-container .version-container span {
+  opacity: 0.7;
+  font-size: 0.7rem;
 }
 
 .dropdown {

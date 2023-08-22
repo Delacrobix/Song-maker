@@ -90,14 +90,23 @@
 
   .copyright-container {
     width: 100%;
-    @include flex-center;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
+    @include flex-center;
+    flex-direction: column;
 
     .copyright {
-      font-size: 12px;
+      font-size: 0.75rem;
       opacity: 0.7;
-      font-weight: 400;
-      padding: 10px 0;
+      padding: 0.4rem 0 0 0;
+    }
+
+    .version-container {
+      @include flex-center;
+
+      span {
+        opacity: 0.7;
+        font-size: 0.7rem;
+      }
     }
   }
 }
