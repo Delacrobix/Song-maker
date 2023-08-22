@@ -28,21 +28,21 @@ const HomePage = () => {
       <h2 className='title-page'>{t('SongMaker.homePage.title')}</h2>
       <div className='header'>
         <h3>{t('SongMaker.homePage.header-title')}</h3>
-        <p>¡Create your harmonic progressions with AI!</p>
+        <p>{t('SongMaker.homePage.header-description')}</p>
       </div>
       <div className='content'>
         <h3>{t('SongMaker.homePage.content.title')}</h3>
-        <p>You can use this app like a tool in your music life.</p>
-        <p>Press the bottom for start to create your harmonic progressions.</p>
+        <p>{t('SongMaker.homePage.content.p-1')}</p>
+        <p>{t('SongMaker.homePage.content.p-2')}</p>
         <button onClick={handleRedirect} className='button'>
-          {t('SongMaker.homePage.content.btn')}
+          {t('SongMaker.homePage.content.btn-start')}
         </button>
       </div>
       <div className='content'>
         <h3>{t('SongMaker.homePage.content.title-2')}</h3>
-        <p>This money will be used to pay the billing payment.</p>
+        <p>{t('SongMaker.homePage.content.p-3')}</p>
         <div className='donation-input'>
-          <p>How much in USD?</p>
+          <p>{t('SongMaker.homePage.content.input-description')}</p>
           <input
             type='number'
             step='0.5'
@@ -51,19 +51,19 @@ const HomePage = () => {
           />
         </div>
         <button className='button' onClick={handleShowDonation}>
-          Select mount
+          {t('SongMaker.homePage.content.btn-donate')}
         </button>
         {showDonations && <PayPalButton donationAmount={donationAmount} />}
       </div>
       <div className='content'>
         <h3>{t('SongMaker.homePage.content.title-3')}</h3>
-        <p>See our Changelogs here: </p>
+        <p>{t('SongMaker.homePage.content.p-4')}</p>
         <Link
           to='https://github.com/Delacrobix/Song-maker/blob/0db670d4e6324cbf622d4d11f8989f9b287f629f/changelog/changelog.md'
           target='_blank'
           className='changelogs-link'
         >
-          CHANGELOG
+          {t('SongMaker.homePage.content.changelogs-link')}
         </Link>
       </div>
     </section>

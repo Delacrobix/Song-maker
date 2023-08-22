@@ -45,10 +45,10 @@ const CommunitySongs = () => {
           {error && <ErrorAlert />}
         </div>
         {/* <Sort /> */}
-        {isData ? (
+        {loading ? null : isData ? (
           <Table songList={songList} />
         ) : (
-          <p>There are no songs yet.</p>
+          <p>{t('SongMaker.community.no-songs')}</p>
         )}
       </div>
     </div>

@@ -74,6 +74,7 @@
   "SongMaker": {
     "community": {
       "title": "COMMUNITY SONGS",
+      "no-songs": "There are no songs yet.",
       "table": {
         "head": {
           "t1": "OWNER",
@@ -119,13 +120,17 @@
     "homePage": {
       "title": "WELCOME",
       "header-title": "Chord AI Generator",
-      "header-text": "",
+      "header-description": "¡Create your harmonic progressions with AI!",
       "content": {
         "title": "How it works?",
-        "p-1": "",
-        "p-2": "",
-        "p-3": "",
-        "btn": "Create your chord progression",
+        "p-1": "You can use this app like a tool in your music life.",
+        "p-2": "Press the bottom for start to create your harmonic progressions.",
+        "p-3": "This money will be used to pay the billing payment.",
+        "p-4": "See our Changelogs here: ",
+        "input-description": "How much in USD?",
+        "btn-start": "Create your chord progression",
+        "btn-donate": "Select mount",
+        "changelogs-link": "CHANGELOG",
         "title-2": "Help to sustain the website",
         "title-3": "Changelogs"
       }
