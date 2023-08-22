@@ -28,27 +28,19 @@ const HomePage = () => {
       <h2 className='title-page'>{t('SongMaker.homePage.title')}</h2>
       <div className='header'>
         <h3>{t('SongMaker.homePage.header-title')}</h3>
-        <p>
-          ¡Crea progresiones armónicas con la ayuda de inteligencia artificial!
-        </p>
+        <p>¡Create your harmonic progressions with AI!</p>
       </div>
       <div className='content'>
         <h3>{t('SongMaker.homePage.content.title')}</h3>
-        <p>
-          Nuestra aplicación utiliza un avanzado algoritmo de inteligencia
-          artificial para generar progresiones armónicas únicas y emocionantes.
-        </p>
-        <p>
-          Simplemente presiona el botón a continuación para generar una nueva
-          progresión armónica.
-        </p>
+        <p>You can use this app like a tool in your music life.</p>
+        <p>Press the bottom for start to create your harmonic progressions.</p>
         <button onClick={handleRedirect} className='button'>
           {t('SongMaker.homePage.content.btn')}
         </button>
       </div>
       <div className='content'>
         <h3>{t('SongMaker.homePage.content.title-2')}</h3>
-        <p>This money will be used for pay the billing payment.</p>
+        <p>This money will be used to pay the billing payment.</p>
         <div className='donation-input'>
           <p>How much in USD?</p>
           <input

@@ -25,8 +25,7 @@ const PayPalButton = (props) => {
 
   function onApprove(data, actions) {
     return actions.order.capture().then((details) => {
-      console.log('Donation successful', details);
-      alert('Donation successful', details);
+      alert('Thank you for your donation!.');
     });
   }
 
