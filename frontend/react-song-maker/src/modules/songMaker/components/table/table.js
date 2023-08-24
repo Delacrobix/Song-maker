@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const Table = (props) => {
-  const { songList } = props;
+  const { songList, userNames } = props;
   const { t } = useTranslation();
 
   const navigate = useNavigate();
@@ -49,6 +49,7 @@ const Table = (props) => {
               key={uuidv4()}
               clickFunction={() => watchRowDetails(song._id)}
               song={song}
+              userNames={userNames}
             />
           );
         })}

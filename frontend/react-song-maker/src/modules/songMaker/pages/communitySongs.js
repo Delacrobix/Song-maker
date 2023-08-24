@@ -6,12 +6,14 @@ import ErrorAlert from '../components/feedback/errorAlert';
 import Loading from '../components/feedback/loading';
 import { getAllSongsQuery } from '../../../utils/queries';
 import { useTranslation } from 'react-i18next';
+import { getUserNames } from '../../../utils/httpRequests';
 
 const CommunitySongs = () => {
   const { t } = useTranslation();
 
   const [songList, setSongList] = useState([]);
   const [isData, setIsData] = useState(false);
+  const [userNames, setUserNames] = useState([]);
 
   const { data, error, loading, refetch } = useQuery(getAllSongsQuery);
 
@@ -26,7 +28,13 @@ const CommunitySongs = () => {
     if (error) {
       console.error(error);
     }
-  }, [data, error, loading, t]);
+  }, [data, error, loading]);
+
+  useEffect(() => {
+    (async () => {
+      setUserNames(await loadUserNames());
+    })();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -35,6 +43,12 @@ const CommunitySongs = () => {
 
     return () => clearInterval(interval);
   }, [refetch]);
+
+  async function loadUserNames() {
+    const userNames = await getUserNames();
+
+    return userNames;
+  }
 
   return (
     <div className='community-songs-container'>
@@ -46,7 +60,13 @@ const CommunitySongs = () => {
         </div>
         {/* <Sort /> */}
         {loading ? null : isData ? (
-          <Table songList={songList} />
+          <>
+            <p className='table-legend'>
+              * Users verified will have in front of its user name:{' '}
+              <span>&#x2713;</span>
+            </p>
+            <Table userNames={userNames} songList={songList} />
+          </>
         ) : (
           <p>{t('SongMaker.community.no-songs')}</p>
         )}

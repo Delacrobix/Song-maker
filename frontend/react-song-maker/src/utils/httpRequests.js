@@ -20,6 +20,18 @@ export async function getAuth(credentials) {
   }
 }
 
+export async function getUserNames() {
+  try {
+    const response = await window.fetch(`${AUTH_MODULE}/user/list-usernames`);
+
+    const data = await response.json();
+
+    return data;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 export async function createUser(ua) {
   try {
     const response = await window.fetch(`${AUTH_MODULE}/user/create`, {

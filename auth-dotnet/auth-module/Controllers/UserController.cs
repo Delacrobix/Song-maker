@@ -75,6 +75,26 @@ public class UserController : ControllerBase
     return await _service.GetList();
   }
 
+  [HttpGet("list-userNames")]
+  public async Task<ActionResult<IEnumerable<string>>> GetListUserNames()
+  {
+    var users = await _service.GetList();
+
+    if (users == null)
+    {
+      return BadRequest(new { message = "Users not found." });
+    }
+
+    var userNames = new List<string>();
+
+    foreach (var user in users)
+    {
+      userNames.Add(user.UserName);
+    }
+
+    return Ok(userNames);
+  }
+
   [HttpGet("byId/{id}")]
   public async Task<ActionResult<UserAccount>> GetById(int id)
   {
