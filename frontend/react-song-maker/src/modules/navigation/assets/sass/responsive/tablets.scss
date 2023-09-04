@@ -61,6 +61,13 @@
 
 @media (max-width: 768px) {
   body {
+    //Navbar
+    .navbar {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+
     //Footer
     .footer {
       padding: 0 0 0.5rem 0;

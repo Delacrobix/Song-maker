@@ -174,6 +174,12 @@
   transition: color 0.3s;
   color: white;
 }
+.navbar .language-select {
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border-radius: 7px;
+}
 .navbar .nav-login-btn {
   color: #efe1d1;
   cursor: pointer;
@@ -264,6 +270,9 @@
   }
 }
 @media (max-width: 768px) {
+  body .navbar h1 {
+    font-size: 1.5rem;
+  }
   body .footer {
     padding: 0 0 0.5rem 0;
   }
@@ -286,7 +295,7 @@
 }
 @media (max-width: 440px) {
   body .navbar h1 {
-    font-size: 1.5rem;
+    display: none;
   }
   body .navbar .responsive-nav {
     margin: 1.6rem 0 0 0;
@@ -296,9 +305,6 @@
   }
 }
 @media (max-width: 360px) {
-  body .navbar h1 {
-    display: none;
-  }
   body .navbar .responsive-nav {
     margin: 1.6rem 0 0 0;
   }

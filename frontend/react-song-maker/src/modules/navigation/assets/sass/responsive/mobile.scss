@@ -3,7 +3,7 @@
     //Navbar
     .navbar {
       h1 {
-        font-size: 1.5rem;
+        display: none;
       }
 
       .responsive-nav {
@@ -21,10 +21,6 @@
   body {
     //Navbar
     .navbar {
-      h1 {
-        display: none;
-      }
-
       .responsive-nav {
         margin: 1.6rem 0 0 0;
       }

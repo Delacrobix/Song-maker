@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars } from 'react-icons/fa';
 import i18n from '../../../config/i18n';
 import AuthDropdown from './authDropdown';
 import { useTranslation } from 'react-i18next';
@@ -32,7 +32,7 @@ const Navbar = () => {
           <FaTimes />
         </button> */}
       </nav>
-      <select onChange={handleChange}>
+      <select onChange={handleChange} className='language-select'>
         <option value='es'>{t('Navigation.navbar.languages.es')}</option>
         <option value='en'>{t('Navigation.navbar.languages.en')}</option>
       </select>

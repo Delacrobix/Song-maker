@@ -26,6 +26,13 @@
     }
   }
 
+  .language-select {
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+    border-radius: 7px;
+  }
+
   .nav-login-btn {
     color: map-get($dark-mode, champagne);
     cursor: pointer;

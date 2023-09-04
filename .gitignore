@@ -32,6 +32,7 @@ TODO.md
 /backend/node_modules
 /backend/_querys.js
 /backend/.env.local
+#/backend/Dockerfile.dev
 
 #AudioFilesManager
 /audioFilesManager
