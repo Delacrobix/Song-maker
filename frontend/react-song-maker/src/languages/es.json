@@ -1,0 +1,177 @@
+{
+  "Navigation": {
+    "navbar": {
+      "title": "Chords Generator",
+      "navLink-1": "Crea tu propia canción",
+      "navLink-2": "Canciones de la comunidad",
+      "navLink-3": "Página principal",
+      "languages": {
+        "es": "Español",
+        "en": "English"
+      }
+    },
+    "authDropdown": {
+      "login": "Ingresar",
+      "signup": "Registrarse",
+      "profile": "Perfil",
+      "logout": "Cerrar sesión"
+    },
+    "footer": {
+      "logo": "Chords generator",
+      "menu": {
+        "title": "Menu",
+        "element-1": "Página principal",
+        "element-2": "Crea tu propia canción",
+        "element-3": "Canciones de la comunidad"
+      },
+      "help-us": {
+        "title": "Ayúdanos",
+        "donations": "Donaciones",
+        "repo": "Repositorio",
+        "bugs": "Reporta un bug",
+        "suggestions": "¿Alguna sugerencia?"
+      },
+      "socials": {
+        "follow": "Sígueme",
+        "share": "Comparte el sitio"
+      },
+      "copy": "2023, jeffrm.com.co"
+    }
+  },
+  "Auth": {
+    "login": {
+      "isNot": "¿No estas registrado?",
+      "signup": " Registrarse",
+      "form": {
+        "user": "Nombre de usuario",
+        "pass": "Contraseña",
+        "submit": "Iniciar sesion"
+      }
+    },
+    "signup": {
+      "isNot": "¿Estas registrado?",
+      "login": " Iniciar sesion",
+      "form": {
+        "user": "Nombre de usuario",
+        "email": "Dirección email",
+        "pass": "Contraseña",
+        "submit": "Registrarse"
+      }
+    },
+    "profile": {
+      "title": "Perfil",
+      "email": "Correo:",
+      "userName": "Nombre de usuario:",
+      "pass": "Contraseña:",
+      "btns": {
+        "changeEmail": "Cambiar email",
+        "changePass": "Cambiar contraseña",
+        "watchSongs": "Ver tus canciones",
+        "submit": "Enviar"
+      }
+    }
+  },
+  "SongMaker": {
+    "community": {
+      "title": "CANCIONES DE LA COMUNIDAD",
+      "no-songs": "Aun no hay canciones.",
+      "table": {
+        "head": {
+          "t1": "AUTOR",
+          "t2": "NOMBRE",
+          "t3": "RITMO",
+          "t4": "ACORDES",
+          "t5": "FECHA",
+          "t6": "ID"
+        }
+      },
+      "card": {
+        "title": "INFORMACIÓN DE LA CANCIÓN",
+        "elem1": "ID: ",
+        "elem2": "RITMO: ",
+        "elem3": "ACORDES: ",
+        "elem4": "FECHA: ",
+        "btn": "Reproducir canción"
+      }
+    },
+    "toneSelector": {
+      "title": "SELECCIONAR TONALIDAD"
+    },
+    "rhythmSelector": {
+      "title": "SELECCIONAR RITMO",
+      "tonality": "Tonalidad seleccionada: ",
+      "resume": {
+        "tonality": "Tonalidad: ",
+        "rhythm": "Ritmo: ",
+        "msg-btn": "Presiona el botón para continuar.",
+        "btn": "Continuar"
+      }
+    },
+    "results": {
+      "title": "RESULTADOS",
+      "h3": "Acordes: ",
+      "play-btn": "Reproduce tu canción",
+      "share": {
+        "text": "¿Te gustaría compartir esta canción con la comunidad?",
+        "msg-btn": "*Los siguientes campos son obligatorios",
+        "btn": "Compartir"
+      }
+    },
+    "homePage": {
+      "title": "BIENVENIDO",
+      "header-title": "Generador de acordes con IA",
+      "header-description": "¡Crea progresiones armónicas usando inteligencia artificial!",
+      "content": {
+        "title": "¿Como usarlo?",
+        "p-1": "Puedes usar esta aplicación como herramienta en tu vida musical.",
+        "p-2": "Presiona el botón para crear tus progresiones armónicas.",
+        "p-3": "Este dinero sera usado para el sustento de la aplicación.",
+        "p-4": "Mira las actualizaciones de la pagina aquí: ",
+        "input-description": "Cuanto en USD?",
+        "btn-start": "Inicia a crear",
+        "btn-donate": "Selecciona cantidad",
+        "changelogs-link": "CAMBIOS",
+        "title-2": "Ayuda al sustento del sitio",
+        "title-3": "Actualizaciones recientes"
+      }
+    }
+  },
+  "Reports": {
+    "bugForm": {
+      "title": "REPORTA UN BUG",
+      "description": "Usa este formulario para reportar cualquier bug que hayas encontrado.",
+      "minor": "Menor: ",
+      "minor-description": "Son bugs que no afectan a la usabilidad de la aplicación. Errores como objetos superpuestos entre si o errores visuales pueden entrar en esta categoría.",
+      "moderate": "Intermedio: ",
+      "moderate-description": "La categoría intermedia se refiere a errores que puedan llegar a afectar la funcionalidad de la aplicación sin impedir los objetivos principales de la aplicación. Por ejemplo, un problema con un botón, un elemento se vuelve invisible de repente.",
+      "major": "Grave: ",
+      "major-description": "Un bug grave rompe parcial o completamente la aplicación. Cualquier elemento que detenga el funcionamiento de la aplicación es un bug grave.",
+      "input-title-1": "Email (opcional): ",
+      "bugSeverity": {
+        "title": "Gravedad del bug (opcional): ",
+        "op1": "--Selecciona--",
+        "op2": "Menor",
+        "op3": "Intermedio",
+        "op4": "Grave"
+      },
+      "occurrence": {
+        "title": "¿Con que frecuencia ocurre?: ",
+        "op1": "--Selecciona--",
+        "op2": "Rara vez",
+        "op3": "Algo raro",
+        "op4": "Un poco a menudo",
+        "op5": "Común",
+        "op6": "Muy común"
+      },
+      "input-title-2": "Por favor escriba el nombre del error o código del bug: ",
+      "input-title-3": "¿Alguna otra información extra?: ",
+      "footer-text": "Una vez has confirmado tu reporte de bug, presiona 'Enviar'."
+    },
+    "suggestionsForm": {
+      "title": "SUGERENCIAS",
+      "input-title-1": "Email (opcional): ",
+      "input-title-2": "Escribe la sugerencia: ",
+      "submit": "Enviar"
+    }
+  }
+}
